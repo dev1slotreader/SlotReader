@@ -1,0 +1,16 @@
+D:\VSProjects\SlotReaderDataParser\SlotReaderDataParser\bin\Debug\SlotReaderDataParser.exe.config
+D:\VSProjects\SlotReaderDataParser\SlotReaderDataParser\bin\Debug\SlotReaderDataParser.exe
+D:\VSProjects\SlotReaderDataParser\SlotReaderDataParser\bin\Debug\SlotReaderDataParser.pdb
+D:\VSProjects\SlotReaderDataParser\SlotReaderDataParser\bin\Debug\DocumentFormat.OpenXml.dll
+D:\VSProjects\SlotReaderDataParser\SlotReaderDataParser\bin\Debug\EntityFramework.dll
+D:\VSProjects\SlotReaderDataParser\SlotReaderDataParser\bin\Debug\EntityFramework.SqlServer.dll
+D:\VSProjects\SlotReaderDataParser\SlotReaderDataParser\bin\Debug\Newtonsoft.Json.dll
+D:\VSProjects\SlotReaderDataParser\SlotReaderDataParser\bin\Debug\System.Data.SQLite.dll
+D:\VSProjects\SlotReaderDataParser\SlotReaderDataParser\bin\Debug\System.Data.SQLite.EF6.dll
+D:\VSProjects\SlotReaderDataParser\SlotReaderDataParser\bin\Debug\System.Data.SQLite.Linq.dll
+D:\VSProjects\SlotReaderDataParser\SlotReaderDataParser\bin\Debug\EntityFramework.xml
+D:\VSProjects\SlotReaderDataParser\SlotReaderDataParser\bin\Debug\EntityFramework.SqlServer.xml
+D:\VSProjects\SlotReaderDataParser\SlotReaderDataParser\bin\Debug\Newtonsoft.Json.xml
+D:\VSProjects\SlotReaderDataParser\SlotReaderDataParser\bin\Debug\System.Data.SQLite.xml
+D:\VSProjects\SlotReaderDataParser\SlotReaderDataParser\obj\Debug\SlotReaderDataParser.exe
+D:\VSProjects\SlotReaderDataParser\SlotReaderDataParser\obj\Debug\SlotReaderDataParser.pdb
