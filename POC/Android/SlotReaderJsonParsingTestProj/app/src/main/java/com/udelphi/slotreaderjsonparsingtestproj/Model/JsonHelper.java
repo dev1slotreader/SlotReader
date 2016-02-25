@@ -1,4 +1,4 @@
-package Model;
+package com.udelphi.slotreaderjsonparsingtestproj.Model;
 import android.content.Context;
 
 import org.json.JSONArray;
@@ -18,7 +18,7 @@ public class JsonHelper {
     public JsonHelper(Context context, String sourceFileName, String languagesTag,
                       String wordSizesTag, String wordsTag) throws IOException, JSONException {
         JSONObject all_data_json = readJsonFormAssets(context, sourceFileName);
-        this.curWordArrStr = "En1";
+        this.curWordArrStr = "en1";
         this.words_json = new JSONObject(all_data_json.getString(wordsTag));
         this.languages = all_data_json.getJSONArray(languagesTag);
         this.wordSizes = all_data_json.getJSONArray(wordSizesTag);
@@ -38,14 +38,14 @@ public class JsonHelper {
     public String getLanguage(int index) throws JSONException {
         return  languages.getString(index);
     }
-    public  int getLanguagesCount(){
+    public  int getLanguagesLastIndex(){
         return languages.length() - 1;
     }
 
     public int getWordSize(int index) throws JSONException {
         return  wordSizes.getInt(index);
     }
-    public  int getWordSizesCount(){
+    public  int getWordSizesLastIndex(){
         return wordSizes.length() - 1;
     }
 
@@ -56,7 +56,8 @@ public class JsonHelper {
         }
         return  words.getString(index);
     }
-    public int getWordsCount(){
+    public int getWordsLastIndex(){
         return words.length() - 1;
     }
 }
+
