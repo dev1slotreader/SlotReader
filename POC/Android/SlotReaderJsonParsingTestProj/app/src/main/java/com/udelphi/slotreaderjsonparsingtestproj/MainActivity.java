@@ -10,6 +10,7 @@ import android.widget.TextView;
 import org.json.JSONException;
 
 import java.io.IOException;
+import java.util.Random;
 
 import com.udelphi.slotreaderjsonparsingtestproj.Model.JsonHelper;
 
@@ -29,10 +30,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        wordTv = (TextView)findViewById(R.id.word_tv);
         wordSizeTv = (TextView)findViewById(R.id.word_size_tv);
         languageTv = (TextView)findViewById(R.id.language_tv);
-
+        wordTv = (TextView)findViewById(R.id.word_tv);
+        wordTv.setOnClickListener(this);
         ImageButton incrementWordSizeBtn = (ImageButton) findViewById(R.id.next_word_size_btn);
         incrementWordSizeBtn.setOnClickListener(this);
         ImageButton decrementWordSizeBtn = (ImageButton) findViewById(R.id.previous_word_size_btn);
@@ -86,6 +87,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         word_size_index--;
                     updateWordSize();
                     break;
+                case R.id.word_tv:
+                    word_index = new Random().nextInt(jsonHelper.getWordsLastIndex());
+                    updateWords();
+                break;
                 case R.id.next_word_size_btn:
                     if(word_size_index == jsonHelper.getWordSizesLastIndex()){
                         word_size_index = 0;

@@ -54,7 +54,9 @@ public class JsonHelper {
             curWordArrStr = language + wordSize;
             words = words_json.getJSONArray(curWordArrStr);
         }
-        return  words.getString(index);
+        if(index < words.length())
+            return  words.getString(index);
+        else return words.getString(getWordsLastIndex());
     }
     public int getWordsLastIndex(){
         return words.length() - 1;
