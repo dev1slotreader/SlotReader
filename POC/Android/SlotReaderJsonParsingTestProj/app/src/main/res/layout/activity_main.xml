@@ -69,14 +69,14 @@
     </LinearLayout>
 
     <ImageButton
-        android:id="@+id/next_word_btn"
+        android:id="@+id/previous_word_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@id/word_tv"
         android:layout_centerHorizontal="true"
         android:src="@android:drawable/arrow_up_float"/>
     <ImageButton
-        android:id="@+id/previous_word_btn"
+        android:id="@+id/next_word_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/word_tv"

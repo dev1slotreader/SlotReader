@@ -10,8 +10,9 @@ import android.widget.TextView;
 import org.json.JSONException;
 
 import java.io.IOException;
+import java.util.Random;
 
-import Model.JsonHelper;
+import com.udelphi.slotreaderjsonparsingtestproj.Model.JsonHelper;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private JsonHelper jsonHelper;
@@ -29,10 +30,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        wordTv = (TextView)findViewById(R.id.word_tv);
         wordSizeTv = (TextView)findViewById(R.id.word_size_tv);
         languageTv = (TextView)findViewById(R.id.language_tv);
-
+        wordTv = (TextView)findViewById(R.id.word_tv);
+        wordTv.setOnClickListener(this);
         ImageButton incrementWordSizeBtn = (ImageButton) findViewById(R.id.next_word_size_btn);
         incrementWordSizeBtn.setOnClickListener(this);
         ImageButton decrementWordSizeBtn = (ImageButton) findViewById(R.id.previous_word_size_btn);
@@ -67,13 +68,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             switch (v.getId()){
                 case R.id.previous_language_btn:
                     if(language_index == 0)
-                        language_index = jsonHelper.getLanguagesCount();
+                        language_index = jsonHelper.getLanguagesLastIndex();
                     else
                         language_index--;
                     updateLanguage();
                     break;
                 case R.id.next_language_btn:
-                    if(language_index == jsonHelper.getLanguagesCount())
+                    if(language_index == jsonHelper.getLanguagesLastIndex())
                         language_index = 0;
                     else
                         language_index++;
@@ -81,13 +82,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     break;
                 case R.id.previous_word_size_btn:
                     if(word_size_index == 0)
-                        word_size_index = jsonHelper.getWordSize(jsonHelper.getWordSizesCount());
+                        word_size_index = jsonHelper.getWordSizesLastIndex();
                     else
                         word_size_index--;
                     updateWordSize();
                     break;
+                case R.id.word_tv:
+                    word_index = new Random().nextInt(jsonHelper.getWordsLastIndex());
+                    updateWords();
+                break;
                 case R.id.next_word_size_btn:
-                    if(word_size_index == jsonHelper.getWordSizesCount()){
+                    if(word_size_index == jsonHelper.getWordSizesLastIndex()){
                         word_size_index = 0;
                     }
                     else
@@ -95,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     updateWordSize();
                     break;
                 case R.id.next_word_btn:
-                    if(word_index < jsonHelper.getWordsCount())
+                    if(word_index < jsonHelper.getWordsLastIndex())
                         word_index++;
                     else
                         word_index = 0;
@@ -105,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     if(word_index > 0)
                         word_index--;
                     else
-                        word_index = jsonHelper.getWordsCount();
+                        word_index = jsonHelper.getWordsLastIndex();
                     updateWords();
                     break;
             }
@@ -121,7 +126,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void updateWordSize() throws JSONException {
         if(jsonHelper.getWordSize(word_size_index) == 0)
-            wordSizeTv.setText((jsonHelper.getWordSize(jsonHelper.getWordSizesCount()) + "+"));
+            wordSizeTv.setText((jsonHelper.getWordSize(jsonHelper.getWordSizesLastIndex()) + "+"));
         else
             wordSizeTv.setText(String.valueOf(jsonHelper.getWordSize(word_size_index)));
         updateWords();
@@ -133,7 +138,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         try{
             wordTv.setText(jsonHelper.getWord(word_index, language, wordSizeStr));
         }catch (IndexOutOfBoundsException e){
-            wordTv.setText(jsonHelper.getWord(jsonHelper.getWordsCount(), language, wordSizeStr));
+            wordTv.setText(jsonHelper.getWord(jsonHelper.getWordsLastIndex(), language, wordSizeStr));
         }
     }
 }
+
