@@ -47,13 +47,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ImageButton nextLanguageBtn = (ImageButton) findViewById(R.id.next_language_btn);
         nextLanguageBtn.setOnClickListener(this);
 
-        word_size_index = 1;
-        language_index = 0;
-        word_index = 0;
-
         try {
             jsonHelper = new JsonHelper(getApplicationContext(), "slot_reader_source", "languages",
                     "charactersCount", "words");
+            word_size_index = 1;
+            language_index = jsonHelper.getLanguageIndex(getResources().getConfiguration().locale.getLanguage());
+            language_index = language_index > -1 ? language_index : jsonHelper.getLanguageIndex("en");
+            word_index = 0;
             updateLanguage();
             updateWordSize();
             updateWords();

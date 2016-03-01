@@ -42,6 +42,13 @@ public class JsonHelper {
         return languages.length() - 1;
     }
 
+    public int getLanguageIndex(String languageName) throws JSONException{
+        for(int i = 0; i < languages.length(); i++)
+            if(getLanguage(i).equals(languageName))
+                return  i;
+        return -1;
+    }
+
     public int getWordSize(int index) throws JSONException {
         return  wordSizes.getInt(index);
     }
