@@ -10,15 +10,14 @@
     tools:context="com.udelphi.maintextviewtestproj.MainActivity">
 
     <LinearLayout
+        android:id="@+id/pickersContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true">
         <NumberPicker
-            android:id="@+id/picker1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <NumberPicker
-            android:id="@+id/picker2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </LinearLayout>
