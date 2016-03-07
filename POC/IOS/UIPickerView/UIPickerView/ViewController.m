@@ -58,7 +58,7 @@
 	[paragraphStyle setAlignment:NSTextAlignmentCenter];
 	[text addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, text.length)];
 	pickerLabel.attributedText = text;
-	pickerLabel.backgroundColor = [self.colorsArray objectAtIndex:row % [self.colorsArray count]];
+	//pickerLabel.backgroundColor = [self.colorsArray objectAtIndex:row % [self.colorsArray count]];
 	return pickerLabel;
 }
 
