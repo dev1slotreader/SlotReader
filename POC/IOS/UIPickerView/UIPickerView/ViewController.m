@@ -19,6 +19,12 @@
 	self.alphabet = @[@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",
 					  @"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z"];
 	self.colorsArray = [[NSArray alloc] initWithObjects:[UIColor redColor], [UIColor orangeColor], [UIColor yellowColor], [UIColor greenColor], [UIColor blueColor], [UIColor purpleColor], nil];
+
+	unsigned rgbValue = 0;
+	NSScanner *scanner = [NSScanner scannerWithString:@"#37433B"];
+	[scanner setScanLocation:1]; // bypass '#' character
+	[scanner scanHexInt:&rgbValue];
+	[self.picker setBackgroundColor:[UIColor colorWithRed:((rgbValue & 0xFF0000) >> 16)/255.0 green:((rgbValue & 0xFF00) >> 8)/255.0 blue:(rgbValue & 0xFF)/255.0 alpha:1.0]];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -48,8 +54,10 @@
 
 - (void) pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
 	self.colorLabel.text = [self.alphabet objectAtIndex:row % [self.alphabet count]];
-	self.colorLabel.textColor = [self.colorsArray objectAtIndex:row % [self.colorsArray count]];
+	
+	//self.colorLabel.textColor = [self.colorsArray objectAtIndex:row % [self.colorsArray count]];
 }
+
 
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
 	UILabel *pickerLabel = [UILabel new];
@@ -57,6 +65,8 @@
 	NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
 	[paragraphStyle setAlignment:NSTextAlignmentCenter];
 	[text addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, text.length)];
+	[text addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, text.length)];
+	
 	pickerLabel.attributedText = text;
 	//pickerLabel.backgroundColor = [self.colorsArray objectAtIndex:row % [self.colorsArray count]];
 	return pickerLabel;
