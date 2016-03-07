@@ -16,7 +16,8 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	self.colorNamesArray = [[NSArray alloc] initWithObjects:@"Red", @"Orange", @"Yellow", @"Green", @"Blue", @"Purple", nil];
+	self.alphabet = @[@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",
+					  @"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z"];
 	self.colorsArray = [[NSArray alloc] initWithObjects:[UIColor redColor], [UIColor orangeColor], [UIColor yellowColor], [UIColor greenColor], [UIColor blueColor], [UIColor purpleColor], nil];
 }
 
@@ -42,17 +43,17 @@
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-	return [self.colorNamesArray objectAtIndex:row % [self.colorsArray count]];
+	return [self.alphabet objectAtIndex:row % [self.alphabet count]];
 }
 
 - (void) pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-	self.colorLabel.text = [self.colorNamesArray objectAtIndex:row % [self.colorsArray count]];
+	self.colorLabel.text = [self.alphabet objectAtIndex:row % [self.alphabet count]];
 	self.colorLabel.textColor = [self.colorsArray objectAtIndex:row % [self.colorsArray count]];
 }
 
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
 	UILabel *pickerLabel = [UILabel new];
-	NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:[self.colorNamesArray objectAtIndex:row % [self.colorsArray count]]];
+	NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:[self.alphabet objectAtIndex:row % [self.alphabet count]]];
 	NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
 	[paragraphStyle setAlignment:NSTextAlignmentCenter];
 	[text addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, text.length)];
@@ -76,10 +77,10 @@
 	NSUInteger row;
 	if (animated){
 		NSUInteger selectedRow = [self.picker selectedRowInComponent:component];
-		row = selectedRow + ([self.colorNamesArray count] - selectedRow % [self.colorNamesArray count]) + [self.colorNamesArray indexOfObject:letter];
+		row = selectedRow + ([self.alphabet count] - selectedRow % [self.alphabet count]) + [self.alphabet indexOfObject:letter];
 	}
 	else
-		row = ((UINT16_MAX) / (2 * [self.colorNamesArray count]) * [self.colorNamesArray count]) + [self.colorNamesArray indexOfObject:letter];
+		row = ((UINT16_MAX) / (2 * [self.alphabet count]) * [self.alphabet count]) + [self.alphabet indexOfObject:letter];
 	[self.picker selectRow:row
 					 inComponent:component
 						animated:animated];

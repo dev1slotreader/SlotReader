@@ -12,7 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *colorLabel;
 @property (weak, nonatomic) IBOutlet UIPickerView *picker;
-@property (strong, nonatomic) NSArray *colorNamesArray;
+@property (strong, nonatomic) NSArray *alphabet;
 @property (strong, nonatomic) NSArray *colorsArray;
 
 @end
