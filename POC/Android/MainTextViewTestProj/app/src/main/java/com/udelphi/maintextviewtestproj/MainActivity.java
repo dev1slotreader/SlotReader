@@ -41,14 +41,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int i = 0;
-                while (letters[i].equals("W"))
+                while (!letters[i].equals("W"))
                     i++;
 
                 for (int pickerIndex = 0; pickerIndex < letters.length; pickerIndex++) {
-                    requiredValue = pickerIndex;
+                    requiredValue = i;
                     for (pickerIndex = 0; pickerIndex < pickers.size(); pickerIndex++)
                         if (pickers.get(pickerIndex).getValue() != requiredValue) {
-                            final int finalI = pickerIndex;
+                            final int pickerIndexFinal = pickerIndex;
                             new Runnable() {
                                 Method method;
                                 Handler handler = new Handler();
@@ -56,9 +56,10 @@ public class MainActivity extends AppCompatActivity {
                                 @Override
                                 public void run() {
                                     try {
-                                        NumberPicker picker = pickers.get(finalI);
+                                        NumberPicker picker = pickers.get(pickerIndexFinal);
                                         method = picker.getClass().getDeclaredMethod("changeValueByOne", boolean.class);
                                         method.setAccessible(true);
+                                        method.invoke(picker, true);
                                         if (picker.getValue() != requiredValue)
                                             method.invoke(picker, true);
                                         if (picker.getValue() != requiredValue - 1)
