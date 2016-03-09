@@ -1,7 +1,6 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
 using System.Data.SQLite;
-using System.IO;
 using SlotReaderDbParser.Model;
 
 namespace SlotReaderDbParser
@@ -10,11 +9,8 @@ namespace SlotReaderDbParser
 	{
 		public static void createDB(ExcelReader reader, string db_name)
 		{
-			db_name += ".db3";
-			if (!File.Exists(db_name))
-				SQLiteConnection.CreateFile(db_name);
-			else
-				throw new ArgumentException("File is already exists");
+			SQLiteConnection.CreateFile(db_name);
+
 			using (SQLiteConnection connection = new SQLiteConnection(string.Format("data source = {0}", db_name)))
 			{
 				connection.Open();
