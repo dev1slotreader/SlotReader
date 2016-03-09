@@ -1,11 +1,17 @@
 package com.udelphi.maintextviewtestproj;
+import android.content.Context;
+import android.graphics.Paint;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.NumberPicker;
+import android.widget.TextView;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -56,12 +62,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             picker.setMinValue(0);
             picker.setMaxValue(letters.length - 1);
             picker.setDisplayedValues(letters);
+            try {
+                //change pickers divider color
+                Field field = NumberPicker.class.getDeclaredField("mSelectionDivider");
+                field.setAccessible(true);
+                field.set(picker, getResources().getDrawable(android.R.drawable.screen_background_light));
+                //change pickers text color
+                for(int i = 0; i < picker.getChildCount(); i++) {
+                    View child = picker.getChildAt(i);
+                    if(child instanceof EditText)
+                        ((EditText) child).setTextColor(getResources().getColor(android.R.color.white));
+                }
+                field = NumberPicker.class.getDeclaredField("mSelectorWheelPaint");
+                field.setAccessible(true);
+                ((Paint)field.get(picker)).setColor(getResources().getColor(android.R.color.white));
+                picker.invalidate();
+            } catch (NoSuchFieldException | IllegalAccessException e) {
+                e.printStackTrace();
+            }
         }
-
 
         (findViewById(R.id.a_btn)).setOnClickListener(this);
         (findViewById(R.id.o_btn)).setOnClickListener(this);
         (findViewById(R.id.z_btn)).setOnClickListener(this);
+    }
+
+
+    @Override
+    public View onCreateView(String name, Context context, AttributeSet attrs) {
+        return super.onCreateView(name, context, attrs);
     }
 
     private void OnPickersMoved(){
