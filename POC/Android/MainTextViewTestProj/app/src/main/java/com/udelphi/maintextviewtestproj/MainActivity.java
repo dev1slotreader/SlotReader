@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 field = NumberPicker.class.getDeclaredField("mSelectorWheelPaint");
                 field.setAccessible(true);
                 ((Paint)field.get(picker)).setColor(getResources().getColor(android.R.color.white));
+                picker.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
                 picker.invalidate();
             } catch (NoSuchFieldException | IllegalAccessException e) {
                 e.printStackTrace();
