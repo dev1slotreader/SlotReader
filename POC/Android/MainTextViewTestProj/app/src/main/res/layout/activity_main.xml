@@ -11,40 +11,37 @@
     tools:context="com.udelphi.maintextviewtestproj.MainActivity">
 
     <LinearLayout
-        android:id="@+id/pickersContainer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true">
-        <NumberPicker
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <NumberPicker
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <NumberPicker
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <NumberPicker
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:layout_width="320dp"
+        android:layout_height="320dp">
+        <com.udelphi.maintextviewtestproj.WordPicker
+            android:id="@+id/word_picker"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/a_btn"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:text="to A"/>
-    <Button
-        android:id="@+id/o_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/a_btn"
-        android:text="to O"/>
-    <Button
-        android:id="@+id/z_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/o_btn"
-        android:text="to Z"/>
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/a_btn"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="to A"/>
+        <Button
+            android:id="@+id/o_btn"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="to O"/>
+        <Button
+            android:id="@+id/z_btn"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="to Z"/>
+    </LinearLayout>
 </RelativeLayout>
