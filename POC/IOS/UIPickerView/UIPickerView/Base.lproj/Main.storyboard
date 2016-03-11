@@ -35,10 +35,10 @@
                                     <rect key="frame" x="118" y="129" width="262" height="21"/>
                                 </variation>
                             </label>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eLf-Zu-zmk">
+                            <pickerView contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="eLf-Zu-zmk">
                                 <rect key="frame" x="0.0" y="-216" width="320" height="216"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="192" width="400" height="216"/>
+                                    <rect key="frame" x="0.0" y="192" width="400" height="179"/>
                                 </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="hSV-kC-8Ub"/>

@@ -44,8 +44,13 @@
 	return 5;
 }
 
+
 - (NSInteger) pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
 	return UINT16_MAX;
+}
+
+- (CGFloat) pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component{
+	return 80;
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
@@ -68,7 +73,9 @@
 	[text addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, text.length)];
 	
 	pickerLabel.attributedText = text;
-	pickerLabel.backgroundColor = [self.colorsArray objectAtIndex:row % [self.colorsArray count]];
+	pickerLabel.font = [UIFont systemFontOfSize:40];
+	
+	//pickerLabel.backgroundColor = [self.colorsArray objectAtIndex:row % [self.colorsArray count]];
 	return pickerLabel;
 }
 
