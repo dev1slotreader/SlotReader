@@ -7,11 +7,11 @@ import android.widget.TextView;
 
 import java.util.Arrays;
 
-public class CustomWordPicker extends LinearLayout {
+public class CustomLetterPicker extends LinearLayout {
     private Context context;
     private String[] source;
 
-    public CustomWordPicker(Context context, AttributeSet attrs) {
+    public CustomLetterPicker(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
     }
