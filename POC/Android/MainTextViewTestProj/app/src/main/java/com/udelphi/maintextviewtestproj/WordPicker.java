@@ -160,8 +160,10 @@ public class WordPicker extends LinearLayout {
         mSelectorWheelPaint.setAccessible(true);
         for (int i = 0; i < picker.getChildCount(); i++) {
             View child = picker.getChildAt(i);
-            if (child instanceof EditText)
+            if (child instanceof EditText) {
                 ((EditText) child).setTextColor(getResources().getColor(android.R.color.white));
+                ((EditText) child).setTextSize(40);
+            }
             ((Paint) mSelectorWheelPaint.get(picker)).setColor(getResources().getColor(android.R.color.white));
             picker.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
             picker.invalidate();

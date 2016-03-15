@@ -4,16 +4,22 @@ import android.os.Bundle;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    WordPicker picker;
-
+    private CustomWordPicker picker;
+    private String[] enAlphabet = new String[]{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
+            "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
+    private String[] ruAlphabet = new String[]{"А", "Б", "В", "Г", "Д", "Е", "Ё", "Ж", "З", "И", "Й", "К",
+            "Л", "М", "О", "П", "Р", "С", "Т", "У", "Ф", "Х", "Ц", "Ч", "Ш", "Щ", "Ъ", "ы", "ь", "Ю", "Я"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        picker = (WordPicker)findViewById(R.id.word_picker);
+        picker = (CustomWordPicker)findViewById(R.id.custom_picker);
+        picker.setSource(enAlphabet);
 
-                (findViewById(R.id.a_btn)).setOnClickListener(this);
+        findViewById(R.id.ru_alphabet_btn).setOnClickListener(this);
+        findViewById(R.id.en_alphabet_btn).setOnClickListener(this);
+        (findViewById(R.id.a_btn)).setOnClickListener(this);
         (findViewById(R.id.o_btn)).setOnClickListener(this);
         (findViewById(R.id.z_btn)).setOnClickListener(this);
     }
@@ -21,14 +27,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.a_btn:
-                picker.moveValue("A");
+            case R.id.en_alphabet_btn:
+                picker.setSource(enAlphabet);
                 break;
-            case R.id.o_btn:
-                picker.moveValue("O");
-                break;
-            case R.id.z_btn:
-                picker.moveValue("Z");
+            case R.id.ru_alphabet_btn:
+                picker.setSource(ruAlphabet);
                 break;
         }
     }

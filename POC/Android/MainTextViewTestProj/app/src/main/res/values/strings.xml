@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">MainTextViewTestProj</string>
+
+    <!--buttons-->
+    <string name="to_a">To A</string>
+    <string name="to_o">To O</string>
+    <string name="to_z">To Z</string>
+    <string name="ru">RU</string>
+    <string name="en">EN</string>
 </resources>

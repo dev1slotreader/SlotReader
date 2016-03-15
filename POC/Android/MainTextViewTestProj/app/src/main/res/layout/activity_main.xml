@@ -9,39 +9,63 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.udelphi.maintextviewtestproj.MainActivity">
-
-    <LinearLayout
-        android:layout_centerInParent="true"
+    <com.udelphi.maintextviewtestproj.CustomWordPicker
+        android:background="@android:color/white"
+        android:id="@+id/custom_picker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_width="320dp"
-        android:layout_height="320dp">
-        <com.udelphi.maintextviewtestproj.WordPicker
-            android:id="@+id/word_picker"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </LinearLayout>
-
+        android:layout_centerInParent="true">
+    </com.udelphi.maintextviewtestproj.CustomWordPicker>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <Button
+            style="?android:attr/buttonBarButtonStyle"
             android:id="@+id/a_btn"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="to A"/>
+            android:textColor="@android:color/white"
+            android:text="@string/to_a"/>
         <Button
+            style="?android:attr/buttonBarButtonStyle"
             android:id="@+id/o_btn"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="to O"/>
+            android:textColor="@android:color/white"
+            android:text="@string/to_o"/>
         <Button
+            style="?android:attr/buttonBarButtonStyle"
             android:id="@+id/z_btn"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="to Z"/>
+            android:textColor="@android:color/white"
+            android:text="@string/to_z"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+        <Button
+            style="?android:attr/buttonBarButtonStyle"
+            android:id="@+id/en_alphabet_btn"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:text="@string/en"/>
+        <Button
+            style="?android:attr/buttonBarButtonStyle"
+            android:id="@+id/ru_alphabet_btn"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:text="@string/ru"/>
     </LinearLayout>
 </RelativeLayout>
