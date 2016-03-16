@@ -2,6 +2,7 @@ package com.udelphi.maintextviewtestproj;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -10,10 +11,29 @@ import java.util.Arrays;
 public class CustomLetterPicker extends LinearLayout {
     private Context context;
     private String[] source;
+    private boolean isWrapContent;
+
+    public CustomLetterPicker(Context context){
+        this(context, null);
+    }
 
     public CustomLetterPicker(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
+        if(attrs.getAttributeValue("http://schemas.android.com/apk/res/android", "layout_height")
+                .equals("-2"))
+            isWrapContent = true;
+    }
+
+    @Override
+    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        super.onLayout(changed, l, t, r, b);
+        if(isWrapContent) {
+            ViewGroup.LayoutParams params = getLayoutParams();
+            params.width = 64;
+            params.height = 192;
+            setLayoutParams(params);
+        }
     }
 
     public void setSource(String[] source){
@@ -25,6 +45,7 @@ public class CustomLetterPicker extends LinearLayout {
                 else{
                     TextView newTV = new TextView(context);
                     newTV.setText(source[i]);
+                    newTV.setTextAlignment(TEXT_ALIGNMENT_CENTER);
                     addView(newTV);
                 }
             }
