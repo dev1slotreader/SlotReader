@@ -2,19 +2,20 @@ package com.udelphi.maintextviewtestproj;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import java.util.Arrays;
 
-public class CustomLetterPicker extends LinearLayout {
+public class CustomLetterPicker extends ScrollView {
     private Context context;
     private String[] source;
     private boolean isWrapContent;
+    private LinearLayout container;
 
     public CustomLetterPicker(Context context){
         this(context, null);
@@ -23,6 +24,11 @@ public class CustomLetterPicker extends LinearLayout {
     public CustomLetterPicker(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
+        this.setVerticalScrollBarEnabled(false);
+        this.setHorizontalScrollBarEnabled(false);
+        container = new LinearLayout(context);
+        container.setOrientation(LinearLayout.VERTICAL);
+        this.addView(container);
         if(attrs.getAttributeValue("http://schemas.android.com/apk/res/android", "layout_height")
                 .equals("-2"))
             this.isWrapContent = true;
@@ -45,25 +51,25 @@ public class CustomLetterPicker extends LinearLayout {
         if(!Arrays.equals(this.source, source)){
             this.source = source;
             for(int i = 0; i < source.length; i++){
-                if (i < getChildCount())
-                    ((TextView)getChildAt(i)).setText(source[i]);
+                if (i < container.getChildCount())
+                    ((TextView)container.getChildAt(i)).setText(source[i]);
                 else{
                     TextView newTV = new TextView(context);
                     newTV.setGravity(Gravity.CENTER);
                     newTV.setText(source[i]);
-                    addView(newTV);
+                    container.addView(newTV);
                     invalidate();
                 }
             }
             if(getChildCount() > source.length){
-                removeViews(source.length, getChildCount() - source.length);
+                container.removeViews(source.length, getChildCount() - source.length);
             }
         }
     }
 
     private void setItemsHeight(int height){
-        for(int i = 0; i < getChildCount(); i++) {
-            View tv = getChildAt(i);
+        for(int i = 0; i < container.getChildCount(); i++) {
+            View tv = container.getChildAt(i);
             if(tv instanceof TextView)
                 ((TextView) tv).setHeight(height);
         }
