@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">MainTextViewTestProj</string>
-
+    <string name="tag">tag</string>
     <!--buttons-->
     <string name="to_a">To A</string>
     <string name="to_o">To O</string>
