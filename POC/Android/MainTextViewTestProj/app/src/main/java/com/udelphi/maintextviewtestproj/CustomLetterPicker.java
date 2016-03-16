@@ -2,7 +2,6 @@ package com.udelphi.maintextviewtestproj;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -18,6 +17,7 @@ public class CustomLetterPicker extends ScrollView {
     private boolean isWrapContent;
     private String[] source;
     private Runnable scrollerTask;
+    private int itemHeight;
     private int initialPosition;
     private int newCheck = 100;
 
@@ -41,7 +41,10 @@ public class CustomLetterPicker extends ScrollView {
             public void run() {
                 int newPosition = getScrollY();
                 if(initialPosition - newPosition == 0){
-                    Log.d("my_log", "scrollStopped");
+                    int residueY = initialPosition % itemHeight;
+                    int targetPosition = residueY > itemHeight/2 ?
+                            initialPosition + residueY : initialPosition - residueY;
+                    smoothScrollTo(0, targetPosition);
                 }
                 else{
                     initialPosition = getScrollY();
@@ -70,7 +73,8 @@ public class CustomLetterPicker extends ScrollView {
             setLayoutParams(params);
         }
 
-        setItemsHeight(getHeight() / 3);
+        itemHeight = getHeight() / 3;
+        setItemsHeight(itemHeight);
     }
 
     public void setSource(String[] source){
