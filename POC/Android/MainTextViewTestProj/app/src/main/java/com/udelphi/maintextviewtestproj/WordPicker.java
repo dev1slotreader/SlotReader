@@ -17,12 +17,13 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class WordPicker extends LinearLayout {
     int requiredValue = 0;
     Runnable movePikersRunnable;
     ArrayList<NumberPicker> pickers;
-    String[] letters;
+    String[] source;
     Handler handler;
 
 
@@ -45,10 +46,6 @@ public class WordPicker extends LinearLayout {
 
 
     private void initView(Context context) {
-        letters = new String[]{
-                "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q",
-                "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
-        };
         movePikersRunnable = new Runnable() {
             @Override
             public void run() {
@@ -76,10 +73,16 @@ public class WordPicker extends LinearLayout {
             if (v instanceof NumberPicker)
                 pickers.add((NumberPicker) v);
         }
+
+    }
+
+    public void setSource(String[] source){
+        if(!Arrays.equals(this.source, source))
+            this.source = source;
         for (NumberPicker picker : pickers) {
             picker.setMinValue(0);
-            picker.setMaxValue(letters.length - 1);
-            picker.setDisplayedValues(letters);
+            picker.setDisplayedValues(source);
+            picker.setMaxValue(source.length - 1);
 
             try {
                 Field mSelectionDivider = NumberPicker.class.getDeclaredField("mSelectionDivider");
@@ -112,7 +115,7 @@ public class WordPicker extends LinearLayout {
 
     private void setRequiredValue(String symbol){
         try {
-            while (!letters[requiredValue].equals(symbol))
+            while (!source[requiredValue].equals(symbol))
                 requiredValue++;
         }catch (IndexOutOfBoundsException e) {
             requiredValue = 0;

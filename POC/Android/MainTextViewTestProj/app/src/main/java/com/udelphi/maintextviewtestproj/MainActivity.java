@@ -10,6 +10,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
     private String[] ruAlphabet = new String[]{"А", "Б", "В", "Г", "Д", "Е", "Ё", "Ж", "З", "И", "Й", "К",
             "Л", "М", "О", "П", "Р", "С", "Т", "У", "Ф", "Х", "Ц", "Ч", "Ш", "Щ", "Ъ", "ы", "ь", "Ю", "Я"};
+    private CurrentSource currentSource;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +19,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         customPicker = (CustomLetterPicker)findViewById(R.id.custom_picker);
         customPicker.setSource(enAlphabet);
         picker = (WordPicker)findViewById(R.id.word_picker);
+        picker.setSource(enAlphabet);
+        currentSource = CurrentSource.EN;
 
         findViewById(R.id.ru_alphabet_btn).setOnClickListener(this);
         findViewById(R.id.en_alphabet_btn).setOnClickListener(this);
@@ -31,19 +34,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.en_alphabet_btn:
                 customPicker.setSource(enAlphabet);
+                picker.setSource(enAlphabet);
+                currentSource = CurrentSource.EN;
                 break;
             case R.id.ru_alphabet_btn:
                 customPicker.setSource(ruAlphabet);
+                picker.setSource(ruAlphabet);
+                currentSource = CurrentSource.RU;
                 break;
             case R.id.a_btn:
-                picker.moveValue("A");
+                if(currentSource == CurrentSource.EN)
+                    picker.moveValue("A"); //Roman alphabet
+                else
+                    picker.moveValue("А"); //Cyrillic
                 break;
             case R.id.o_btn:
-                picker.moveValue("O");
+                if(currentSource == CurrentSource.EN)
+                    picker.moveValue("O");
+                else
+                    picker.moveValue("О");
                 break;
             case R.id.y_btn:
-                picker.moveValue("Y");
+                if(currentSource == CurrentSource.EN)
+                    picker.moveValue("Y");
+                else
+                    picker.moveValue("У");
                 break;
         }
     }
+
+    private enum CurrentSource { EN, RU }
 }
