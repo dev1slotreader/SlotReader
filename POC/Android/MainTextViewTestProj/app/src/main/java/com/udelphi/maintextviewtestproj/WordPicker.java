@@ -19,32 +19,26 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 public class WordPicker extends LinearLayout {
-    public static enum Style { LIGHT, LIGHT_WITH_DIVIDERS, DARK, DARK_WITH_DIVIDERS, DEFAULT }
-
     int requiredValue = 0;
     Runnable movePikersRunnable;
     ArrayList<NumberPicker> pickers;
     String[] letters;
     Handler handler;
-    Style style = Style.DEFAULT;
 
 
 
     public WordPicker(Context context){
         super(context);
-//        this.style = style;
         initView(context);
     }
 
     public WordPicker(Context context, AttributeSet attrs){
         super(context, attrs);
-//        this.style = style;
         initView(context);
     }
 
     public WordPicker(Context context, AttributeSet attrs, int defStyle){
         super(context, attrs, defStyle);
-//        this.style = style;
         initView(context);
     }
 
@@ -86,20 +80,34 @@ public class WordPicker extends LinearLayout {
             picker.setMinValue(0);
             picker.setMaxValue(letters.length - 1);
             picker.setDisplayedValues(letters);
-            style = Style.LIGHT_WITH_DIVIDERS;
-            setDividerStyle(picker);
-        }
 
+            try {
+                Field mSelectionDivider = NumberPicker.class.getDeclaredField("mSelectionDivider");
+                mSelectionDivider.setAccessible(true);
+                Field mSelectorWheelPaint = NumberPicker.class.getDeclaredField("mSelectorWheelPaint");
+                mSelectorWheelPaint.setAccessible(true);
+
+                mSelectionDivider.set(picker, getResources().getDrawable(android.R.drawable.screen_background_light));
+
+                for (int i = 0; i < picker.getChildCount(); i++) {
+                    View child = picker.getChildAt(i);
+                    if (child instanceof EditText)
+                        ((EditText) child).setTextColor(getResources().getColor(android.R.color.white));
+                    ((Paint) mSelectorWheelPaint.get(picker)).setColor(getResources().getColor(android.R.color.white));
+                    picker.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
+                    picker.invalidate();
+                }
+
+            } catch (NoSuchFieldException | IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public void moveValue(String value){
         setRequiredValue(value);
         if(needMoving())
             handler.post(movePikersRunnable);
-    }
-
-    public void setStyle(Style style){
-        this.style = style;
     }
 
     private void setRequiredValue(String symbol){
@@ -128,57 +136,5 @@ public class WordPicker extends LinearLayout {
             }
         }
         return result;
-    }
-
-    private void setDividerStyle(NumberPicker picker){
-        try {
-            Field mSelectionDivider = NumberPicker.class.getDeclaredField("mSelectionDivider");
-            mSelectionDivider.setAccessible(true);
-            switch (style){
-                case LIGHT_WITH_DIVIDERS:
-                    mSelectionDivider.set(picker, getResources().getDrawable(android.R.drawable.screen_background_light));
-                    setLightText(picker);
-                    break;
-                case LIGHT:
-                    mSelectionDivider.set(picker, getResources().getDrawable(R.drawable.transparent_divider));
-                    setLightText(picker);
-                    break;
-                case DARK_WITH_DIVIDERS:
-                    mSelectionDivider.set(picker, getResources().getDrawable(android.R.drawable.screen_background_dark));
-                    setDarkText(picker);
-                    break;
-                case DARK:
-                    mSelectionDivider.set(picker, getResources().getDrawable(android.R.drawable.screen_background_dark_transparent));
-                    setDarkText(picker);
-                    break;
-            }
-        } catch (NoSuchFieldException | IllegalAccessException e) {
-            e.printStackTrace();
-        }
-    }
-    private void setLightText(NumberPicker picker) throws NoSuchFieldException, IllegalAccessException {
-        Field mSelectorWheelPaint = NumberPicker.class.getDeclaredField("mSelectorWheelPaint");
-        mSelectorWheelPaint.setAccessible(true);
-        for (int i = 0; i < picker.getChildCount(); i++) {
-            View child = picker.getChildAt(i);
-            if (child instanceof EditText)
-                ((EditText) child).setTextColor(getResources().getColor(android.R.color.white));
-            ((Paint) mSelectorWheelPaint.get(picker)).setColor(getResources().getColor(android.R.color.white));
-            picker.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
-            picker.invalidate();
-        }
-    }
-
-    private void setDarkText(NumberPicker picker)throws NoSuchFieldException, IllegalAccessException {
-        Field mSelectorWheelPaint = NumberPicker.class.getDeclaredField("mSelectorWheelPaint");
-        mSelectorWheelPaint.setAccessible(true);
-        for (int i = 0; i < picker.getChildCount(); i++) {
-            View child = picker.getChildAt(i);
-            if (child instanceof EditText)
-                ((EditText) child).setTextColor(getResources().getColor(android.R.color.background_dark));
-            ((Paint) mSelectorWheelPaint.get(picker)).setColor(getResources().getColor(android.R.color.background_dark));
-            picker.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
-            picker.invalidate();
-        }
     }
 }
