@@ -28,11 +28,11 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-	[self.picker selectRow:0 inComponent:0 animated:YES];
-	[self.picker selectRow:1 inComponent:1 animated:YES];
-	[self.picker selectRow:2 inComponent:2 animated:YES];
-	[self.picker selectRow:3 inComponent:3 animated:YES];
-	[self.picker selectRow:4 inComponent:4 animated:YES];
+	//[self.picker selectRow:0 inComponent:0 animated:YES];
+	//[self.picker selectRow:1 inComponent:1 animated:YES];
+	//[self.picker selectRow:2 inComponent:2 animated:YES];
+	//[self.picker selectRow:3 inComponent:3 animated:YES];
+	//[self.picker selectRow:4 inComponent:4 animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

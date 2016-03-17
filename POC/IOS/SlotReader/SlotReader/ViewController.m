@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "WordPickerHelperViewController.h"
 
-@interface ViewController ()
+@interface ViewController (){
+	WordPickerHelperViewController *pickerHelper;
+}
 
 @end
 
@@ -16,6 +19,12 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
+	pickerHelper = [[WordPickerHelperViewController alloc] init];
+	
+	//[self.picker setDelegate:pickerHelper];
+	//[self.picker setDataSource:pickerHelper];
+	self.picker.delegate = pickerHelper;
+	self.picker.dataSource = pickerHelper;
 	// Do any additional setup after loading the view, typically from a nib.
 }
 

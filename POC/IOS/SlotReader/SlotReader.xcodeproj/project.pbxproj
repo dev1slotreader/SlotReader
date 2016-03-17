@@ -14,8 +14,7 @@
 		CE1267241C93149B001C6573 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE1267231C93149B001C6573 /* Assets.xcassets */; };
 		CE1267271C93149B001C6573 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE1267251C93149B001C6573 /* LaunchScreen.storyboard */; };
 		CE1267321C93149B001C6573 /* SlotReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1267311C93149B001C6573 /* SlotReaderTests.m */; };
-		CE12673D1C931ACA001C6573 /* 23132-NUGXUW.gif in Resources */ = {isa = PBXBuildFile; fileRef = CE12673C1C931ACA001C6573 /* 23132-NUGXUW.gif */; };
-		CE12673F1C931ADB001C6573 /* nature1.gif in Resources */ = {isa = PBXBuildFile; fileRef = CE12673E1C931ADB001C6573 /* nature1.gif */; };
+		CE1267481C9AF6AB001C6573 /* WordPickerHelperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1267471C9AF6AB001C6573 /* WordPickerHelperViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,8 +41,8 @@
 		CE12672D1C93149B001C6573 /* SlotReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlotReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE1267311C93149B001C6573 /* SlotReaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SlotReaderTests.m; sourceTree = "<group>"; };
 		CE1267331C93149B001C6573 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CE12673C1C931ACA001C6573 /* 23132-NUGXUW.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "23132-NUGXUW.gif"; sourceTree = "<group>"; };
-		CE12673E1C931ADB001C6573 /* nature1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = nature1.gif; sourceTree = "<group>"; };
+		CE1267461C9AF6AB001C6573 /* WordPickerHelperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordPickerHelperViewController.h; sourceTree = "<group>"; };
+		CE1267471C9AF6AB001C6573 /* WordPickerHelperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordPickerHelperViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,9 +88,9 @@
 				CE12671B1C93149B001C6573 /* AppDelegate.m */,
 				CE12671D1C93149B001C6573 /* ViewController.h */,
 				CE12671E1C93149B001C6573 /* ViewController.m */,
+				CE1267461C9AF6AB001C6573 /* WordPickerHelperViewController.h */,
+				CE1267471C9AF6AB001C6573 /* WordPickerHelperViewController.m */,
 				CE1267201C93149B001C6573 /* Main.storyboard */,
-				CE12673C1C931ACA001C6573 /* 23132-NUGXUW.gif */,
-				CE12673E1C931ADB001C6573 /* nature1.gif */,
 				CE1267231C93149B001C6573 /* Assets.xcassets */,
 				CE1267251C93149B001C6573 /* LaunchScreen.storyboard */,
 				CE1267281C93149B001C6573 /* Info.plist */,
@@ -199,9 +198,7 @@
 			files = (
 				CE1267271C93149B001C6573 /* LaunchScreen.storyboard in Resources */,
 				CE1267241C93149B001C6573 /* Assets.xcassets in Resources */,
-				CE12673D1C931ACA001C6573 /* 23132-NUGXUW.gif in Resources */,
 				CE1267221C93149B001C6573 /* Main.storyboard in Resources */,
-				CE12673F1C931ADB001C6573 /* nature1.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,6 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE1267481C9AF6AB001C6573 /* WordPickerHelperViewController.m in Sources */,
 				CE12671F1C93149B001C6573 /* ViewController.m in Sources */,
 				CE12671C1C93149B001C6573 /* AppDelegate.m in Sources */,
 				CE1267191C93149B001C6573 /* main.m in Sources */,

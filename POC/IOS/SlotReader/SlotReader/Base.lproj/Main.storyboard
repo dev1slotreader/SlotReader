@@ -108,24 +108,50 @@
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fbI-DT-eLa">
                                 <rect key="frame" x="0.0" y="-216" width="320" height="216"/>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0cS-LW-aBz">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0cS-LW-aBz">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="0cS-LW-aBz" secondAttribute="height" multiplier="78:25" id="PWe-yq-7dB"/>
+                                </constraints>
+                                <state key="normal" image="up">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="PWe-yq-7dB"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="PWe-yq-7dB"/>
+                                    </mask>
+                                </variation>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WDX-MA-uIo">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WDX-MA-uIo">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="WDX-MA-uIo" secondAttribute="height" multiplier="78:25" id="2GB-fh-Z8z"/>
+                                </constraints>
+                                <state key="normal" image="down">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="2GB-fh-Z8z"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="2GB-fh-Z8z"/>
+                                    </mask>
+                                </variation>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FZb-DO-iN7">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FZb-DO-iN7">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="FZb-DO-iN7" secondAttribute="height" multiplier="1:1" id="4jb-I1-O8W"/>
                                 </constraints>
-                                <state key="normal" title="Button">
+                                <state key="normal" image="1">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -133,18 +159,19 @@
                                         <exclude reference="4jb-I1-O8W"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact">
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="44" y="342" width="32" height="32"/>
                                     <mask key="constraints">
                                         <include reference="4jb-I1-O8W"/>
                                     </mask>
                                 </variation>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vls-JG-oXf">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vls-JG-oXf">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Vls-JG-oXf" secondAttribute="height" multiplier="1:1" id="uBy-Dj-Ijd"/>
                                 </constraints>
-                                <state key="normal" title="Button">
+                                <state key="normal" image="3">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -152,18 +179,19 @@
                                         <exclude reference="uBy-Dj-Ijd"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact">
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="115" y="342" width="32" height="32"/>
                                     <mask key="constraints">
                                         <include reference="uBy-Dj-Ijd"/>
                                     </mask>
                                 </variation>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIJ-qh-X0s">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIJ-qh-X0s">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="dIJ-qh-X0s" secondAttribute="height" multiplier="1:1" id="nzn-KA-mde"/>
                                 </constraints>
-                                <state key="normal" title="Button">
+                                <state key="normal" image="4">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -171,24 +199,28 @@
                                         <exclude reference="nzn-KA-mde"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact">
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="184" y="342" width="32" height="32"/>
                                     <mask key="constraints">
                                         <include reference="nzn-KA-mde"/>
                                     </mask>
                                 </variation>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wEU-ae-nv8">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wEU-ae-nv8">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" image="5">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="249" y="337" width="32" height="32"/>
+                                </variation>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ov-sj-kmQ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ov-sj-kmQ">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="5ov-sj-kmQ" secondAttribute="height" multiplier="1:1" id="WiF-bc-QFl"/>
                                 </constraints>
-                                <state key="normal" title="Button">
+                                <state key="normal" image="5+">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -196,7 +228,8 @@
                                         <exclude reference="WiF-bc-QFl"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact">
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="324" y="342" width="32" height="32"/>
                                     <mask key="constraints">
                                         <include reference="WiF-bc-QFl"/>
                                     </mask>
@@ -209,6 +242,7 @@
                             <constraint firstItem="zGG-W1-5GA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="1lM-uu-l0g"/>
                             <constraint firstItem="FZb-DO-iN7" firstAttribute="width" secondItem="dIJ-qh-X0s" secondAttribute="width" id="2jY-ZJ-rG2"/>
                             <constraint firstItem="gj0-nG-ZFo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2pB-zx-6wu"/>
+                            <constraint firstItem="0cS-LW-aBz" firstAttribute="height" secondItem="gj0-nG-ZFo" secondAttribute="height" multiplier="0.1" id="8cG-6n-KOR"/>
                             <constraint firstItem="5ov-sj-kmQ" firstAttribute="leading" secondItem="wEU-ae-nv8" secondAttribute="trailing" constant="35" id="8uh-gu-0bt"/>
                             <constraint firstItem="JlN-JY-Zpn" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.2" id="8xr-yN-3c9"/>
                             <constraint firstItem="lhl-g6-7IU" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9XU-CY-75f"/>
@@ -233,6 +267,7 @@
                             <constraint firstItem="gf5-iD-hBC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Tde-fF-Zd0"/>
                             <constraint firstItem="0cS-LW-aBz" firstAttribute="centerX" secondItem="fbI-DT-eLa" secondAttribute="centerX" id="Utd-cH-toW"/>
                             <constraint firstItem="wEU-ae-nv8" firstAttribute="leading" secondItem="dIJ-qh-X0s" secondAttribute="trailing" constant="25" id="a4d-iR-1up"/>
+                            <constraint firstItem="WDX-MA-uIo" firstAttribute="width" secondItem="0cS-LW-aBz" secondAttribute="width" id="a7M-Za-fF3"/>
                             <constraint firstItem="Y07-Ui-pxo" firstAttribute="width" secondItem="JlN-JY-Zpn" secondAttribute="width" id="an0-AG-oZo"/>
                             <constraint firstItem="t0U-jE-T3d" firstAttribute="height" secondItem="zGG-W1-5GA" secondAttribute="height" multiplier="0.35" id="c2h-xa-ajC"/>
                             <constraint firstItem="Y07-Ui-pxo" firstAttribute="centerX" secondItem="zGG-W1-5GA" secondAttribute="centerX" id="ccW-td-cFv"/>
@@ -297,13 +332,15 @@
                                 <exclude reference="poM-J9-Esi"/>
                                 <exclude reference="vTh-c7-6Kp"/>
                                 <exclude reference="ygC-eL-hdL"/>
+                                <exclude reference="8cG-6n-KOR"/>
                                 <exclude reference="Utd-cH-toW"/>
+                                <exclude reference="a7M-Za-fF3"/>
+                                <exclude reference="gZ5-3e-OnA"/>
+                                <exclude reference="xNV-t2-ESc"/>
                                 <exclude reference="JNl-7T-bVp"/>
                                 <exclude reference="RQ6-fi-VT5"/>
                                 <exclude reference="Tde-fF-Zd0"/>
                                 <exclude reference="g56-EE-oke"/>
-                                <exclude reference="gZ5-3e-OnA"/>
-                                <exclude reference="xNV-t2-ESc"/>
                                 <exclude reference="2jY-ZJ-rG2"/>
                                 <exclude reference="Q2a-VP-UBO"/>
                                 <exclude reference="0mv-M7-6Zp"/>
@@ -361,12 +398,14 @@
                                 <include reference="poM-J9-Esi"/>
                                 <include reference="vTh-c7-6Kp"/>
                                 <include reference="ygC-eL-hdL"/>
+                                <include reference="8cG-6n-KOR"/>
                                 <include reference="Utd-cH-toW"/>
+                                <include reference="a7M-Za-fF3"/>
+                                <include reference="gZ5-3e-OnA"/>
+                                <include reference="xNV-t2-ESc"/>
                                 <include reference="JNl-7T-bVp"/>
                                 <include reference="Tde-fF-Zd0"/>
                                 <include reference="g56-EE-oke"/>
-                                <include reference="gZ5-3e-OnA"/>
-                                <include reference="xNV-t2-ESc"/>
                                 <include reference="2jY-ZJ-rG2"/>
                                 <include reference="Q2a-VP-UBO"/>
                                 <include reference="0mv-M7-6Zp"/>
@@ -391,6 +430,9 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="picker" destination="fbI-DT-eLa" id="1Ff-ga-3fF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -398,12 +440,19 @@
         </scene>
     </scenes>
     <resources>
+        <image name="1" width="32" height="32"/>
+        <image name="3" width="32" height="32"/>
+        <image name="4" width="32" height="32"/>
+        <image name="5" width="32" height="32"/>
+        <image name="5+" width="32" height="32"/>
         <image name="Back" width="641" height="961"/>
         <image name="Blackboard" width="1536" height="958"/>
         <image name="Bunny" width="137" height="320"/>
         <image name="about" width="119" height="117"/>
         <image name="dictionary" width="118" height="120"/>
+        <image name="down" width="156" height="50"/>
         <image name="en" width="64" height="64"/>
         <image name="tree" width="350" height="392"/>
+        <image name="up" width="156" height="50"/>
     </resources>
 </document>
