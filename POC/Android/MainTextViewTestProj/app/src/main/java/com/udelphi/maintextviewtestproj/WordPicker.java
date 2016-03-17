@@ -4,14 +4,10 @@ import android.content.Context;
 import android.graphics.Paint;
 import android.os.Handler;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewParent;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.NumberPicker;
-import android.widget.TextView;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -25,8 +21,6 @@ public class WordPicker extends LinearLayout {
     ArrayList<NumberPicker> pickers;
     String[] source;
     Handler handler;
-
-
 
     public WordPicker(Context context){
         super(context);
@@ -42,7 +36,6 @@ public class WordPicker extends LinearLayout {
         super(context, attrs, defStyle);
         initView(context);
     }
-
 
 
     private void initView(Context context) {
@@ -80,9 +73,10 @@ public class WordPicker extends LinearLayout {
         if(!Arrays.equals(this.source, source))
             this.source = source;
         for (NumberPicker picker : pickers) {
-            picker.setDisplayedValues(source);
+            picker.setDisplayedValues(null);
             picker.setMinValue(0);
-            picker.setMaxValue(this.source.length - 1);
+            picker.setMaxValue(source.length - 1);
+            picker.setDisplayedValues(source);
 
             try {
                 Field mSelectionDivider = NumberPicker.class.getDeclaredField("mSelectionDivider");
