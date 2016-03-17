@@ -11,6 +11,7 @@ import android.view.ViewParent;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.NumberPicker;
+import android.widget.TextView;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -113,7 +114,7 @@ public class WordPicker extends LinearLayout {
 
     private void OnPickersMoved(){
         if (needMoving()) {
-            handler.postDelayed(movePikersRunnable, 75);
+            handler.postDelayed(movePikersRunnable, 100);
         }
         else handler.removeCallbacks(movePikersRunnable);
     }
@@ -160,10 +161,8 @@ public class WordPicker extends LinearLayout {
         mSelectorWheelPaint.setAccessible(true);
         for (int i = 0; i < picker.getChildCount(); i++) {
             View child = picker.getChildAt(i);
-            if (child instanceof EditText) {
+            if (child instanceof EditText)
                 ((EditText) child).setTextColor(getResources().getColor(android.R.color.white));
-                ((EditText) child).setTextSize(40);
-            }
             ((Paint) mSelectorWheelPaint.get(picker)).setColor(getResources().getColor(android.R.color.white));
             picker.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
             picker.invalidate();

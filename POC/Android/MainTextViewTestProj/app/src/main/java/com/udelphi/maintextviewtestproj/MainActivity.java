@@ -4,7 +4,8 @@ import android.os.Bundle;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private CustomLetterPicker picker;
+    private CustomLetterPicker customPicker;
+    private WordPicker picker;
     private String[] enAlphabet = new String[]{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
             "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
     private String[] ruAlphabet = new String[]{"А", "Б", "В", "Г", "Д", "Е", "Ё", "Ж", "З", "И", "Й", "К",
@@ -14,24 +15,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        picker = (CustomLetterPicker)findViewById(R.id.custom_picker);
-        picker.setSource(enAlphabet);
+        customPicker = (CustomLetterPicker)findViewById(R.id.custom_picker);
+        customPicker.setSource(enAlphabet);
+        picker = (WordPicker)findViewById(R.id.word_picker);
 
         findViewById(R.id.ru_alphabet_btn).setOnClickListener(this);
         findViewById(R.id.en_alphabet_btn).setOnClickListener(this);
         (findViewById(R.id.a_btn)).setOnClickListener(this);
         (findViewById(R.id.o_btn)).setOnClickListener(this);
-        (findViewById(R.id.z_btn)).setOnClickListener(this);
+        (findViewById(R.id.y_btn)).setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.en_alphabet_btn:
-                picker.setSource(enAlphabet);
+                customPicker.setSource(enAlphabet);
                 break;
             case R.id.ru_alphabet_btn:
-                picker.setSource(ruAlphabet);
+                customPicker.setSource(ruAlphabet);
+                break;
+            case R.id.a_btn:
+                picker.moveValue("A");
+                break;
+            case R.id.o_btn:
+                picker.moveValue("O");
+                break;
+            case R.id.y_btn:
+                picker.moveValue("Y");
                 break;
         }
     }

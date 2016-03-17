@@ -77,7 +77,6 @@ public class CustomLetterPicker extends ScrollView {
         }
 
         itemHeight = getHeight() / 3;
-        Log.d("my_log", String.valueOf(itemHeight));
         setItemsHeight(itemHeight);
     }
 
@@ -91,6 +90,7 @@ public class CustomLetterPicker extends ScrollView {
                     TextView newTV = new TextView(context);
                     newTV.setGravity(Gravity.CENTER);
                     newTV.setText(source[i]);
+                    newTV.setTextColor(context.getResources().getColor(android.R.color.white));
                     container.addView(newTV);
                     invalidate();
                 }

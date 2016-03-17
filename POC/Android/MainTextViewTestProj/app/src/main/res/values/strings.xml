@@ -2,9 +2,9 @@
     <string name="app_name">MainTextViewTestProj</string>
     <string name="tag">tag</string>
     <!--buttons-->
-    <string name="to_a">To A</string>
-    <string name="to_o">To O</string>
-    <string name="to_z">To Z</string>
+    <string name="to_a">A</string>
+    <string name="to_o">O</string>
+    <string name="to_y">Y</string>
     <string name="ru">RU</string>
     <string name="en">EN</string>
 </resources>
