@@ -2,6 +2,7 @@ package com.udelphi.maintextviewtestproj;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -19,7 +20,7 @@ public class CustomLetterPicker extends ScrollView {
     private Runnable scrollerTask;
     private int itemHeight;
     private int initialPosition;
-    private int newCheck = 100;
+    private int newCheck = 400;
 
     public CustomLetterPicker(Context context){
         this(context, null);
@@ -39,16 +40,18 @@ public class CustomLetterPicker extends ScrollView {
         this.scrollerTask = new Runnable() {
             @Override
             public void run() {
-                int newPosition = getScrollY();
-                if(initialPosition - newPosition == 0){
+                if(initialPosition == getScrollY()){
                     int residueY = initialPosition % itemHeight;
-                    int targetPosition = residueY > itemHeight/2 ?
+                    if(residueY == 0)
+                        return;
+                    initialPosition = residueY > itemHeight / 2 ?
                             initialPosition + residueY : initialPosition - residueY;
-                    smoothScrollTo(0, targetPosition);
+                    removeCallbacks(scrollerTask);
+                    smoothScrollTo(0, initialPosition);
                 }
                 else{
                     initialPosition = getScrollY();
-                    CustomLetterPicker.this.postDelayed(scrollerTask, newCheck);
+                    postDelayed(scrollerTask, newCheck);
                 }
             }
         };
@@ -74,6 +77,7 @@ public class CustomLetterPicker extends ScrollView {
         }
 
         itemHeight = getHeight() / 3;
+        Log.d("my_log", String.valueOf(itemHeight));
         setItemsHeight(itemHeight);
     }
 
@@ -107,6 +111,6 @@ public class CustomLetterPicker extends ScrollView {
 
     public void startScrollerTask(){
         initialPosition = getScrollY();
-        CustomLetterPicker.this.postDelayed(scrollerTask, newCheck);
+        postDelayed(scrollerTask, newCheck);
     }
 }
