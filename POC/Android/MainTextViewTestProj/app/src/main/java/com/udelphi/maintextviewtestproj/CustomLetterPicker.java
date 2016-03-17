@@ -75,9 +75,10 @@ public class CustomLetterPicker extends ScrollView {
             params.height = 192;
             setLayoutParams(params);
         }
-
-        itemHeight = getHeight() / 3;
-        setItemsHeight(itemHeight);
+        if(itemHeight != getHeight() / 3) {
+            itemHeight = getHeight() / 3;
+            setItemsHeight(itemHeight);
+        }
     }
 
     public void setSource(String[] source){
