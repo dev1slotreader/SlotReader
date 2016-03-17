@@ -80,9 +80,9 @@ public class WordPicker extends LinearLayout {
         if(!Arrays.equals(this.source, source))
             this.source = source;
         for (NumberPicker picker : pickers) {
-            picker.setMinValue(0);
             picker.setDisplayedValues(source);
-            picker.setMaxValue(source.length - 1);
+            picker.setMinValue(0);
+            picker.setMaxValue(this.source.length - 1);
 
             try {
                 Field mSelectionDivider = NumberPicker.class.getDeclaredField("mSelectionDivider");
