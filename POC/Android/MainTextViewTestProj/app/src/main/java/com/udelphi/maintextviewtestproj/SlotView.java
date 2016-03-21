@@ -20,7 +20,7 @@ public class SlotView extends LinearLayout {
     int requiredValue = 0;
     Runnable movePikersRunnable;
     ArrayList<NumberPicker> pickers;
-    String[] source;
+    String[] values;
     Handler handler;
 
     public SlotView(Context context){
@@ -64,7 +64,7 @@ public class SlotView extends LinearLayout {
         }
     }
 
-    public void addPicker(){
+    public void addColumn(){
         NumberPicker newPicker = new NumberPicker(getContext());
         pickers.add(newPicker);
         LayoutParams params = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -94,24 +94,24 @@ public class SlotView extends LinearLayout {
         addView(newPicker);
     }
 
-    public void removePicker(){
+    public void removeColumn(){
         removeViewAt(getChildCount() - 1);
     }
 
-    public void setSource(String[] source){
-        if(!Arrays.equals(this.source, source))
-            this.source = source;
+    public void setValues(String[] source){
+        if(!Arrays.equals(this.values, source))
+            this.values = source;
         for (NumberPicker picker : pickers) {
             setPickerValues(picker);
         }
     }
 
     private void setPickerValues(NumberPicker picker){
-        if(source != null) {
+        if(values != null) {
             picker.setDisplayedValues(null);
             picker.setMinValue(0);
-            picker.setMaxValue(source.length - 1);
-            picker.setDisplayedValues(source);
+            picker.setMaxValue(values.length - 1);
+            picker.setDisplayedValues(values);
         }
     }
 
@@ -123,7 +123,7 @@ public class SlotView extends LinearLayout {
 
     private void setRequiredValue(String symbol){
         try {
-            while (!source[requiredValue].equals(symbol))
+            while (!values[requiredValue].equals(symbol))
                 requiredValue++;
         }catch (IndexOutOfBoundsException e) {
             requiredValue = 0;

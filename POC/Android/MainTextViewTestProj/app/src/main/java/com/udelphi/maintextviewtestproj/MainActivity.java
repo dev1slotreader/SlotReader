@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         picker = (SlotView)findViewById(R.id.word_picker);
-        picker.setSource(enAlphabet);
+        picker.setValues(enAlphabet);
         currentSource = CurrentSource.EN;
 
         findViewById(R.id.ru_alphabet_btn).setOnClickListener(this);
@@ -32,11 +32,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.en_alphabet_btn:
-                picker.setSource(enAlphabet);
+                picker.setValues(enAlphabet);
                 currentSource = CurrentSource.EN;
                 break;
             case R.id.ru_alphabet_btn:
-                picker.setSource(ruAlphabet);
+                picker.setValues(ruAlphabet);
                 currentSource = CurrentSource.RU;
                 break;
             case R.id.a_btn:
@@ -58,10 +58,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     picker.moveValue("У");
                 break;
             case R.id.remove_picker_btn:
-                picker.removePicker();
+                picker.removeColumn();
                 break;
             case R.id.add_picker_btn:
-                picker.addPicker();
+                picker.addColumn();
                 break;
         }
     }
