@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private CustomLetterPicker customPicker;
     private WordPicker picker;
     private String[] enAlphabet = new String[]{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
             "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
@@ -16,8 +15,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        customPicker = (CustomLetterPicker)findViewById(R.id.custom_picker);
-        customPicker.setSource(enAlphabet);
         picker = (WordPicker)findViewById(R.id.word_picker);
         picker.setSource(enAlphabet);
         currentSource = CurrentSource.EN;
@@ -33,12 +30,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.en_alphabet_btn:
-                customPicker.setSource(enAlphabet);
                 picker.setSource(enAlphabet);
                 currentSource = CurrentSource.EN;
                 break;
             case R.id.ru_alphabet_btn:
-                customPicker.setSource(ruAlphabet);
                 picker.setSource(ruAlphabet);
                 currentSource = CurrentSource.RU;
                 break;

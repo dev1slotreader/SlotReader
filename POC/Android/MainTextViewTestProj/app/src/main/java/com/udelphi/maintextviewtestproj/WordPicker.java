@@ -66,7 +66,6 @@ public class WordPicker extends LinearLayout {
             if (v instanceof NumberPicker)
                 pickers.add((NumberPicker) v);
         }
-
     }
 
     public void setSource(String[] source){
