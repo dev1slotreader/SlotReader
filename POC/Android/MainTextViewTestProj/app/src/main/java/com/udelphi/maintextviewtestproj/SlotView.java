@@ -5,6 +5,7 @@ import android.graphics.Paint;
 import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.NumberPicker;
@@ -15,30 +16,29 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class WordPicker extends LinearLayout {
+public class SlotView extends LinearLayout {
     int requiredValue = 0;
     Runnable movePikersRunnable;
     ArrayList<NumberPicker> pickers;
     String[] source;
     Handler handler;
 
-    public WordPicker(Context context){
+    public SlotView(Context context){
         super(context);
-        initView(context);
+        initView();
     }
 
-    public WordPicker(Context context, AttributeSet attrs){
+    public SlotView(Context context, AttributeSet attrs){
         super(context, attrs);
-        initView(context);
+        initView();
     }
 
-    public WordPicker(Context context, AttributeSet attrs, int defStyle){
+    public SlotView(Context context, AttributeSet attrs, int defStyle){
         super(context, attrs, defStyle);
-        initView(context);
+        initView();
     }
 
-
-    private void initView(Context context) {
+    private void initView() {
         movePikersRunnable = new Runnable() {
             @Override
             public void run() {
@@ -50,53 +50,68 @@ public class WordPicker extends LinearLayout {
                             method.invoke(picker, true);
                     }
                     OnPickersMoved();
-
                 } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
                     e.printStackTrace();
                 }
             }
         };
         handler = new Handler();
-
-        View view = inflate(context, R.layout.word_picker_layout, this);
-        LinearLayout pickersContainer = (LinearLayout) view.findViewById(R.id.pickersContainer);
         pickers = new ArrayList<>();
-        for (int i = 0; i <= pickersContainer.getChildCount(); i++) {
-            View v = pickersContainer.getChildAt(i);
+        for (int i = 0; i <= this.getChildCount(); i++) {
+            View v = this.getChildAt(i);
             if (v instanceof NumberPicker)
                 pickers.add((NumberPicker) v);
         }
+    }
+
+    public void addPicker(){
+        NumberPicker newPicker = new NumberPicker(getContext());
+        pickers.add(newPicker);
+        LayoutParams params = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        params.weight = 1;
+        newPicker.setLayoutParams(params);
+        setPickerValues(newPicker);
+        try {
+            Field mSelectionDivider = NumberPicker.class.getDeclaredField("mSelectionDivider");
+            mSelectionDivider.setAccessible(true);
+            Field mSelectorWheelPaint = NumberPicker.class.getDeclaredField("mSelectorWheelPaint");
+            mSelectorWheelPaint.setAccessible(true);
+
+            mSelectionDivider.set(newPicker, getResources().getDrawable(android.R.drawable.screen_background_light));
+
+            for (int i = 0; i < newPicker.getChildCount(); i++) {
+                View child = newPicker.getChildAt(i);
+                if (child instanceof EditText)
+                    ((EditText) child).setTextColor(getResources().getColor(android.R.color.white));
+                ((Paint) mSelectorWheelPaint.get(newPicker)).setColor(getResources().getColor(android.R.color.white));
+                newPicker.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
+                newPicker.invalidate();
+            }
+
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        addView(newPicker);
+    }
+
+    public void removePicker(){
+        removeViewAt(getChildCount() - 1);
     }
 
     public void setSource(String[] source){
         if(!Arrays.equals(this.source, source))
             this.source = source;
         for (NumberPicker picker : pickers) {
+            setPickerValues(picker);
+        }
+    }
+
+    private void setPickerValues(NumberPicker picker){
+        if(source != null) {
             picker.setDisplayedValues(null);
             picker.setMinValue(0);
             picker.setMaxValue(source.length - 1);
             picker.setDisplayedValues(source);
-
-            try {
-                Field mSelectionDivider = NumberPicker.class.getDeclaredField("mSelectionDivider");
-                mSelectionDivider.setAccessible(true);
-                Field mSelectorWheelPaint = NumberPicker.class.getDeclaredField("mSelectorWheelPaint");
-                mSelectorWheelPaint.setAccessible(true);
-
-                mSelectionDivider.set(picker, getResources().getDrawable(android.R.drawable.screen_background_light));
-
-                for (int i = 0; i < picker.getChildCount(); i++) {
-                    View child = picker.getChildAt(i);
-                    if (child instanceof EditText)
-                        ((EditText) child).setTextColor(getResources().getColor(android.R.color.white));
-                    ((Paint) mSelectorWheelPaint.get(picker)).setColor(getResources().getColor(android.R.color.white));
-                    picker.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
-                    picker.invalidate();
-                }
-
-            } catch (NoSuchFieldException | IllegalAccessException e) {
-                e.printStackTrace();
-            }
         }
     }
 

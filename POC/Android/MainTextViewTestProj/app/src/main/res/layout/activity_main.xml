@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_centerInParent="true">
-        <com.udelphi.maintextviewtestproj.WordPicker
+        <com.udelphi.maintextviewtestproj.SlotView
             android:id="@+id/word_picker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
@@ -45,6 +45,7 @@
             android:text="@string/to_y"/>
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/languages_btn_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -63,18 +64,20 @@
             android:text="@string/ru"/>
     </LinearLayout>
     <Button
+        android:id="@+id/remove_picker_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/word_picker_container"
+        android:layout_above="@+id/languages_btn_container"
         android:background="@android:color/transparent"
         android:textColor="@android:color/white"
         android:text="-" />
     <Button
+        android:id="@+id/add_picker_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/word_picker_container"
+        android:layout_above="@+id/languages_btn_container"
         android:background="@android:color/transparent"
         android:textColor="@android:color/white"
         android:text="+" />

@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private WordPicker picker;
+    private SlotView picker;
     private String[] enAlphabet = new String[]{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
             "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
     private String[] ruAlphabet = new String[]{"А", "Б", "В", "Г", "Д", "Е", "Ё", "Ж", "З", "И", "Й", "К",
@@ -15,15 +15,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        picker = (WordPicker)findViewById(R.id.word_picker);
+        picker = (SlotView)findViewById(R.id.word_picker);
         picker.setSource(enAlphabet);
         currentSource = CurrentSource.EN;
 
         findViewById(R.id.ru_alphabet_btn).setOnClickListener(this);
         findViewById(R.id.en_alphabet_btn).setOnClickListener(this);
-        (findViewById(R.id.a_btn)).setOnClickListener(this);
-        (findViewById(R.id.o_btn)).setOnClickListener(this);
-        (findViewById(R.id.y_btn)).setOnClickListener(this);
+        findViewById(R.id.remove_picker_btn).setOnClickListener(this);
+        findViewById(R.id.add_picker_btn).setOnClickListener(this);
+        findViewById(R.id.a_btn).setOnClickListener(this);
+        findViewById(R.id.o_btn).setOnClickListener(this);
+        findViewById(R.id.y_btn).setOnClickListener(this);
     }
 
     @Override
@@ -54,6 +56,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     picker.moveValue("Y");
                 else
                     picker.moveValue("У");
+                break;
+            case R.id.remove_picker_btn:
+                picker.removePicker();
+                break;
+            case R.id.add_picker_btn:
+                picker.addPicker();
                 break;
         }
     }
