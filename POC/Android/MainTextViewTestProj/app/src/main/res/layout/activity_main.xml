@@ -37,7 +37,9 @@
         android:id="@+id/input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:imeOptions="actionDone"/>
+        android:imeOptions="actionDone"
+        android:inputType="none"
+        android:textColor="@android:color/white"/>
     <LinearLayout
         android:id="@+id/languages_btn_container"
         android:layout_width="match_parent"
