@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText editText;
     private String[] enAlphabet = new String[]{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
             "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
-    private String[] ruAlphabet = new String[]{"А", "Б", "В", "Г", "Д", "Е", "Ё", "Ж", "З", "И", "Й", "К",
+    private String[] ruAlphabet = new String[]{"А", "Б", "В", "Г", "Д","Э", "Е", "Ё", "Ж", "З", "И", "Й", "К",
             "Л", "М", "Н", "О", "П", "Р", "С", "Т", "У", "Ф", "Х", "Ц", "Ч", "Ш", "Щ", "Ъ", "Ы", "Ь", "Ю", "Я"};
 
     @Override
