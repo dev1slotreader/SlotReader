@@ -85,18 +85,24 @@ public class SlotView extends LinearLayout {
         }
     }
 
-    public void showWord(String word){
-        setColumnsCount(word.length());
+    public void showWord(String word) throws InvalidSymbolException{
         requiredValues.clear();
         int pickerValueIndex;
-        for(int i = 0; i < pickers.size(); i++){
+        for(int i = 0; i < word.length(); i++){
             if(i < word.length()) {
+                String currentSymbol = word.substring(i, i + 1);
                 pickerValueIndex = 0;
-                while (!values[pickerValueIndex].equals(word.substring(i, i + 1)))
-                    pickerValueIndex++;
+                try {
+                    while (!values[pickerValueIndex].equals(currentSymbol))
+                        pickerValueIndex++;
+                }catch (ArrayIndexOutOfBoundsException e){
+                    requiredValues.clear();
+                    throw new InvalidSymbolException(currentSymbol);
+                }
                 requiredValues.add(pickerValueIndex);
             }
         }
+        setColumnsCount(word.length());
         if(needMoving()) {
             handler.post(movePikersRunnable);
             if(onMovingStartedListener != null)
@@ -198,5 +204,17 @@ public class SlotView extends LinearLayout {
 
     protected interface OnMovingEndedListener{
         void onMovingEnded();
+    }
+
+    protected class InvalidSymbolException extends Exception{
+        String invalidSymbol;
+
+        public InvalidSymbolException(String invalidSymbol){
+            this.invalidSymbol = invalidSymbol.equals(" ")? "'space'" : invalidSymbol;
+        }
+
+        public String getInvalidSymbol() {
+            return invalidSymbol;
+        }
     }
 }

@@ -8,6 +8,7 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener,
         SlotView.OnMovingStartedListener, SlotView.OnMovingEndedListener{
@@ -38,7 +39,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
                     InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
-                    slotView.showWord(editText.getText().toString().toUpperCase());
+                    try {
+                        slotView.showWord(editText.getText().toString().toUpperCase());
+                    } catch (SlotView.InvalidSymbolException e) {
+                        Toast.makeText(getApplicationContext(), "Include invalid symbol: " +
+                                        e.getInvalidSymbol() + ".", Toast.LENGTH_SHORT).show();
+                    }
                     return true;
                 }
                 return false;
