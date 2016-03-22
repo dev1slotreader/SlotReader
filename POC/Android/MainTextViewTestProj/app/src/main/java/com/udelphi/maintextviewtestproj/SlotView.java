@@ -1,7 +1,9 @@
 package com.udelphi.maintextviewtestproj;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.View;
@@ -17,28 +19,24 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class SlotView extends LinearLayout {
-    int requiredValue = 0;
-    Runnable movePikersRunnable;
-    ArrayList<NumberPicker> pickers;
-    String[] values;
-    Handler handler;
+    private int requiredValue = 0;
+    private Runnable movePikersRunnable;
+    private ArrayList<NumberPicker> pickers;
+    private String[] values;
+    private Handler handler;
+    private int textColorId;
+    private Drawable divider;
+    private int columnsCount = 0;
+    private OnMovingStartedListener onMovingStartedListener;
+    private OnMovingEndedListener onMovingEndedListener;
 
     public SlotView(Context context){
         super(context);
-        initView();
     }
 
     public SlotView(Context context, AttributeSet attrs){
         super(context, attrs);
-        initView();
-    }
-
-    public SlotView(Context context, AttributeSet attrs, int defStyle){
-        super(context, attrs, defStyle);
-        initView();
-    }
-
-    private void initView() {
+        pickers = new ArrayList<>();
         movePikersRunnable = new Runnable() {
             @Override
             public void run() {
@@ -56,11 +54,42 @@ public class SlotView extends LinearLayout {
             }
         };
         handler = new Handler();
-        pickers = new ArrayList<>();
-        for (int i = 0; i <= this.getChildCount(); i++) {
-            View v = this.getChildAt(i);
-            if (v instanceof NumberPicker)
-                pickers.add((NumberPicker) v);
+
+        TypedArray obtainAttrs = context.getTheme().obtainStyledAttributes(
+                attrs,
+                R.styleable.SlotView,
+                0, 0);
+        textColorId =  obtainAttrs.getColor(R.styleable.SlotView_text_color, -1);
+        int dividerId =  obtainAttrs.getColor(R.styleable.SlotView_divider_style, -1);
+        switch (dividerId){
+            case 0:
+                divider = getResources().getDrawable(android.R.drawable.divider_horizontal_dark);
+                break;
+            case 1:
+                divider = getResources().getDrawable(android.R.drawable.divider_horizontal_bright);
+                break;
+        }
+        setColumnsCount(obtainAttrs.getInt(R.styleable.SlotView_columns, 1));
+    }
+
+    public SlotView(Context context, AttributeSet attrs, int defStyle){
+        super(context, attrs, defStyle);
+    }
+
+    public void setValues(String[] source){
+        if(!Arrays.equals(this.values, source))
+            this.values = source;
+        for (NumberPicker picker : pickers) {
+            initPicker(picker);
+        }
+    }
+
+    public void moveToValue(String value){
+        setRequiredValue(value);
+        if(needMoving()) {
+            handler.post(movePikersRunnable);
+            if(onMovingStartedListener != null)
+                onMovingStartedListener.onMovingStarted();
         }
     }
 
@@ -70,20 +99,20 @@ public class SlotView extends LinearLayout {
         LayoutParams params = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         params.weight = 1;
         newPicker.setLayoutParams(params);
-        setPickerValues(newPicker);
+        initPicker(newPicker);
         try {
             Field mSelectionDivider = NumberPicker.class.getDeclaredField("mSelectionDivider");
             mSelectionDivider.setAccessible(true);
             Field mSelectorWheelPaint = NumberPicker.class.getDeclaredField("mSelectorWheelPaint");
             mSelectorWheelPaint.setAccessible(true);
 
-            mSelectionDivider.set(newPicker, getResources().getDrawable(android.R.drawable.screen_background_light));
+            mSelectionDivider.set(newPicker, divider);
 
             for (int i = 0; i < newPicker.getChildCount(); i++) {
                 View child = newPicker.getChildAt(i);
                 if (child instanceof EditText)
-                    ((EditText) child).setTextColor(getResources().getColor(android.R.color.white));
-                ((Paint) mSelectorWheelPaint.get(newPicker)).setColor(getResources().getColor(android.R.color.white));
+                    ((EditText) child).setTextColor(textColorId);
+                ((Paint) mSelectorWheelPaint.get(newPicker)).setColor(textColorId);
                 newPicker.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
                 newPicker.invalidate();
             }
@@ -92,21 +121,28 @@ public class SlotView extends LinearLayout {
             e.printStackTrace();
         }
         addView(newPicker);
+        columnsCount++;
     }
 
     public void removeColumn(){
-        removeViewAt(getChildCount() - 1);
-    }
-
-    public void setValues(String[] source){
-        if(!Arrays.equals(this.values, source))
-            this.values = source;
-        for (NumberPicker picker : pickers) {
-            setPickerValues(picker);
+        if(getChildCount() > 1) {
+            removeViewAt(getChildCount() - 1);
+            pickers.remove(pickers.size() - 1);
+            columnsCount--;
         }
     }
 
-    private void setPickerValues(NumberPicker picker){
+    public void setColumnsCount(int count){
+            int dif = count - columnsCount;
+            if(dif < 0)
+                for(int i = 1; i <= dif * -1; i++)
+                    removeColumn();
+            else if (dif > 0)
+                for(int i = 1; i <= dif; i++)
+                    addColumn();
+    }
+
+    private void initPicker(NumberPicker picker){
         if(values != null) {
             picker.setDisplayedValues(null);
             picker.setMinValue(0);
@@ -115,10 +151,12 @@ public class SlotView extends LinearLayout {
         }
     }
 
-    public void moveValue(String value){
-        setRequiredValue(value);
-        if(needMoving())
-            handler.post(movePikersRunnable);
+    public void setOnMovingStartedListener(OnMovingStartedListener onMovingStartedListener) {
+        this.onMovingStartedListener = onMovingStartedListener;
+    }
+
+    public void setOnMovingEndedListener(OnMovingEndedListener onMovingEndedListener) {
+        this.onMovingEndedListener = onMovingEndedListener;
     }
 
     private void setRequiredValue(String symbol){
@@ -132,10 +170,13 @@ public class SlotView extends LinearLayout {
     }
 
     private void OnPickersMoved(){
-        if (needMoving()) {
+        if (needMoving())
             handler.postDelayed(movePikersRunnable, 100);
+        else{
+            handler.removeCallbacks(movePikersRunnable);
+            if(onMovingEndedListener != null)
+                onMovingEndedListener.onMovingEnded();
         }
-        else handler.removeCallbacks(movePikersRunnable);
     }
 
     private boolean needMoving(){
@@ -147,5 +188,13 @@ public class SlotView extends LinearLayout {
             }
         }
         return result;
+    }
+
+    protected interface OnMovingStartedListener{
+        void onMovingStarted();
+    }
+
+    protected interface OnMovingEndedListener{
+        void onMovingEnded();
     }
 }

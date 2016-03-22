@@ -2,9 +2,13 @@ package com.udelphi.maintextviewtestproj;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private SlotView picker;
+public class MainActivity extends AppCompatActivity implements View.OnClickListener,
+        SlotView.OnMovingStartedListener, SlotView.OnMovingEndedListener{
+    private SlotView slotView;
+    private TextView movingIndicator;
     private String[] enAlphabet = new String[]{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
             "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
     private String[] ruAlphabet = new String[]{"А", "Б", "В", "Г", "Д", "Е", "Ё", "Ж", "З", "И", "Й", "К",
@@ -15,14 +19,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        picker = (SlotView)findViewById(R.id.word_picker);
-        picker.setValues(enAlphabet);
+        slotView = (SlotView)findViewById(R.id.word_picker);
+        slotView.setOnMovingStartedListener(this);
+        slotView.setOnMovingEndedListener(this);
+        slotView.setValues(enAlphabet);
         currentSource = CurrentSource.EN;
+
+        movingIndicator = (TextView)findViewById(R.id.moving_indicator);
 
         findViewById(R.id.ru_alphabet_btn).setOnClickListener(this);
         findViewById(R.id.en_alphabet_btn).setOnClickListener(this);
-        findViewById(R.id.remove_picker_btn).setOnClickListener(this);
-        findViewById(R.id.add_picker_btn).setOnClickListener(this);
+        findViewById(R.id.decrement_size).setOnClickListener(this);
+        findViewById(R.id.increment_size).setOnClickListener(this);
+        findViewById(R.id.size_1).setOnClickListener(this);
+        findViewById(R.id.size_3).setOnClickListener(this);
+        findViewById(R.id.size_4).setOnClickListener(this);
+        findViewById(R.id.size_5).setOnClickListener(this);
         findViewById(R.id.a_btn).setOnClickListener(this);
         findViewById(R.id.o_btn).setOnClickListener(this);
         findViewById(R.id.y_btn).setOnClickListener(this);
@@ -32,38 +44,60 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.en_alphabet_btn:
-                picker.setValues(enAlphabet);
+                slotView.setValues(enAlphabet);
                 currentSource = CurrentSource.EN;
                 break;
             case R.id.ru_alphabet_btn:
-                picker.setValues(ruAlphabet);
+                slotView.setValues(ruAlphabet);
                 currentSource = CurrentSource.RU;
+                break;
+            case R.id.decrement_size:
+                slotView.removeColumn();
+                break;
+            case R.id.increment_size:
+                slotView.addColumn();
                 break;
             case R.id.a_btn:
                 if(currentSource == CurrentSource.EN)
-                    picker.moveValue("A"); //Roman alphabet
+                    slotView.moveToValue("A"); //Roman alphabet
                 else
-                    picker.moveValue("А"); //Cyrillic
+                    slotView.moveToValue("А"); //Cyrillic
                 break;
             case R.id.o_btn:
                 if(currentSource == CurrentSource.EN)
-                    picker.moveValue("O");
+                    slotView.moveToValue("O");
                 else
-                    picker.moveValue("О");
+                    slotView.moveToValue("О");
                 break;
             case R.id.y_btn:
                 if(currentSource == CurrentSource.EN)
-                    picker.moveValue("Y");
+                    slotView.moveToValue("Y");
                 else
-                    picker.moveValue("У");
+                    slotView.moveToValue("У");
                 break;
-            case R.id.remove_picker_btn:
-                picker.removeColumn();
+            case R.id.size_1:
+                slotView.setColumnsCount(1);
                 break;
-            case R.id.add_picker_btn:
-                picker.addColumn();
+            case R.id.size_3:
+                slotView.setColumnsCount(3);
+                break;
+            case R.id.size_4:
+                slotView.setColumnsCount(4);
+                break;
+            case R.id.size_5:
+                slotView.setColumnsCount(5);
                 break;
         }
+    }
+
+    @Override
+    public void onMovingEnded() {
+        movingIndicator.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onMovingStarted() {
+        movingIndicator.setVisibility(View.VISIBLE);
     }
 
     private enum CurrentSource { EN, RU }

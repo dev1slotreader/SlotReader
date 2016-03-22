@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:slot_view="http://schemas.android.com/apk/res/com.udelphi.maintextviewtestproj"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -16,12 +17,24 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_centerInParent="true">
+        <TextView
+            android:id="@+id/moving_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@android:color/holo_green_light"
+            android:text="moving now..."
+            android:visibility="gone"/>
         <com.udelphi.maintextviewtestproj.SlotView
             android:id="@+id/word_picker"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            slot_view:columns = "1"
+            slot_view:text_color = "@android:color/white"
+            slot_view:divider_style = "light"/>
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/letter_btn_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -63,21 +76,57 @@
             android:layout_height="wrap_content"
             android:text="@string/ru"/>
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/letter_btn_container">
+        <Button
+            android:id="@+id/size_1"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:textColor="@android:color/white"
+            android:text="1" />
+        <Button
+            android:id="@+id/size_3"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:textColor="@android:color/white"
+            android:text="3"/>
+        <Button
+            android:id="@+id/size_4"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:textColor="@android:color/white"
+            android:text="4" />
+        <Button
+            android:id="@+id/size_5"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:textColor="@android:color/white"
+            android:text="5" />
+    </LinearLayout>
     <Button
-        android:id="@+id/remove_picker_btn"
+        android:id="@+id/decrement_size"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_above="@+id/languages_btn_container"
         android:background="@android:color/transparent"
         android:textColor="@android:color/white"
         android:text="-" />
     <Button
-        android:id="@+id/add_picker_btn"
+        android:id="@+id/increment_size"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
         android:layout_above="@+id/languages_btn_container"
+        android:layout_alignParentEnd="true"
         android:background="@android:color/transparent"
         android:textColor="@android:color/white"
         android:text="+" />
