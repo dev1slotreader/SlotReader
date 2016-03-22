@@ -3,10 +3,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener,
         SlotView.OnMovingStartedListener, SlotView.OnMovingEndedListener{
+
     private SlotView slotView;
     private TextView movingIndicator;
     private String[] enAlphabet = new String[]{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String[] ruAlphabet = new String[]{"А", "Б", "В", "Г", "Д", "Е", "Ё", "Ж", "З", "И", "Й", "К",
             "Л", "М", "О", "П", "Р", "С", "Т", "У", "Ф", "Х", "Ц", "Ч", "Ш", "Щ", "Ъ", "ы", "ь", "Ю", "Я"};
     private CurrentSource currentSource;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,15 +66,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.o_btn:
                 if(currentSource == CurrentSource.EN)
-                    slotView.moveToValue("O");
+                    slotView.moveToValue("O"); //Roman alphabet
                 else
-                    slotView.moveToValue("О");
+                    slotView.moveToValue("О"); //Cyrillic
                 break;
             case R.id.y_btn:
                 if(currentSource == CurrentSource.EN)
-                    slotView.moveToValue("Y");
+                    slotView.moveToValue("Y"); //Roman alphabet
                 else
-                    slotView.moveToValue("У");
+                    slotView.moveToValue("У"); //Cyrillic
                 break;
             case R.id.size_1:
                 slotView.setColumnsCount(1);

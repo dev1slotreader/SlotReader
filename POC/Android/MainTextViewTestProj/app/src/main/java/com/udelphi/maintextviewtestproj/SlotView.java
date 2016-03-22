@@ -31,11 +31,15 @@ public class SlotView extends LinearLayout {
     private OnMovingEndedListener onMovingEndedListener;
 
     public SlotView(Context context){
-        super(context);
+        this(context, null);
     }
 
     public SlotView(Context context, AttributeSet attrs){
-        super(context, attrs);
+       this(context, attrs, 0);
+    }
+
+    public SlotView(Context context, AttributeSet attrs, int defStyle){
+        super(context, attrs, defStyle);
         pickers = new ArrayList<>();
         movePikersRunnable = new Runnable() {
             @Override
@@ -70,10 +74,6 @@ public class SlotView extends LinearLayout {
                 break;
         }
         setColumnsCount(obtainAttrs.getInt(R.styleable.SlotView_columns, 1));
-    }
-
-    public SlotView(Context context, AttributeSet attrs, int defStyle){
-        super(context, attrs, defStyle);
     }
 
     public void setValues(String[] source){
