@@ -1,7 +1,12 @@
 package com.udelphi.maintextviewtestproj;
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener,
@@ -9,11 +14,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private SlotView slotView;
     private TextView movingIndicator;
+    private EditText editText;
     private String[] enAlphabet = new String[]{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
             "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
     private String[] ruAlphabet = new String[]{"А", "Б", "В", "Г", "Д", "Е", "Ё", "Ж", "З", "И", "Й", "К",
             "Л", "М", "О", "П", "Р", "С", "Т", "У", "Ф", "Х", "Ц", "Ч", "Ш", "Щ", "Ъ", "ы", "ь", "Ю", "Я"};
-    private CurrentSource currentSource;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +29,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         slotView.setOnMovingStartedListener(this);
         slotView.setOnMovingEndedListener(this);
         slotView.setValues(enAlphabet);
-        currentSource = CurrentSource.EN;
 
         movingIndicator = (TextView)findViewById(R.id.moving_indicator);
+        editText = (EditText)findViewById(R.id.input);
+        editText.setImeOptions(EditorInfo.IME_ACTION_DONE);
+        editText.setOnKeyListener(new View.OnKeyListener() {
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                    slotView.showWord(editText.getText().toString().toUpperCase());
+                    return true;
+                }
+                return false;
+            }
+        });
 
         findViewById(R.id.ru_alphabet_btn).setOnClickListener(this);
         findViewById(R.id.en_alphabet_btn).setOnClickListener(this);
@@ -36,9 +53,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.size_3).setOnClickListener(this);
         findViewById(R.id.size_4).setOnClickListener(this);
         findViewById(R.id.size_5).setOnClickListener(this);
-        findViewById(R.id.a_btn).setOnClickListener(this);
-        findViewById(R.id.o_btn).setOnClickListener(this);
-        findViewById(R.id.y_btn).setOnClickListener(this);
     }
 
     @Override
@@ -46,35 +60,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.en_alphabet_btn:
                 slotView.setValues(enAlphabet);
-                currentSource = CurrentSource.EN;
                 break;
             case R.id.ru_alphabet_btn:
                 slotView.setValues(ruAlphabet);
-                currentSource = CurrentSource.RU;
                 break;
             case R.id.decrement_size:
                 slotView.removeColumn();
                 break;
             case R.id.increment_size:
                 slotView.addColumn();
-                break;
-            case R.id.a_btn:
-                if(currentSource == CurrentSource.EN)
-                    slotView.showWord("WORD"); //Roman alphabet
-                else
-                    slotView.showWord("А"); //Cyrillic
-                break;
-            case R.id.o_btn:
-                if(currentSource == CurrentSource.EN)
-                    slotView.showWord("O"); //Roman alphabet
-                else
-                    slotView.showWord("О"); //Cyrillic
-                break;
-            case R.id.y_btn:
-                if(currentSource == CurrentSource.EN)
-                    slotView.showWord("Y"); //Roman alphabet
-                else
-                    slotView.showWord("У"); //Cyrillic
                 break;
             case R.id.size_1:
                 slotView.setColumnsCount(1);
@@ -100,6 +94,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onMovingStarted() {
         movingIndicator.setVisibility(View.VISIBLE);
     }
-
-    private enum CurrentSource { EN, RU }
 }

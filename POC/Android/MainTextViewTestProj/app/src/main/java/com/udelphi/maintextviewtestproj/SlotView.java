@@ -87,6 +87,7 @@ public class SlotView extends LinearLayout {
 
     public void showWord(String word){
         setColumnsCount(word.length());
+        requiredValues.clear();
         int pickerValueIndex;
         for(int i = 0; i < pickers.size(); i++){
             if(i < word.length()) {
@@ -168,19 +169,6 @@ public class SlotView extends LinearLayout {
     public void setOnMovingEndedListener(OnMovingEndedListener onMovingEndedListener) {
         this.onMovingEndedListener = onMovingEndedListener;
     }
-
-//    private void setRequiredValue(String value){
-//        setColumnsCount(value.length());
-//        int pickerValueIndex;
-//        for(int i = 0; i < pickers.size(); i++){
-//            if(i < value.length()) {
-//                pickerValueIndex = 0;
-//                while (!values[pickerValueIndex].equals(value.substring(i, i + 1)))
-//                    pickerValueIndex++;
-//                requiredValues.add(pickerValueIndex);
-//            }
-//        }
-//    }
 
     private void OnPickersMoved(){
         if (needMoving())

@@ -33,30 +33,11 @@
             slot_view:text_color = "@android:color/white"
             slot_view:divider_style = "light"/>
     </LinearLayout>
-    <LinearLayout
-        android:id="@+id/letter_btn_container"
+    <EditText
+        android:id="@+id/input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <Button
-            android:id="@+id/a_btn"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/to_a"/>
-        <Button
-            android:id="@+id/o_btn"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/to_o"/>
-        <Button
-            android:id="@+id/y_btn"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/to_y"/>
-    </LinearLayout>
+        android:imeOptions="actionDone"/>
     <LinearLayout
         android:id="@+id/languages_btn_container"
         android:layout_width="match_parent"
@@ -79,7 +60,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/letter_btn_container">
+        android:layout_below="@+id/input">
         <Button
             android:id="@+id/size_1"
             android:layout_weight="1"
