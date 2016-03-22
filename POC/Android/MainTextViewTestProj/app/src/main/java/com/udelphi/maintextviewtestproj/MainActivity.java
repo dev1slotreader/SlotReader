@@ -60,21 +60,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.a_btn:
                 if(currentSource == CurrentSource.EN)
-                    slotView.moveToValue("A"); //Roman alphabet
+                    slotView.showWord("WORD"); //Roman alphabet
                 else
-                    slotView.moveToValue("А"); //Cyrillic
+                    slotView.showWord("А"); //Cyrillic
                 break;
             case R.id.o_btn:
                 if(currentSource == CurrentSource.EN)
-                    slotView.moveToValue("O"); //Roman alphabet
+                    slotView.showWord("O"); //Roman alphabet
                 else
-                    slotView.moveToValue("О"); //Cyrillic
+                    slotView.showWord("О"); //Cyrillic
                 break;
             case R.id.y_btn:
                 if(currentSource == CurrentSource.EN)
-                    slotView.moveToValue("Y"); //Roman alphabet
+                    slotView.showWord("Y"); //Roman alphabet
                 else
-                    slotView.moveToValue("У"); //Cyrillic
+                    slotView.showWord("У"); //Cyrillic
                 break;
             case R.id.size_1:
                 slotView.setColumnsCount(1);

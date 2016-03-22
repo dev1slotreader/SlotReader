@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class SlotView extends LinearLayout {
-    private int requiredValue = 0;
+    private ArrayList<Integer> requiredValues;
     private Runnable movePikersRunnable;
     private ArrayList<NumberPicker> pickers;
     private String[] values;
@@ -41,15 +41,16 @@ public class SlotView extends LinearLayout {
     public SlotView(Context context, AttributeSet attrs, int defStyle){
         super(context, attrs, defStyle);
         pickers = new ArrayList<>();
+        requiredValues = new ArrayList<>();
         movePikersRunnable = new Runnable() {
             @Override
             public void run() {
                 try {
                     Method method = NumberPicker.class.getDeclaredMethod("changeValueByOne", boolean.class);
                     method.setAccessible(true);
-                    for (NumberPicker picker : pickers) {
-                        if (picker.getValue() != requiredValue)
-                            method.invoke(picker, true);
+                    for (int i = 0; i < pickers.size(); i++) {
+                        if ( i < requiredValues.size() && pickers.get(i).getValue() != requiredValues.get(i))
+                            method.invoke(pickers.get(i), true);
                     }
                     OnPickersMoved();
                 } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
@@ -84,8 +85,17 @@ public class SlotView extends LinearLayout {
         }
     }
 
-    public void moveToValue(String value){
-        setRequiredValue(value);
+    public void showWord(String word){
+        setColumnsCount(word.length());
+        int pickerValueIndex;
+        for(int i = 0; i < pickers.size(); i++){
+            if(i < word.length()) {
+                pickerValueIndex = 0;
+                while (!values[pickerValueIndex].equals(word.substring(i, i + 1)))
+                    pickerValueIndex++;
+                requiredValues.add(pickerValueIndex);
+            }
+        }
         if(needMoving()) {
             handler.post(movePikersRunnable);
             if(onMovingStartedListener != null)
@@ -159,15 +169,18 @@ public class SlotView extends LinearLayout {
         this.onMovingEndedListener = onMovingEndedListener;
     }
 
-    private void setRequiredValue(String symbol){
-        try {
-            while (!values[requiredValue].equals(symbol))
-                requiredValue++;
-        }catch (IndexOutOfBoundsException e) {
-            requiredValue = 0;
-            setRequiredValue(symbol);
-        }
-    }
+//    private void setRequiredValue(String value){
+//        setColumnsCount(value.length());
+//        int pickerValueIndex;
+//        for(int i = 0; i < pickers.size(); i++){
+//            if(i < value.length()) {
+//                pickerValueIndex = 0;
+//                while (!values[pickerValueIndex].equals(value.substring(i, i + 1)))
+//                    pickerValueIndex++;
+//                requiredValues.add(pickerValueIndex);
+//            }
+//        }
+//    }
 
     private void OnPickersMoved(){
         if (needMoving())
@@ -182,7 +195,8 @@ public class SlotView extends LinearLayout {
     private boolean needMoving(){
         boolean result = false;
         for(NumberPicker picker : pickers) {
-            if (picker.getValue() != requiredValue) {
+            if (pickers.indexOf(picker) < requiredValues.size() &&
+                    picker.getValue() != requiredValues.get(pickers.indexOf(picker))) {
                 result = true;
                 break;
             }
