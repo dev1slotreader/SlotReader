@@ -110,6 +110,14 @@ public class SlotView extends LinearLayout {
         }
     }
 
+    public String readWord(){
+        StringBuilder builder = new StringBuilder();
+        for(NumberPicker picker : pickers){
+            builder.append(values[picker.getValue()]);
+        }
+        return builder.toString();
+    }
+
     public void addColumn(){
         NumberPicker newPicker = new NumberPicker(getContext());
         pickers.add(newPicker);

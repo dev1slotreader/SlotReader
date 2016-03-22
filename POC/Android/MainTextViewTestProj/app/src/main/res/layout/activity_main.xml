@@ -113,4 +113,11 @@
         android:background="@android:color/transparent"
         android:textColor="@android:color/white"
         android:text="+" />
+    <Button
+        android:id="@+id/read_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/languages_btn_container"
+        android:layout_centerInParent="true"
+        android:text="Read word" />
 </RelativeLayout>

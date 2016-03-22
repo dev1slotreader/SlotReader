@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.en_alphabet_btn).setOnClickListener(this);
         findViewById(R.id.decrement_size).setOnClickListener(this);
         findViewById(R.id.increment_size).setOnClickListener(this);
+        findViewById(R.id.read_btn).setOnClickListener(this);
         findViewById(R.id.size_1).setOnClickListener(this);
         findViewById(R.id.size_3).setOnClickListener(this);
         findViewById(R.id.size_4).setOnClickListener(this);
@@ -75,6 +76,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.increment_size:
                 slotView.addColumn();
+                break;
+            case R.id.read_btn:
+                editText.setText(slotView.readWord());
                 break;
             case R.id.size_1:
                 slotView.setColumnsCount(1);
