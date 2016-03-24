@@ -53,7 +53,11 @@ public class SlotView extends LinearLayout {
                             method.invoke(pickers.get(i), true);
                     }
                     OnPickersMoved();
-                } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
+                } catch (InvocationTargetException e) {
+                    e.printStackTrace();
+                } catch (NoSuchMethodException e) {
+                    e.printStackTrace();
+                } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }
             }
@@ -65,7 +69,7 @@ public class SlotView extends LinearLayout {
                 R.styleable.SlotView,
                 0, 0);
         textColorId =  obtainAttrs.getColor(R.styleable.SlotView_text_color, -1);
-        int dividerId =  obtainAttrs.getColor(R.styleable.SlotView_divider_style, -1);
+        int dividerId =  obtainAttrs.getColor(R.styleable.SlotView_dividerStyle, -1);
         switch (dividerId){
             case 0:
                 divider = getResources().getDrawable(android.R.drawable.divider_horizontal_dark);
@@ -142,7 +146,9 @@ public class SlotView extends LinearLayout {
                 newPicker.invalidate();
             }
 
-        } catch (NoSuchFieldException | IllegalAccessException e) {
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (NoSuchFieldException e) {
             e.printStackTrace();
         }
         addView(newPicker);

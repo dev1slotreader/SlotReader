@@ -2,10 +2,10 @@
 <resources>
     <declare-styleable name="SlotView">
         <attr name="columns" format="integer"/>
-        <attr name="text_color" format="color" />
-        <attr name="divider_style" format="enum">
+        <attr name="dividerStyle" format="enum">
             <enum name="light" value="0"/>
             <enum name="dark" value="1"/>
         </attr>
+        <attr name="text_color" format="color" />
     </declare-styleable>
 </resources>
