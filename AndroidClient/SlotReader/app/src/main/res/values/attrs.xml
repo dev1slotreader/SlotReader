@@ -3,6 +3,6 @@
     <declare-styleable name="SlotView">
         <attr name="columns" format="integer"/>
         <attr name="dividerDrawable" format="integer"/>
-        <attr name="text_color" format="color" />
+        <attr name="textColor" format="color" />
     </declare-styleable>
 </resources>

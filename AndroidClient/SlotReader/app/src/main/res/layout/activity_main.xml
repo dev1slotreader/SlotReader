@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:slot_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -9,4 +10,15 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@drawable/background"
     tools:context="com.udelphi.slotreader.MainActivity">
+
+    <com.udelphi.slotreader.Controlls.SlotView
+        android:id="@+id/word_picker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:layout_centerInParent="true"
+        slot_view:columns = "5"
+        slot_view:textColor = "@android:color/white"
+        slot_view:dividerDrawable = "@android:drawable/divider_horizontal_dark"/>
+
 </RelativeLayout>

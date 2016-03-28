@@ -1,4 +1,4 @@
-package com.udelphi.maintextviewtestproj;
+package com.udelphi.slotreader.Controlls;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -9,8 +9,11 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.NumberPicker;
+
+import com.udelphi.slotreader.Abstractions.BoardView;
+import com.udelphi.slotreader.Exceptions.InvalidInputException;
+import com.udelphi.slotreader.R;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -18,7 +21,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class SlotView extends LinearLayout {
+public class SlotView extends BoardView{
     private ArrayList<Integer> requiredValues;
     private Runnable movePikersRunnable;
     private ArrayList<NumberPicker> pickers;
@@ -29,12 +32,12 @@ public class SlotView extends LinearLayout {
     private int columnsCount = 0;
     private MovingListener movingListener;
 
-    public SlotView(Context context){
+    public SlotView(Context context) {
         this(context, null);
     }
 
     public SlotView(Context context, AttributeSet attrs){
-       this(context, attrs, 0);
+        this(context, attrs, 0);
     }
 
     public SlotView(Context context, AttributeSet attrs, int defStyle){
@@ -67,11 +70,12 @@ public class SlotView extends LinearLayout {
                 attrs,
                 R.styleable.SlotView,
                 0, 0);
-        textColorId =  obtainAttrs.getColor(R.styleable.SlotView_text_color, -1);
+        textColorId =  obtainAttrs.getColor(R.styleable.SlotView_textColor, -1);
         divider = obtainAttrs.getDrawable(R.styleable.SlotView_dividerDrawable);
         setLettersCount(obtainAttrs.getInt(R.styleable.SlotView_columns, 1));
     }
 
+    @Override
     public void setValues(String[] values){
         if(!Arrays.equals(this.values, values))
             this.values = values;
@@ -80,6 +84,7 @@ public class SlotView extends LinearLayout {
         }
     }
 
+    @Override
     public void showWord(String word) throws InvalidInputException {
         requiredValues.clear();
         int pickerValueIndex;
@@ -105,6 +110,7 @@ public class SlotView extends LinearLayout {
         }
     }
 
+    @Override
     public String readWord(){
         StringBuilder builder = new StringBuilder();
         for(NumberPicker picker : pickers){
@@ -113,8 +119,10 @@ public class SlotView extends LinearLayout {
         return builder.toString();
     }
 
+    @Override
     public void addLetter(){
         NumberPicker newPicker = new NumberPicker(getContext());
+        newPicker.setLayerType(LAYER_TYPE_HARDWARE, null);
         pickers.add(newPicker);
         LayoutParams params = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         params.weight = 1;
@@ -146,6 +154,7 @@ public class SlotView extends LinearLayout {
         columnsCount++;
     }
 
+    @Override
     public void removeLetter(){
         if(getChildCount() > 1) {
             removeViewAt(getChildCount() - 1);
@@ -154,14 +163,15 @@ public class SlotView extends LinearLayout {
         }
     }
 
+    @Override
     public void setLettersCount(int count){
-            int dif = count - columnsCount;
-            if(dif < 0)
-                for(int i = 1; i <= dif * -1; i++)
-                    removeLetter();
-            else if (dif > 0)
-                for(int i = 1; i <= dif; i++)
-                    addLetter();
+        int dif = count - columnsCount;
+        if(dif < 0)
+            for(int i = 1; i <= dif * -1; i++)
+                removeLetter();
+        else if (dif > 0)
+            for(int i = 1; i <= dif; i++)
+                addLetter();
     }
 
     private void initPicker(NumberPicker picker){
@@ -173,6 +183,7 @@ public class SlotView extends LinearLayout {
         }
     }
 
+    @Override
     public void setMovingListener(MovingListener movingListener) {
         this.movingListener = movingListener;
     }
@@ -197,22 +208,5 @@ public class SlotView extends LinearLayout {
             }
         }
         return result;
-    }
-
-    protected interface MovingListener{
-        void onMovingStarted();
-        void onMovingEnded();
-    }
-
-    protected class InvalidInputException extends Exception{
-        String invalidSymbol;
-
-        public InvalidInputException(String invalidSymbol){
-            this.invalidSymbol = invalidSymbol.equals(" ")? "'space'" : invalidSymbol;
-        }
-
-        public String getInvalidSymbol() {
-            return invalidSymbol;
-        }
     }
 }

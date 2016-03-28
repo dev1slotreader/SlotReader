@@ -10,9 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener,
-        SlotView.OnMovingStartedListener, SlotView.OnMovingEndedListener{
-
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, SlotView.MovingListener{
     private SlotView slotView;
     private TextView movingIndicator;
     private EditText editText;
@@ -27,8 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         slotView = (SlotView)findViewById(R.id.word_picker);
-        slotView.setOnMovingStartedListener(this);
-        slotView.setOnMovingEndedListener(this);
+        slotView.setMovingListener(this);
         slotView.setValues(enAlphabet);
 
         movingIndicator = (TextView)findViewById(R.id.moving_indicator);
@@ -41,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
                     try {
                         slotView.showWord(editText.getText().toString().toUpperCase());
-                    } catch (SlotView.InvalidSymbolException e) {
+                    } catch (SlotView.InvalidInputException e) {
                         Toast.makeText(getApplicationContext(), "Include invalid symbol: " +
                                         e.getInvalidSymbol() + ".", Toast.LENGTH_SHORT).show();
                     }
@@ -72,25 +69,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 slotView.setValues(ruAlphabet);
                 break;
             case R.id.decrement_size:
-                slotView.removeColumn();
+                slotView.removeLetter();
                 break;
             case R.id.increment_size:
-                slotView.addColumn();
+                slotView.addLetter();
                 break;
             case R.id.read_btn:
                 editText.setText(slotView.readWord());
                 break;
             case R.id.size_1:
-                slotView.setColumnsCount(1);
+                slotView.setLettersCount(1);
                 break;
             case R.id.size_3:
-                slotView.setColumnsCount(3);
+                slotView.setLettersCount(3);
                 break;
             case R.id.size_4:
-                slotView.setColumnsCount(4);
+                slotView.setLettersCount(4);
                 break;
             case R.id.size_5:
-                slotView.setColumnsCount(5);
+                slotView.setLettersCount(5);
                 break;
         }
     }

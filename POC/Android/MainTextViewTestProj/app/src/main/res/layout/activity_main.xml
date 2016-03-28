@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             slot_view:columns = "1"
             slot_view:text_color = "@android:color/white"
-            slot_view:dividerStyle = "light"/>
+            slot_view:dividerDrawable = "@android:drawable/divider_horizontal_dark"/>
     </LinearLayout>
     <EditText
         android:id="@+id/input"
