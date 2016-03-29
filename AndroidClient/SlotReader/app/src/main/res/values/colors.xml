@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FFA00F</color>
-    <color name="colorBtnPressed">#FFFFAF</color>
+    <color name="colorAccent">#7F0000</color>
+
+    <color name="colorBtnPressed">#CC0000</color>
+
+    <color name="size_btn_color_1">#662D91</color>
+    <color name="size_btn_color_2">#0F75BC</color>
+    <color name="size_btn_color_3">#39B54A</color>
+    <color name="size_btn_color_4">#F7941E</color>
+    <color name="size_btn_color_5">#BF1E2E</color>
+
+    <array name="size_btn_colors">
+        <item>@color/size_btn_color_1</item>
+        <item>@color/size_btn_color_2</item>
+        <item>@color/size_btn_color_3</item>
+        <item>@color/size_btn_color_4</item>
+        <item>@color/size_btn_color_5</item>
+    </array>
 </resources>
