@@ -11,99 +11,77 @@
     android:background="@drawable/background"
     tools:context="com.udelphi.slotreader.MainActivity">
 
-    <ImageButton
-        android:id="@+id/languages_btn"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@android:drawable/ic_input_add"/>
+        android:layout_marginLeft="@dimen/edit_text_horizontal_margin"
+        android:layout_marginRight="@dimen/edit_text_horizontal_margin"
+        android:gravity="center"
+        android:inputType=""/>
 
-    <ImageButton
-        android:id="@+id/board_style_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@android:drawable/ic_input_add"
-        android:layout_centerHorizontal="true"/>
-
-    <ImageButton
-        android:id="@+id/vocabulary_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@android:drawable/ic_input_add"
-        android:layout_alignParentRight="true"/>
-
-    <LinearLayout
+    <com.udelphi.slotreader.Controlls.SlotView
+        android:id="@+id/word_picker"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_below="@+id/languages_btn"
+        android:layout_below="@+id/editText"
         android:layout_above="@+id/size_btn_container"
-        android:layout_marginLeft="@dimen/board_horizontal_padding"
-        android:layout_marginRight="@dimen/board_horizontal_padding"
-        android:layout_marginTop="@dimen/board_vertical_padding"
-        android:layout_marginBottom="@dimen/board_vertical_padding"
-        android:padding="8dp"
-        android:orientation="vertical"
-        android:background="@color/colorPrimary">
+        android:layout_marginLeft="@dimen/board_horizontal_margin"
+        android:layout_marginRight="@dimen/board_horizontal_margin"
+        android:background="@drawable/board_green"
+        android:gravity="center"
+        android:padding="32dp"
+        slot_view:columns="1"
+        slot_view:textColor="@android:color/white"
+        slot_view:dividerDrawable="@android:drawable/divider_horizontal_dark"/>
 
-        <com.udelphi.slotreader.Controlls.SlotView
-            android:id="@+id/word_picker"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            slot_view:columns = "1"
-            slot_view:textColor = "@android:color/white"
-            slot_view:dividerDrawable = "@android:drawable/divider_horizontal_dark"/>
-    </LinearLayout>
-
+    <ImageButton
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:background="@drawable/img_btn_selector"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:elevation="8dp"
+        android:src="@mipmap/btn_left"
+        android:contentDescription="@string/previous" />
+    <ImageButton
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:background="@drawable/img_btn_selector"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="16dp"
+        android:elevation="8dp"
+        android:src="@mipmap/btn_right"
+        android:contentDescription="@string/next"/>
     <LinearLayout
         android:id="@+id/size_btn_container"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:gravity="center">
-        <View
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"/>
         <Button
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:text="1"/>
-        <View
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"/>
         <Button
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:text="3"/>
-        <View
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"/>
         <Button
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:text="4"/>
-        <View
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"/>
         <Button
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:text="5"/>
-        <View
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"/>
         <Button
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:text="5+"/>
-        <View
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"/>
     </LinearLayout>
 </RelativeLayout>
