@@ -1,46 +1,54 @@
 package com.udelphi.slotreader;
 
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Gallery;
-import android.widget.TextView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
-import com.udelphi.slotreader.Abstractions.BoardView;
-import com.udelphi.slotreader.Adapters.GalleryAdapter;
+import com.udelphi.slotreader.Fragments.ReaderFragment;
 
-public class MainActivity extends AppCompatActivity {
-    private String[] enAlphabet = new String[]{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
-            "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"}; //Remove after parser import
+public class MainActivity extends AppCompatActivity implements ListView.OnItemClickListener{
+    private String[] menuItems;
+    private DrawerLayout drawerLayout;
+    private ListView drawerList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final BoardView boardView = (BoardView) findViewById(R.id.word_picker);
-        assert boardView != null;
-        boardView.setValues(enAlphabet);
+        menuItems = getResources().getStringArray(R.array.menu_items);
+        drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
+        drawerList = (ListView)findViewById(R.id.left_drawer);
 
-        Gallery gallery = (Gallery) findViewById(R.id.size_switch);
-        assert gallery != null;
-        gallery.setAdapter(new GalleryAdapter((getApplicationContext())));
-        gallery.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String value = ((TextView)view).getText().toString();
-                try {
-                    boardView.setLettersCount(Integer.valueOf(value));
-                }catch (NumberFormatException ignored){
-                    boardView.setLettersCount(Integer.valueOf(value.substring(0, value.length() - 1)));
-                }
-            }
+        drawerList.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,
+                menuItems));
+        drawerList.setOnItemClickListener(this);
+        onItemClick(null, null, 0, 0);
+    }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Fragment fragment;
+        switch (position){
+            case 0:
+                fragment = new ReaderFragment();
+                break;
+            default:
+                fragment = null;
+        }
 
-            }
-        });
+        if(fragment != null){
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.content_frame, fragment)
+                    .commit();
+        }
+        drawerList.setItemChecked(position, true);
+        drawerLayout.closeDrawer(drawerList);
     }
 }
