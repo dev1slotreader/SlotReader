@@ -6,15 +6,22 @@
     android:layout_height="match_parent"
     android:background="@drawable/background"
     tools:context="com.udelphi.slotreader.MainActivity">
-    <ImageButton
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@android:color/transparent"
-        android:src="@android:drawable/"/>
-    <FrameLayout
-        android:id="@+id/content_frame"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
+        <ImageButton
+            android:id="@+id/menu_btn"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_margin="@dimen/FAB_margin"
+            android:background="@android:color/transparent"
+            android:src="@mipmap/menu"/>
+        <FrameLayout
+            android:id="@+id/content_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </RelativeLayout>
+
     <ListView
         android:id="@+id/left_drawer"
         android:layout_width="240dp"
