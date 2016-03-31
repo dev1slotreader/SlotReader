@@ -2,6 +2,7 @@
     <string name="app_name">SlotReader</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="menu">menu</string>
 
     <string-array name="menu_items">
         <item>Reader</item>

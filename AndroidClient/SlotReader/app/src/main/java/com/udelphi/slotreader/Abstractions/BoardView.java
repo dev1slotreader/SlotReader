@@ -26,7 +26,7 @@ public class BoardView extends LinearLayout implements IBoardView {
     }
 
     @Override
-    public void showWord(String word) throws InvalidInputException {
+    public void showWord(String word){
 
     }
 

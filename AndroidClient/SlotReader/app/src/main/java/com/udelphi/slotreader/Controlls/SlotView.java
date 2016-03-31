@@ -6,6 +6,7 @@ import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -85,20 +86,16 @@ public class SlotView extends BoardView{
     }
 
     @Override
-    public void showWord(String word) throws InvalidInputException {
+    public void showWord(String word){
         requiredValues.clear();
+        Log.d("my_log", word);
         int pickerValueIndex;
         for(int i = 0; i < word.length(); i++){
             if(i < word.length()) {
-                String currentSymbol = word.substring(i, i + 1);
+                String currentSymbol = word.substring(i, i + 1).toUpperCase();
                 pickerValueIndex = 0;
-                try {
-                    while (!values[pickerValueIndex].equals(currentSymbol))
-                        pickerValueIndex++;
-                }catch (ArrayIndexOutOfBoundsException e){
-                    requiredValues.clear();
-                    throw new InvalidInputException(currentSymbol);
-                }
+                while (!values[pickerValueIndex].equals(currentSymbol))
+                    pickerValueIndex++;
                 requiredValues.add(pickerValueIndex);
             }
         }

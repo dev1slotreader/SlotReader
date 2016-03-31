@@ -8,13 +8,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Gallery;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.udelphi.slotreader.Abstractions.BoardView;
 import com.udelphi.slotreader.Adapters.GalleryAdapter;
+import com.udelphi.slotreader.Model.JsonHelper;
 import com.udelphi.slotreader.R;
 
-public class ReaderFragment extends Fragment{
+import org.json.JSONException;
+
+import java.io.IOException;
+
+public class ReaderFragment extends Fragment implements View.OnClickListener{
+    private BoardView boardView;
+    private JsonHelper jsonHelper;
+
     private String[] enAlphabet = new String[]{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
             "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
 
@@ -22,13 +31,20 @@ public class ReaderFragment extends Fragment{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        try {
+            jsonHelper = new JsonHelper(getActivity().getApplicationContext(), "slot_reader_source", "languages",
+                    "charactersCount", "words");
+        } catch (IOException | JSONException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_reader, null);
-        final BoardView boardView = (BoardView)view.findViewById(R.id.word_picker);
+        boardView = (BoardView)view.findViewById(R.id.word_picker);
 
         assert boardView != null;
         boardView.setValues(enAlphabet);
@@ -43,8 +59,12 @@ public class ReaderFragment extends Fragment{
                 try {
                     boardView.setLettersCount(Integer.valueOf(value));
                 } catch (NumberFormatException ignored) {
-                    boardView.setLettersCount(Integer.valueOf(value.substring(0, value.length() - 1)));
+                    value = value.substring(0, value.length() - 1);
+                    boardView.setLettersCount(Integer.valueOf(value));
                 }
+                jsonHelper.setWord_size_index(position);
+                String w = jsonHelper.getCurrentWord();
+                boardView.showWord(w);
             }
 
             @Override
@@ -52,6 +72,25 @@ public class ReaderFragment extends Fragment{
 
             }
         });
+
+        ImageButton nextBtn = (ImageButton)view.findViewById(R.id.next_btn);
+        nextBtn.setOnClickListener(this);
+        ImageButton previousBtn = (ImageButton)view.findViewById(R.id.previous_btn);
+        previousBtn.setOnClickListener(this);
+
         return view;
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.next_btn:
+                boardView.showWord(jsonHelper.getNextWord());
+                break;
+            case R.id.previous_btn:
+                boardView.showWord(jsonHelper.getPreviousWord());
+                break;
+        }
     }
 }
