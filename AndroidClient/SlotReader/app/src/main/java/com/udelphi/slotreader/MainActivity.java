@@ -1,5 +1,7 @@
 package com.udelphi.slotreader;
 
+import android.os.Build;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -22,8 +24,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ImageButton button = (ImageButton)findViewById(R.id.menu_btn);
-        button.setOnClickListener(this);
+        ImageButton menuBtn = (ImageButton)findViewById(R.id.menu_btn);
+        menuBtn.setOnClickListener(this);
         menuItems = getResources().getStringArray(R.array.menu_items);
         drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
         drawerList = (ListView)findViewById(R.id.left_drawer);
@@ -52,6 +54,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         };
         drawerList.setOnItemClickListener(menuClickListener);
         menuClickListener.onItemClick(null, null, 0, 0);
+
+        if(Build.VERSION.SDK_INT < 19) {
+            getWindow().getDecorView().setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
+                @Override
+                public void onSystemUiVisibilityChange(int visibility) {
+                    if ((visibility & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0) {
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                hideSystemNavigation();
+                            }
+                        }, 5000);
+                    }
+
+                }
+            });
+        }
+        hideSystemNavigation();
     }
 
     @Override
@@ -60,6 +80,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.menu_btn:
                 drawerLayout.openDrawer(drawerList);
                 break;
+        }
+    }
+
+    private void hideSystemNavigation(){
+        if(Build.VERSION.SDK_INT >= 19){
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                    | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                    | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                    | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                    | View.SYSTEM_UI_FLAG_FULLSCREEN
+                    | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+        } else {
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                    | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                    | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                    | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                    | View.SYSTEM_UI_FLAG_FULLSCREEN);
         }
     }
 }

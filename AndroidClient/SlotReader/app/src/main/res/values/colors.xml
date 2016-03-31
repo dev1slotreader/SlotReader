@@ -6,6 +6,7 @@
     <color name="colorAccent">#C59B6C</color>
 
     <color name="colorBtnPressed">#C4B171</color>
+    <color name="colorMenuBtnPressed">#E4DCC1</color>
 
     <color name="size_btn_color_1">#662D91</color>
     <color name="size_btn_color_2">#0F75BC</color>

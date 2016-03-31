@@ -9,17 +9,17 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <ImageButton
-            android:id="@+id/menu_btn"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_margin="@dimen/FAB_margin"
-            android:background="@android:color/transparent"
-            android:src="@mipmap/menu"/>
         <FrameLayout
             android:id="@+id/content_frame"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
+        <ImageButton
+            android:id="@+id/menu_btn"
+            android:layout_width="@dimen/FAB_size"
+            android:layout_height="@dimen/FAB_size"
+            android:padding="4dp"
+            android:background="@drawable/menu_btn_selector"
+            android:src="@mipmap/menu"/>
     </RelativeLayout>
 
     <ListView
