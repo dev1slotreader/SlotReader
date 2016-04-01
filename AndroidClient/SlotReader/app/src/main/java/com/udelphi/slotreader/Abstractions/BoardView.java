@@ -31,6 +31,11 @@ public class BoardView extends LinearLayout implements IBoardView {
     }
 
     @Override
+    public void showWordImmediately(String word) {
+
+    }
+
+    @Override
     public String readWord() {
         return null;
     }

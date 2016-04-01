@@ -15,7 +15,6 @@ import android.widget.ListView;
 import com.udelphi.slotreader.Fragments.ReaderFragment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private String[] menuItems;
     private DrawerLayout drawerLayout;
     private ListView drawerList;
 
@@ -27,11 +26,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ImageButton menuBtn = (ImageButton)findViewById(R.id.menu_btn);
         assert menuBtn != null;
         menuBtn.setOnClickListener(this);
-        menuItems = getResources().getStringArray(R.array.menu_items);
         drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
         drawerList = (ListView)findViewById(R.id.left_drawer);
         drawerList.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,
-                menuItems));
+                getResources().getStringArray(R.array.menu_items)));
         ListView.OnItemClickListener menuClickListener = new ListView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

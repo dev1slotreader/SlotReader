@@ -88,23 +88,22 @@ public class SlotView extends BoardView{
     @Override
     public void showWord(String word){
         requiredValues.clear();
-        Log.d("my_log", word);
-        int pickerValueIndex;
-        for(int i = 0; i < word.length(); i++){
-            if(i < word.length()) {
-                String currentSymbol = word.substring(i, i + 1).toUpperCase();
-                pickerValueIndex = 0;
-                while (!values[pickerValueIndex].equals(currentSymbol))
-                    pickerValueIndex++;
-                requiredValues.add(pickerValueIndex);
-            }
-        }
+        determinePickersPositions(word);
         setLettersCount(word.length());
         if(needMoving()) {
             handler.post(movePikersRunnable);
             if(movingListener != null)
                 movingListener.onMovingStarted();
         }
+    }
+
+    @Override
+    public void showWordImmediately(String word) {
+        super.showWordImmediately(word);
+        determinePickersPositions(word);
+        setLettersCount(word.length());
+        for(int i = 0; i < pickers.size(); i++)
+            pickers.get(i).setValue(requiredValues.get(i));
     }
 
     @Override
@@ -171,6 +170,11 @@ public class SlotView extends BoardView{
                 addLetter();
     }
 
+    @Override
+    public void setMovingListener(MovingListener movingListener) {
+        this.movingListener = movingListener;
+    }
+
     private void initPicker(NumberPicker picker){
         if(values != null) {
             picker.setDisplayedValues(null);
@@ -180,14 +184,23 @@ public class SlotView extends BoardView{
         }
     }
 
-    @Override
-    public void setMovingListener(MovingListener movingListener) {
-        this.movingListener = movingListener;
+    public void determinePickersPositions(String word){
+        requiredValues.clear();
+        int pickerValueIndex;
+        for(int i = 0; i < word.length(); i++){
+            if(i < word.length()) {
+                String currentSymbol = word.substring(i, i + 1).toUpperCase();
+                pickerValueIndex = 0;
+                while (!values[pickerValueIndex].equals(currentSymbol))
+                    pickerValueIndex++;
+                requiredValues.add(pickerValueIndex);
+            }
+        }
     }
 
     private void OnPickersMoved(){
         if (needMoving())
-            handler.postDelayed(movePikersRunnable, 25);
+            handler.postDelayed(movePikersRunnable, 10);
         else{
             handler.removeCallbacks(movePikersRunnable);
             if(movingListener != null)

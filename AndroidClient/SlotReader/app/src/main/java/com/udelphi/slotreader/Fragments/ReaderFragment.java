@@ -20,9 +20,10 @@ import org.json.JSONException;
 
 import java.io.IOException;
 
-public class ReaderFragment extends Fragment implements View.OnClickListener{
+public class ReaderFragment extends Fragment implements View.OnClickListener, BoardView.MovingListener{
     private BoardView boardView;
     private JsonHelper jsonHelper;
+    private boolean isMooving;
 
     private String[] enAlphabet = new String[]{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
             "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
@@ -48,6 +49,7 @@ public class ReaderFragment extends Fragment implements View.OnClickListener{
 
         assert boardView != null;
         boardView.setValues(enAlphabet);
+        boardView.setMovingListener(this);
 
         Gallery gallery = (Gallery) view.findViewById(R.id.size_switch);
         assert gallery != null;
@@ -63,8 +65,7 @@ public class ReaderFragment extends Fragment implements View.OnClickListener{
                     boardView.setLettersCount(Integer.valueOf(value));
                 }
                 jsonHelper.setWord_size_index(position);
-                String w = jsonHelper.getCurrentWord();
-                boardView.showWord(w);
+                boardView.showWordImmediately(jsonHelper.getCurrentWord());
             }
 
             @Override
@@ -86,11 +87,23 @@ public class ReaderFragment extends Fragment implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.next_btn:
+                if(!isMooving)
                 boardView.showWord(jsonHelper.getNextWord());
                 break;
             case R.id.previous_btn:
+                if(!isMooving)
                 boardView.showWord(jsonHelper.getPreviousWord());
                 break;
         }
+    }
+
+    @Override
+    public void onMovingStarted() {
+        isMooving = true;
+    }
+
+    @Override
+    public void onMovingEnded() {
+        isMooving = false;
     }
 }
