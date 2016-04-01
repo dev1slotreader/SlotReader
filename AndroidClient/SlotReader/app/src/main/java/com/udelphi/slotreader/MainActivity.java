@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         ImageButton menuBtn = (ImageButton)findViewById(R.id.menu_btn);
+        assert menuBtn != null;
         menuBtn.setOnClickListener(this);
         menuItems = getResources().getStringArray(R.array.menu_items);
         drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
