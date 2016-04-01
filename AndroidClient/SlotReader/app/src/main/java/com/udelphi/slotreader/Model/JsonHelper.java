@@ -102,6 +102,19 @@ public class JsonHelper {
         }
     }
 
+    public String[] getAlphabet(){
+        try {
+            JSONArray jsonAlphabet = words_json.getJSONArray(getLanguage(language_index) + 1);
+            String[] result = new String[jsonAlphabet.length()];
+            for(int i = 0; i < jsonAlphabet.length(); i++)
+                result[i] = jsonAlphabet.getString(i);
+            return result;
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     private void updateWords(String language, String wordSize) throws JSONException {
         if(!curWordArrStr.equals(language + wordSize)){
             curWordArrStr = language + wordSize;

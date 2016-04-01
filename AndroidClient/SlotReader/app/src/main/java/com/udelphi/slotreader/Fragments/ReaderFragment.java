@@ -23,10 +23,8 @@ import java.io.IOException;
 public class ReaderFragment extends Fragment implements View.OnClickListener, BoardView.MovingListener{
     private BoardView boardView;
     private JsonHelper jsonHelper;
-    private boolean isMooving;
+    private boolean isMoving;
 
-    private String[] enAlphabet = new String[]{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
-            "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,14 +39,13 @@ public class ReaderFragment extends Fragment implements View.OnClickListener, Bo
 
     }
 
-    @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_reader, null);
         boardView = (BoardView)view.findViewById(R.id.word_picker);
 
         assert boardView != null;
-        boardView.setValues(enAlphabet);
+        boardView.setValues(jsonHelper.getAlphabet());
         boardView.setMovingListener(this);
 
         Gallery gallery = (Gallery) view.findViewById(R.id.size_switch);
@@ -87,11 +84,11 @@ public class ReaderFragment extends Fragment implements View.OnClickListener, Bo
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.next_btn:
-                if(!isMooving)
+                if(!isMoving)
                 boardView.showWord(jsonHelper.getNextWord());
                 break;
             case R.id.previous_btn:
-                if(!isMooving)
+                if(!isMoving)
                 boardView.showWord(jsonHelper.getPreviousWord());
                 break;
         }
@@ -99,11 +96,11 @@ public class ReaderFragment extends Fragment implements View.OnClickListener, Bo
 
     @Override
     public void onMovingStarted() {
-        isMooving = true;
+        isMoving = true;
     }
 
     @Override
     public void onMovingEnded() {
-        isMooving = false;
+        isMoving = false;
     }
 }
