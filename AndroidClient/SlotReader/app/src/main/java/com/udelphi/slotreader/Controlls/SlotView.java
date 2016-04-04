@@ -200,7 +200,7 @@ public class SlotView extends BoardView{
 
     private void OnPickersMoved(){
         if (needMoving())
-            handler.postDelayed(movePikersRunnable, 10);
+            handler.postDelayed(movePikersRunnable, 75);
         else{
             handler.removeCallbacks(movePikersRunnable);
             if(movingListener != null)
