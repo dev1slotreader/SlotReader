@@ -30,14 +30,8 @@ public class JsonHelper {
         this.language_index = language_index > -1 ? language_index : getLanguageIndex("en");
     }
 
-    private JSONObject readJsonFormAssets(Context context, String sourceFileName)
-            throws JSONException, IOException{
-        InputStream input = context.getAssets().open(sourceFileName);
-        int size = input.available();
-        byte[] buffer = new byte[size];
-        input.read(buffer);
-        input.close();
-        return new JSONObject(new String(buffer, "UTF-8"));
+    public Boolean hasWord(String word){
+        return  words.toString().contains(word.toLowerCase());
     }
 
     public String getLanguage(int index) throws JSONException {
@@ -56,9 +50,23 @@ public class JsonHelper {
         this.word_index = 0;
     }
 
-    public void setWord_size_index(int word_size_index){
+    public void setWordSizeIndex(int word_size_index){
         this.word_size_index = word_size_index;
         this.word_index = 0;
+    }
+
+    public void setCurrentWord(String word) {
+        for(int i = 0; i < words.length(); i++) {
+            try {
+                if (words.getString(i).equals(word)) {
+                    word_index = i;
+                    return;
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public String getCurrentWord() {
@@ -113,6 +121,16 @@ public class JsonHelper {
             e.printStackTrace();
             return null;
         }
+    }
+
+    private JSONObject readJsonFormAssets(Context context, String sourceFileName)
+            throws JSONException, IOException{
+        InputStream input = context.getAssets().open(sourceFileName);
+        int size = input.available();
+        byte[] buffer = new byte[size];
+        input.read(buffer);
+        input.close();
+        return new JSONObject(new String(buffer, "UTF-8"));
     }
 
     private void updateWords(String language, String wordSize) throws JSONException {

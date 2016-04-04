@@ -1,7 +1,6 @@
 package com.udelphi.slotreader.Fragments;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -61,7 +60,7 @@ public class ReaderFragment extends Fragment implements View.OnClickListener, Bo
                     value = value.substring(0, value.length() - 1);
                     boardView.setLettersCount(Integer.valueOf(value));
                 }
-                jsonHelper.setWord_size_index(position);
+                jsonHelper.setWordSizeIndex(position);
                 boardView.showWordImmediately(jsonHelper.getCurrentWord());
             }
 
@@ -84,12 +83,16 @@ public class ReaderFragment extends Fragment implements View.OnClickListener, Bo
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.next_btn:
-                if(!isMoving)
-                boardView.showWord(jsonHelper.getNextWord());
+                if(!isMoving) {
+                    checkShownWord();
+                    boardView.showWord(jsonHelper.getNextWord());
+                }
                 break;
             case R.id.previous_btn:
-                if(!isMoving)
-                boardView.showWord(jsonHelper.getPreviousWord());
+                if(!isMoving){
+                    checkShownWord();
+                    boardView.showWord(jsonHelper.getPreviousWord());
+                }
                 break;
         }
     }
@@ -102,5 +105,11 @@ public class ReaderFragment extends Fragment implements View.OnClickListener, Bo
     @Override
     public void onMovingEnded() {
         isMoving = false;
+    }
+
+    private void checkShownWord(){
+        String shownWord = boardView.readWord();
+        if(!shownWord.equals(jsonHelper.getCurrentWord()) && jsonHelper.hasWord(shownWord))
+            jsonHelper.setCurrentWord(shownWord);
     }
 }

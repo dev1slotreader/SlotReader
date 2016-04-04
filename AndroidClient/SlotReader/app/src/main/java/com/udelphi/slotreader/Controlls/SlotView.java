@@ -53,7 +53,7 @@ public class SlotView extends BoardView{
                     method.setAccessible(true);
                     for (int i = 0; i < pickers.size(); i++) {
                         if ( i < requiredValues.size() && pickers.get(i).getValue() != requiredValues.get(i))
-                            method.invoke(pickers.get(i), true);
+                            method.invoke(pickers.get(i), pickers.get(i).getValue() < requiredValues.get(i));
                     }
                     OnPickersMoved();
                 } catch (InvocationTargetException e) {
