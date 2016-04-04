@@ -53,7 +53,7 @@ public class SlotView extends BoardView{
                     method.setAccessible(true);
                     for (int i = 0; i < pickers.size(); i++) {
                         if ( i < requiredValues.size() && pickers.get(i).getValue() != requiredValues.get(i))
-                            method.invoke(pickers.get(i), pickers.get(i).getValue() < requiredValues.get(i));
+                            method.invoke(pickers.get(i), determineDirection(i));
                     }
                     OnPickersMoved();
                 } catch (InvocationTargetException e) {
@@ -63,6 +63,16 @@ public class SlotView extends BoardView{
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }
+            }
+
+            private boolean determineDirection(int position){
+                int current = pickers.get(position).getValue();
+                int target = requiredValues.get(position);
+                if(current < target && target - current <= values.length / 2)
+                    return true;
+                else if(current > target && current - target >= values.length / 2)
+                    return true;
+                else return false;
             }
         };
         handler = new Handler();

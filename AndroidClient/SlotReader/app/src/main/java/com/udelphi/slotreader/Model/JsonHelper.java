@@ -58,7 +58,7 @@ public class JsonHelper {
     public void setCurrentWord(String word) {
         for(int i = 0; i < words.length(); i++) {
             try {
-                if (words.getString(i).equals(word)) {
+                if (words.getString(i).toLowerCase().equals(word.toLowerCase())) {
                     word_index = i;
                     return;
                 }
@@ -80,10 +80,10 @@ public class JsonHelper {
     }
 
     public String getNextWord() {
-        if(word_index + 1 < words.length())
-            word_index++;
-        else if(word_index + 1 == words.length())
+        if(word_index == words.length() - 1)
             word_index = 0;
+        else if(word_index + 1 < words.length())
+            word_index++;
         else word_index = words.length() - 1;
         try {
             updateWords(getLanguage(language_index), wordSizes.getString(word_size_index));
@@ -95,10 +95,10 @@ public class JsonHelper {
     }
 
     public String getPreviousWord(){
-        if(word_index - 1 < words.length())
-           word_index--;
-        else if(word_index - 1 == 0)
+        if(word_index == 0)
             word_index = words.length() - 1;
+        else if(word_index - 1 < words.length())
+           word_index--;
         else
             word_index = 0;
         try {
