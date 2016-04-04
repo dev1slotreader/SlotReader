@@ -108,8 +108,9 @@ public class ReaderFragment extends Fragment implements View.OnClickListener, Bo
     }
 
     private void checkShownWord(){
-        String shownWord = boardView.readWord();
-        if(!shownWord.equals(jsonHelper.getCurrentWord()) && jsonHelper.hasWord(shownWord))
+        String shownWord = boardView.readWord().toLowerCase();
+        String currentWord = jsonHelper.getCurrentWord().toLowerCase();
+        if(!shownWord.equals(currentWord) && jsonHelper.hasWord(shownWord))
             jsonHelper.setCurrentWord(shownWord);
     }
 }

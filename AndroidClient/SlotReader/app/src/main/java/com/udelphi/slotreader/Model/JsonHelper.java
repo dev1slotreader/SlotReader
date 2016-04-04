@@ -31,7 +31,7 @@ public class JsonHelper {
     }
 
     public Boolean hasWord(String word){
-        return  words.toString().contains(word.toLowerCase());
+        return  words.toString().toLowerCase().contains(word.toLowerCase());
     }
 
     public String getLanguage(int index) throws JSONException {
