@@ -13,12 +13,12 @@ import android.widget.TextView;
 
 import com.udelphi.slotreader.R;
 
-public class GalleryAdapter extends BaseAdapter{
+public class GallerySizeAdapter extends BaseAdapter{
     private Context context;
     private String[] sizes;
     private int[] colors;
 
-    public GalleryAdapter(Context context){
+    public GallerySizeAdapter(Context context){
         this.context = context;
         this.sizes = context.getResources().getStringArray(R.array.sizes);
         this.colors = context.getResources().getIntArray(R.array.size_btn_colors);
@@ -51,6 +51,7 @@ public class GalleryAdapter extends BaseAdapter{
             txt.setText(sizes[position]);
             txt.setLayoutParams(new Gallery.LayoutParams(48, 48));
             txt.setGravity(Gravity.CENTER);
+            txt.setTextColor(context.getResources().getColor(android.R.color.white));
         }
         else
             txt = (TextView)convertView;

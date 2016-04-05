@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sizes">
+        <item>1</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>5+</item>
+    </string-array>
+
+    <string-array name="menu_items">
+        <item>@string/main</item>
+        <item>@string/board_skin</item>
+        <item>@string/dictionary</item>
+        <item>@string/languages</item>
+    </string-array>
+
+    <string-array name="boards_items">
+        <item>@string/black</item>
+        <item>@string/green</item>
+        <item>@string/white</item>
+    </string-array>
+
+    <string-array name="menu_icons">
+        <item>@mipmap/menu_main</item>
+        <item>@mipmap/menu_board</item>
+        <item>@mipmap/menu_dictionary</item>
+        <item>@mipmap/menu_languages</item>
+    </string-array>
+
+    <string-array name="boards_icons">
+        <item>@mipmap/board_black</item>
+        <item>@mipmap/board_green</item>
+        <item>@mipmap/board_white</item>
+    </string-array>
+
+    <string-array name="flags">
+        <item>@mipmap/flag_cs</item>
+        <item>@mipmap/flag_de</item>
+        <item>@mipmap/flag_en</item>
+        <item>@mipmap/flag_es</item>
+        <item>@mipmap/flag_fr</item>
+        <item>@mipmap/flag_it</item>
+        <item>@mipmap/flag_pl</item>
+        <item>@mipmap/flag_pt</item>
+        <item>@mipmap/flag_ru</item>
+        <item>@mipmap/flag_ua</item>
+    </string-array>
+</resources>

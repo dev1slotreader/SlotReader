@@ -4,19 +4,18 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 
-import com.udelphi.slotreader.Exceptions.InvalidInputException;
-import com.udelphi.slotreader.Interfaces.IBoardView;
+import com.udelphi.slotreader.Interfaces.BoardView;
 
-public class BoardView extends LinearLayout implements IBoardView {
-    public BoardView(Context context){
+public abstract class BoardViewBase extends LinearLayout implements BoardView {
+    public BoardViewBase(Context context){
         this(context, null);
     }
 
-    public BoardView(Context context, AttributeSet attrs){
+    public BoardViewBase(Context context, AttributeSet attrs){
         this(context, attrs, 0);
     }
 
-    public BoardView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public BoardViewBase(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 

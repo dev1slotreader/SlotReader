@@ -38,6 +38,18 @@ public class JsonHelper {
         return  languages.getString(index);
     }
 
+    public String[] getLanguages(){
+        try {
+            String[] result = new String[languages.length()];
+            for(int i = 0; i < languages.length(); i++)
+                result[i] = languages.getString(i);
+            return result;
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     public int getLanguageIndex(String languageName) throws JSONException{
         for(int i = 0; i < languages.length(); i++)
             if(getLanguage(i).equals(languageName))

@@ -1,5 +1,6 @@
 package com.udelphi.slotreader.Fragments;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,46 +11,31 @@ import android.widget.Gallery;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.udelphi.slotreader.Abstractions.BoardView;
-import com.udelphi.slotreader.Adapters.GalleryAdapter;
+import com.udelphi.slotreader.Abstractions.BoardViewBase;
+import com.udelphi.slotreader.Adapters.GallerySizeAdapter;
+import com.udelphi.slotreader.MainActivity;
 import com.udelphi.slotreader.Model.JsonHelper;
 import com.udelphi.slotreader.R;
 
-import org.json.JSONException;
-
-import java.io.IOException;
-
-public class ReaderFragment extends Fragment implements View.OnClickListener, BoardView.MovingListener{
-    private BoardView boardView;
+public class ReaderFragment extends Fragment implements View.OnClickListener, BoardViewBase.MovingListener{
+    public static String TAG = "ReaderFragment";
+    private BoardViewBase boardView;
     private JsonHelper jsonHelper;
     private boolean isMoving;
-
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        try {
-            jsonHelper = new JsonHelper(getActivity().getApplicationContext(), "slot_reader_source", "languages",
-                    "charactersCount", "words");
-        } catch (IOException | JSONException e) {
-            e.printStackTrace();
-        }
-
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_reader, null);
-        boardView = (BoardView)view.findViewById(R.id.word_picker);
+        jsonHelper = ((MainActivity)getActivity()).getJsonHelper();
 
+        boardView = (BoardViewBase)view.findViewById(R.id.word_picker);
         assert boardView != null;
         boardView.setValues(jsonHelper.getAlphabet());
         boardView.setMovingListener(this);
 
         Gallery gallery = (Gallery) view.findViewById(R.id.size_switch);
         assert gallery != null;
-        gallery.setAdapter(new GalleryAdapter((getActivity().getApplicationContext())));
+        gallery.setAdapter(new GallerySizeAdapter((getActivity().getApplicationContext())));
         gallery.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -105,6 +91,15 @@ public class ReaderFragment extends Fragment implements View.OnClickListener, Bo
     @Override
     public void onMovingEnded() {
         isMoving = false;
+    }
+
+    public void changeLanguage(int language_index){
+        jsonHelper.setLanguage(language_index);
+        boardView.setValues(jsonHelper.getAlphabet());
+    }
+
+    public void changeSkin(Drawable skin){
+        boardView.setBackground(skin);
     }
 
     private void checkShownWord(){

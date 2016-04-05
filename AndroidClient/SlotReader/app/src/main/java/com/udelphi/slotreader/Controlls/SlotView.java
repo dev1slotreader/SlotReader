@@ -6,14 +6,12 @@ import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.NumberPicker;
 
-import com.udelphi.slotreader.Abstractions.BoardView;
-import com.udelphi.slotreader.Exceptions.InvalidInputException;
+import com.udelphi.slotreader.Abstractions.BoardViewBase;
 import com.udelphi.slotreader.R;
 
 import java.lang.reflect.Field;
@@ -22,7 +20,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class SlotView extends BoardView{
+public class SlotView extends BoardViewBase {
     private ArrayList<Integer> requiredValues;
     private Runnable movePikersRunnable;
     private ArrayList<NumberPicker> pickers;

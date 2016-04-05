@@ -2,7 +2,7 @@ package com.udelphi.slotreader.Interfaces;
 
 import com.udelphi.slotreader.Exceptions.InvalidInputException;
 
-public interface IBoardView {
+public interface BoardView {
     void setValues(String[] values);
     void showWord(String word);
     void showWordImmediately(String word);

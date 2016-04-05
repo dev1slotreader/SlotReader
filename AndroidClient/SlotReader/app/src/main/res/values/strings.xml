@@ -1,19 +1,15 @@
 <resources>
     <string name="app_name">SlotReader</string>
     <string name="next">Next</string>
-    <string name="previous">Previous</string>
-    <string name="menu">menu</string>
 
-    <string-array name="menu_items">
-        <item>Reader</item>
-        <item>Languages</item>
-        <item>Dictionary</item>
-    </string-array>
-    <string-array name="sizes">
-        <item>1</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>5+</item>
-    </string-array>
+    <string name="previous">Previous</string>
+    <string name="menu">Menu</string>
+    <string name="main">Main</string>
+    <string name="board_skin">Board skins</string>
+    <string name="languages">Languages</string>
+    <string name="dictionary">Dictionary</string>
+
+    <string name="black">Black</string>
+    <string name="green">Green</string>
+    <string name="white">White</string>
 </resources>
