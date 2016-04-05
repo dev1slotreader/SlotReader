@@ -1,0 +1,128 @@
+{
+  "images" : [
+    {
+      "idiom" : "iphone",
+      "filename" : "back-4gen-horisontal.jpg",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "iphone",
+      "filename" : "back-5gen-horisontal.jpg",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "iphone",
+      "filename" : "back-5gen-horisontal-1.jpg",
+      "scale" : "3x"
+    },
+    {
+      "idiom" : "iphone",
+      "filename" : "back-4gen-horisontal-1.jpg",
+      "height-class" : "compact",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "iphone",
+      "filename" : "back-5gen-horisontal-2.jpg",
+      "height-class" : "compact",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "iphone",
+      "filename" : "back-5gen-horisontal-3.jpg",
+      "height-class" : "compact",
+      "scale" : "3x"
+    },
+    {
+      "idiom" : "iphone",
+      "filename" : "back-4gen-vertical.jpg",
+      "width-class" : "compact",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "iphone",
+      "filename" : "back-5gen-vertical-1.jpg",
+      "width-class" : "compact",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "iphone",
+      "filename" : "back-5gen-vertical.jpg",
+      "width-class" : "compact",
+      "scale" : "3x"
+    },
+    {
+      "idiom" : "iphone",
+      "filename" : "back-4gen-horisontal-2.jpg",
+      "width-class" : "compact",
+      "height-class" : "compact",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "iphone",
+      "filename" : "back-5gen-horisontal-4.jpg",
+      "width-class" : "compact",
+      "height-class" : "compact",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "iphone",
+      "filename" : "back-5gen-horisontal-5.jpg",
+      "width-class" : "compact",
+      "height-class" : "compact",
+      "scale" : "3x"
+    },
+    {
+      "idiom" : "ipad",
+      "filename" : "back-ipad-horisontal.jpg",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "ipad",
+      "filename" : "back-ipad-retina-horisontal.jpg",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "ipad",
+      "filename" : "back-ipad-horisontal-1.jpg",
+      "height-class" : "compact",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "ipad",
+      "filename" : "back-ipad-retina-horisontal-1.jpg",
+      "height-class" : "compact",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "ipad",
+      "filename" : "back-ipad-vertical.jpg",
+      "width-class" : "compact",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "ipad",
+      "filename" : "back-ipad-retina-vertical.jpg",
+      "width-class" : "compact",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "ipad",
+      "filename" : "back-ipad-horisontal-2.jpg",
+      "width-class" : "compact",
+      "height-class" : "compact",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "ipad",
+      "filename" : "back-ipad-retina-horisontal-2.jpg",
+      "width-class" : "compact",
+      "height-class" : "compact",
+      "scale" : "2x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}

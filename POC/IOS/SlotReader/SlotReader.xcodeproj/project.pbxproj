@@ -1,0 +1,475 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CE1267191C93149B001C6573 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1267181C93149B001C6573 /* main.m */; };
+		CE12671C1C93149B001C6573 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE12671B1C93149B001C6573 /* AppDelegate.m */; };
+		CE12671F1C93149B001C6573 /* CenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE12671E1C93149B001C6573 /* CenterViewController.m */; };
+		CE1267221C93149B001C6573 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE1267201C93149B001C6573 /* Main.storyboard */; };
+		CE1267241C93149B001C6573 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE1267231C93149B001C6573 /* Assets.xcassets */; };
+		CE1267271C93149B001C6573 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE1267251C93149B001C6573 /* LaunchScreen.storyboard */; };
+		CE1267321C93149B001C6573 /* SlotReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1267311C93149B001C6573 /* SlotReaderTests.m */; };
+		CE1267481C9AF6AB001C6573 /* WordPickerHelperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1267471C9AF6AB001C6573 /* WordPickerHelperViewController.m */; };
+		CE12674B1CA05FC1001C6573 /* DictionaryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE12674A1CA05FC1001C6573 /* DictionaryTableViewController.m */; };
+		CE5913481CA5461E008A3042 /* BoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5913471CA5461E008A3042 /* BoardViewController.m */; };
+		CE59134B1CAAB318008A3042 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE59134A1CAAB318008A3042 /* SWRevealViewController.m */; };
+		CE5913511CAAC500008A3042 /* MenuPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5913501CAAC500008A3042 /* MenuPanelViewController.m */; };
+		CE5913571CB26F89008A3042 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5913561CB26F89008A3042 /* InfoViewController.m */; };
+		CE59135A1CB26FF4008A3042 /* LanguagesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5913591CB26FF4008A3042 /* LanguagesTableViewController.m */; };
+		CE5913611CB2A96C008A3042 /* data.txt in Resources */ = {isa = PBXBuildFile; fileRef = CE5913601CB2A96C008A3042 /* data.txt */; };
+		CE5913651CB2B57D008A3042 /* slot_reader_source.txt in Resources */ = {isa = PBXBuildFile; fileRef = CE5913641CB2B57D008A3042 /* slot_reader_source.txt */; };
+		CE7A05C41CA2F0E900CFDE01 /* TransparentToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7A05C31CA2F0E900CFDE01 /* TransparentToolbar.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CE12672E1C93149B001C6573 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE12670C1C93149B001C6573 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE1267131C93149B001C6573;
+			remoteInfo = SlotReader;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CE1267141C93149B001C6573 /* SlotReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlotReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE1267181C93149B001C6573 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CE12671A1C93149B001C6573 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CE12671B1C93149B001C6573 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CE12671D1C93149B001C6573 /* CenterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CenterViewController.h; sourceTree = "<group>"; };
+		CE12671E1C93149B001C6573 /* CenterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CenterViewController.m; sourceTree = "<group>"; };
+		CE1267211C93149B001C6573 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CE1267231C93149B001C6573 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CE1267261C93149B001C6573 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CE1267281C93149B001C6573 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE12672D1C93149B001C6573 /* SlotReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlotReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE1267311C93149B001C6573 /* SlotReaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SlotReaderTests.m; sourceTree = "<group>"; };
+		CE1267331C93149B001C6573 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE1267461C9AF6AB001C6573 /* WordPickerHelperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordPickerHelperViewController.h; sourceTree = "<group>"; };
+		CE1267471C9AF6AB001C6573 /* WordPickerHelperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordPickerHelperViewController.m; sourceTree = "<group>"; };
+		CE1267491CA05FC1001C6573 /* DictionaryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictionaryTableViewController.h; sourceTree = "<group>"; };
+		CE12674A1CA05FC1001C6573 /* DictionaryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DictionaryTableViewController.m; sourceTree = "<group>"; };
+		CE5913461CA5461E008A3042 /* BoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardViewController.h; sourceTree = "<group>"; };
+		CE5913471CA5461E008A3042 /* BoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardViewController.m; sourceTree = "<group>"; };
+		CE5913491CAAB318008A3042 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		CE59134A1CAAB318008A3042 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		CE59134F1CAAC500008A3042 /* MenuPanelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuPanelViewController.h; sourceTree = "<group>"; };
+		CE5913501CAAC500008A3042 /* MenuPanelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuPanelViewController.m; sourceTree = "<group>"; };
+		CE5913551CB26F89008A3042 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		CE5913561CB26F89008A3042 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		CE5913581CB26FF4008A3042 /* LanguagesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguagesTableViewController.h; sourceTree = "<group>"; };
+		CE5913591CB26FF4008A3042 /* LanguagesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanguagesTableViewController.m; sourceTree = "<group>"; };
+		CE5913601CB2A96C008A3042 /* data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = data.txt; sourceTree = "<group>"; };
+		CE5913641CB2B57D008A3042 /* slot_reader_source.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = slot_reader_source.txt; sourceTree = "<group>"; };
+		CE7A05C21CA2F0E900CFDE01 /* TransparentToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransparentToolbar.h; sourceTree = "<group>"; };
+		CE7A05C31CA2F0E900CFDE01 /* TransparentToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransparentToolbar.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CE1267111C93149B001C6573 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE12672A1C93149B001C6573 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CE12670B1C93149B001C6573 = {
+			isa = PBXGroup;
+			children = (
+				CE1267161C93149B001C6573 /* SlotReader */,
+				CE1267301C93149B001C6573 /* SlotReaderTests */,
+				CE1267151C93149B001C6573 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CE1267151C93149B001C6573 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CE1267141C93149B001C6573 /* SlotReader.app */,
+				CE12672D1C93149B001C6573 /* SlotReaderTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CE1267161C93149B001C6573 /* SlotReader */ = {
+			isa = PBXGroup;
+			children = (
+				CE12671A1C93149B001C6573 /* AppDelegate.h */,
+				CE12671B1C93149B001C6573 /* AppDelegate.m */,
+				CE1267201C93149B001C6573 /* Main.storyboard */,
+				CE12671D1C93149B001C6573 /* CenterViewController.h */,
+				CE12671E1C93149B001C6573 /* CenterViewController.m */,
+				CE1267461C9AF6AB001C6573 /* WordPickerHelperViewController.h */,
+				CE1267471C9AF6AB001C6573 /* WordPickerHelperViewController.m */,
+				CE5913581CB26FF4008A3042 /* LanguagesTableViewController.h */,
+				CE5913591CB26FF4008A3042 /* LanguagesTableViewController.m */,
+				CE1267491CA05FC1001C6573 /* DictionaryTableViewController.h */,
+				CE12674A1CA05FC1001C6573 /* DictionaryTableViewController.m */,
+				CE5913551CB26F89008A3042 /* InfoViewController.h */,
+				CE5913561CB26F89008A3042 /* InfoViewController.m */,
+				CE5913491CAAB318008A3042 /* SWRevealViewController.h */,
+				CE59134A1CAAB318008A3042 /* SWRevealViewController.m */,
+				CE59134F1CAAC500008A3042 /* MenuPanelViewController.h */,
+				CE5913501CAAC500008A3042 /* MenuPanelViewController.m */,
+				CE5913641CB2B57D008A3042 /* slot_reader_source.txt */,
+				CE5913601CB2A96C008A3042 /* data.txt */,
+				CE1267231C93149B001C6573 /* Assets.xcassets */,
+				CE1267251C93149B001C6573 /* LaunchScreen.storyboard */,
+				CE1267281C93149B001C6573 /* Info.plist */,
+				CE1267171C93149B001C6573 /* Supporting Files */,
+				CE7A05C21CA2F0E900CFDE01 /* TransparentToolbar.h */,
+				CE7A05C31CA2F0E900CFDE01 /* TransparentToolbar.m */,
+				CE5913461CA5461E008A3042 /* BoardViewController.h */,
+				CE5913471CA5461E008A3042 /* BoardViewController.m */,
+			);
+			path = SlotReader;
+			sourceTree = "<group>";
+		};
+		CE1267171C93149B001C6573 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CE1267181C93149B001C6573 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CE1267301C93149B001C6573 /* SlotReaderTests */ = {
+			isa = PBXGroup;
+			children = (
+				CE1267311C93149B001C6573 /* SlotReaderTests.m */,
+				CE1267331C93149B001C6573 /* Info.plist */,
+			);
+			path = SlotReaderTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CE1267131C93149B001C6573 /* SlotReader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE1267361C93149B001C6573 /* Build configuration list for PBXNativeTarget "SlotReader" */;
+			buildPhases = (
+				CE1267101C93149B001C6573 /* Sources */,
+				CE1267111C93149B001C6573 /* Frameworks */,
+				CE1267121C93149B001C6573 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SlotReader;
+			productName = SlotReader;
+			productReference = CE1267141C93149B001C6573 /* SlotReader.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CE12672C1C93149B001C6573 /* SlotReaderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE1267391C93149B001C6573 /* Build configuration list for PBXNativeTarget "SlotReaderTests" */;
+			buildPhases = (
+				CE1267291C93149B001C6573 /* Sources */,
+				CE12672A1C93149B001C6573 /* Frameworks */,
+				CE12672B1C93149B001C6573 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CE12672F1C93149B001C6573 /* PBXTargetDependency */,
+			);
+			name = SlotReaderTests;
+			productName = SlotReaderTests;
+			productReference = CE12672D1C93149B001C6573 /* SlotReaderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CE12670C1C93149B001C6573 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = User;
+				TargetAttributes = {
+					CE1267131C93149B001C6573 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					CE12672C1C93149B001C6573 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = CE1267131C93149B001C6573;
+					};
+				};
+			};
+			buildConfigurationList = CE12670F1C93149B001C6573 /* Build configuration list for PBXProject "SlotReader" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CE12670B1C93149B001C6573;
+			productRefGroup = CE1267151C93149B001C6573 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CE1267131C93149B001C6573 /* SlotReader */,
+				CE12672C1C93149B001C6573 /* SlotReaderTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CE1267121C93149B001C6573 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE5913611CB2A96C008A3042 /* data.txt in Resources */,
+				CE5913651CB2B57D008A3042 /* slot_reader_source.txt in Resources */,
+				CE1267271C93149B001C6573 /* LaunchScreen.storyboard in Resources */,
+				CE1267241C93149B001C6573 /* Assets.xcassets in Resources */,
+				CE1267221C93149B001C6573 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE12672B1C93149B001C6573 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CE1267101C93149B001C6573 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE5913481CA5461E008A3042 /* BoardViewController.m in Sources */,
+				CE59135A1CB26FF4008A3042 /* LanguagesTableViewController.m in Sources */,
+				CE1267481C9AF6AB001C6573 /* WordPickerHelperViewController.m in Sources */,
+				CE5913571CB26F89008A3042 /* InfoViewController.m in Sources */,
+				CE5913511CAAC500008A3042 /* MenuPanelViewController.m in Sources */,
+				CE12671F1C93149B001C6573 /* CenterViewController.m in Sources */,
+				CE59134B1CAAB318008A3042 /* SWRevealViewController.m in Sources */,
+				CE7A05C41CA2F0E900CFDE01 /* TransparentToolbar.m in Sources */,
+				CE12671C1C93149B001C6573 /* AppDelegate.m in Sources */,
+				CE12674B1CA05FC1001C6573 /* DictionaryTableViewController.m in Sources */,
+				CE1267191C93149B001C6573 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE1267291C93149B001C6573 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE1267321C93149B001C6573 /* SlotReaderTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CE12672F1C93149B001C6573 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE1267131C93149B001C6573 /* SlotReader */;
+			targetProxy = CE12672E1C93149B001C6573 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CE1267201C93149B001C6573 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE1267211C93149B001C6573 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CE1267251C93149B001C6573 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE1267261C93149B001C6573 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CE1267341C93149B001C6573 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CE1267351C93149B001C6573 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CE1267371C93149B001C6573 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SlotReader/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Delphi.SlotReader;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CE1267381C93149B001C6573 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SlotReader/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Delphi.SlotReader;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		CE12673A1C93149B001C6573 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SlotReaderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Delphi.SlotReaderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SlotReader.app/SlotReader";
+			};
+			name = Debug;
+		};
+		CE12673B1C93149B001C6573 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SlotReaderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Delphi.SlotReaderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SlotReader.app/SlotReader";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CE12670F1C93149B001C6573 /* Build configuration list for PBXProject "SlotReader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE1267341C93149B001C6573 /* Debug */,
+				CE1267351C93149B001C6573 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE1267361C93149B001C6573 /* Build configuration list for PBXNativeTarget "SlotReader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE1267371C93149B001C6573 /* Debug */,
+				CE1267381C93149B001C6573 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE1267391C93149B001C6573 /* Build configuration list for PBXNativeTarget "SlotReaderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE12673A1C93149B001C6573 /* Debug */,
+				CE12673B1C93149B001C6573 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CE12670C1C93149B001C6573 /* Project object */;
+}
