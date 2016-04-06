@@ -9,7 +9,7 @@
     </string-array>
 
     <string-array name="menu_items">
-        <item>@string/main</item>
+        <item>@string/home</item>
         <item>@string/board_skin</item>
         <item>@string/dictionary</item>
         <item>@string/languages</item>
@@ -22,7 +22,7 @@
     </string-array>
 
     <string-array name="menu_icons">
-        <item>@mipmap/menu_main</item>
+        <item>@mipmap/menu_home</item>
         <item>@mipmap/menu_board</item>
         <item>@mipmap/menu_dictionary</item>
         <item>@mipmap/menu_languages</item>

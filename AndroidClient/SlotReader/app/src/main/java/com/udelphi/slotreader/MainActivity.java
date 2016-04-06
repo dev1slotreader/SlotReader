@@ -16,12 +16,14 @@ import com.udelphi.slotreader.Adapters.LanguagesAdapter;
 import com.udelphi.slotreader.Adapters.MenuAdapter;
 import com.udelphi.slotreader.Fragments.ReaderFragment;
 import com.udelphi.slotreader.Model.JsonHelper;
+import com.udelphi.slotreader.enums.ScreenModes;
 
 import org.json.JSONException;
 
 import java.io.IOException;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener,
+ DrawerLayout.DrawerListener{
     private JsonHelper jsonHelper;
     private DrawerLayout drawerLayout;
     private ListView drawerList;
@@ -31,6 +33,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private AdapterView.OnItemClickListener menuClickListener;
     private AdapterView.OnItemClickListener languageClickListener;
     private AdapterView.OnItemClickListener skinsClickListener;
+    private boolean isDrawerOpend;
+    private boolean isSubmenuOpend;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,10 +76,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     case 1:
                         drawerList.setAdapter(skinsAdapter);
                         drawerList.setOnItemClickListener(skinsClickListener);
+                        isSubmenuOpend = true;
                         break;
                     case 3:
                         drawerList.setAdapter(languagesAdapter);
                         drawerList.setOnItemClickListener(languageClickListener);
+                        isSubmenuOpend = true;
                         break;
                 }
             }
@@ -106,28 +112,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         assert menuBtn != null;
         menuBtn.setOnClickListener(this);
         drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
+        drawerLayout.addDrawerListener(this);
         drawerList = (ListView)findViewById(R.id.left_drawer);
         drawerList.setAdapter(menuAdapter);
         drawerList.setOnItemClickListener(menuClickListener);
         menuClickListener.onItemClick(null, null, 0, 0);
 
-        if(Build.VERSION.SDK_INT < 19) {
-            getWindow().getDecorView().setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
-                @Override
-                public void onSystemUiVisibilityChange(int visibility) {
-                    if ((visibility & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0) {
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                hideSystemNavigation();
-                            }
-                        }, 5000);
-                    }
-
-                }
-            });
-        }
-        hideSystemNavigation();
+        setScreenMode(ScreenModes.FULL_SCREEN);
     }
 
     @Override
@@ -139,24 +130,67 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        if(isDrawerOpend && isSubmenuOpend) {
+            drawerList.setAdapter(menuAdapter);
+            drawerList.setOnItemClickListener(menuClickListener);
+            isSubmenuOpend = false;
+        }
+        else if(isDrawerOpend && !isSubmenuOpend)
+            drawerLayout.closeDrawer(drawerList);
+        else
+            super.onBackPressed();
+    }
+
     public JsonHelper getJsonHelper(){
         return this.jsonHelper;
     }
 
-    private void hideSystemNavigation(){
-        if(Build.VERSION.SDK_INT >= 19){
-            getWindow().getDecorView().setSystemUiVisibility(
-                      View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                    | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                    | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                    | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                    | View.SYSTEM_UI_FLAG_FULLSCREEN
-                    | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-        } else {
-            getWindow().getDecorView().setSystemUiVisibility(
-                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+    private void setScreenMode(ScreenModes mode){
+        switch (mode) {
+            case FULL_SCREEN:
+                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                    getWindow().getDecorView().setSystemUiVisibility(
+                              View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                             | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                    | View.SYSTEM_UI_FLAG_FULLSCREEN);
+                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+                }else {
+                    //TODO Implement
+//                            View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+//                                    | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+//                                    | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+//                                    | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+//                                    | View.SYSTEM_UI_FLAG_FULLSCREEN);
+//                    getWindow().getDecorView().setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
+//                        @Override
+//                        public void onSystemUiVisibilityChange(int visibility) {
+//                            if ((visibility & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0) {
+//                                new Handler().postDelayed(new Runnable() {
+//                                    @Override
+//                                    public void run() {
+//                                        setScreenMode(ScreenModes.FULL_SCREEN);
+//                                    }
+//                                }, 5000);
+//                            }
+//                        }
+//                    });
+                }
+                break;
+            case NAVIGATION_VISIBLE:
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                    getWindow().getDecorView().setSystemUiVisibility(
+                            View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                                    | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                                    | View.SYSTEM_UI_FLAG_FULLSCREEN
+                                    | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                                    | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+                }else {
+                    //TODO Implement
+                }
         }
     }
 
@@ -166,5 +200,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     .replace(R.id.content_frame, fragment, ReaderFragment.TAG)
                     .commit();
         }
+    }
+
+    @Override
+    public void onDrawerSlide(View drawerView, float slideOffset) {
+
+    }
+
+    @Override
+    public void onDrawerOpened(View drawerView) {
+        setScreenMode(ScreenModes.NAVIGATION_VISIBLE);
+        isDrawerOpend = true;
+    }
+
+    @Override
+    public void onDrawerClosed(View drawerView) {
+        setScreenMode(ScreenModes.FULL_SCREEN);
+        drawerList.setAdapter(menuAdapter);
+        isDrawerOpend = false;
+    }
+
+    @Override
+    public void onDrawerStateChanged(int newState) {
+
     }
 }
