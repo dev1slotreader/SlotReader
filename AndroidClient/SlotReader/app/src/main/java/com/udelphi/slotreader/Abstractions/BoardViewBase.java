@@ -18,44 +18,4 @@ public abstract class BoardViewBase extends LinearLayout implements BoardView {
     public BoardViewBase(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
-
-    @Override
-    public void setValues(String[] values) {
-
-    }
-
-    @Override
-    public void showWord(String word){
-
-    }
-
-    @Override
-    public void showWordImmediately(String word) {
-
-    }
-
-    @Override
-    public String readWord() {
-        return null;
-    }
-
-    @Override
-    public void addLetter() {
-
-    }
-
-    @Override
-    public void removeLetter() {
-
-    }
-
-    @Override
-    public void setLettersCount(int count) {
-
-    }
-
-    @Override
-    public void setMovingListener(MovingListener movingListener) {
-
-    }
 }

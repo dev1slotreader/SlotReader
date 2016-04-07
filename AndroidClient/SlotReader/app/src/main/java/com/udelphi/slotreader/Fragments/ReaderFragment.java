@@ -1,25 +1,21 @@
 package com.udelphi.slotreader.Fragments;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.Gallery;
 import android.widget.ImageButton;
-import android.widget.TextView;
 
 import com.udelphi.slotreader.Abstractions.BoardViewBase;
-import com.udelphi.slotreader.Adapters.GallerySizeAdapter;
-import com.udelphi.slotreader.Interfaces.OnSizeChangedListener;
+import com.udelphi.slotreader.Interfaces.BoardSkinChangedListener;
+import com.udelphi.slotreader.Interfaces.SizeChangedListener;
 import com.udelphi.slotreader.MainActivity;
 import com.udelphi.slotreader.Model.JsonHelper;
 import com.udelphi.slotreader.R;
 
 public class ReaderFragment extends Fragment implements View.OnClickListener, BoardViewBase.MovingListener,
-        OnSizeChangedListener{
+        SizeChangedListener, BoardSkinChangedListener{
     public static String TAG = "ReaderFragment";
     private BoardViewBase boardView;
     private JsonHelper jsonHelper;
@@ -77,10 +73,6 @@ public class ReaderFragment extends Fragment implements View.OnClickListener, Bo
         boardView.setValues(jsonHelper.getAlphabet());
     }
 
-    public void changeSkin(Drawable skin){
-        boardView.setBackground(skin);
-    }
-
     private void checkShownWord(){
         String shownWord = boardView.readWord().toLowerCase();
         String currentWord = jsonHelper.getCurrentWord().toLowerCase();
@@ -92,5 +84,27 @@ public class ReaderFragment extends Fragment implements View.OnClickListener, Bo
     public void onSizeChanged(int size) {
         boardView.setLettersCount(size);
         boardView.showWordImmediately(jsonHelper.getCurrentWord());
+    }
+
+    @Override
+    public void onBoardSkinChanged(int position) {
+        boardView.setBackground(getResources().getDrawable(getResources()
+                .obtainTypedArray(R.array.boards_backgrounds).getResourceId(position, -1)));
+        switch (position){
+            case 2:
+                setLightSkin();
+                break;
+            default:
+                setDarkSkin();
+        }
+    }
+
+    private void setDarkSkin(){
+        boardView.setTextColor(getResources().getColor(R.color.dark_skin_text_color));
+        boardView.setDivider(getResources().getDrawable(android.R.drawable.divider_horizontal_dark));
+    }
+    private void setLightSkin(){
+        boardView.setTextColor(getResources().getColor(R.color.light_skin_text_color));
+        boardView.setDivider(getResources().getDrawable(android.R.drawable.divider_horizontal_bright));
     }
 }

@@ -1,6 +1,6 @@
 package com.udelphi.slotreader.Interfaces;
 
-import com.udelphi.slotreader.Exceptions.InvalidInputException;
+import android.graphics.drawable.Drawable;
 
 public interface BoardView {
     void setValues(String[] values);
@@ -10,6 +10,8 @@ public interface BoardView {
     void addLetter();
     void removeLetter();
     void setLettersCount(int count);
+    void setDivider(Drawable divider);
+    void setTextColor(int color);
     void setMovingListener(MovingListener movingListener);
 
     interface MovingListener{

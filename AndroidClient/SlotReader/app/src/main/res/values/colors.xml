@@ -14,6 +14,9 @@
     <color name="size_btn_color_4">#F7941E</color>
     <color name="size_btn_color_5">#BF1E2E</color>
 
+    <color name="dark_skin_text_color">#FFFFFF</color>
+    <color name="light_skin_text_color">#303F9F</color>
+
     <array name="size_btn_colors">
         <item>@color/size_btn_color_1</item>
         <item>@color/size_btn_color_2</item>

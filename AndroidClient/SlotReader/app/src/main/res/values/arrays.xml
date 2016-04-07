@@ -15,12 +15,6 @@
         <item>@string/languages</item>
     </string-array>
 
-    <string-array name="boards_items">
-        <item>@string/black</item>
-        <item>@string/green</item>
-        <item>@string/white</item>
-    </string-array>
-
     <string-array name="menu_icons">
         <item>@mipmap/menu_home</item>
         <item>@mipmap/menu_board</item>
@@ -28,10 +22,22 @@
         <item>@mipmap/menu_languages</item>
     </string-array>
 
+    <string-array name="boards_items">
+        <item>@string/black</item>
+        <item>@string/green</item>
+        <item>@string/white</item>
+    </string-array>
+
     <string-array name="boards_icons">
         <item>@mipmap/board_black</item>
         <item>@mipmap/board_green</item>
         <item>@mipmap/board_white</item>
+    </string-array>
+
+    <string-array name="boards_backgrounds">
+        <item>@drawable/board_black</item>
+        <item>@drawable/board_green</item>
+        <item>@drawable/board_white</item>
     </string-array>
 
     <string-array name="flags">

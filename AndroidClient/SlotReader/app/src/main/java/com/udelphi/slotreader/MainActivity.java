@@ -17,7 +17,8 @@ import com.udelphi.slotreader.Adapters.GallerySizeAdapter;
 import com.udelphi.slotreader.Adapters.LanguagesAdapter;
 import com.udelphi.slotreader.Adapters.MenuAdapter;
 import com.udelphi.slotreader.Fragments.ReaderFragment;
-import com.udelphi.slotreader.Interfaces.OnSizeChangedListener;
+import com.udelphi.slotreader.Interfaces.BoardSkinChangedListener;
+import com.udelphi.slotreader.Interfaces.SizeChangedListener;
 import com.udelphi.slotreader.Model.JsonHelper;
 import com.udelphi.slotreader.enums.ScreenModes;
 
@@ -37,7 +38,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private AdapterView.OnItemClickListener menuClickListener;
     private AdapterView.OnItemClickListener languageClickListener;
     private AdapterView.OnItemClickListener skinsClickListener;
-    private ArrayList<OnSizeChangedListener> onSizeChangedListeners;
+    private ArrayList<SizeChangedListener> sizeChangedListeners;
+    private ArrayList<BoardSkinChangedListener> boardSkinChangedListeners;
     private boolean isDrawerOpened;
     private boolean isSubmenuOpened;
 
@@ -46,7 +48,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        onSizeChangedListeners = new ArrayList<>();
+        sizeChangedListeners = new ArrayList<>();
+        boardSkinChangedListeners = new ArrayList<>();
+
         try {
             jsonHelper = new JsonHelper(getApplicationContext(), "slot_reader_source", "languages",
                     "charactersCount", "words");
@@ -83,7 +87,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         Fragment fragment = getSupportFragmentManager().findFragmentByTag(ReaderFragment.TAG);
                         if(fragment == null) {
                             fragment = new ReaderFragment();
-                            onSizeChangedListeners.add((OnSizeChangedListener)fragment);
+                            sizeChangedListeners.add((SizeChangedListener)fragment);
+                            boardSkinChangedListeners.add((BoardSkinChangedListener)fragment);
                         }
                         changeFragment(fragment);
                         drawerList.setItemChecked(position, true);
@@ -105,19 +110,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         skinsClickListener = new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ReaderFragment readerFragment = (ReaderFragment)getSupportFragmentManager()
-                        .findFragmentByTag(ReaderFragment.TAG);
-                switch (position){
-                    case 0:
-                        readerFragment.changeSkin(getResources().getDrawable(R.drawable.board_black));
-                        break;
-                    case 1:
-                        readerFragment.changeSkin(getResources().getDrawable(R.drawable.board_green));
-                        break;
-                    case 2:
-                        readerFragment.changeSkin(getResources().getDrawable(R.drawable.board_white));
-                        break;
-                }
+                for(BoardSkinChangedListener listener : boardSkinChangedListeners)
+                    listener.onBoardSkinChanged(position);
                 drawerLayout.closeDrawer(drawerList);
                 drawerList.setAdapter(menuAdapter);
                 drawerList.setOnItemClickListener(menuClickListener);
@@ -254,7 +248,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void notifySizeChangedListeners(int size){
-        for(OnSizeChangedListener listener : onSizeChangedListeners)
+        for(SizeChangedListener listener : sizeChangedListeners)
             listener.onSizeChanged(size);
     }
 

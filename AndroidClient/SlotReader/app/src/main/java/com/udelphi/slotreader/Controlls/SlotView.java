@@ -107,7 +107,6 @@ public class SlotView extends BoardViewBase {
 
     @Override
     public void showWordImmediately(String word) {
-        super.showWordImmediately(word);
         determinePickersPositions(word);
         setLettersCount(word.length());
         for(int i = 0; i < pickers.size(); i++)
@@ -132,28 +131,8 @@ public class SlotView extends BoardViewBase {
         params.weight = 1;
         newPicker.setLayoutParams(params);
         initPicker(newPicker);
-        try {
-            Field mSelectionDivider = NumberPicker.class.getDeclaredField("mSelectionDivider");
-            mSelectionDivider.setAccessible(true);
-            Field mSelectorWheelPaint = NumberPicker.class.getDeclaredField("mSelectorWheelPaint");
-            mSelectorWheelPaint.setAccessible(true);
-
-            mSelectionDivider.set(newPicker, divider);
-
-            for (int i = 0; i < newPicker.getChildCount(); i++) {
-                View child = newPicker.getChildAt(i);
-                if (child instanceof EditText)
-                    ((EditText) child).setTextColor(textColorId);
-                ((Paint) mSelectorWheelPaint.get(newPicker)).setColor(textColorId);
-                newPicker.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
-                newPicker.invalidate();
-            }
-
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (NoSuchFieldException e) {
-            e.printStackTrace();
-        }
+        setDivider(newPicker);
+        setTextColor(newPicker);
         addView(newPicker);
         columnsCount++;
     }
@@ -179,6 +158,54 @@ public class SlotView extends BoardViewBase {
     }
 
     @Override
+    public void setDivider(Drawable divider){
+        this.divider = divider;
+        for(NumberPicker picker : pickers) {
+            setDivider(picker);
+        }
+    }
+
+    private void setDivider(NumberPicker picker){
+        try {
+            Field mSelectionDivider = NumberPicker.class.getDeclaredField("mSelectionDivider");
+            mSelectionDivider.setAccessible(true);
+            mSelectionDivider.set(picker, divider);
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void setTextColor(int textColorId){
+        this.textColorId = textColorId;
+        for(NumberPicker picker : pickers) {
+            setTextColor(picker);
+        }
+    }
+
+    public void setTextColor(NumberPicker newPicker){
+        try {
+            Field mSelectorWheelPaint = NumberPicker.class.getDeclaredField("mSelectorWheelPaint");
+            mSelectorWheelPaint.setAccessible(true);
+            for (int i = 0; i < newPicker.getChildCount(); i++) {
+                View child = newPicker.getChildAt(i);
+                if (child instanceof EditText)
+                    ((EditText) child).setTextColor(textColorId);
+                ((Paint) mSelectorWheelPaint.get(newPicker)).setColor(textColorId);
+                newPicker.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
+                newPicker.invalidate();
+            }
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+
     public void setMovingListener(MovingListener movingListener) {
         this.movingListener = movingListener;
     }
