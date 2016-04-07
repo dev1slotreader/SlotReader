@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.udelphi.slotreader.MainActivity">
 
@@ -32,19 +31,11 @@
         android:src="@mipmap/btn_right"
         android:contentDescription="@string/next"/>
 
-    <Gallery
-        android:id="@+id/size_switch"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:spacing="16dp"
-        android:layout_centerHorizontal="true" />
-
     <com.udelphi.slotreader.Controlls.SlotView
         android:id="@+id/word_picker"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_below="@+id/size_switch"
         android:layout_marginLeft="@dimen/board_horizontal_margin"
         android:layout_marginRight="@dimen/board_horizontal_margin"
         android:layout_marginBottom="18dp"

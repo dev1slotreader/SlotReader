@@ -1,7 +1,6 @@
 package com.udelphi.slotreader;
 
 import android.os.Build;
-import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -9,21 +8,26 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Gallery;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 
+import com.udelphi.slotreader.Adapters.GallerySizeAdapter;
 import com.udelphi.slotreader.Adapters.LanguagesAdapter;
 import com.udelphi.slotreader.Adapters.MenuAdapter;
 import com.udelphi.slotreader.Fragments.ReaderFragment;
+import com.udelphi.slotreader.Interfaces.OnSizeChangedListener;
 import com.udelphi.slotreader.Model.JsonHelper;
 import com.udelphi.slotreader.enums.ScreenModes;
 
 import org.json.JSONException;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener,
- DrawerLayout.DrawerListener{
+ DrawerLayout.DrawerListener, AdapterView.OnItemSelectedListener{
     private JsonHelper jsonHelper;
     private DrawerLayout drawerLayout;
     private ListView drawerList;
@@ -33,20 +37,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private AdapterView.OnItemClickListener menuClickListener;
     private AdapterView.OnItemClickListener languageClickListener;
     private AdapterView.OnItemClickListener skinsClickListener;
-    private boolean isDrawerOpend;
-    private boolean isSubmenuOpend;
+    private ArrayList<OnSizeChangedListener> onSizeChangedListeners;
+    private boolean isDrawerOpened;
+    private boolean isSubmenuOpened;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        onSizeChangedListeners = new ArrayList<>();
         try {
             jsonHelper = new JsonHelper(getApplicationContext(), "slot_reader_source", "languages",
                     "charactersCount", "words");
         } catch (IOException | JSONException e) {
             e.printStackTrace();
         }
+
+        Gallery gallery = (Gallery)findViewById(R.id.size_switch);
+        assert gallery != null;
+        gallery.setAdapter(new GallerySizeAdapter(getApplicationContext()));
+        gallery.setOnItemSelectedListener(this);
 
         menuAdapter = new MenuAdapter(getApplicationContext(),
                 R.array.menu_items, R.array.menu_icons);
@@ -69,19 +80,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position){
                     case 0:
-                        changeFragment(new ReaderFragment());
+                        Fragment fragment = getSupportFragmentManager().findFragmentByTag(ReaderFragment.TAG);
+                        if(fragment == null) {
+                            fragment = new ReaderFragment();
+                            onSizeChangedListeners.add((OnSizeChangedListener)fragment);
+                        }
+                        changeFragment(fragment);
                         drawerList.setItemChecked(position, true);
                         drawerLayout.closeDrawer(drawerList);
                         break;
                     case 1:
                         drawerList.setAdapter(skinsAdapter);
                         drawerList.setOnItemClickListener(skinsClickListener);
-                        isSubmenuOpend = true;
+                        isSubmenuOpened = true;
                         break;
                     case 3:
                         drawerList.setAdapter(languagesAdapter);
                         drawerList.setOnItemClickListener(languageClickListener);
-                        isSubmenuOpend = true;
+                        isSubmenuOpened = true;
                         break;
                 }
             }
@@ -132,12 +148,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onBackPressed() {
-        if(isDrawerOpend && isSubmenuOpend) {
+        if(isDrawerOpened && isSubmenuOpened) {
             drawerList.setAdapter(menuAdapter);
             drawerList.setOnItemClickListener(menuClickListener);
-            isSubmenuOpend = false;
+            isSubmenuOpened = false;
         }
-        else if(isDrawerOpend && !isSubmenuOpend)
+        else if(isDrawerOpened && !isSubmenuOpened)
             drawerLayout.closeDrawer(drawerList);
         else
             super.onBackPressed();
@@ -210,18 +226,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onDrawerOpened(View drawerView) {
         setScreenMode(ScreenModes.NAVIGATION_VISIBLE);
-        isDrawerOpend = true;
+        isDrawerOpened = true;
     }
 
     @Override
     public void onDrawerClosed(View drawerView) {
         setScreenMode(ScreenModes.FULL_SCREEN);
         drawerList.setAdapter(menuAdapter);
-        isDrawerOpend = false;
+        isDrawerOpened = false;
     }
 
     @Override
     public void onDrawerStateChanged(int newState) {
+
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String value = ((TextView) view).getText().toString();
+        jsonHelper.setWordSizeIndex(position);
+        try {
+            notifySizeChangedListeners(Integer.valueOf(value));
+        } catch (NumberFormatException ignored) {
+            value = value.substring(0, value.length() - 1);
+            notifySizeChangedListeners(Integer.valueOf(value));
+        }
+    }
+
+    private void notifySizeChangedListeners(int size){
+        for(OnSizeChangedListener listener : onSizeChangedListeners)
+            listener.onSizeChanged(size);
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
 
     }
 }

@@ -13,11 +13,13 @@ import android.widget.TextView;
 
 import com.udelphi.slotreader.Abstractions.BoardViewBase;
 import com.udelphi.slotreader.Adapters.GallerySizeAdapter;
+import com.udelphi.slotreader.Interfaces.OnSizeChangedListener;
 import com.udelphi.slotreader.MainActivity;
 import com.udelphi.slotreader.Model.JsonHelper;
 import com.udelphi.slotreader.R;
 
-public class ReaderFragment extends Fragment implements View.OnClickListener, BoardViewBase.MovingListener{
+public class ReaderFragment extends Fragment implements View.OnClickListener, BoardViewBase.MovingListener,
+        OnSizeChangedListener{
     public static String TAG = "ReaderFragment";
     private BoardViewBase boardView;
     private JsonHelper jsonHelper;
@@ -32,29 +34,6 @@ public class ReaderFragment extends Fragment implements View.OnClickListener, Bo
         assert boardView != null;
         boardView.setValues(jsonHelper.getAlphabet());
         boardView.setMovingListener(this);
-
-        Gallery gallery = (Gallery) view.findViewById(R.id.size_switch);
-        assert gallery != null;
-        gallery.setAdapter(new GallerySizeAdapter((getActivity().getApplicationContext())));
-        gallery.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String value = ((TextView) view).getText().toString();
-                try {
-                    boardView.setLettersCount(Integer.valueOf(value));
-                } catch (NumberFormatException ignored) {
-                    value = value.substring(0, value.length() - 1);
-                    boardView.setLettersCount(Integer.valueOf(value));
-                }
-                jsonHelper.setWordSizeIndex(position);
-                boardView.showWordImmediately(jsonHelper.getCurrentWord());
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
 
         ImageButton nextBtn = (ImageButton)view.findViewById(R.id.next_btn);
         nextBtn.setOnClickListener(this);
@@ -107,5 +86,11 @@ public class ReaderFragment extends Fragment implements View.OnClickListener, Bo
         String currentWord = jsonHelper.getCurrentWord().toLowerCase();
         if(!shownWord.equals(currentWord) && jsonHelper.hasWord(shownWord))
             jsonHelper.setCurrentWord(shownWord);
+    }
+
+    @Override
+    public void onSizeChanged(int size) {
+        boardView.setLettersCount(size);
+        boardView.showWordImmediately(jsonHelper.getCurrentWord());
     }
 }

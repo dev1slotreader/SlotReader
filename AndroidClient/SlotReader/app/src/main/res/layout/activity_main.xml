@@ -10,15 +10,23 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <Gallery
+            android:id="@+id/size_switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:spacing="@dimen/gallery_spacing"
+            android:layout_marginTop="@dimen/gallery_vertical_margin"
+            android:layout_centerHorizontal="true" />
         <FrameLayout
             android:id="@+id/content_frame"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:layout_below="@+id/size_switch"/>
         <ImageButton
             android:id="@+id/menu_btn"
             android:layout_width="@dimen/FAB_size"
             android:layout_height="@dimen/FAB_size"
-            android:padding="4dp"
+            android:padding="@dimen/FAB_padding"
             android:background="@drawable/menu_btn_selector"
             android:src="@mipmap/menu"
             android:contentDescription="@string/menu"/>
