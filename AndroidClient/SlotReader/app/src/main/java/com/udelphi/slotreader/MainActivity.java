@@ -6,6 +6,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Gallery;
@@ -169,25 +170,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             | View.SYSTEM_UI_FLAG_FULLSCREEN
                             | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
                 }else {
-                    //TODO Implement
-//                            View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-//                                    | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-//                                    | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-//                                    | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-//                                    | View.SYSTEM_UI_FLAG_FULLSCREEN);
-//                    getWindow().getDecorView().setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
-//                        @Override
-//                        public void onSystemUiVisibilityChange(int visibility) {
-//                            if ((visibility & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0) {
-//                                new Handler().postDelayed(new Runnable() {
-//                                    @Override
-//                                    public void run() {
-//                                        setScreenMode(ScreenModes.FULL_SCREEN);
-//                                    }
-//                                }, 5000);
-//                            }
-//                        }
-//                    });
+                    getWindow().setFlags(
+                            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                            WindowManager.LayoutParams.FLAG_FULLSCREEN);
                 }
                 break;
             case NAVIGATION_VISIBLE:
@@ -198,8 +183,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                     | View.SYSTEM_UI_FLAG_FULLSCREEN
                                     | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                                     | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-                }else {
-                    //TODO Implement
                 }
         }
     }
