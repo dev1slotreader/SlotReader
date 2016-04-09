@@ -41,5 +41,7 @@
         android:layout_marginBottom="18dp"
         android:background="@drawable/board_green"
         android:padding="@dimen/board_padding"
-        android:gravity="center" />
+        android:gravity="center"
+        android:divider="@android:drawable/divider_horizontal_dark"
+        android:scrollbars="none"/>
 </RelativeLayout>

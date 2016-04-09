@@ -107,4 +107,6 @@ public class ReaderFragment extends Fragment implements View.OnClickListener, Bo
         boardView.setTextColor(getResources().getColor(R.color.light_skin_text_color));
         boardView.setDivider(getResources().getDrawable(android.R.drawable.divider_horizontal_bright));
     }
+
+
 }

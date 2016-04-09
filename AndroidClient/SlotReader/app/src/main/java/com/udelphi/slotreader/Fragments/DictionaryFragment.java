@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.udelphi.slotreader.Adapters.DictionaryAdapter;
 import com.udelphi.slotreader.Interfaces.BoardSkinChangedListener;
 import com.udelphi.slotreader.Interfaces.SizeChangedListener;
 import com.udelphi.slotreader.MainActivity;
@@ -34,8 +35,8 @@ public class DictionaryFragment extends Fragment implements View.OnClickListener
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_dictionary, null);
         ((ListView)view.findViewById(R.id.dictionary_list))
-                .setAdapter(new ArrayAdapter<>(getActivity().getApplicationContext(),
-                        android.R.layout.simple_list_item_1, jsonHelper.getWords()));
+                .setAdapter(new DictionaryAdapter(getContext(), jsonHelper.getWords(),
+                        android.R.color.white));
         return view;
     }
 

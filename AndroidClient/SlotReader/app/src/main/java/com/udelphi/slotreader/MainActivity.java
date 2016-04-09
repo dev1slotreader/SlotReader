@@ -203,7 +203,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void changeFragment(Fragment fragment){
         if(fragment != null){
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.content_frame, fragment, ReaderFragment.TAG)
+                    .replace(R.id.content_frame, fragment, fragment.getTag())
                     .commit();
         }
     }
