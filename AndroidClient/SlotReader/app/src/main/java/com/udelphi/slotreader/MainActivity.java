@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         assert gallery != null;
         gallery.setAdapter(new GallerySizeAdapter(getApplicationContext()));
         gallery.setOnItemSelectedListener(this);
+        gallery.setUnselectedAlpha(0.3f);
 
         menuAdapter = new MenuAdapter(getApplicationContext(),
                 R.array.menu_items, R.array.menu_icons);
