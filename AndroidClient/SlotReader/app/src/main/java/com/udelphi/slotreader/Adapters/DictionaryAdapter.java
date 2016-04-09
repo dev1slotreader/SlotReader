@@ -13,10 +13,10 @@ public class DictionaryAdapter extends ArrayAdapter<String>{
     private int textColorId;
     private String[] words;
 
-    public DictionaryAdapter(Context context, String[] words, int textColorId) {
+    public DictionaryAdapter(Context context, String[] words) {
         super(context, R.layout.fragment_dictionary, words);
-        this.textColorId = textColorId;
         this.words = words;
+        this.textColorId = getContext().getResources().getColor(android.R.color.white);
     }
 
     @Override
@@ -26,8 +26,13 @@ public class DictionaryAdapter extends ArrayAdapter<String>{
 
         TextView tv = (TextView)convertView.findViewById(R.id.dictionary_item_tv);
         tv.setText(words[position]);
-        tv.setTextColor(getContext().getResources().getColor(textColorId));
+        tv.setTextColor(textColorId);
 
         return convertView;
+    }
+
+    public void changeTextColor(int textColorId){
+        this.textColorId = textColorId;
+        notifyDataSetChanged();
     }
 }

@@ -1,6 +1,7 @@
 package com.udelphi.slotreader.Fragments;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +21,21 @@ public class ReaderFragment extends Fragment implements View.OnClickListener, Bo
     private BoardViewBase boardView;
     private JsonHelper jsonHelper;
     private boolean isMoving;
+    int boardSkinPosition;
+
+    public static ReaderFragment newInstance(int boardSkinPosition){
+        ReaderFragment fragment = new ReaderFragment();
+        Bundle args = new Bundle();
+        args.putInt("boardSkinPosition", boardSkinPosition);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        this.boardSkinPosition = getArguments().getInt("boardSkinPosition");
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -39,6 +55,11 @@ public class ReaderFragment extends Fragment implements View.OnClickListener, Bo
         return view;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        setSkin(boardSkinPosition);
+    }
 
     @Override
     public void onClick(View v) {
@@ -73,13 +94,6 @@ public class ReaderFragment extends Fragment implements View.OnClickListener, Bo
         boardView.setValues(jsonHelper.getAlphabet());
     }
 
-    private void checkShownWord(){
-        String shownWord = boardView.readWord().toLowerCase();
-        String currentWord = jsonHelper.getCurrentWord().toLowerCase();
-        if(!shownWord.equals(currentWord) && jsonHelper.hasWord(shownWord))
-            jsonHelper.setCurrentWord(shownWord);
-    }
-
     @Override
     public void onSizeChanged(int size) {
         boardView.setLettersCount(size);
@@ -88,25 +102,29 @@ public class ReaderFragment extends Fragment implements View.OnClickListener, Bo
 
     @Override
     public void onBoardSkinChanged(int position) {
+        boardSkinPosition = position;
+        if(isVisible())
+            setSkin(boardSkinPosition);
+    }
+
+    private void checkShownWord(){
+        String shownWord = boardView.readWord().toLowerCase();
+        String currentWord = jsonHelper.getCurrentWord().toLowerCase();
+        if(!shownWord.equals(currentWord) && jsonHelper.hasWord(shownWord))
+            jsonHelper.setCurrentWord(shownWord);
+    }
+
+    private void setSkin(int position){
         boardView.setBackground(getResources().getDrawable(getResources()
                 .obtainTypedArray(R.array.boards_backgrounds).getResourceId(position, -1)));
         switch (position){
             case 2:
-                setLightSkin();
+                boardView.setTextColor(getResources().getColor(R.color.light_skin_text_color));
+                boardView.setDivider(getResources().getDrawable(android.R.drawable.divider_horizontal_bright));
                 break;
             default:
-                setDarkSkin();
+                boardView.setTextColor(getResources().getColor(R.color.dark_skin_text_color));
+                boardView.setDivider(getResources().getDrawable(android.R.drawable.divider_horizontal_dark));
         }
     }
-
-    private void setDarkSkin(){
-        boardView.setTextColor(getResources().getColor(R.color.dark_skin_text_color));
-        boardView.setDivider(getResources().getDrawable(android.R.drawable.divider_horizontal_dark));
-    }
-    private void setLightSkin(){
-        boardView.setTextColor(getResources().getColor(R.color.light_skin_text_color));
-        boardView.setDivider(getResources().getDrawable(android.R.drawable.divider_horizontal_bright));
-    }
-
-
 }

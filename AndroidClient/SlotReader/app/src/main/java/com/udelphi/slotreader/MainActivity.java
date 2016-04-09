@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ArrayList<BoardSkinChangedListener> boardSkinChangedListeners;
     private boolean isDrawerOpened;
     private boolean isSubmenuOpened;
+    private int boardSkinPosition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         sizeChangedListeners = new ArrayList<>();
         boardSkinChangedListeners = new ArrayList<>();
+        boardSkinPosition = 1;
 
         try {
             jsonHelper = new JsonHelper(getApplicationContext(), "slot_reader_source", "languages",
@@ -89,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     case 0:
                         Fragment homeFrag = getSupportFragmentManager().findFragmentByTag(ReaderFragment.TAG);
                         if(homeFrag == null) {
-                            homeFrag = new ReaderFragment();
+                            homeFrag = ReaderFragment.newInstance(boardSkinPosition);
                             sizeChangedListeners.add((SizeChangedListener)homeFrag);
                             boardSkinChangedListeners.add((BoardSkinChangedListener)homeFrag);
                         }
@@ -105,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     case 2:
                         Fragment dictFrag = getSupportFragmentManager().findFragmentByTag(DictionaryFragment.TAG);
                         if(dictFrag == null) {
-                            dictFrag = new DictionaryFragment();
+                            dictFrag = DictionaryFragment.newInstance(boardSkinPosition);
                             sizeChangedListeners.add((SizeChangedListener)dictFrag);
                             boardSkinChangedListeners.add((BoardSkinChangedListener)dictFrag);
                         }
@@ -129,6 +131,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 drawerLayout.closeDrawer(drawerList);
                 drawerList.setAdapter(menuAdapter);
                 drawerList.setOnItemClickListener(menuClickListener);
+                boardSkinPosition = position;
             }
         };
 
@@ -233,13 +236,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String value = ((TextView) view).getText().toString();
+        int value;
+        String valueStr = ((TextView) view).getText().toString();
         jsonHelper.setWordSizeIndex(position);
         try {
-            notifySizeChangedListeners(Integer.valueOf(value));
+            value = Integer.valueOf(valueStr);
+            notifySizeChangedListeners(value);
         } catch (NumberFormatException ignored) {
-            value = value.substring(0, value.length() - 1);
-            notifySizeChangedListeners(Integer.valueOf(value));
+            value = Integer.valueOf(valueStr.substring(0, valueStr.length() - 1));
+            notifySizeChangedListeners(value);
         }
     }
 

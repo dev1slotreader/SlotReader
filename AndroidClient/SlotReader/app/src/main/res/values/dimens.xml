@@ -16,4 +16,6 @@
     <dimen name="FAB_margin">8dp</dimen>
     <dimen name="FAB_elevation">6dp</dimen>
     <dimen name="FAB_padding">4dp</dimen>
+
+    <dimen name="dictionary_text_size">17sp</dimen>
 </resources>
