@@ -21,12 +21,14 @@ public class ReaderFragment extends Fragment implements View.OnClickListener, Bo
     private BoardViewBase boardView;
     private JsonHelper jsonHelper;
     private boolean isMoving;
-    int boardSkinPosition;
+    private int boardSkinPosition;
+    private int lettersCount;
 
-    public static ReaderFragment newInstance(int boardSkinPosition){
+    public static ReaderFragment newInstance(int boardSkinPosition, int lettersCount){
         ReaderFragment fragment = new ReaderFragment();
         Bundle args = new Bundle();
         args.putInt("boardSkinPosition", boardSkinPosition);
+        args.putInt("lettersCount", lettersCount);
         fragment.setArguments(args);
         return fragment;
     }
@@ -35,6 +37,7 @@ public class ReaderFragment extends Fragment implements View.OnClickListener, Bo
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.boardSkinPosition = getArguments().getInt("boardSkinPosition");
+        this.lettersCount = getArguments().getInt("lettersCount");
     }
 
     @Override
@@ -59,6 +62,7 @@ public class ReaderFragment extends Fragment implements View.OnClickListener, Bo
     public void onResume() {
         super.onResume();
         setSkin(boardSkinPosition);
+        setLettersCount(lettersCount);
     }
 
     @Override
@@ -96,8 +100,7 @@ public class ReaderFragment extends Fragment implements View.OnClickListener, Bo
 
     @Override
     public void onSizeChanged(int size) {
-        boardView.setLettersCount(size);
-        boardView.showWordImmediately(jsonHelper.getCurrentWord());
+        setLettersCount(size);
     }
 
     @Override
@@ -112,6 +115,14 @@ public class ReaderFragment extends Fragment implements View.OnClickListener, Bo
         String currentWord = jsonHelper.getCurrentWord().toLowerCase();
         if(!shownWord.equals(currentWord) && jsonHelper.hasWord(shownWord))
             jsonHelper.setCurrentWord(shownWord);
+    }
+
+    private void setLettersCount(int lettersCount){
+        this.lettersCount = lettersCount;
+        if(isVisible()) {
+            boardView.setLettersCount(lettersCount);
+            boardView.showWordImmediately(jsonHelper.getCurrentWord());
+        }
     }
 
     private void setSkin(int position){

@@ -63,7 +63,7 @@ public class DictionaryFragment extends Fragment implements View.OnClickListener
 
     @Override
     public void onSizeChanged(int size) {
-
+        adapter.changeWords(jsonHelper.getWords());
     }
 
     private void setSkin(int position){

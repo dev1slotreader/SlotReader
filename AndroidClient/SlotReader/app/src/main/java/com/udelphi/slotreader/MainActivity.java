@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private boolean isDrawerOpened;
     private boolean isSubmenuOpened;
     private int boardSkinPosition;
+    private int letersCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         sizeChangedListeners = new ArrayList<>();
         boardSkinChangedListeners = new ArrayList<>();
         boardSkinPosition = 1;
+        letersCount = 1;
 
         try {
             jsonHelper = new JsonHelper(getApplicationContext(), "slot_reader_source", "languages",
@@ -91,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     case 0:
                         Fragment homeFrag = getSupportFragmentManager().findFragmentByTag(ReaderFragment.TAG);
                         if(homeFrag == null) {
-                            homeFrag = ReaderFragment.newInstance(boardSkinPosition);
+                            homeFrag = ReaderFragment.newInstance(boardSkinPosition, letersCount);
                             sizeChangedListeners.add((SizeChangedListener)homeFrag);
                             boardSkinChangedListeners.add((BoardSkinChangedListener)homeFrag);
                         }
@@ -246,6 +248,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             value = Integer.valueOf(valueStr.substring(0, valueStr.length() - 1));
             notifySizeChangedListeners(value);
         }
+        letersCount = value;
     }
 
     private void notifySizeChangedListeners(int size){

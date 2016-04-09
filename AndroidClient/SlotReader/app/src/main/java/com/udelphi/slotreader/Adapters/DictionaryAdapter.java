@@ -35,4 +35,9 @@ public class DictionaryAdapter extends ArrayAdapter<String>{
         this.textColorId = textColorId;
         notifyDataSetChanged();
     }
+
+    public void changeWords(String[] words){
+        this.words = words;
+        notifyDataSetChanged();
+    }
 }
