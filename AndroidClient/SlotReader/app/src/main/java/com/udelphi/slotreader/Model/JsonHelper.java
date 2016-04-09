@@ -135,6 +135,17 @@ public class JsonHelper {
         }
     }
 
+    public String[] getWords(){
+        String[] result = new String[words.length()];
+        for(int i = 0; i < words.length(); i++)
+            try {
+                result[i] = words.getString(i);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        return result;
+    }
+
     private JSONObject readJsonFormAssets(Context context, String sourceFileName)
             throws JSONException, IOException{
         InputStream input = context.getAssets().open(sourceFileName);

@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.udelphi.slotreader.Adapters.GallerySizeAdapter;
 import com.udelphi.slotreader.Adapters.LanguagesAdapter;
 import com.udelphi.slotreader.Adapters.MenuAdapter;
+import com.udelphi.slotreader.Fragments.DictionaryFragment;
 import com.udelphi.slotreader.Fragments.ReaderFragment;
 import com.udelphi.slotreader.Interfaces.BoardSkinChangedListener;
 import com.udelphi.slotreader.Interfaces.SizeChangedListener;
@@ -86,13 +87,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position){
                     case 0:
-                        Fragment fragment = getSupportFragmentManager().findFragmentByTag(ReaderFragment.TAG);
-                        if(fragment == null) {
-                            fragment = new ReaderFragment();
-                            sizeChangedListeners.add((SizeChangedListener)fragment);
-                            boardSkinChangedListeners.add((BoardSkinChangedListener)fragment);
+                        Fragment homeFrag = getSupportFragmentManager().findFragmentByTag(ReaderFragment.TAG);
+                        if(homeFrag == null) {
+                            homeFrag = new ReaderFragment();
+                            sizeChangedListeners.add((SizeChangedListener)homeFrag);
+                            boardSkinChangedListeners.add((BoardSkinChangedListener)homeFrag);
                         }
-                        changeFragment(fragment);
+                        changeFragment(homeFrag);
                         drawerList.setItemChecked(position, true);
                         drawerLayout.closeDrawer(drawerList);
                         break;
@@ -100,6 +101,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         drawerList.setAdapter(skinsAdapter);
                         drawerList.setOnItemClickListener(skinsClickListener);
                         isSubmenuOpened = true;
+                        break;
+                    case 2:
+                        Fragment dictFrag = getSupportFragmentManager().findFragmentByTag(DictionaryFragment.TAG);
+                        if(dictFrag == null) {
+                            dictFrag = new DictionaryFragment();
+                            sizeChangedListeners.add((SizeChangedListener)dictFrag);
+                            boardSkinChangedListeners.add((BoardSkinChangedListener)dictFrag);
+                        }
+                        changeFragment(dictFrag);
+                        drawerList.setItemChecked(position, true);
+                        drawerLayout.closeDrawer(drawerList);
                         break;
                     case 3:
                         drawerList.setAdapter(languagesAdapter);
