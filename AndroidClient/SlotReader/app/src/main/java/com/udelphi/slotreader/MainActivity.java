@@ -146,7 +146,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         drawerList.setAdapter(menuAdapter);
         drawerList.setOnItemClickListener(menuClickListener);
         menuClickListener.onItemClick(null, null, 0, 0);
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
         setScreenMode(ScreenModes.FULL_SCREEN);
     }
 
