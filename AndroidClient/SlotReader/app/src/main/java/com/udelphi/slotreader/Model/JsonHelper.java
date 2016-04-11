@@ -136,14 +136,16 @@ public class JsonHelper {
     }
 
     public String[] getWords(){
-        String[] result = new String[words.length()];
-        for(int i = 0; i < words.length(); i++)
-            try {
+        try {
+            updateWords(getLanguage(language_index), wordSizes.getString(word_size_index));
+            String[] result = new String[words.length()];
+            for(int i = 0; i < words.length(); i++)
                 result[i] = words.getString(i);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        return result;
+            return result;
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     private JSONObject readJsonFormAssets(Context context, String sourceFileName)
@@ -156,10 +158,14 @@ public class JsonHelper {
         return new JSONObject(new String(buffer, "UTF-8"));
     }
 
-    private void updateWords(String language, String wordSize) throws JSONException {
+    private void updateWords(String language, String wordSize){
         if(!curWordArrStr.equals(language + wordSize)){
             curWordArrStr = language + wordSize;
-            words = words_json.getJSONArray(curWordArrStr);
+            try {
+                words = words_json.getJSONArray(curWordArrStr);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

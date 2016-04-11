@@ -99,7 +99,8 @@ public class ReaderFragment extends Fragment implements View.OnClickListener, Bo
     }
 
     @Override
-    public void onSizeChanged(int size) {
+    public void onSizeChanged(int size)
+    {
         setLettersCount(size);
     }
 
