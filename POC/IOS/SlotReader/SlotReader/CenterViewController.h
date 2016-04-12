@@ -22,7 +22,7 @@
 
 @property (nonatomic, assign) id<CenterViewControllerDelegate> delegate;
 
-@property (weak, nonatomic) IBOutlet SlotPickerView *picker;
+@property (strong, nonatomic) IBOutlet SlotPickerView *picker;
 @property (strong, nonatomic) NSArray *alphabet;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *showMenuButton;
 @property (weak, nonatomic) IBOutlet UIImageView *board;

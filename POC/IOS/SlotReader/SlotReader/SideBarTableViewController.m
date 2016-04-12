@@ -184,43 +184,45 @@ typedef enum {
 #warning write a method to show categories again and set sidebarmode to 0
 			sideBarMode = categories;
 			[self.tableView reloadData];
-		}
-		switch (sideBarMode) {
-			case categories:
-				switch (indexPath.row) {
-					case homeCategory:
-						[self performSegueWithIdentifier:@"segueMain" sender:self];
-						break;
-					case boardThemesCategory:
-			#warning show board themes
-						sideBarMode = boardStyle;
-						[self.tableView reloadData];
-						break;
-					case languagesCategory:
-			#warning show languages
-						sideBarMode = language;
-						[self.tableView reloadData];
-						break;
-					case dictionaryCategory:
-						[self performSegueWithIdentifier:@"segueDictionary" sender:self];
-						break;
-					default:
-						break;
-				}
-				break;
-			case language:
-				[[NSUserDefaults standardUserDefaults] setObject:
-				 [[[DataMiner sharedDataMiner] getLanguages] objectAtIndex:(indexPath.row - 1)] forKey:@"language"];
-				[self.languageSelectorDelegate changeLanguage];
-				break;
-			case boardStyle:
-				[[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:(indexPath.row - 1)] forKey:@"colorScheme"];
-				[self.themeSelectorDelegate changeBoardTheme];
-				break;
-			default:
-				break;
-		}
-		
+		} else {
+			switch (sideBarMode) {
+				case categories:
+					switch (indexPath.row) {
+						case homeCategory:
+							[self performSegueWithIdentifier:@"segueMain" sender:self];
+							break;
+						case boardThemesCategory:
+#warning show board themes
+							sideBarMode = boardStyle;
+							[self.tableView reloadData];
+							break;
+						case languagesCategory:
+#warning show languages
+							sideBarMode = language;
+							[self.tableView reloadData];
+							break;
+						case dictionaryCategory:
+							[self performSegueWithIdentifier:@"segueDictionary" sender:self];
+							break;
+						default:
+							break;
+					}
+					break;
+				case language:
+					[[NSUserDefaults standardUserDefaults] setObject:
+					 [[[DataMiner sharedDataMiner] getLanguages] objectAtIndex:(indexPath.row - 1)] forKey:@"language"];
+					[[NSUserDefaults standardUserDefaults] synchronize];
+					[self.languageSelectorDelegate changeLanguage];
+					break;
+				case boardStyle:
+					[[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:(indexPath.row - 1)] forKey:@"colorScheme"];
+					[[NSUserDefaults standardUserDefaults] synchronize];
+					[self.themeSelectorDelegate changeBoardTheme];
+					break;
+				default:
+					break;
+			}
+		}		
 	}
 }
 /*

@@ -17,5 +17,6 @@
 @property BOOL lightTheme;
 
 - (void) setNumberOfLettersToShow:(NSNumber *)numberOfLetters andLanguage: (NSString *) language;
+- (void) reloadData;
 
 @end

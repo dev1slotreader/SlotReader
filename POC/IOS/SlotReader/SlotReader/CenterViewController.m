@@ -18,6 +18,12 @@ typedef enum {
 	nornalDirection
 }buttonDirection;
 
+typedef enum {
+	green,
+	light,
+	dark
+} BoardScheme;
+
 @interface CenterViewController () <MenuPanelViewControllerDelegate, UIDynamicAnimatorDelegate, SlotPickerDelegate>{
 	WordPickerHelperViewController *pickerHelper;
 	SWRevealViewController *revealViewController;
@@ -45,14 +51,15 @@ typedef enum {
 	self.picker.delegate = pickerHelper;
 	self.picker.dataSource = pickerHelper;
 	
-	[self getDataFromStorage];	
+	[self getDataFromStorage];
+	[self setStyleFromSettings];
 
 	self.navigationController.navigationBar.backgroundColor = [UIColor redColor];
 	[self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:(181/255.0) green:(252/255.0) blue:(251/255.0) alpha:1]];
 	self.navigationItem.title = @"Slot Reader";
 	
 	currentNumberOfLetters = [[[[NSUserDefaults standardUserDefaults] objectForKey:@"currentPositon"] objectAtIndex:0] intValue];
-	
+		
 	revealViewController = self.revealViewController;
 	if ( revealViewController )
 	{
@@ -75,6 +82,8 @@ typedef enum {
 #pragma mark - Getting data
 
 - (void) getDataFromStorage {
+	
+#warning No need in it
 	NSError *error = nil;
 	NSString *filePath = [[NSBundle mainBundle] pathForResource:@"slot_reader_source" ofType:@"txt"];
 	NSURL *url = [NSURL fileURLWithPath:filePath];
@@ -95,6 +104,23 @@ typedef enum {
 		allWordsForCurrentLanguage = [jsonData objectForKey:@"words"];
 		self.alphabet = [NSArray arrayWithArray:[[jsonData objectForKey:@"words"] objectForKey:[NSString stringWithFormat:@"%@1",[[NSUserDefaults standardUserDefaults] objectForKey:@"language"]]]];
 		NSLog(@"OK");
+	}
+}
+
+- (void) setStyleFromSettings {
+	NSNumber *colorScheme = [[NSUserDefaults standardUserDefaults] objectForKey:@"colorScheme"];
+	switch ([colorScheme integerValue]) {
+		case green:
+			self.board.image = [UIImage imageNamed:@"Blackboard"];
+			break;
+		case light:
+			self.board.image = [UIImage imageNamed:@"Blackboard-light"];
+			break;
+		case dark:
+			self.board.image = [UIImage imageNamed:@"Blackboard-dark"];
+			break;
+		default:
+			break;
 	}
 }
 
@@ -186,11 +212,14 @@ typedef enum {
 }
 
 - (void) changeLanguage {
+	[pickerHelper reloadData];
+	[self.picker reloadAllComponents];
 	[self.view setNeedsDisplay];
 	NSLog(@"changeLanguage");
 }
 
 - (void) changeBoardTheme {
+	[self setStyleFromSettings];
 	[self.view setNeedsDisplay];
 	NSLog(@"changeBoardTheme");
 }
