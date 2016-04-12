@@ -9,11 +9,23 @@
 #import "CenterViewController.h"
 #import "WordPickerHelperViewController.h"
 #import "MenuPanelViewController.h"
+#import "DataMiner.h"
 
-@interface CenterViewController () <MenuPanelViewControllerDelegate>{
+@import QuartzCore;
+
+typedef enum {
+	reverseDirection,
+	nornalDirection
+}buttonDirection;
+
+@interface CenterViewController () <MenuPanelViewControllerDelegate, UIDynamicAnimatorDelegate, SlotPickerDelegate>{
 	WordPickerHelperViewController *pickerHelper;
 	SWRevealViewController *revealViewController;
 	MenuPanelViewController *menuPanelViewController;
+	NSDictionary *allWordsForCurrentLanguage;
+	
+	int currentNumberOfLetters;
+	AppDelegate *appDelegate;
 }
 
 @end
@@ -22,22 +34,24 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
+	
+	appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+	appDelegate.languageSelectorDelegate = self;
+	appDelegate.themeSelectorDelegate = self;
+	
 	pickerHelper = [[WordPickerHelperViewController alloc] init];
 	menuPanelViewController = [[MenuPanelViewController alloc] init];
-
+	self.picker.pickerDelegate = self;
 	self.picker.delegate = pickerHelper;
 	self.picker.dataSource = pickerHelper;
 	
-	[self getDataFromStorage];
-	
-	//self.navigationController.navigationBar.translucent = YES;
-	//self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:(181/255.0) green:(252/255.0) blue:(251/255.0) alpha:1];
+	[self getDataFromStorage];	
+
 	self.navigationController.navigationBar.backgroundColor = [UIColor redColor];
 	[self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:(181/255.0) green:(252/255.0) blue:(251/255.0) alpha:1]];
-	//[[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:(181/255.0) green:(252/255.0) blue:(251/255.0) alpha:1]];
 	self.navigationItem.title = @"Slot Reader";
 	
-	//[self.toolbar setBackgroundImage:[UIImage new] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+	currentNumberOfLetters = [[[[NSUserDefaults standardUserDefaults] objectForKey:@"currentPositon"] objectAtIndex:0] intValue];
 	
 	revealViewController = self.revealViewController;
 	if ( revealViewController )
@@ -46,8 +60,7 @@
 		[self.showMenuButton setTarget: self.revealViewController];
 		[self.showMenuButton setAction: @selector( revealToggle: )];
 		[self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-	}
-	
+	}	
 }
 
 - (void) viewDidAppear:(BOOL)animated{
@@ -78,7 +91,9 @@
 											  otherButtonTitles:nil];
 		[alert show];
 	} else {
-		self.alphabet = [[jsonData objectForKey:@"words"] objectForKey:[NSString stringWithFormat:@"%@1",[[NSUserDefaults standardUserDefaults] objectForKey:@"language"]]];
+		NSLog(@"%@", [[NSUserDefaults standardUserDefaults] objectForKey:@"language"]);
+		allWordsForCurrentLanguage = [jsonData objectForKey:@"words"];
+		self.alphabet = [NSArray arrayWithArray:[[jsonData objectForKey:@"words"] objectForKey:[NSString stringWithFormat:@"%@1",[[NSUserDefaults standardUserDefaults] objectForKey:@"language"]]]];
 		NSLog(@"OK");
 	}
 }
@@ -86,14 +101,15 @@
 #pragma mark - Displaying letters and words
 
 - (void) setNumberOfLetters:(NSNumber *)numberOfLetters andLanguage: (NSString *) language {
-	[pickerHelper setNumberOfLetters:numberOfLetters andLanguage:nil];
+	[pickerHelper setNumberOfLettersToShow:numberOfLetters andLanguage:nil];
 	[self.picker reloadAllComponents];
+	//[self showTheFirstWord];
 }
 
 - (void) displayWord:(NSString *)word animated:(BOOL)animated {
 	pickerHelper.pickerWorkingAutomatically = YES;
 	for (NSUInteger i = 0; i < [word length]; i++) {
-		NSString *letter = [NSString stringWithFormat:@"%c", [word characterAtIndex:i]];
+		NSString *letter = [NSString stringWithFormat:@"%@", [word substringWithRange:NSMakeRange(i, 1)]];		
 		[self displayLetter:letter
 				atComponent:i
 				   animated:animated];
@@ -114,93 +130,69 @@
 						animated:animated];
 }
 
-- (IBAction)switchToAlphabet:(id)sender {
-	self.picker.hidden = NO;
-	self.fivepluslabel.hidden = YES;
-	
-	[self setNumberOfLetters:[NSNumber numberWithInt:1] andLanguage:nil];
-}
-
-- (IBAction)switchTo3:(id)sender {
-	self.picker.hidden = NO;
-	self.fivepluslabel.hidden = YES;
-	
-	[self setNumberOfLetters:[NSNumber numberWithInt:3] andLanguage:nil];
-	[self displayWord:@"CAT" animated:YES];
-}
-
-- (IBAction)switchTo4:(id)sender {
-	self.picker.hidden = NO;
-	self.fivepluslabel.hidden = YES;
-	
-	[self setNumberOfLetters:[NSNumber numberWithInt:4] andLanguage:nil];
-	[self displayWord:@"TREE" animated:YES];
-}
-
-- (IBAction)switchTo5:(id)sender {
-	self.picker.hidden = NO;
-	self.fivepluslabel.hidden = YES;
-	
-	[self setNumberOfLetters:[NSNumber numberWithInt:5] andLanguage:nil];
-	[self displayWord:@"HELLO" animated:YES];
-}
-
-- (IBAction)switchToBigWords:(id)sender {
-	//[self setNumberOfLetters:[NSNumber numberWithInt:6] andLanguage:nil];
-	//[self displayWord:@"RABBIT" animated:YES];
-	self.picker.hidden = YES;
-	self.fivepluslabel.hidden = NO;
-}
-
 - (IBAction)wordChanged:(id)sender {
-	[self.dictionaryButton setImage:[UIImage imageNamed: @"plus"] forState:UIControlStateNormal];
+
 }
 
-- (IBAction)wordChanged2:(id)sender {
-	[self.dictionaryButton setImage:[UIImage imageNamed: @"dictionary"] forState:UIControlStateNormal];
-}
-- (IBAction)changeMenuVisibility:(id)sender {
-	self.b1.hidden = !self.b1.hidden;
-	self.b2.hidden = !self.b2.hidden;
-	self.b3.hidden = !self.b3.hidden;
-}
 
-- (IBAction)setDarkBoard:(id)sender {
-	self.board.image = [UIImage imageNamed:@"Blackboard-dark"];
-	pickerHelper.lightTheme = NO;
-	[self.picker reloadAllComponents];
-}
-
-- (IBAction)setLightBoard:(id)sender {
-	self.board.image = [UIImage imageNamed:@"Blackboard-light"];
-	pickerHelper.lightTheme = YES;
-	[self.picker reloadAllComponents];
-}
-
-- (IBAction)setGreenBoard:(id)sender {
-	self.board.image = [UIImage imageNamed:@"Blackboard"];
-	pickerHelper.lightTheme = NO;
-	[self.picker reloadAllComponents];
-}
-
-#pragma mark -
-#pragma mark Button Actions
-
-- (IBAction)btnMovePanelRight:(id)sender
-{
-	
-	UIButton *button = sender;
-	
-	switch (button.tag) {
-		case 0:
-			[self.delegate movePanelToOriginalPosition];
-			break;
-		case 1:
-			[self.delegate movePanelRight];
-		default:
-			break;
+- (IBAction)changeNumberOfLettersToShow:(id)sender {
+	int numberOfLetters = (int)((UIBarButtonItem *)sender).tag;
+	switch (numberOfLetters) {
+    case 0:
+		[self setNumberOfLetters:[NSNumber numberWithInt: 10] andLanguage:nil];
+		currentNumberOfLetters = 10;
+		break;
+    default:
+		[self setNumberOfLetters:[NSNumber numberWithInt: numberOfLetters] andLanguage:nil];
+			currentNumberOfLetters = numberOfLetters;
+		break;
 	}
+	[self showTheFirstWord];
+	
 }
 
+- (IBAction)presentNextWord:(id)sender {
+	int currentWordPosition = [[[[NSUserDefaults standardUserDefaults] objectForKey:@"currentPositon"] objectAtIndex:1] intValue];
+	NSArray *words = [allWordsForCurrentLanguage objectForKey:[NSString stringWithFormat:@"%@%d",
+															   [[NSUserDefaults standardUserDefaults] objectForKey:@"language"],
+															   currentNumberOfLetters]];
+	
+	if ([(UIButton *)sender tag] == nornalDirection) {
+		currentWordPosition = (currentWordPosition + 1) % [words count] ;
+		NSLog(@"next");
+	}
+	else {
+		
+	}
+	
+	[self displayWord:[[words objectAtIndex:currentWordPosition] uppercaseString] animated:YES];
+#warning be careful here!
+	[[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:[NSNumber numberWithInt:currentNumberOfLetters],
+													  [NSNumber numberWithInt:currentWordPosition], nil]
+											  forKey:@"currentPositon"];
+}
+
+- (void) showTheFirstWordForNumberOfLetters: (int) numberOfLetters{
+	}
+
+
+- (void) showTheFirstWord {
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	[defaults setObject:[NSArray arrayWithObjects:[NSNumber numberWithInt:currentNumberOfLetters], [NSNumber numberWithInt:0], nil] forKey:@"currentPositon"];
+	NSArray *words = [allWordsForCurrentLanguage objectForKey:[NSString stringWithFormat:@"%@%d",
+															   [[NSUserDefaults standardUserDefaults] objectForKey:@"language"],
+															   currentNumberOfLetters]];
+	[self displayWord:[[words objectAtIndex:0] uppercaseString] animated:YES];
+}
+
+- (void) changeLanguage {
+	[self.view setNeedsDisplay];
+	NSLog(@"changeLanguage");
+}
+
+- (void) changeBoardTheme {
+	[self.view setNeedsDisplay];
+	NSLog(@"changeBoardTheme");
+}
 
 @end

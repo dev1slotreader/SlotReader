@@ -7,33 +7,30 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 #import "BoardViewController.h"
 #import "SWRevealViewController.h"
+#import "SlotPickerView.h"
+
 
 @protocol CenterViewControllerDelegate <NSObject>
 - (void)movePanelRight;
 - (void)movePanelToOriginalPosition;
 @end
 
-@interface CenterViewController : UIViewController
+@interface CenterViewController : UIViewController <LanguageSelector, BoardThemeSelector>
 
 @property (nonatomic, assign) id<CenterViewControllerDelegate> delegate;
 
-
-@property (weak, nonatomic) IBOutlet UIButton *boardButtonCollection;
-
-@property (weak, nonatomic) IBOutlet UIPickerView *picker;
+@property (weak, nonatomic) IBOutlet SlotPickerView *picker;
 @property (strong, nonatomic) NSArray *alphabet;
-@property (weak, nonatomic) IBOutlet UIButton *dictionaryButton;
-@property (weak, nonatomic) IBOutlet UILabel *fivepluslabel;
-
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *showMenuButton;
-
-@property (weak, nonatomic) IBOutlet UIButton *dictionary;
 @property (weak, nonatomic) IBOutlet UIImageView *board;
-@property (weak, nonatomic) IBOutlet UIButton *b1;
-@property (weak, nonatomic) IBOutlet UIButton *b2;
-@property (weak, nonatomic) IBOutlet UIButton *b3;
+
+
+- (IBAction)changeNumberOfLettersToShow:(id)sender;
+- (IBAction)presentNextWord:(id)sender;
+
 
 @end
 

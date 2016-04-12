@@ -7,14 +7,17 @@
 //
 
 #import "AppDelegate.h"
+#import "DataMiner.h"
 
 typedef enum {
 	green,
-	dark,
-	light
+	light,
+	dark
 } ColorScheme;
 
-@interface AppDelegate ()
+@interface AppDelegate () {
+	NSUserDefaults *defaults;
+}
 
 @end
 
@@ -22,18 +25,38 @@ typedef enum {
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-	
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	NSString *language = [[[NSLocale preferredLanguages] objectAtIndex:0] substringToIndex:2];
-	[defaults setObject:language forKey:@"language"];
-	[defaults setObject:[NSNumber numberWithInt:green] forKey:@"colorScheme"];
-	[defaults setObject:[NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:0], nil] forKey:@"currentPositon"];
-	
-	[defaults synchronize];
+	defaults = [NSUserDefaults standardUserDefaults];
+	if (! [defaults boolForKey:@"HasLaunchedOnce"]) {
+		NSString *language = [[[NSLocale preferredLanguages] objectAtIndex:0] substringToIndex:2];
+		DataMiner *dataMiner = [DataMiner sharedDataMiner];
+		NSArray *languagesArray = [dataMiner getLanguages];
+		if ([languagesArray containsObject:language]) {
+			[defaults setObject:language forKey:@"language"];
+		}
+		else {
+			[defaults setObject:@"en" forKey:@"language"];
+		}
+		
+		[defaults setObject:[NSNumber numberWithInt:green] forKey:@"colorScheme"];
+		[defaults setObject:[NSArray arrayWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:0], nil] forKey:@"currentPositon"];
+		
+		[defaults addObserver:self forKeyPath:@"colorScheme" options:NSKeyValueObservingOptionInitial context:nil];
+		[defaults addObserver:self forKeyPath:@"language" options:NSKeyValueObservingOptionInitial context:nil];
+		
+		[defaults synchronize];
+	}
 	
 	NSLog(@"%@", [defaults objectForKey:@"language"]);
 	
 	return YES;
+}
+
+- (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
+	if ([keyPath isEqualToString:@"colorScheme"]) {
+		[self.themeSelectorDelegate changeBoardTheme];
+	} else if ([keyPath isEqualToString:@"language"]) {
+		[self.languageSelectorDelegate changeLanguage];
+	}
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

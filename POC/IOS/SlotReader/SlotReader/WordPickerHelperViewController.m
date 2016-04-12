@@ -19,7 +19,9 @@
 	self = [super init];
 	self.alphabet = @[@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",
 					  @"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z"];
-	self.numberOfLetters = [NSNumber numberWithInt:5];
+	[self getDataFromStorage];
+	int numberOfLetters = [[[[NSUserDefaults standardUserDefaults] objectForKey:@"currentPositon"] objectAtIndex:0] intValue];
+	self.numberOfLettersToShow = [NSNumber numberWithInt:(numberOfLetters == 0)?6:numberOfLetters];
 	return self;
 }
 
@@ -28,8 +30,32 @@
 	
 }
 
-- (void) setNumberOfLetters:(NSNumber *)numberOfLetters andLanguage: (NSString *) language {
-	self.numberOfLetters = numberOfLetters;
+#pragma mark - Getting data
+
+- (void) getDataFromStorage {
+	NSError *error = nil;
+	NSString *filePath = [[NSBundle mainBundle] pathForResource:@"slot_reader_source" ofType:@"txt"];
+	NSURL *url = [NSURL fileURLWithPath:filePath];
+	
+	NSData *data = [NSData dataWithContentsOfFile:filePath];
+	NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:data
+															 options:kNilOptions
+															   error:&error];
+	if (error != nil) {
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+														message:@"Couldn't load the data"
+													   delegate:self
+											  cancelButtonTitle:@"OK"
+											  otherButtonTitles:nil];
+		[alert show];
+	} else {
+		self.alphabet = [NSArray arrayWithArray:[[jsonData objectForKey:@"words"] objectForKey:[NSString stringWithFormat:@"%@1",[[NSUserDefaults standardUserDefaults] objectForKey:@"language"]]]];
+	}
+}
+
+
+- (void) setNumberOfLettersToShow:(NSNumber *)numberOfLetters andLanguage: (NSString *) language {
+	self.numberOfLettersToShow = numberOfLetters;
 	
 }
 
@@ -40,7 +66,7 @@
 }
 
 - (NSInteger) numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-	return [self.numberOfLetters intValue];
+	return [self.numberOfLettersToShow intValue];
 }
 
 

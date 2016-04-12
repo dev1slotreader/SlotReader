@@ -11,10 +11,11 @@
 @interface WordPickerHelperViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
 
 @property (strong, nonatomic) NSArray *alphabet;
-@property (strong, nonatomic) NSNumber *numberOfLetters;
+@property (strong, nonatomic) NSArray *words;
+@property (strong, nonatomic) NSNumber *numberOfLettersToShow;
 @property BOOL pickerWorkingAutomatically;
 @property BOOL lightTheme;
 
-- (void) setNumberOfLetters:(NSNumber *)numberOfLetters andLanguage: (NSString *) language;
+- (void) setNumberOfLettersToShow:(NSNumber *)numberOfLetters andLanguage: (NSString *) language;
 
 @end
