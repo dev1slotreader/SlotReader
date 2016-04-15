@@ -211,13 +211,14 @@ typedef enum {
 				case language:
 					[[NSUserDefaults standardUserDefaults] setObject:
 					 [[[DataMiner sharedDataMiner] getLanguages] objectAtIndex:(indexPath.row - 1)] forKey:@"language"];
-					[[NSUserDefaults standardUserDefaults] synchronize];
-					[self.languageSelectorDelegate changeLanguage];
+					//[[NSUserDefaults standardUserDefaults] synchronize];
+					
+					//[self.languageSelectorDelegate changeLanguage];
 					break;
 				case boardStyle:
 					[[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:(indexPath.row - 1)] forKey:@"colorScheme"];
-					[[NSUserDefaults standardUserDefaults] synchronize];
-					[self.themeSelectorDelegate changeBoardTheme];
+					//[[NSUserDefaults standardUserDefaults] synchronize];
+					//[self.themeSelectorDelegate changeBoardTheme];
 					break;
 				default:
 					break;

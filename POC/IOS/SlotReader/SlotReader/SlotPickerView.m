@@ -14,7 +14,8 @@
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
-	[self.pickerDelegate showTheFirstWord];
+#warning picker delegate doesn't know the number
+	//[self.pickerDelegate showTheFirstWord];
 }
 
 @end

@@ -26,7 +26,10 @@ typedef enum {
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	defaults = [NSUserDefaults standardUserDefaults];
-	if (! [defaults boolForKey:@"HasLaunchedOnce"]) {
+	
+	static NSString* const hasRunAppOnceKey = @"hasRunAppOnceKey";
+	if ([defaults boolForKey:hasRunAppOnceKey] == NO)
+	{
 		NSString *language = [[[NSLocale preferredLanguages] objectAtIndex:0] substringToIndex:2];
 		DataMiner *dataMiner = [DataMiner sharedDataMiner];
 		NSArray *languagesArray = [dataMiner getLanguages];
@@ -40,21 +43,22 @@ typedef enum {
 		[defaults setObject:[NSNumber numberWithInt:green] forKey:@"colorScheme"];
 		[defaults setObject:[NSArray arrayWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:0], nil] forKey:@"currentPositon"];
 		
-		[defaults addObserver:self forKeyPath:@"colorScheme" options:NSKeyValueObservingOptionInitial context:nil];
-		[defaults addObserver:self forKeyPath:@"language" options:NSKeyValueObservingOptionInitial context:nil];
 		
 		[defaults synchronize];
+		
+		[defaults setBool:YES forKey:hasRunAppOnceKey];
 	}
 	
-	NSLog(@"%@", [defaults objectForKey:@"language"]);
-	
+	[defaults addObserver:self forKeyPath:@"colorScheme" options:NSKeyValueObservingOptionNew context:nil];
+	[defaults addObserver:self forKeyPath:@"language" options:NSKeyValueObservingOptionNew context:nil];
+		
 	return YES;
 }
 
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
-	if ([keyPath isEqualToString:@"colorScheme"]) {
+	if ([keyPath isEqualToString:@"colorScheme"] && (self.themeSelectorDelegate != nil)) {
 		[self.themeSelectorDelegate changeBoardTheme];
-	} else if ([keyPath isEqualToString:@"language"]) {
+	} else if ([keyPath isEqualToString:@"language"] && (self.languageSelectorDelegate != nil)) {
 		[self.languageSelectorDelegate changeLanguage];
 	}
 }

@@ -8,6 +8,7 @@
 
 #import "WordPickerHelperViewController.h"
 #include <AudioToolbox/AudioToolbox.h>
+#import "DataMiner.h"
 
 @interface WordPickerHelperViewController () <UIPickerViewDataSource, UIPickerViewDelegate>
 
@@ -36,6 +37,10 @@
 #pragma mark - Getting data
 
 - (void) getDataFromStorage {
+	
+	//NSDictionary *allData = [NSDictionary dictionaryWithDictionary:[[DataMiner sharedDataMiner] getWordsOfSize: 1]];
+	self.alphabet = [NSArray arrayWithArray:[[DataMiner sharedDataMiner] getWordsOfSize: 1]];
+	/*
 	NSError *error = nil;
 	NSString *filePath = [[NSBundle mainBundle] pathForResource:@"slot_reader_source" ofType:@"txt"];
 	NSURL *url = [NSURL fileURLWithPath:filePath];
@@ -53,7 +58,7 @@
 		[alert show];
 	} else {
 		self.alphabet = [NSArray arrayWithArray:[[jsonData objectForKey:@"words"] objectForKey:[NSString stringWithFormat:@"%@1",[[NSUserDefaults standardUserDefaults] objectForKey:@"language"]]]];
-	}
+	} */
 	
 	int numberOfLetters = [[[[NSUserDefaults standardUserDefaults] objectForKey:@"currentPositon"] objectAtIndex:0] intValue];
 	self.numberOfLettersToShow = [NSNumber numberWithInt:(numberOfLetters == 0)?6:numberOfLetters];

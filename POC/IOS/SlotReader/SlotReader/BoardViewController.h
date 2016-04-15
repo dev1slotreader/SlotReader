@@ -18,6 +18,10 @@ typedef enum {
 	
 }
 
+@property (weak, nonatomic) IBOutlet UIImageView *boardImage;
+@property (weak, nonatomic) IBOutlet UIButton *prevButton;
+@property (weak, nonatomic) IBOutlet UIButton *nextButton;
+
 - (void) setBoardColorScheme: (ColorScheme) colorScheme;
 
 @end

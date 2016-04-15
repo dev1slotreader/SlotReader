@@ -25,7 +25,11 @@
 @property (strong, nonatomic) IBOutlet SlotPickerView *picker;
 @property (strong, nonatomic) NSArray *alphabet;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *showMenuButton;
+
+
 @property (weak, nonatomic) IBOutlet UIImageView *board;
+@property (weak, nonatomic) IBOutlet UIButton *prevButton;
+@property (weak, nonatomic) IBOutlet UIButton *nextButton;
 
 
 - (IBAction)changeNumberOfLettersToShow:(id)sender;

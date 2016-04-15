@@ -10,6 +10,7 @@
 #import "WordPickerHelperViewController.h"
 #import "MenuPanelViewController.h"
 #import "DataMiner.h"
+#import "FancyTextInputBlock.h"
 
 @import QuartzCore;
 
@@ -58,7 +59,7 @@ typedef enum {
 	[self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:(181/255.0) green:(252/255.0) blue:(251/255.0) alpha:1]];
 	self.navigationItem.title = @"Slot Reader";
 	
-	currentNumberOfLetters = [[[[NSUserDefaults standardUserDefaults] objectForKey:@"currentPositon"] objectAtIndex:0] intValue];
+	currentNumberOfLetters = [[[[NSUserDefaults standardUserDefaults] objectForKey:@"currentPositon"] objectAtIndex:0] intValue];	
 		
 	revealViewController = self.revealViewController;
 	if ( revealViewController )
@@ -67,7 +68,18 @@ typedef enum {
 		[self.showMenuButton setTarget: self.revealViewController];
 		[self.showMenuButton setAction: @selector( revealToggle: )];
 		[self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-	}	
+	}
+	
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+		[self showTheFirstWord];
+	});
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	appDelegate.languageSelectorDelegate = self;
+	appDelegate.themeSelectorDelegate = self;
 }
 
 - (void) viewDidAppear:(BOOL)animated{
@@ -112,12 +124,15 @@ typedef enum {
 	switch ([colorScheme integerValue]) {
 		case green:
 			self.board.image = [UIImage imageNamed:@"Blackboard"];
+			pickerHelper.lightTheme = NO;
 			break;
 		case light:
 			self.board.image = [UIImage imageNamed:@"Blackboard-light"];
+			pickerHelper.lightTheme = YES;
 			break;
 		case dark:
 			self.board.image = [UIImage imageNamed:@"Blackboard-dark"];
+			pickerHelper.lightTheme = NO;
 			break;
 		default:
 			break;
@@ -188,14 +203,17 @@ typedef enum {
 		NSLog(@"next");
 	}
 	else {
-		
+		currentWordPosition = (currentWordPosition - 1) % [words count] ;
+		NSLog(@"previous");
 	}
 	
 	[self displayWord:[[words objectAtIndex:currentWordPosition] uppercaseString] animated:YES];
+	//[self displayWord:[words objectAtIndex:currentWordPosition] animated:YES];
 #warning be careful here!
 	[[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:[NSNumber numberWithInt:currentNumberOfLetters],
 													  [NSNumber numberWithInt:currentWordPosition], nil]
 											  forKey:@"currentPositon"];
+	[[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void) showTheFirstWordForNumberOfLetters: (int) numberOfLetters{
@@ -209,6 +227,7 @@ typedef enum {
 															   [[NSUserDefaults standardUserDefaults] objectForKey:@"language"],
 															   currentNumberOfLetters]];
 	[self displayWord:[[words objectAtIndex:0] uppercaseString] animated:YES];
+	//[self displayWord:[words objectAtIndex:0] animated:YES];
 }
 
 - (void) changeLanguage {
@@ -222,6 +241,12 @@ typedef enum {
 	[self setStyleFromSettings];
 	[self.view setNeedsDisplay];
 	NSLog(@"changeBoardTheme");
+}
+
+- (void) viewWillDisappear:(BOOL)animated {
+	appDelegate.languageSelectorDelegate = nil;
+	appDelegate.themeSelectorDelegate = nil;
+	[super viewWillDisappear:animated];
 }
 
 @end

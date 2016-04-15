@@ -51,5 +51,15 @@ enum {
 	return self;
 }
 
+- (void) drawRect:(CGRect)rect {
+	NSNumber *colorScheme = [[NSUserDefaults standardUserDefaults] objectForKey:@"colorScheme"];
+#warning set the styles here
+	self.boardImage.image = [UIImage imageNamed:[[colorShemesCollection objectAtIndex:[colorScheme integerValue]] objectForKey:[NSString stringWithFormat:@"%d", board]]];
+	self.prevButton.imageView.image = [UIImage imageNamed:[[colorShemesCollection objectAtIndex:[colorScheme integerValue]] objectForKey:[NSString stringWithFormat:@"%d", prevButton]]];
+	self.nextButton.imageView.image = [UIImage imageNamed:[[colorShemesCollection objectAtIndex:[colorScheme integerValue]] objectForKey:[NSString stringWithFormat:@"%d", nextButton]]];
+	
+	[super drawRect:rect];
+}
+
 
 @end

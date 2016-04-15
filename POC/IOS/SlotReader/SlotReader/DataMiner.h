@@ -17,5 +17,6 @@
 - (NSDictionary *) getWords;
 - (NSArray *) getWordsOfSize: (int) size;
 - (NSArray *) getLanguages;
+- (void) addNewWord: (NSString *) word;
 
 @end

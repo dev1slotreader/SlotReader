@@ -44,7 +44,32 @@
 }
 
 - (NSArray *) getWordsOfSize: (int) size {
+	NSLog(@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"language"]);
 	return [[allData objectForKey:@"words"] objectForKey:[NSString stringWithFormat:@"%@%d", [[NSUserDefaults standardUserDefaults] objectForKey:@"language"], size]];
+}
+
+- (void) addNewWord: (NSString *) word {
+	NSString *language = [[NSUserDefaults standardUserDefaults] objectForKey:@"language"];
+	NSArray *alphabet = [[allData objectForKey:@"words"] objectForKey:[NSString stringWithFormat:@"%@%d", [[NSUserDefaults standardUserDefaults] objectForKey:@"language"], 1]];
+	NSMutableString *aphabetString = [[NSMutableString alloc] initWithCapacity:1];
+	for (NSString *letter in alphabet) {
+		[aphabetString appendString:letter];
+	}
+	NSCharacterSet *allowedSymbols = [NSCharacterSet characterSetWithCharactersInString:aphabetString];
+	word = [[word componentsSeparatedByCharactersInSet:allowedSymbols] componentsJoinedByString:@""];
+	
+	NSInteger size = [word length];
+	NSMutableArray *thisSizeLangWordsBuffer = [[NSMutableArray alloc] initWithArray:[[allData objectForKey:@"words"] objectForKey:[NSString stringWithFormat:@"%@%d", language, size]]];
+	[thisSizeLangWordsBuffer addObject:word];
+	NSMutableDictionary *newData = [[NSMutableDictionary alloc] initWithDictionary:allData];
+#warning Why not?
+	[[newData objectForKey:@"words"] setObject:thisSizeLangWordsBuffer forKey:[NSString stringWithFormat:@"%@%d", [[NSUserDefaults standardUserDefaults] objectForKey:@"language"], size]];
+	
+	NSString *filePath = [[NSBundle mainBundle] pathForResource:@"slot_reader_source" ofType:@"txt"];
+	NSURL *url = [NSURL fileURLWithPath:filePath];
+	NSData* jsonData = [NSJSONSerialization dataWithJSONObject:newData options:NSJSONWritingPrettyPrinted error:nil];
+	NSString *newText = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+	
 }
 
 @end

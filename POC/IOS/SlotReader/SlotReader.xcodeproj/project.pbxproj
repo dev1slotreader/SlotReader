@@ -21,12 +21,12 @@
 		CE5913511CAAC500008A3042 /* MenuPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5913501CAAC500008A3042 /* MenuPanelViewController.m */; };
 		CE5913571CB26F89008A3042 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5913561CB26F89008A3042 /* InfoViewController.m */; };
 		CE59135A1CB26FF4008A3042 /* LanguagesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5913591CB26FF4008A3042 /* LanguagesTableViewController.m */; };
-		CE5913611CB2A96C008A3042 /* data.txt in Resources */ = {isa = PBXBuildFile; fileRef = CE5913601CB2A96C008A3042 /* data.txt */; };
 		CE5913651CB2B57D008A3042 /* slot_reader_source.txt in Resources */ = {isa = PBXBuildFile; fileRef = CE5913641CB2B57D008A3042 /* slot_reader_source.txt */; };
 		CE5913681CB652C6008A3042 /* SideBarTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5913671CB652C5008A3042 /* SideBarTableViewController.m */; };
 		CE59136B1CB660FC008A3042 /* DataMiner.m in Sources */ = {isa = PBXBuildFile; fileRef = CE59136A1CB660FC008A3042 /* DataMiner.m */; };
 		CE5913711CB7B878008A3042 /* SlotPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5913701CB7B878008A3042 /* SlotPickerView.m */; };
 		CE5913BA1CBBF93A008A3042 /* DictationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5913B91CBBF93A008A3042 /* DictationViewController.m */; };
+		CE5913D71CBF970C008A3042 /* FancyTextInputBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5913D61CBF970C008A3042 /* FancyTextInputBlock.m */; };
 		CE7A05C41CA2F0E900CFDE01 /* TransparentToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7A05C31CA2F0E900CFDE01 /* TransparentToolbar.m */; };
 /* End PBXBuildFile section */
 
@@ -68,7 +68,6 @@
 		CE5913561CB26F89008A3042 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		CE5913581CB26FF4008A3042 /* LanguagesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguagesTableViewController.h; sourceTree = "<group>"; };
 		CE5913591CB26FF4008A3042 /* LanguagesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanguagesTableViewController.m; sourceTree = "<group>"; };
-		CE5913601CB2A96C008A3042 /* data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = data.txt; sourceTree = "<group>"; };
 		CE5913641CB2B57D008A3042 /* slot_reader_source.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = slot_reader_source.txt; sourceTree = "<group>"; };
 		CE5913661CB652C5008A3042 /* SideBarTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideBarTableViewController.h; sourceTree = "<group>"; };
 		CE5913671CB652C5008A3042 /* SideBarTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideBarTableViewController.m; sourceTree = "<group>"; };
@@ -78,6 +77,8 @@
 		CE5913701CB7B878008A3042 /* SlotPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlotPickerView.m; sourceTree = "<group>"; };
 		CE5913B81CBBF93A008A3042 /* DictationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictationViewController.h; sourceTree = "<group>"; };
 		CE5913B91CBBF93A008A3042 /* DictationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DictationViewController.m; sourceTree = "<group>"; };
+		CE5913D51CBF970C008A3042 /* FancyTextInputBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FancyTextInputBlock.h; sourceTree = "<group>"; };
+		CE5913D61CBF970C008A3042 /* FancyTextInputBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FancyTextInputBlock.m; sourceTree = "<group>"; };
 		CE7A05C21CA2F0E900CFDE01 /* TransparentToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransparentToolbar.h; sourceTree = "<group>"; };
 		CE7A05C31CA2F0E900CFDE01 /* TransparentToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransparentToolbar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,39 +124,23 @@
 			children = (
 				CE12671A1C93149B001C6573 /* AppDelegate.h */,
 				CE12671B1C93149B001C6573 /* AppDelegate.m */,
-				CE5913691CB660FC008A3042 /* DataMiner.h */,
-				CE59136A1CB660FC008A3042 /* DataMiner.m */,
-				CE1267201C93149B001C6573 /* Main.storyboard */,
-				CE5913B81CBBF93A008A3042 /* DictationViewController.h */,
-				CE5913B91CBBF93A008A3042 /* DictationViewController.m */,
 				CE12671D1C93149B001C6573 /* CenterViewController.h */,
 				CE12671E1C93149B001C6573 /* CenterViewController.m */,
-				CE1267461C9AF6AB001C6573 /* WordPickerHelperViewController.h */,
-				CE1267471C9AF6AB001C6573 /* WordPickerHelperViewController.m */,
-				CE5913581CB26FF4008A3042 /* LanguagesTableViewController.h */,
-				CE5913591CB26FF4008A3042 /* LanguagesTableViewController.m */,
+				CE5913B81CBBF93A008A3042 /* DictationViewController.h */,
+				CE5913B91CBBF93A008A3042 /* DictationViewController.m */,
 				CE1267491CA05FC1001C6573 /* DictionaryTableViewController.h */,
 				CE12674A1CA05FC1001C6573 /* DictionaryTableViewController.m */,
-				CE5913551CB26F89008A3042 /* InfoViewController.h */,
-				CE5913561CB26F89008A3042 /* InfoViewController.m */,
-				CE5913491CAAB318008A3042 /* SWRevealViewController.h */,
-				CE59134A1CAAB318008A3042 /* SWRevealViewController.m */,
-				CE59134F1CAAC500008A3042 /* MenuPanelViewController.h */,
-				CE5913501CAAC500008A3042 /* MenuPanelViewController.m */,
-				CE5913661CB652C5008A3042 /* SideBarTableViewController.h */,
-				CE5913671CB652C5008A3042 /* SideBarTableViewController.m */,
-				CE5913641CB2B57D008A3042 /* slot_reader_source.txt */,
-				CE5913601CB2A96C008A3042 /* data.txt */,
+				CE1267201C93149B001C6573 /* Main.storyboard */,
+				CE662BA61CC0EDBC008722F1 /* Data classes */,
+				CE662BA81CC0EE54008722F1 /* Picker classes */,
+				CE662BA41CC0ED47008722F1 /* Navigation classes */,
+				CE662BA51CC0ED8A008722F1 /* UI elements classes */,
+				CE5913D41CBE6875008A3042 /* Data */,
+				CE662BA71CC0EDD9008722F1 /* Currently not needed classes */,
 				CE1267231C93149B001C6573 /* Assets.xcassets */,
 				CE1267251C93149B001C6573 /* LaunchScreen.storyboard */,
 				CE1267281C93149B001C6573 /* Info.plist */,
 				CE1267171C93149B001C6573 /* Supporting Files */,
-				CE7A05C21CA2F0E900CFDE01 /* TransparentToolbar.h */,
-				CE7A05C31CA2F0E900CFDE01 /* TransparentToolbar.m */,
-				CE5913461CA5461E008A3042 /* BoardViewController.h */,
-				CE5913471CA5461E008A3042 /* BoardViewController.m */,
-				CE59136F1CB7B878008A3042 /* SlotPickerView.h */,
-				CE5913701CB7B878008A3042 /* SlotPickerView.m */,
 			);
 			path = SlotReader;
 			sourceTree = "<group>";
@@ -175,6 +160,71 @@
 				CE1267331C93149B001C6573 /* Info.plist */,
 			);
 			path = SlotReaderTests;
+			sourceTree = "<group>";
+		};
+		CE5913D41CBE6875008A3042 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				CE5913641CB2B57D008A3042 /* slot_reader_source.txt */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		CE662BA41CC0ED47008722F1 /* Navigation classes */ = {
+			isa = PBXGroup;
+			children = (
+				CE5913491CAAB318008A3042 /* SWRevealViewController.h */,
+				CE59134A1CAAB318008A3042 /* SWRevealViewController.m */,
+				CE5913661CB652C5008A3042 /* SideBarTableViewController.h */,
+				CE5913671CB652C5008A3042 /* SideBarTableViewController.m */,
+			);
+			name = "Navigation classes";
+			sourceTree = "<group>";
+		};
+		CE662BA51CC0ED8A008722F1 /* UI elements classes */ = {
+			isa = PBXGroup;
+			children = (
+				CE7A05C21CA2F0E900CFDE01 /* TransparentToolbar.h */,
+				CE7A05C31CA2F0E900CFDE01 /* TransparentToolbar.m */,
+				CE5913461CA5461E008A3042 /* BoardViewController.h */,
+				CE5913471CA5461E008A3042 /* BoardViewController.m */,
+				CE5913D51CBF970C008A3042 /* FancyTextInputBlock.h */,
+				CE5913D61CBF970C008A3042 /* FancyTextInputBlock.m */,
+			);
+			name = "UI elements classes";
+			sourceTree = "<group>";
+		};
+		CE662BA61CC0EDBC008722F1 /* Data classes */ = {
+			isa = PBXGroup;
+			children = (
+				CE5913691CB660FC008A3042 /* DataMiner.h */,
+				CE59136A1CB660FC008A3042 /* DataMiner.m */,
+			);
+			name = "Data classes";
+			sourceTree = "<group>";
+		};
+		CE662BA71CC0EDD9008722F1 /* Currently not needed classes */ = {
+			isa = PBXGroup;
+			children = (
+				CE59134F1CAAC500008A3042 /* MenuPanelViewController.h */,
+				CE5913501CAAC500008A3042 /* MenuPanelViewController.m */,
+				CE5913581CB26FF4008A3042 /* LanguagesTableViewController.h */,
+				CE5913591CB26FF4008A3042 /* LanguagesTableViewController.m */,
+				CE5913551CB26F89008A3042 /* InfoViewController.h */,
+				CE5913561CB26F89008A3042 /* InfoViewController.m */,
+			);
+			name = "Currently not needed classes";
+			sourceTree = "<group>";
+		};
+		CE662BA81CC0EE54008722F1 /* Picker classes */ = {
+			isa = PBXGroup;
+			children = (
+				CE59136F1CB7B878008A3042 /* SlotPickerView.h */,
+				CE5913701CB7B878008A3042 /* SlotPickerView.m */,
+				CE1267461C9AF6AB001C6573 /* WordPickerHelperViewController.h */,
+				CE1267471C9AF6AB001C6573 /* WordPickerHelperViewController.m */,
+			);
+			name = "Picker classes";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +307,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE5913611CB2A96C008A3042 /* data.txt in Resources */,
 				CE5913651CB2B57D008A3042 /* slot_reader_source.txt in Resources */,
 				CE1267271C93149B001C6573 /* LaunchScreen.storyboard in Resources */,
 				CE1267241C93149B001C6573 /* Assets.xcassets in Resources */,
@@ -280,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE5913481CA5461E008A3042 /* BoardViewController.m in Sources */,
+				CE5913D71CBF970C008A3042 /* FancyTextInputBlock.m in Sources */,
 				CE59135A1CB26FF4008A3042 /* LanguagesTableViewController.m in Sources */,
 				CE1267481C9AF6AB001C6573 /* WordPickerHelperViewController.m in Sources */,
 				CE5913571CB26F89008A3042 /* InfoViewController.m in Sources */,
