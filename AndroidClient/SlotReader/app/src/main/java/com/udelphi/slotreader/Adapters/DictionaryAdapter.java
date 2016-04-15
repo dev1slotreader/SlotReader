@@ -9,9 +9,12 @@ import android.widget.TextView;
 
 import com.udelphi.slotreader.R;
 
+import java.util.HashMap;
+
 public class DictionaryAdapter extends ArrayAdapter<String>{
     private int textColorId;
     private String[] words;
+    private HashMap<String,Boolean> selections;
 
     public DictionaryAdapter(Context context, String[] words) {
         super(context, R.layout.fragment_dictionary, words);
@@ -28,6 +31,9 @@ public class DictionaryAdapter extends ArrayAdapter<String>{
         tv.setText(words[position]);
         tv.setTextColor(textColorId);
 
+        convertView.setBackgroundColor(getContext().getResources().getColor(selections.get(words[position]) ?
+        R.color.colorSelectedItem : android.R.color.transparent));
+
         return convertView;
     }
 
@@ -39,5 +45,26 @@ public class DictionaryAdapter extends ArrayAdapter<String>{
     public void changeWords(String[] words){
         this.words = words;
         notifyDataSetChanged();
+    }
+
+    public void setSelection(int position){
+        for(int i = 0; i < selections.size(); i++) {
+            if(i == position)
+                selections.put(words[i], !selections.get(words[i]));
+            else
+                selections.put(words[i], false);
+        }
+    }
+
+    public void addSelection(int position){
+        selections.put(words[position], !selections.get(words[position]));
+    }
+
+    public String[] getSelections(){
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < selections.size(); i++)
+            if(selections.get(words[i]))
+                builder.append(words[i]).append(" ");
+        return builder.toString().split(" ");
     }
 }
