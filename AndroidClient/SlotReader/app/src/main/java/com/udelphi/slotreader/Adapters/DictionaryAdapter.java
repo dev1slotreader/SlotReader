@@ -20,6 +20,8 @@ public class DictionaryAdapter extends ArrayAdapter<String>{
         super(context, R.layout.fragment_dictionary, words);
         this.words = words;
         this.textColorId = getContext().getResources().getColor(android.R.color.white);
+        this.selections = new HashMap<>();
+        resetSelections();
     }
 
     @Override
@@ -54,10 +56,12 @@ public class DictionaryAdapter extends ArrayAdapter<String>{
             else
                 selections.put(words[i], false);
         }
+        notifyDataSetChanged();
     }
 
     public void addSelection(int position){
         selections.put(words[position], !selections.get(words[position]));
+        notifyDataSetChanged();
     }
 
     public String[] getSelections(){
@@ -66,5 +70,12 @@ public class DictionaryAdapter extends ArrayAdapter<String>{
             if(selections.get(words[i]))
                 builder.append(words[i]).append(" ");
         return builder.toString().split(" ");
+    }
+
+    public void resetSelections(){
+        selections.clear();
+        for (String word : words)
+            selections.put(word, false);
+        notifyDataSetChanged();
     }
 }
