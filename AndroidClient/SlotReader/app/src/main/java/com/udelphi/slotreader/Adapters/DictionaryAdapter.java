@@ -85,4 +85,8 @@ public class DictionaryAdapter extends ArrayAdapter<String>{
                 return true;
         return false;
     }
+
+    public boolean isSelected(int position){
+        return selections.get(words[position]);
+    }
 }

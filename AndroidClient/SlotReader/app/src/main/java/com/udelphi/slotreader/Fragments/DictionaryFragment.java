@@ -22,8 +22,8 @@ import com.udelphi.slotreader.R;
 public class DictionaryFragment extends Fragment implements View.OnClickListener, SizeChangedListener,
         BoardSkinChangedListener{
     public static String TAG = "DictionaryFragment";
-    private enum States{ base, removing_set, adding_from_keyboard, editing }
-    private enum Appearances{ base, confirmation }
+    private enum States{ base, selected, removing_set, adding_from_keyboard, editing }
+    private enum Appearances{ base, selected, confirmation, input }
 
     private ListView list;
     private ImageButton leftBtn;
@@ -32,6 +32,7 @@ public class DictionaryFragment extends Fragment implements View.OnClickListener
     private RemoveWordBtnHandler removeWordBtnHandler;
     private AddWordBtnHandler addWordBtnHandler;
     private ConfirmWordsRemovingBtnHandler confirmWordsRemovingBtnHandler;
+    private EditWordBtnHandler editWordBtnHandler;
 
     private JsonHelper jsonHelper;
     private DictionaryAdapter adapter;
@@ -52,6 +53,7 @@ public class DictionaryFragment extends Fragment implements View.OnClickListener
         this.addWordBtnHandler = new AddWordBtnHandler();
         this.removeWordBtnHandler = new RemoveWordBtnHandler();
         this.confirmWordsRemovingBtnHandler = new ConfirmWordsRemovingBtnHandler();
+        this.editWordBtnHandler = new EditWordBtnHandler();
         this.jsonHelper = ((MainActivity)getActivity()).getJsonHelper();
         this.adapter = new DictionaryAdapter(getContext(), jsonHelper.getWords());
         this.boardSkinPosition = getArguments().getInt("boardSkinPosition");
@@ -67,12 +69,21 @@ public class DictionaryFragment extends Fragment implements View.OnClickListener
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (state){
                     case base:
-                        adapter.setSelection(position);
+                        changeSelection(position);
+                        break;
+                    case selected:
+                        changeSelection(position);
                         break;
                     case removing_set:
                         adapter.addSelection(position);
                         break;
                 }
+            }
+
+            private void changeSelection(int position){
+                adapter.setSelection(position);
+                if(adapter.isSelected(position) && state != States.selected)
+                    setState(States.selected);
             }
         });
         leftBtn = (ImageButton)view.findViewById(R.id.left_FAB);
@@ -142,6 +153,11 @@ public class DictionaryFragment extends Fragment implements View.OnClickListener
                 rightBtn.setOnClickListener(addWordBtnHandler);
                 setAppearance(Appearances.base);
                 break;
+            case selected:
+                leftBtn.setOnClickListener(removeWordBtnHandler);
+                rightBtn.setOnClickListener(editWordBtnHandler);
+                setAppearance(Appearances.selected);
+                break;
             case removing_set:
                 setAppearance(Appearances.confirmation);
                 rightBtn.setOnClickListener(confirmWordsRemovingBtnHandler);
@@ -159,6 +175,10 @@ public class DictionaryFragment extends Fragment implements View.OnClickListener
                 leftBtn.setImageDrawable(getContext().getResources().getDrawable(R.mipmap.btn_remove));
                 rightBtn.setImageDrawable(getContext().getResources().getDrawable(R.mipmap.btn_add));
                 break;
+            case selected:
+                leftBtn.setImageDrawable(getContext().getResources().getDrawable(R.mipmap.btn_remove));
+                rightBtn.setImageDrawable(getContext().getResources().getDrawable(R.mipmap.btn_edit));
+                break;
             case confirmation:
                 leftBtn.setImageDrawable(getContext().getResources().getDrawable(R.mipmap.btn_cancel));
                 rightBtn.setImageDrawable(getContext().getResources().getDrawable(R.mipmap.btn_confirm));
@@ -170,17 +190,16 @@ public class DictionaryFragment extends Fragment implements View.OnClickListener
 
         @Override
         public void onClick(View v) {
-            if(adapter.hasSelection() && state == States.base){
+            if(adapter.hasSelection() && (state == States.base || state == States.selected)){
                 String[] selectedWords = adapter.getSelections();
                 removeWords(selectedWords);
+                setState(States.base);
             } else {
                 if(state == States.base) {
                     setState(States.removing_set);
-                    setAppearance(Appearances.confirmation);
                 }
                 else if(state == States.removing_set){
                     setState(States.base);
-                    setAppearance(Appearances.base);
                     adapter.resetSelections();
                 }
             }
@@ -204,6 +223,16 @@ public class DictionaryFragment extends Fragment implements View.OnClickListener
             if(imm != null){
                 imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, 0);
             }
+        }
+    }
+
+    private class EditWordBtnHandler implements View.OnClickListener{
+
+        @Override
+        public void onClick(View v) {
+            Toast.makeText(getContext(), "Editing " + adapter.getSelections()[0], Toast.LENGTH_SHORT).show();
+            adapter.resetSelections();
+            setState(States.base);
         }
     }
 }
