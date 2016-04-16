@@ -17,7 +17,6 @@
         android:layout_margin="@dimen/FAB_margin"
         android:background="@drawable/img_btn_selector"
         android:elevation="@dimen/FAB_elevation"
-        android:src="@mipmap/btn_remove"
         android:contentDescription="@string/previous" />
     <ImageButton
         android:id="@+id/right_FAB"
@@ -28,7 +27,6 @@
         android:layout_margin="@dimen/FAB_margin"
         android:background="@drawable/img_btn_selector"
         android:elevation="@dimen/FAB_elevation"
-        android:src="@mipmap/btn_add"
         android:contentDescription="@string/next"/>
 
     <ListView

@@ -1,10 +1,12 @@
 package com.udelphi.slotreader.Fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -24,6 +26,12 @@ public class DictionaryFragment extends Fragment implements View.OnClickListener
     private enum Appearances{ base, confirmation }
 
     private ListView list;
+    private ImageButton leftBtn;
+    private ImageButton rightBtn;
+
+    private RemoveWordBtnHandler removeWordBtnHandler;
+    private AddWordBtnHandler addWordBtnHandler;
+    private ConfirmWordsRemovingBtnHandler confirmWordsRemovingBtnHandler;
 
     private JsonHelper jsonHelper;
     private DictionaryAdapter adapter;
@@ -41,10 +49,12 @@ public class DictionaryFragment extends Fragment implements View.OnClickListener
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.addWordBtnHandler = new AddWordBtnHandler();
+        this.removeWordBtnHandler = new RemoveWordBtnHandler();
+        this.confirmWordsRemovingBtnHandler = new ConfirmWordsRemovingBtnHandler();
         this.jsonHelper = ((MainActivity)getActivity()).getJsonHelper();
         this.adapter = new DictionaryAdapter(getContext(), jsonHelper.getWords());
         this.boardSkinPosition = getArguments().getInt("boardSkinPosition");
-        this.state = States.removing_set;
     }
 
     @Override
@@ -65,7 +75,11 @@ public class DictionaryFragment extends Fragment implements View.OnClickListener
                 }
             }
         });
+        leftBtn = (ImageButton)view.findViewById(R.id.left_FAB);
+        rightBtn = (ImageButton)view.findViewById(R.id.right_FAB);
+
         setSkin(boardSkinPosition);
+        setState(States.base);
         return view;
     }
 
@@ -84,6 +98,8 @@ public class DictionaryFragment extends Fragment implements View.OnClickListener
     @Override
     public void onSizeChanged(int size) {
         adapter.changeWords(jsonHelper.getWords());
+        setState(States.base);
+        adapter.resetSelections();
     }
 
     private void setSkin(int position){
@@ -106,9 +122,11 @@ public class DictionaryFragment extends Fragment implements View.OnClickListener
 
     private void removeWords(String[] words){
         StringBuilder builder = new StringBuilder();
-        for(String word : words)
-            builder.append(word).append(" ");
+        builder.append("Removing: ");
+        for(int i = 0; i < words.length; i++)
+            builder.append(words[i]).append(i == words.length - 1 ? "" : ", ");
         builder.append("...");
+        adapter.resetSelections();
         Toast.makeText(getContext(), builder.toString(), Toast.LENGTH_SHORT).show();
     }
 
@@ -117,10 +135,16 @@ public class DictionaryFragment extends Fragment implements View.OnClickListener
     }
 
     private void setState(States state){
+        this.state = state;
         switch (state){
             case base:
+                leftBtn.setOnClickListener(removeWordBtnHandler);
+                rightBtn.setOnClickListener(addWordBtnHandler);
+                setAppearance(Appearances.base);
                 break;
             case removing_set:
+                setAppearance(Appearances.confirmation);
+                rightBtn.setOnClickListener(confirmWordsRemovingBtnHandler);
                 break;
             case adding_from_keyboard:
                 break;
@@ -132,10 +156,54 @@ public class DictionaryFragment extends Fragment implements View.OnClickListener
     private void setAppearance(Appearances appearance){
         switch (appearance){
             case base:
-
+                leftBtn.setImageDrawable(getContext().getResources().getDrawable(R.mipmap.btn_remove));
+                rightBtn.setImageDrawable(getContext().getResources().getDrawable(R.mipmap.btn_add));
                 break;
             case confirmation:
+                leftBtn.setImageDrawable(getContext().getResources().getDrawable(R.mipmap.btn_cancel));
+                rightBtn.setImageDrawable(getContext().getResources().getDrawable(R.mipmap.btn_confirm));
                 break;
+        }
+    }
+
+    private class RemoveWordBtnHandler implements View.OnClickListener{
+
+        @Override
+        public void onClick(View v) {
+            if(adapter.hasSelection() && state == States.base){
+                String[] selectedWords = adapter.getSelections();
+                removeWords(selectedWords);
+            } else {
+                if(state == States.base) {
+                    setState(States.removing_set);
+                    setAppearance(Appearances.confirmation);
+                }
+                else if(state == States.removing_set){
+                    setState(States.base);
+                    setAppearance(Appearances.base);
+                    adapter.resetSelections();
+                }
+            }
+        }
+    }
+
+    private class ConfirmWordsRemovingBtnHandler implements View.OnClickListener{
+        @Override
+        public void onClick(View v) {
+            if(adapter.hasSelection())
+                removeWords(adapter.getSelections());
+            setState(States.base);
+        }
+    }
+
+    private class AddWordBtnHandler implements View.OnClickListener{
+        @Override
+        public void onClick(View v) {
+            InputMethodManager imm = (InputMethodManager) getContext()
+                    .getSystemService(Context.INPUT_METHOD_SERVICE);
+            if(imm != null){
+                imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, 0);
+            }
         }
     }
 }

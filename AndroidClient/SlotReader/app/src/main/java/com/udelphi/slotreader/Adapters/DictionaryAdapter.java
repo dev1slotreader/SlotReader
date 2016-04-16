@@ -78,4 +78,11 @@ public class DictionaryAdapter extends ArrayAdapter<String>{
             selections.put(word, false);
         notifyDataSetChanged();
     }
+
+    public boolean hasSelection(){
+        for(int i = 0; i < selections.size(); i++)
+            if(selections.get(words[i]))
+                return true;
+        return false;
+    }
 }
