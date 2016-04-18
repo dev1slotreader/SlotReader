@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private AdapterView.OnItemClickListener skinsClickListener;
     private ArrayList<SizeChangedListener> sizeChangedListeners;
     private ArrayList<BoardSkinChangedListener> boardSkinChangedListeners;
+
     private boolean isDrawerOpened;
     private boolean isSubmenuOpened;
     private int boardSkinPosition;
@@ -182,10 +183,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             super.onBackPressed();
     }
 
-    public JsonHelper getJsonHelper(){
-        return this.jsonHelper;
-    }
-
     @Override
     public void onDrawerSlide(View drawerView, float slideOffset) {
 
@@ -224,13 +221,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         lettersCount = value;
     }
 
-    public void requestInput(){
+    public JsonHelper getJsonHelper(){
+        return this.jsonHelper;
+    }
+
+    public void initInput(TextView.OnEditorActionListener listener){
+        gallery.setVisibility(View.INVISIBLE);
         input.setVisibility(View.VISIBLE);
         input.setFocusableInTouchMode(true);
         input.requestFocus();
         ((InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE))
                 .showSoftInput(input, 0);
-        gallery.setVisibility(View.INVISIBLE);
+        input.setOnEditorActionListener(listener);
     }
 
     public void showGallery(){

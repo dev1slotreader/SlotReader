@@ -2,14 +2,18 @@ package com.udelphi.slotreader.Fragments;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.udelphi.slotreader.Adapters.DictionaryAdapter;
@@ -18,10 +22,12 @@ import com.udelphi.slotreader.Interfaces.SizeChangedListener;
 import com.udelphi.slotreader.MainActivity;
 import com.udelphi.slotreader.Model.JsonHelper;
 import com.udelphi.slotreader.R;
+import com.udelphi.slotreader.StaticClasses.ScreenController;
 
 public class DictionaryFragment extends Fragment implements View.OnClickListener, SizeChangedListener,
-        BoardSkinChangedListener{
+        BoardSkinChangedListener, TextView.OnEditorActionListener{
     public static String TAG = "DictionaryFragment";
+
     private enum States{ base, selected, removing_set, adding_from_keyboard, editing }
     private enum Appearances{ base, selected, confirmation, input }
 
@@ -55,7 +61,7 @@ public class DictionaryFragment extends Fragment implements View.OnClickListener
         this.addWordBtnHandler = new AddWordBtnHandler();
         this.removeWordBtnHandler = new RemoveWordBtnHandler();
         this.confirmWordsRemovingBtnHandler = new ConfirmWordsRemovingBtnHandler();
-        this.editWordBtnHandler = new EditWordBtnHandler();
+        this.editWordBtnHandler = new EditWordBtnHandler(this);
         this.jsonHelper = ((MainActivity) getActivity()).getJsonHelper();
         this.adapter = new DictionaryAdapter(getContext(), jsonHelper.getWords());
         this.boardSkinPosition = getArguments().getInt("boardSkinPosition");
@@ -113,6 +119,25 @@ public class DictionaryFragment extends Fragment implements View.OnClickListener
         adapter.changeWords(jsonHelper.getWords());
         setState(States.base);
         adapter.resetSelections();
+    }
+
+    @Override
+    public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+        if(actionId == EditorInfo.IME_ACTION_DONE){
+            if(state == States.selected){
+                replaceWord(adapter.getSelections()[0], v.getText().toString());
+                setState(States.base);
+                adapter.resetSelections();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        ScreenController.setScreenMode(getActivity(), ScreenController.ScreenModes.FULL_SCREEN);
+                    }
+                }, 1000);
+                return true;
+            }
+        }
+        return false;
     }
 
     private void setSkin(int position){
@@ -229,12 +254,15 @@ public class DictionaryFragment extends Fragment implements View.OnClickListener
     }
 
     private class EditWordBtnHandler implements View.OnClickListener{
+        TextView.OnEditorActionListener listener;
+
+        public EditWordBtnHandler(TextView.OnEditorActionListener listener){
+            this.listener = listener;
+        }
 
         @Override
         public void onClick(View v) {
-            activity.requestInput();
-            adapter.resetSelections();
-            setState(States.base);
+            activity.initInput(listener);
         }
     }
 }
