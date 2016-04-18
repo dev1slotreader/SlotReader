@@ -25,6 +25,7 @@ public class DictionaryFragment extends Fragment implements View.OnClickListener
     private enum States{ base, selected, removing_set, adding_from_keyboard, editing }
     private enum Appearances{ base, selected, confirmation, input }
 
+    private MainActivity activity;
     private ListView list;
     private ImageButton leftBtn;
     private ImageButton rightBtn;
@@ -50,11 +51,12 @@ public class DictionaryFragment extends Fragment implements View.OnClickListener
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.activity = (MainActivity) getActivity();
         this.addWordBtnHandler = new AddWordBtnHandler();
         this.removeWordBtnHandler = new RemoveWordBtnHandler();
         this.confirmWordsRemovingBtnHandler = new ConfirmWordsRemovingBtnHandler();
         this.editWordBtnHandler = new EditWordBtnHandler();
-        this.jsonHelper = ((MainActivity)getActivity()).getJsonHelper();
+        this.jsonHelper = ((MainActivity) getActivity()).getJsonHelper();
         this.adapter = new DictionaryAdapter(getContext(), jsonHelper.getWords());
         this.boardSkinPosition = getArguments().getInt("boardSkinPosition");
     }
@@ -230,7 +232,7 @@ public class DictionaryFragment extends Fragment implements View.OnClickListener
 
         @Override
         public void onClick(View v) {
-            Toast.makeText(getContext(), "Editing " + adapter.getSelections()[0], Toast.LENGTH_SHORT).show();
+            activity.requestInput();
             adapter.resetSelections();
             setState(States.base);
         }

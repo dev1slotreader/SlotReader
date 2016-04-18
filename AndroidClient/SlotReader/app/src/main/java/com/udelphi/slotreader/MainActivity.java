@@ -1,14 +1,15 @@
 package com.udelphi.slotreader;
 
-import android.os.Build;
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Gallery;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -22,7 +23,8 @@ import com.udelphi.slotreader.Fragments.ReaderFragment;
 import com.udelphi.slotreader.Interfaces.BoardSkinChangedListener;
 import com.udelphi.slotreader.Interfaces.SizeChangedListener;
 import com.udelphi.slotreader.Model.JsonHelper;
-import com.udelphi.slotreader.enums.ScreenModes;
+import com.udelphi.slotreader.StaticClasses.ScreenController;
+import com.udelphi.slotreader.StaticClasses.ScreenController.ScreenModes;
 
 import org.json.JSONException;
 
@@ -33,7 +35,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
  DrawerLayout.DrawerListener, AdapterView.OnItemSelectedListener{
     private JsonHelper jsonHelper;
     private DrawerLayout drawerLayout;
-    private ListView drawerList;
     private ArrayAdapter<String> menuAdapter;
     private ArrayAdapter<String> skinsAdapter;
     private ArrayAdapter<String> languagesAdapter;
@@ -46,6 +47,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private boolean isSubmenuOpened;
     private int boardSkinPosition;
     private int lettersCount;
+
+    private ListView drawerList;
+    private EditText input;
+    private Gallery gallery;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,11 +69,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             e.printStackTrace();
         }
 
-        Gallery gallery = (Gallery)findViewById(R.id.size_switch);
+        gallery = (Gallery)findViewById(R.id.size_switch);
         assert gallery != null;
         gallery.setAdapter(new GallerySizeAdapter(getApplicationContext()));
         gallery.setOnItemSelectedListener(this);
         gallery.setUnselectedAlpha(0.3f);
+        input = (EditText) findViewById(R.id.input);
 
         menuAdapter = new MenuAdapter(getApplicationContext(),
                 R.array.menu_items, R.array.menu_icons);
@@ -151,7 +157,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onResume() {
         super.onResume();
-        setScreenMode(ScreenModes.FULL_SCREEN);
+        ScreenController.setScreenMode(this, ScreenModes.FULL_SCREEN);
     }
 
     @Override
@@ -180,43 +186,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return this.jsonHelper;
     }
 
-    private void setScreenMode(ScreenModes mode){
-        switch (mode) {
-            case FULL_SCREEN:
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                    getWindow().getDecorView().setSystemUiVisibility(
-                              View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                            | View.SYSTEM_UI_FLAG_FULLSCREEN
-                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-                }else {
-                    getWindow().setFlags(
-                            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                            WindowManager.LayoutParams.FLAG_FULLSCREEN);
-                }
-                break;
-            case NAVIGATION_VISIBLE:
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                    getWindow().getDecorView().setSystemUiVisibility(
-                            View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                                    | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                                    | View.SYSTEM_UI_FLAG_FULLSCREEN
-                                    | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                                    | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-                }
-        }
-    }
-
-    private void changeFragment(Fragment fragment){
-        if(fragment != null){
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.content_frame, fragment, fragment.getTag())
-                    .commit();
-        }
-    }
-
     @Override
     public void onDrawerSlide(View drawerView, float slideOffset) {
 
@@ -224,13 +193,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onDrawerOpened(View drawerView) {
-        setScreenMode(ScreenModes.NAVIGATION_VISIBLE);
+        ScreenController.setScreenMode(this, ScreenModes.NAVIGATION_VISIBLE);
         isDrawerOpened = true;
     }
 
     @Override
     public void onDrawerClosed(View drawerView) {
-        setScreenMode(ScreenModes.FULL_SCREEN);
+        ScreenController.setScreenMode(this, ScreenModes.FULL_SCREEN);
         drawerList.setAdapter(menuAdapter);
         isDrawerOpened = false;
     }
@@ -253,6 +222,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             notifySizeChangedListeners(value);
         }
         lettersCount = value;
+    }
+
+    public void requestInput(){
+        input.setVisibility(View.VISIBLE);
+        input.setFocusableInTouchMode(true);
+        input.requestFocus();
+        ((InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE))
+                .showSoftInput(input, 0);
+        gallery.setVisibility(View.INVISIBLE);
+    }
+
+    public void showGallery(){
+        input.setVisibility(View.GONE);
+        gallery.setVisibility(View.VISIBLE);
+    }
+
+    private void changeFragment(Fragment fragment){
+        if(fragment != null){
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.content_frame, fragment, fragment.getTag())
+                    .commit();
+        }
     }
 
     private void notifySizeChangedListeners(int size){

@@ -17,6 +17,16 @@
             android:spacing="@dimen/gallery_spacing"
             android:layout_marginTop="@dimen/gallery_vertical_margin"
             android:layout_centerHorizontal="true" />
+        <EditText
+            android:id="@+id/input"
+            android:layout_width="@dimen/input_width"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/input_vertical_margin"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:imeOptions="flagNoExtractUi|actionDone"
+            android:inputType="textNoSuggestions"
+            android:visibility="gone" />
         <FrameLayout
             android:id="@+id/content_frame"
             android:layout_width="match_parent"
