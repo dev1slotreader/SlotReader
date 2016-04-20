@@ -16,14 +16,25 @@
 	NSMutableArray *words;
 	SWRevealViewController *revealViewController;
 	AppDelegate *appDelegate;
+	BOOL addingMode;
+	
 }
 
 @end
 
 @implementation DictationViewController
 
+- (void)viewDidLoad {
+	[super viewDidLoad];
+	self.cellSelectionCounter = 0;
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+	addingMode = YES;
+	[self addObserver:self forKeyPath:@"cellSelectionCounter" options:NSKeyValueObservingOptionNew context:nil];
+	
+	//self.addDeleteButton.layer.cornerRadius = self.addDeleteButton.frame.size.width/2;
 	
 	numberOfLetters = 1;
 	[self getDataFromSource];
@@ -48,6 +59,7 @@
 
 - (void) viewWillDisappear:(BOOL)animated {
 	appDelegate.languageSelectorDelegate = nil;
+	[self removeObserver:self forKeyPath:@"cellSelectionCounter"];
 	[super viewWillDisappear:animated];
 }
 
@@ -109,6 +121,21 @@
 - (IBAction)insertNewWordIntoBase:(id)sender {
 	DataMiner *dataMiner = [DataMiner sharedDataMiner];
 	[dataMiner addNewWord:self.textField.text];
+	self.fancyTextInputBlock.hidden = YES;
+	UIAlertController *alertController = [UIAlertController
+										  alertControllerWithTitle:@"Success"
+										  message:@"New word was added"
+										  preferredStyle:UIAlertControllerStyleAlert];
+	UIAlertAction *okAction = [UIAlertAction
+							   actionWithTitle:NSLocalizedString(@"OK", @"OK action")
+							   style:UIAlertActionStyleDefault
+							   handler:^(UIAlertAction *action)
+							   {
+								   NSLog(@"OK action");
+							   }];
+	[alertController addAction:okAction];
+	[self presentViewController:alertController animated:YES completion:nil];
+	[self.tableView reloadData];
 }
 
 - (void) changeLanguage {
@@ -117,4 +144,40 @@
 	
 	NSLog(@"changeLanguage");
 }
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	[self.addDeleteButton setImage:[UIImage imageNamed:@"ic_clear_white"] forState:UIControlStateNormal];
+	addingMode = NO;
+	UITableViewCell * cell = [self.tableView cellForRowAtIndexPath:indexPath];
+	cell.accessoryType = UITableViewCellAccessoryCheckmark;
+}
+
+- (void) tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+	
+}
+
+- (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
+	switch (self.cellSelectionCounter) {
+  case 0:
+			[self.addDeleteButton setImage:[UIImage imageNamed:@"ic_add_white"] forState:UIControlStateNormal];
+			self.editButton.hidden= YES;
+			break;
+	case 1:
+			[self.addDeleteButton setImage:[UIImage imageNamed:@"ic_cancel_white"] forState:UIControlStateNormal];
+			self.editButton.hidden = NO;
+  default:
+			self.editButton.hidden = NO;			break;
+	}
+}
+
+- (IBAction)editButtonClicked:(id)sender {
+}
+
+- (IBAction)addDeleteButtonClicked{
+	//NSString *buttonImageName = addingMode ? @"ic_add_white" : @"ic_clear_white";
+	//[self.addDeleteButton setImage:[UIImage imageNamed:buttonImageName] forState:UIControlStateNormal];
+	//self.addDeleteButton
+	//addingMode = !addingMode;
+}
+
 @end

@@ -61,9 +61,13 @@
 	NSInteger size = [word length];
 	NSMutableArray *thisSizeLangWordsBuffer = [[NSMutableArray alloc] initWithArray:[[allData objectForKey:@"words"] objectForKey:[NSString stringWithFormat:@"%@%d", language, size]]];
 	[thisSizeLangWordsBuffer addObject:word];
-	NSMutableDictionary *newData = [[NSMutableDictionary alloc] initWithDictionary:allData];
+	NSMutableDictionary *newData = [[NSMutableDictionary alloc] initWithDictionary:[allData objectForKey:@"words"]];
 #warning Why not?
-	[[newData objectForKey:@"words"] setObject:thisSizeLangWordsBuffer forKey:[NSString stringWithFormat:@"%@%d", [[NSUserDefaults standardUserDefaults] objectForKey:@"language"], size]];
+	[newData setObject:thisSizeLangWordsBuffer forKey:[NSString stringWithFormat:@"%@%d", [[NSUserDefaults standardUserDefaults] objectForKey:@"language"], size]];
+	NSMutableDictionary *newAllData = [[NSMutableDictionary alloc] initWithDictionary:allData];
+	[newAllData setObject:newData forKey:@"words"];
+	allData = nil;
+	[allData initWithDictionary:newAllData];
 	
 	NSString *filePath = [[NSBundle mainBundle] pathForResource:@"slot_reader_source" ofType:@"txt"];
 	NSURL *url = [NSURL fileURLWithPath:filePath];

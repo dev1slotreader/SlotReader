@@ -46,19 +46,21 @@ enum {
 							   @"down-blue", [NSString stringWithFormat:@"%d", nextButton],
 							   @"blueColor", [NSString stringWithFormat:@"%d", textColor],nil];
 	
-	colorShemesCollection = [[NSArray alloc] initWithObjects: greenScheme, darkScheme, lightScheme ,nil];
+	colorShemesCollection = [[NSArray alloc] initWithObjects: greenScheme, lightScheme , darkScheme, nil];
 	
 	return self;
 }
 
 - (void) drawRect:(CGRect)rect {
+	[super drawRect:rect];
+	
 	NSNumber *colorScheme = [[NSUserDefaults standardUserDefaults] objectForKey:@"colorScheme"];
 #warning set the styles here
 	self.boardImage.image = [UIImage imageNamed:[[colorShemesCollection objectAtIndex:[colorScheme integerValue]] objectForKey:[NSString stringWithFormat:@"%d", board]]];
-	self.prevButton.imageView.image = [UIImage imageNamed:[[colorShemesCollection objectAtIndex:[colorScheme integerValue]] objectForKey:[NSString stringWithFormat:@"%d", prevButton]]];
-	self.nextButton.imageView.image = [UIImage imageNamed:[[colorShemesCollection objectAtIndex:[colorScheme integerValue]] objectForKey:[NSString stringWithFormat:@"%d", nextButton]]];
+	[self.prevButton setImage:[UIImage imageNamed:[[colorShemesCollection objectAtIndex:[colorScheme integerValue]] objectForKey:[NSString stringWithFormat:@"%d", prevButton]]] forState:UIControlStateNormal];
+	[self.nextButton setImage:[UIImage imageNamed:[[colorShemesCollection objectAtIndex:[colorScheme integerValue]] objectForKey:[NSString stringWithFormat:@"%d", nextButton]]] forState:UIControlStateNormal];
+	[self setNeedsDisplay];
 	
-	[super drawRect:rect];
 }
 
 

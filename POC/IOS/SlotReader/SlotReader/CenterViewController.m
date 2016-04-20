@@ -74,6 +74,35 @@ typedef enum {
 	dispatch_once(&onceToken, ^{
 		[self showTheFirstWord];
 	});
+	[self addingNumberOfLettersBar];
+}
+
+- (void) addingNumberOfLettersBar {
+	UIImage *image1 = [UIImage imageNamed:@"1"];
+	UIBarButtonItem *barButtonItem1 = [[UIBarButtonItem alloc] initWithImage:image1 style:UIBarButtonItemStylePlain target:nil action:@selector(changeNumberOfLettersToShow:)];
+	barButtonItem1.tag = 1;
+	
+	UIImage *image3 = [UIImage imageNamed:@"3"];
+	UIBarButtonItem *barButtonItem3 = [[UIBarButtonItem alloc] initWithImage:image3 style:UIBarButtonItemStylePlain target:nil action:@selector(changeNumberOfLettersToShow:)];
+	barButtonItem1.tag = 3;
+	
+	UIImage *image4 = [UIImage imageNamed:@"4"];
+	UIBarButtonItem *barButtonItem4 = [[UIBarButtonItem alloc] initWithImage:image4 style:UIBarButtonItemStylePlain target:nil action:@selector(changeNumberOfLettersToShow:)];
+	barButtonItem1.tag = 4;
+	
+	UIImage *image5 = [UIImage imageNamed:@"5"];
+	UIBarButtonItem *barButtonItem5 = [[UIBarButtonItem alloc] initWithImage:image5 style:UIBarButtonItemStylePlain target:nil action:@selector(changeNumberOfLettersToShow:)];
+	barButtonItem1.tag = 5;
+	
+	UIImage *image5p = [UIImage imageNamed:@"5+"];
+	UIBarButtonItem *barButtonItem5p = [[UIBarButtonItem alloc] initWithImage:image5p style:UIBarButtonItemStylePlain target:nil action:@selector(changeNumberOfLettersToShow:)];
+	barButtonItem1.tag = 0;
+	
+	UIBarButtonItem *flexibleItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+	
+	NSArray *toolbarItems = [NSArray arrayWithObjects:barButtonItem1, flexibleItem, barButtonItem3, flexibleItem, barButtonItem4, flexibleItem, barButtonItem5, flexibleItem, barButtonItem5p, nil];
+	
+	[self.toolbar setItems:toolbarItems animated:NO];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -83,7 +112,7 @@ typedef enum {
 }
 
 - (void) viewDidAppear:(BOOL)animated{
-	
+	[self showTheFirstWord];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -123,20 +152,22 @@ typedef enum {
 	NSNumber *colorScheme = [[NSUserDefaults standardUserDefaults] objectForKey:@"colorScheme"];
 	switch ([colorScheme integerValue]) {
 		case green:
-			self.board.image = [UIImage imageNamed:@"Blackboard"];
+			//self.board.image = [UIImage imageNamed:@"Blackboard"];
 			pickerHelper.lightTheme = NO;
 			break;
 		case light:
-			self.board.image = [UIImage imageNamed:@"Blackboard-light"];
+			//self.board.image = [UIImage imageNamed:@"Blackboard-light"];
 			pickerHelper.lightTheme = YES;
 			break;
 		case dark:
-			self.board.image = [UIImage imageNamed:@"Blackboard-dark"];
+			//self.board.image = [UIImage imageNamed:@"Blackboard-dark"];
 			pickerHelper.lightTheme = NO;
 			break;
 		default:
 			break;
 	}
+	[self.view setNeedsDisplay];
+	[self.picker reloadAllComponents];
 }
 
 #pragma mark - Displaying letters and words

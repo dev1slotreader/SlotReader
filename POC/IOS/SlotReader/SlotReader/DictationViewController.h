@@ -16,11 +16,14 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *showMenuButton;
 @property (weak, nonatomic) IBOutlet FancyTextInputBlock *fancyTextInputBlock;
 @property (weak, nonatomic) IBOutlet UIButton *addButton;
+@property (weak, nonatomic) IBOutlet UIButton *addDeleteButton;
+@property (weak, nonatomic) IBOutlet UIButton *editButton;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
-
+@property (assign, nonatomic) NSInteger cellSelectionCounter;
 - (IBAction)changeNumberOfLetters:(id)sender;
 - (IBAction)addNewWord:(id)sender;
 - (IBAction)insertNewWordIntoBase:(id)sender;
+- (IBAction)addDeleteButtonClicked;
 
 
 @end
