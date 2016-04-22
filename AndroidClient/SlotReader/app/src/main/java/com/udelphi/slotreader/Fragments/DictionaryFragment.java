@@ -29,7 +29,7 @@ public class DictionaryFragment extends Fragment implements View.OnClickListener
     public static String TAG = "DictionaryFragment";
 
     private enum States{ base, selected, removing_set, adding_from_keyboard, editing }
-    private enum Appearances{ base, selected, confirmation, input }
+    private enum Appearances{ base, selected, confirmation }
 
     private MainActivity activity;
     private ListView list;
@@ -262,7 +262,7 @@ public class DictionaryFragment extends Fragment implements View.OnClickListener
 
         @Override
         public void onClick(View v) {
-            activity.initInput(listener);
+                
         }
     }
 }

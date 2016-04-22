@@ -1,15 +1,12 @@
 package com.udelphi.slotreader;
 
-import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.Gallery;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -50,8 +47,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private int lettersCount;
 
     private ListView drawerList;
-    private EditText input;
-    private Gallery gallery;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,12 +65,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             e.printStackTrace();
         }
 
-        gallery = (Gallery)findViewById(R.id.size_switch);
+        Gallery gallery = (Gallery) findViewById(R.id.size_switch);
         assert gallery != null;
         gallery.setAdapter(new GallerySizeAdapter(getApplicationContext()));
         gallery.setOnItemSelectedListener(this);
         gallery.setUnselectedAlpha(0.3f);
-        input = (EditText) findViewById(R.id.input);
 
         menuAdapter = new MenuAdapter(getApplicationContext(),
                 R.array.menu_items, R.array.menu_icons);
@@ -148,8 +142,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         assert menuBtn != null;
         menuBtn.setOnClickListener(this);
         drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
+        assert drawerLayout != null;
         drawerLayout.addDrawerListener(this);
         drawerList = (ListView)findViewById(R.id.left_drawer);
+        assert drawerList != null;
         drawerList.setAdapter(menuAdapter);
         drawerList.setOnItemClickListener(menuClickListener);
         menuClickListener.onItemClick(null, null, 0, 0);
@@ -177,7 +173,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             drawerList.setOnItemClickListener(menuClickListener);
             isSubmenuOpened = false;
         }
-        else if(isDrawerOpened && !isSubmenuOpened)
+        else if(isDrawerOpened)
             drawerLayout.closeDrawer(drawerList);
         else
             super.onBackPressed();
@@ -223,21 +219,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public JsonHelper getJsonHelper(){
         return this.jsonHelper;
-    }
-
-    public void initInput(TextView.OnEditorActionListener listener){
-        gallery.setVisibility(View.INVISIBLE);
-        input.setVisibility(View.VISIBLE);
-        input.setFocusableInTouchMode(true);
-        input.requestFocus();
-        ((InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE))
-                .showSoftInput(input, 0);
-        input.setOnEditorActionListener(listener);
-    }
-
-    public void showGallery(){
-        input.setVisibility(View.GONE);
-        gallery.setVisibility(View.VISIBLE);
     }
 
     private void changeFragment(Fragment fragment){
