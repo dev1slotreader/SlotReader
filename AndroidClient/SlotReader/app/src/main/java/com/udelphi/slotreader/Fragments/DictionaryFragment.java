@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -28,18 +29,19 @@ public class DictionaryFragment extends Fragment implements View.OnClickListener
         BoardSkinChangedListener, TextView.OnEditorActionListener{
     public static String TAG = "DictionaryFragment";
 
-    private enum States{ base, selected, removing_set, adding_from_keyboard, editing }
+    private enum States{ base, selected, removing_set, input }
     private enum Appearances{ base, selected, confirmation }
 
-    private MainActivity activity;
     private ListView list;
     private ImageButton leftBtn;
     private ImageButton rightBtn;
+    private EditText input;
 
     private RemoveWordBtnHandler removeWordBtnHandler;
     private AddWordBtnHandler addWordBtnHandler;
-    private ConfirmWordsRemovingBtnHandler confirmWordsRemovingBtnHandler;
     private EditWordBtnHandler editWordBtnHandler;
+    private ConfirmWordsRemovingBtnHandler confirmWordsRemovingBtnHandler;
+    private CancelBtnHandler cancelBtnHandler;
 
     private JsonHelper jsonHelper;
     private DictionaryAdapter adapter;
@@ -57,11 +59,11 @@ public class DictionaryFragment extends Fragment implements View.OnClickListener
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.activity = (MainActivity) getActivity();
         this.addWordBtnHandler = new AddWordBtnHandler();
         this.removeWordBtnHandler = new RemoveWordBtnHandler();
+        this.editWordBtnHandler = new EditWordBtnHandler();
         this.confirmWordsRemovingBtnHandler = new ConfirmWordsRemovingBtnHandler();
-        this.editWordBtnHandler = new EditWordBtnHandler(this);
+        cancelBtnHandler = new CancelBtnHandler();
         this.jsonHelper = ((MainActivity) getActivity()).getJsonHelper();
         this.adapter = new DictionaryAdapter(getContext(), jsonHelper.getWords());
         this.boardSkinPosition = getArguments().getInt("boardSkinPosition");
@@ -169,7 +171,7 @@ public class DictionaryFragment extends Fragment implements View.OnClickListener
     }
 
     private void replaceWord(String oldWord, String newWord){
-        Toast.makeText(getContext(), "Replacing " + oldWord + "by" + newWord, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "Replacing " + oldWord + " by " + newWord, Toast.LENGTH_SHORT).show();
     }
 
     private void setState(States state){
@@ -185,14 +187,10 @@ public class DictionaryFragment extends Fragment implements View.OnClickListener
                 rightBtn.setOnClickListener(editWordBtnHandler);
                 setAppearance(Appearances.selected);
                 break;
-            case removing_set:
+            default:
                 setAppearance(Appearances.confirmation);
                 rightBtn.setOnClickListener(confirmWordsRemovingBtnHandler);
-                break;
-            case adding_from_keyboard:
-                break;
-            case editing:
-                break;
+                leftBtn.setOnClickListener(cancelBtnHandler);
         }
     }
 
@@ -236,9 +234,36 @@ public class DictionaryFragment extends Fragment implements View.OnClickListener
     private class ConfirmWordsRemovingBtnHandler implements View.OnClickListener{
         @Override
         public void onClick(View v) {
-            if(adapter.hasSelection())
-                removeWords(adapter.getSelections());
+            if(adapter.hasSelection()){
+                switch (state) {
+                    case removing_set:
+                        removeWords(adapter.getSelections());
+                        setState(States.base);
+                        break;
+                    case input:
+                        int itemPosition = adapter.getSelectedPosition() - list.getFirstVisiblePosition();
+                        if(!(itemPosition < 0 || itemPosition >= list.getChildCount())) {
+                            input = (EditText) ((list.getChildAt(itemPosition))
+                                    .findViewById(R.id.dictionary_item_text));
+                            replaceWord(jsonHelper.getWords()[adapter.getSelectedPosition()],
+                                    input.getText().toString());
+                            input.setFocusableInTouchMode(false);
+                            input.setFocusable(false);
+                        }
+                        setState(States.base);
+                        ScreenController.setScreenMode(getActivity(), ScreenController.ScreenModes.FULL_SCREEN);
+                        break;
+                }
+            }
+        }
+    }
+
+    private class CancelBtnHandler implements View.OnClickListener{
+
+        @Override
+        public void onClick(View v) {
             setState(States.base);
+            adapter.resetSelections();
         }
     }
 
@@ -254,15 +279,37 @@ public class DictionaryFragment extends Fragment implements View.OnClickListener
     }
 
     private class EditWordBtnHandler implements View.OnClickListener{
-        TextView.OnEditorActionListener listener;
+        DoneActionHandler doneHandler;
 
-        public EditWordBtnHandler(TextView.OnEditorActionListener listener){
-            this.listener = listener;
+        public EditWordBtnHandler(){
+            doneHandler = new DoneActionHandler();
         }
 
         @Override
         public void onClick(View v) {
-                
+            int itemPosition = adapter.getSelectedPosition() - list.getFirstVisiblePosition();
+            if(!(itemPosition < 0 || itemPosition >= list.getChildCount())) {
+                input = (EditText) ((list.getChildAt(itemPosition))
+                        .findViewById(R.id.dictionary_item_text));
+                input.setFocusableInTouchMode(true);
+                input.requestFocus();
+                input.setOnEditorActionListener(doneHandler);
+                ((InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE))
+                        .showSoftInput(input, 0);
+                setState(States.input);
+            }
+        }
+
+        private class DoneActionHandler implements TextView.OnEditorActionListener{
+
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if(actionId == EditorInfo.IME_ACTION_DONE){
+                    ScreenController.setScreenMode(getActivity(), ScreenController.ScreenModes.FULL_SCREEN);
+                    input.setFocusableInTouchMode(false);
+                }
+                return false;
+            }
         }
     }
 }

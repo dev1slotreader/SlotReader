@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.udelphi.slotreader.R;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class DictionaryAdapter extends ArrayAdapter<String>{
@@ -29,7 +30,7 @@ public class DictionaryAdapter extends ArrayAdapter<String>{
         if(convertView == null)
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_dictionary, null);
 
-        TextView tv = (TextView)convertView.findViewById(R.id.dictionary_item_tv);
+        TextView tv = (TextView)convertView.findViewById(R.id.dictionary_item_text);
         tv.setText(words[position]);
         tv.setTextColor(textColorId);
 
@@ -70,6 +71,14 @@ public class DictionaryAdapter extends ArrayAdapter<String>{
             if(selections.get(words[i]))
                 builder.append(words[i]).append(" ");
         return builder.toString().split(" ");
+    }
+
+    // Will not use multi-selection state
+    public int getSelectedPosition(){
+        for (int i = 0; i < selections.size(); i++)
+            if(selections.get(words[i]))
+                return i;
+        return -1;
     }
 
     public void resetSelections(){
