@@ -19,19 +19,20 @@ import android.widget.Toast;
 
 import com.udelphi.slotreader.Adapters.DictionaryAdapter;
 import com.udelphi.slotreader.Interfaces.BoardSkinChangedListener;
-import com.udelphi.slotreader.Interfaces.SizeChangedListener;
+import com.udelphi.slotreader.Interfaces.OnSizeChangedListener;
 import com.udelphi.slotreader.MainActivity;
 import com.udelphi.slotreader.Model.JsonHelper;
 import com.udelphi.slotreader.R;
 import com.udelphi.slotreader.StaticClasses.ScreenController;
 
-public class DictionaryFragment extends Fragment implements View.OnClickListener, SizeChangedListener,
-        BoardSkinChangedListener, TextView.OnEditorActionListener{
+public class DictionaryFragment extends Fragment implements OnSizeChangedListener, BoardSkinChangedListener,
+        TextView.OnEditorActionListener{
     public static String TAG = "DictionaryFragment";
 
     private enum States{ base, selected, removing_set, input }
     private enum Appearances{ base, selected, confirmation }
 
+    private MainActivity mainActivity;
     private ListView list;
     private ImageButton leftBtn;
     private ImageButton rightBtn;
@@ -59,6 +60,7 @@ public class DictionaryFragment extends Fragment implements View.OnClickListener
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.mainActivity = (MainActivity)getActivity();
         this.addWordBtnHandler = new AddWordBtnHandler();
         this.removeWordBtnHandler = new RemoveWordBtnHandler();
         this.editWordBtnHandler = new EditWordBtnHandler();
@@ -105,15 +107,17 @@ public class DictionaryFragment extends Fragment implements View.OnClickListener
     }
 
     @Override
-    public void onClick(View v) {
-
+    public void onResume() {
+        super.onResume();
+        mainActivity.addOnSizeChangedListener(this);
+//        ((MainActivity)getActivity()).addOnSizeChangedListener(this);
     }
 
     @Override
-    public void onBoardSkinChanged(int position) {
-        boardSkinPosition = position;
-        if(isVisible())
-            setSkin(boardSkinPosition);
+    public void onPause() {
+        super.onPause();
+        mainActivity.removeOnSizeChangedListener(this);
+//        ((MainActivity)getActivity()).removeOnSizeChangedListener(this);
     }
 
     @Override
@@ -121,6 +125,13 @@ public class DictionaryFragment extends Fragment implements View.OnClickListener
         adapter.changeWords(jsonHelper.getWords());
         setState(States.base);
         adapter.resetSelections();
+    }
+
+    @Override
+    public void onBoardSkinChanged(int position) {
+        boardSkinPosition = position;
+        if(isVisible())
+            setSkin(boardSkinPosition);
     }
 
     @Override

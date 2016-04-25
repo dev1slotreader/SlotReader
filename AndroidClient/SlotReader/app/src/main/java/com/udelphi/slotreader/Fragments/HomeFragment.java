@@ -10,22 +10,23 @@ import android.widget.ImageButton;
 
 import com.udelphi.slotreader.Abstractions.BoardViewBase;
 import com.udelphi.slotreader.Interfaces.BoardSkinChangedListener;
-import com.udelphi.slotreader.Interfaces.SizeChangedListener;
+import com.udelphi.slotreader.Interfaces.OnSizeChangedListener;
 import com.udelphi.slotreader.MainActivity;
 import com.udelphi.slotreader.Model.JsonHelper;
 import com.udelphi.slotreader.R;
 
-public class ReaderFragment extends Fragment implements View.OnClickListener, BoardViewBase.MovingListener,
-        SizeChangedListener, BoardSkinChangedListener{
+public class HomeFragment extends Fragment implements View.OnClickListener, BoardViewBase.MovingListener,
+        OnSizeChangedListener, BoardSkinChangedListener{
     public static String TAG = "ReaderFragment";
+    private MainActivity activity;
     private BoardViewBase boardView;
     private JsonHelper jsonHelper;
     private boolean isMoving;
     private int boardSkinPosition;
     private int lettersCount;
 
-    public static ReaderFragment newInstance(int boardSkinPosition, int lettersCount){
-        ReaderFragment fragment = new ReaderFragment();
+    public static HomeFragment newInstance(int boardSkinPosition, int lettersCount){
+        HomeFragment fragment = new HomeFragment();
         Bundle args = new Bundle();
         args.putInt("boardSkinPosition", boardSkinPosition);
         args.putInt("lettersCount", lettersCount);
@@ -36,6 +37,7 @@ public class ReaderFragment extends Fragment implements View.OnClickListener, Bo
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.activity = (MainActivity) getActivity();
         this.boardSkinPosition = getArguments().getInt("boardSkinPosition");
         this.lettersCount = getArguments().getInt("lettersCount");
     }
@@ -63,6 +65,13 @@ public class ReaderFragment extends Fragment implements View.OnClickListener, Bo
         super.onResume();
         setSkin(boardSkinPosition);
         setLettersCount(lettersCount);
+        activity.addOnSizeChangedListener(this);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        activity.removeOnSizeChangedListener(this);
     }
 
     @Override

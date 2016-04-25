@@ -29,7 +29,6 @@ public class DictionaryAdapter extends ArrayAdapter<String>{
     public View getView(int position, View convertView, ViewGroup parent) {
         if(convertView == null)
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_dictionary, null);
-
         TextView tv = (TextView)convertView.findViewById(R.id.dictionary_item_text);
         tv.setText(words[position]);
         tv.setTextColor(textColorId);

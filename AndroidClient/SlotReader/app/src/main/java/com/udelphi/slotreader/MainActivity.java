@@ -16,9 +16,9 @@ import com.udelphi.slotreader.Adapters.GallerySizeAdapter;
 import com.udelphi.slotreader.Adapters.LanguagesAdapter;
 import com.udelphi.slotreader.Adapters.MenuAdapter;
 import com.udelphi.slotreader.Fragments.DictionaryFragment;
-import com.udelphi.slotreader.Fragments.ReaderFragment;
+import com.udelphi.slotreader.Fragments.HomeFragment;
 import com.udelphi.slotreader.Interfaces.BoardSkinChangedListener;
-import com.udelphi.slotreader.Interfaces.SizeChangedListener;
+import com.udelphi.slotreader.Interfaces.OnSizeChangedListener;
 import com.udelphi.slotreader.Model.JsonHelper;
 import com.udelphi.slotreader.StaticClasses.ScreenController;
 import com.udelphi.slotreader.StaticClasses.ScreenController.ScreenModes;
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private AdapterView.OnItemClickListener menuClickListener;
     private AdapterView.OnItemClickListener languageClickListener;
     private AdapterView.OnItemClickListener skinsClickListener;
-    private ArrayList<SizeChangedListener> sizeChangedListeners;
+    private ArrayList<OnSizeChangedListener> sizeChangedListeners;
     private ArrayList<BoardSkinChangedListener> boardSkinChangedListeners;
 
     private boolean isDrawerOpened;
@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         languageClickListener = new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ((ReaderFragment) getSupportFragmentManager().findFragmentByTag(ReaderFragment.TAG))
+                ((HomeFragment) getSupportFragmentManager().findFragmentByTag(HomeFragment.TAG))
                         .changeLanguage(position);
                 drawerLayout.closeDrawer(drawerList);
                 drawerList.setAdapter(menuAdapter);
@@ -92,12 +92,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position){
                     case 0:
-                        Fragment homeFrag = getSupportFragmentManager().findFragmentByTag(ReaderFragment.TAG);
-                        if(homeFrag == null) {
-                            homeFrag = ReaderFragment.newInstance(boardSkinPosition, lettersCount);
-                            sizeChangedListeners.add((SizeChangedListener)homeFrag);
-                            boardSkinChangedListeners.add((BoardSkinChangedListener)homeFrag);
-                        }
+                        Fragment homeFrag = getSupportFragmentManager().findFragmentByTag(HomeFragment.TAG);
+                        if(homeFrag == null)
+                            homeFrag = HomeFragment.newInstance(boardSkinPosition, lettersCount);
+
                         changeFragment(homeFrag);
                         drawerList.setItemChecked(position, true);
                         drawerLayout.closeDrawer(drawerList);
@@ -111,9 +109,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         Fragment dictFrag = getSupportFragmentManager().findFragmentByTag(DictionaryFragment.TAG);
                         if(dictFrag == null) {
                             dictFrag = DictionaryFragment.newInstance(boardSkinPosition);
-                            sizeChangedListeners.add((SizeChangedListener)dictFrag);
-                            boardSkinChangedListeners.add((BoardSkinChangedListener)dictFrag);
                         }
+
                         changeFragment(dictFrag);
                         drawerList.setItemChecked(position, true);
                         drawerLayout.closeDrawer(drawerList);
@@ -229,8 +226,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    public void addOnSizeChangedListener(OnSizeChangedListener listener){
+        sizeChangedListeners.add(listener);
+    }
+
+    public void removeOnSizeChangedListener(OnSizeChangedListener listener){
+        sizeChangedListeners.remove(listener);
+    }
+
     private void notifySizeChangedListeners(int size){
-        for(SizeChangedListener listener : sizeChangedListeners)
+        for(OnSizeChangedListener listener : sizeChangedListeners)
             listener.onSizeChanged(size);
     }
 

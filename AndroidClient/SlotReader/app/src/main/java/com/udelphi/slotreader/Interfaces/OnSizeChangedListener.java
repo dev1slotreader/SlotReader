@@ -1,5 +1,5 @@
 package com.udelphi.slotreader.Interfaces;
 
-public interface SizeChangedListener {
+public interface OnSizeChangedListener {
     void onSizeChanged(int size);
 }
