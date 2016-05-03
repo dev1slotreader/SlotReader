@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private AdapterView.OnItemClickListener languageClickListener;
     private AdapterView.OnItemClickListener skinsClickListener;
     private ArrayList<OnSizeChangedListener> sizeChangedListeners;
-    private ArrayList<BoardSkinChangedListener> boardSkinChangedListeners;
+    private BoardSkinChangedListener boardSkinChangedListener;
 
     private boolean isDrawerOpened;
     private boolean isSubmenuOpened;
@@ -55,7 +55,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         sizeChangedListeners = new ArrayList<>();
-        boardSkinChangedListeners = new ArrayList<>();
         boardSkinPosition = 1;
         lettersCount = 1;
 
@@ -98,6 +97,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             homeFrag = HomeFragment.newInstance(boardSkinPosition, lettersCount);
                         changeFragment(homeFrag);
                         drawerList.setItemChecked(position, true);
+                        boardSkinChangedListener = (BoardSkinChangedListener) homeFrag;
                         drawerLayout.closeDrawer(drawerList);
                         break;
                     case 1:
@@ -111,6 +111,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             dictFrag = DictionaryFragment.newInstance(boardSkinPosition);
                         changeFragment(dictFrag);
                         drawerList.setItemChecked(position, true);
+                        boardSkinChangedListener = (BoardSkinChangedListener) dictFrag;
                         drawerLayout.closeDrawer(drawerList);
                         break;
                     case 3:
@@ -124,8 +125,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         skinsClickListener = new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                for(BoardSkinChangedListener listener : boardSkinChangedListeners)
-                    listener.onBoardSkinChanged(position);
+                boardSkinChangedListener.onBoardSkinChanged(position);
                 drawerLayout.closeDrawer(drawerList);
                 drawerList.setAdapter(menuAdapter);
                 drawerList.setOnItemClickListener(menuClickListener);
@@ -221,7 +221,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.content_frame, fragment, fragment.getTag())
                     .commit();
-
         }
     }
 
