@@ -11,14 +11,16 @@ import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.udelphi.slotreader.Adapters.DictionaryAdapter;
+import com.udelphi.slotreader.Controlls.BackHandlerEditText;
 import com.udelphi.slotreader.Interfaces.BoardSkinChangedListener;
+import com.udelphi.slotreader.Interfaces.OnInputCanceledListener;
 import com.udelphi.slotreader.Interfaces.OnSizeChangedListener;
 import com.udelphi.slotreader.MainActivity;
 import com.udelphi.slotreader.Model.JsonHelper;
@@ -36,13 +38,15 @@ public class DictionaryFragment extends Fragment implements OnSizeChangedListene
     private ListView list;
     private ImageButton leftBtn;
     private ImageButton rightBtn;
-    private EditText input;
+    private BackHandlerEditText input;
+    private RelativeLayout boardLayout;
 
     private RemoveWordBtnHandler removeWordBtnHandler;
     private AddWordBtnHandler addWordBtnHandler;
     private EditWordBtnHandler editWordBtnHandler;
     private ConfirmWordsRemovingBtnHandler confirmWordsRemovingBtnHandler;
     private CancelBtnHandler cancelBtnHandler;
+    private OnInputCanceledListener inputCanceledListener;
 
     private JsonHelper jsonHelper;
     private DictionaryAdapter adapter;
@@ -65,15 +69,24 @@ public class DictionaryFragment extends Fragment implements OnSizeChangedListene
         this.removeWordBtnHandler = new RemoveWordBtnHandler();
         this.editWordBtnHandler = new EditWordBtnHandler();
         this.confirmWordsRemovingBtnHandler = new ConfirmWordsRemovingBtnHandler();
-        cancelBtnHandler = new CancelBtnHandler();
+        this.cancelBtnHandler = new CancelBtnHandler();
         this.jsonHelper = ((MainActivity) getActivity()).getJsonHelper();
         this.adapter = new DictionaryAdapter(getContext(), jsonHelper.getWords());
         this.boardSkinPosition = getArguments().getInt("boardSkinPosition");
+        this.inputCanceledListener = new OnInputCanceledListener() {
+            @Override
+            public void onInputCanceled(BackHandlerEditText editText) {
+                setState(States.base);
+                adapter.resetSelections();
+                editText.setFocusable(false);
+            }
+        };
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_dictionary, null);
+        boardLayout = (RelativeLayout)view.findViewById(R.id.board_frame);
         list = (ListView)view.findViewById(R.id.dictionary_list);
         list.setAdapter(adapter);
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -110,20 +123,22 @@ public class DictionaryFragment extends Fragment implements OnSizeChangedListene
     public void onResume() {
         super.onResume();
         mainActivity.addOnSizeChangedListener(this);
-//        ((MainActivity)getActivity()).addOnSizeChangedListener(this);
     }
 
     @Override
     public void onPause() {
         super.onPause();
         mainActivity.removeOnSizeChangedListener(this);
-//        ((MainActivity)getActivity()).removeOnSizeChangedListener(this);
     }
 
     @Override
     public void onSizeChanged(int size) {
+        int selectedPosition = adapter.getSelectedPosition();
+        if(selectedPosition >= 0)
+        list.getChildAt(selectedPosition).findViewById(R.id.dictionary_item_text).setFocusable(false);
         adapter.changeWords(jsonHelper.getWords());
         setState(States.base);
+        ScreenController.setScreenMode(getActivity(), ScreenController.ScreenModes.FULL_SCREEN);
         adapter.resetSelections();
     }
 
@@ -154,7 +169,7 @@ public class DictionaryFragment extends Fragment implements OnSizeChangedListene
     }
 
     private void setSkin(int position){
-        list.setBackground(getResources().getDrawable(getResources()
+        boardLayout.setBackground(getResources().getDrawable(getResources()
                 .obtainTypedArray(R.array.boards_backgrounds).getResourceId(position, -1)));
         switch (position){
             case 2:
@@ -168,7 +183,8 @@ public class DictionaryFragment extends Fragment implements OnSizeChangedListene
     }
 
     private void addWord(String word){
-        Toast.makeText(getContext(), "Adding " + word, Toast.LENGTH_SHORT).show();
+        if(!word.equals(""))
+            Toast.makeText(getContext(), "Adding " + word, Toast.LENGTH_SHORT).show();
     }
 
     private void removeWords(String[] words){
@@ -183,6 +199,7 @@ public class DictionaryFragment extends Fragment implements OnSizeChangedListene
 
     private void replaceWord(String oldWord, String newWord){
         Toast.makeText(getContext(), "Replacing " + oldWord + " by " + newWord, Toast.LENGTH_SHORT).show();
+        adapter.resetSelections();
     }
 
     private void setState(States state){
@@ -254,7 +271,7 @@ public class DictionaryFragment extends Fragment implements OnSizeChangedListene
                     case input:
                         int itemPosition = adapter.getSelectedPosition() - list.getFirstVisiblePosition();
                         if(!(itemPosition < 0 || itemPosition >= list.getChildCount())) {
-                            input = (EditText) ((list.getChildAt(itemPosition))
+                            input = (BackHandlerEditText) ((list.getChildAt(itemPosition))
                                     .findViewById(R.id.dictionary_item_text));
                             replaceWord(jsonHelper.getWords()[adapter.getSelectedPosition()],
                                     input.getText().toString());
@@ -274,23 +291,34 @@ public class DictionaryFragment extends Fragment implements OnSizeChangedListene
         @Override
         public void onClick(View v) {
             setState(States.base);
+            list.getChildAt(adapter.getSelectedPosition())
+                    .findViewById(R.id.dictionary_item_text).setFocusable(false);
             adapter.resetSelections();
         }
     }
 
     private class AddWordBtnHandler implements View.OnClickListener{
+        DoneActionHandler doneHandler;
+
+        public AddWordBtnHandler(){
+            doneHandler = new DoneActionHandler();
+        }
+
         @Override
         public void onClick(View v) {
-            InputMethodManager imm = (InputMethodManager) getContext()
-                    .getSystemService(Context.INPUT_METHOD_SERVICE);
-            if(imm != null){
-                imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, 0);
-            }
+            input = (BackHandlerEditText) ((View)v.getParent()).findViewById(R.id.new_word_input);
+            input.setVisibility(View.VISIBLE);
+            input.setFocusableInTouchMode(true);
+            input.requestFocus();
+            input.setOnEditorActionListener(doneHandler);
+            ((InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE))
+                    .showSoftInput(input, 0);
+            input.setOnInputCancelListener(inputCanceledListener);
         }
     }
 
     private class EditWordBtnHandler implements View.OnClickListener{
-        DoneActionHandler doneHandler;
+        private DoneActionHandler doneHandler;
 
         public EditWordBtnHandler(){
             doneHandler = new DoneActionHandler();
@@ -300,27 +328,36 @@ public class DictionaryFragment extends Fragment implements OnSizeChangedListene
         public void onClick(View v) {
             int itemPosition = adapter.getSelectedPosition() - list.getFirstVisiblePosition();
             if(!(itemPosition < 0 || itemPosition >= list.getChildCount())) {
-                input = (EditText) ((list.getChildAt(itemPosition))
+                input = (BackHandlerEditText) ((list.getChildAt(itemPosition))
                         .findViewById(R.id.dictionary_item_text));
                 input.setFocusableInTouchMode(true);
                 input.requestFocus();
                 input.setOnEditorActionListener(doneHandler);
                 ((InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE))
                         .showSoftInput(input, 0);
+                input.setOnInputCancelListener(inputCanceledListener);
                 setState(States.input);
             }
         }
+    }
 
-        private class DoneActionHandler implements TextView.OnEditorActionListener{
+    private class DoneActionHandler implements TextView.OnEditorActionListener{
 
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if(actionId == EditorInfo.IME_ACTION_DONE){
+        @Override
+        public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+            if(actionId == EditorInfo.IME_ACTION_DONE){
+                if(state == States.base) {
+                    addWord(input.getText().toString());
+                    input.setText("");
+                    input.setVisibility(View.GONE);
+                    ScreenController.setScreenMode(getActivity(), ScreenController.ScreenModes.FULL_SCREEN);
+                }
+                else {
                     ScreenController.setScreenMode(getActivity(), ScreenController.ScreenModes.FULL_SCREEN);
                     input.setFocusableInTouchMode(false);
                 }
-                return false;
             }
+            return false;
         }
     }
 }

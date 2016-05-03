@@ -4,6 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -95,7 +96,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         Fragment homeFrag = getSupportFragmentManager().findFragmentByTag(HomeFragment.TAG);
                         if(homeFrag == null)
                             homeFrag = HomeFragment.newInstance(boardSkinPosition, lettersCount);
-
                         changeFragment(homeFrag);
                         drawerList.setItemChecked(position, true);
                         drawerLayout.closeDrawer(drawerList);
@@ -107,10 +107,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         break;
                     case 2:
                         Fragment dictFrag = getSupportFragmentManager().findFragmentByTag(DictionaryFragment.TAG);
-                        if(dictFrag == null) {
+                        if(dictFrag == null)
                             dictFrag = DictionaryFragment.newInstance(boardSkinPosition);
-                        }
-
                         changeFragment(dictFrag);
                         drawerList.setItemChecked(position, true);
                         drawerLayout.closeDrawer(drawerList);
@@ -223,6 +221,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.content_frame, fragment, fragment.getTag())
                     .commit();
+
         }
     }
 
