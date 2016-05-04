@@ -7,7 +7,6 @@ import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.widget.EditText;
 
-import com.udelphi.slotreader.Interfaces.OnInputCanceledListener;
 import com.udelphi.slotreader.R;
 import com.udelphi.slotreader.StaticClasses.ScreenController;
 
@@ -59,5 +58,9 @@ public class BackHandlerEditText extends EditText {
             }
         }
         return super.dispatchKeyEvent(event);
+    }
+
+    public interface OnInputCanceledListener {
+        void onInputCanceled(BackHandlerEditText editText);
     }
 }

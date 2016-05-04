@@ -20,7 +20,6 @@ import android.widget.Toast;
 import com.udelphi.slotreader.Adapters.DictionaryAdapter;
 import com.udelphi.slotreader.Controlls.BackHandlerEditText;
 import com.udelphi.slotreader.Interfaces.BoardSkinChangedListener;
-import com.udelphi.slotreader.Interfaces.OnInputCanceledListener;
 import com.udelphi.slotreader.Interfaces.OnSizeChangedListener;
 import com.udelphi.slotreader.MainActivity;
 import com.udelphi.slotreader.Model.JsonHelper;
@@ -46,7 +45,7 @@ public class DictionaryFragment extends Fragment implements OnSizeChangedListene
     private EditWordBtnHandler editWordBtnHandler;
     private ConfirmWordsRemovingBtnHandler confirmWordsRemovingBtnHandler;
     private CancelBtnHandler cancelBtnHandler;
-    private OnInputCanceledListener inputCanceledListener;
+    private BackHandlerEditText.OnInputCanceledListener inputCanceledListener;
     private DoneActionHandler doneHandler;
 
     private JsonHelper jsonHelper;
@@ -75,7 +74,7 @@ public class DictionaryFragment extends Fragment implements OnSizeChangedListene
         this.adapter = new DictionaryAdapter(getContext(), jsonHelper.getWords());
         this.boardSkinPosition = getArguments().getInt("boardSkinPosition");
         this.doneHandler = new DoneActionHandler();
-        this.inputCanceledListener = new OnInputCanceledListener() {
+        this.inputCanceledListener = new BackHandlerEditText.OnInputCanceledListener() {
             @Override
             public void onInputCanceled(BackHandlerEditText editText) {
                 setState(States.base);
