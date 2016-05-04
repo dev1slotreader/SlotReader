@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.NumberPicker;
+import android.widget.Toast;
 
 import com.udelphi.slotreader.Abstractions.BoardViewBase;
 import com.udelphi.slotreader.Interfaces.BoardSkinChangedListener;
@@ -16,7 +18,7 @@ import com.udelphi.slotreader.Model.JsonHelper;
 import com.udelphi.slotreader.R;
 
 public class HomeFragment extends Fragment implements View.OnClickListener, BoardViewBase.MovingListener,
-        OnSizeChangedListener, BoardSkinChangedListener{
+        OnSizeChangedListener, BoardSkinChangedListener, NumberPicker.OnScrollListener{
     public static String TAG = "ReaderFragment";
     private MainActivity activity;
     private BoardViewBase boardView;
@@ -44,13 +46,14 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Boar
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_reader, null);
+        View view = inflater.inflate(R.layout.fragment_home, null);
         jsonHelper = ((MainActivity)getActivity()).getJsonHelper();
 
-        boardView = (BoardViewBase)view.findViewById(R.id.word_picker);
+        boardView = (BoardViewBase)view.findViewById(R.id.board_view);
         assert boardView != null;
         boardView.setValues(jsonHelper.getAlphabet());
         boardView.setMovingListener(this);
+        boardView.setOnScrollListener(this);
 
         ImageButton nextBtn = (ImageButton)view.findViewById(R.id.next_btn);
         nextBtn.setOnClickListener(this);
@@ -108,8 +111,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Boar
     }
 
     @Override
-    public void onSizeChanged(int size)
-    {
+    public void onSizeChanged(int size) {
         setLettersCount(size);
     }
 
@@ -132,6 +134,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Boar
         if(isVisible()) {
             boardView.setLettersCount(lettersCount);
             boardView.showWordImmediately(jsonHelper.getCurrentWord());
+            boardView.setOnScrollListener(this);
         }
     }
 
@@ -146,6 +149,13 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Boar
             default:
                 boardView.setTextColor(getResources().getColor(R.color.dark_skin_text_color));
                 boardView.setDivider(getResources().getDrawable(android.R.drawable.divider_horizontal_dark));
+        }
+    }
+
+    @Override
+    public void onScrollStateChange(NumberPicker view, int scrollState) {
+        if (scrollState == NumberPicker.OnScrollListener.SCROLL_STATE_IDLE) {
+            Toast.makeText(getContext(), "Word changed to " + boardView.readWord(), Toast.LENGTH_SHORT).show();
         }
     }
 }

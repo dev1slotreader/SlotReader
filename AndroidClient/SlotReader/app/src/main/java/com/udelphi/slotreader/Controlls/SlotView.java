@@ -254,4 +254,9 @@ public class SlotView extends BoardViewBase {
         }
         return result;
     }
+
+    public void setOnScrollListener(NumberPicker.OnScrollListener scrollListener){
+        for(NumberPicker picker : pickers)
+            picker.setOnScrollListener(scrollListener);
+    }
 }
