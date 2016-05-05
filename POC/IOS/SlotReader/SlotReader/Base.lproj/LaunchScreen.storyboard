@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -20,12 +21,25 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Back" translatesAutoresizingMaskIntoConstraints="NO" id="3mE-uA-JuJ">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="7Aa-xd-lHC">
+                                <rect key="frame" x="125" y="233" width="351" height="133"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="7Aa-xd-lHC" secondAttribute="height" multiplier="378:143" id="UEu-1T-CCJ"/>
+                                </constraints>
+                            </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="qm0-d8-pVb">
+                                <rect key="frame" x="282" y="374" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="3mE-uA-JuJ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="3Ma-sa-f77"/>
                             <constraint firstItem="3mE-uA-JuJ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="H7A-In-gi3"/>
                             <constraint firstItem="3mE-uA-JuJ" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" id="M72-PW-soQ"/>
+                            <constraint firstItem="qm0-d8-pVb" firstAttribute="centerX" secondItem="7Aa-xd-lHC" secondAttribute="centerX" id="OGh-oz-pt7"/>
+                            <constraint firstItem="7Aa-xd-lHC" firstAttribute="centerX" secondItem="3mE-uA-JuJ" secondAttribute="centerX" id="QiG-y8-NhS"/>
+                            <constraint firstItem="7Aa-xd-lHC" firstAttribute="centerY" secondItem="3mE-uA-JuJ" secondAttribute="centerY" id="SGu-Es-30o"/>
+                            <constraint firstItem="qm0-d8-pVb" firstAttribute="top" secondItem="7Aa-xd-lHC" secondAttribute="bottom" constant="8" id="fNg-WU-99o"/>
                             <constraint firstItem="3mE-uA-JuJ" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="sa5-Np-xtL"/>
                         </constraints>
                     </view>
@@ -36,6 +50,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Back" width="961" height="640"/>
+        <image name="Back" width="641" height="961"/>
+        <image name="logo" width="351" height="104"/>
     </resources>
 </document>

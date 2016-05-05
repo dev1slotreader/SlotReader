@@ -28,6 +28,8 @@
 		CE5913BA1CBBF93A008A3042 /* DictationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5913B91CBBF93A008A3042 /* DictationViewController.m */; };
 		CE5913D71CBF970C008A3042 /* FancyTextInputBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5913D61CBF970C008A3042 /* FancyTextInputBlock.m */; };
 		CE7A05C41CA2F0E900CFDE01 /* TransparentToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7A05C31CA2F0E900CFDE01 /* TransparentToolbar.m */; };
+		CE9B20BC1CCA4C3C00B43943 /* EditableTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9B20BB1CCA4C3C00B43943 /* EditableTableViewCell.m */; };
+		CE9B20C01CCA900100B43943 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9B20BF1CCA900100B43943 /* UIView+Toast.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,10 @@
 		CE5913D61CBF970C008A3042 /* FancyTextInputBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FancyTextInputBlock.m; sourceTree = "<group>"; };
 		CE7A05C21CA2F0E900CFDE01 /* TransparentToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransparentToolbar.h; sourceTree = "<group>"; };
 		CE7A05C31CA2F0E900CFDE01 /* TransparentToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransparentToolbar.m; sourceTree = "<group>"; };
+		CE9B20BA1CCA4C3C00B43943 /* EditableTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditableTableViewCell.h; sourceTree = "<group>"; };
+		CE9B20BB1CCA4C3C00B43943 /* EditableTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditableTableViewCell.m; sourceTree = "<group>"; };
+		CE9B20BE1CCA900100B43943 /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
+		CE9B20BF1CCA900100B43943 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +142,7 @@
 				CE662BA41CC0ED47008722F1 /* Navigation classes */,
 				CE662BA51CC0ED8A008722F1 /* UI elements classes */,
 				CE5913D41CBE6875008A3042 /* Data */,
+				CE9B20BD1CCA8FE300B43943 /* Toast Manager */,
 				CE662BA71CC0EDD9008722F1 /* Currently not needed classes */,
 				CE1267231C93149B001C6573 /* Assets.xcassets */,
 				CE1267251C93149B001C6573 /* LaunchScreen.storyboard */,
@@ -190,6 +197,8 @@
 				CE5913471CA5461E008A3042 /* BoardViewController.m */,
 				CE5913D51CBF970C008A3042 /* FancyTextInputBlock.h */,
 				CE5913D61CBF970C008A3042 /* FancyTextInputBlock.m */,
+				CE9B20BA1CCA4C3C00B43943 /* EditableTableViewCell.h */,
+				CE9B20BB1CCA4C3C00B43943 /* EditableTableViewCell.m */,
 			);
 			name = "UI elements classes";
 			sourceTree = "<group>";
@@ -225,6 +234,15 @@
 				CE1267471C9AF6AB001C6573 /* WordPickerHelperViewController.m */,
 			);
 			name = "Picker classes";
+			sourceTree = "<group>";
+		};
+		CE9B20BD1CCA8FE300B43943 /* Toast Manager */ = {
+			isa = PBXGroup;
+			children = (
+				CE9B20BE1CCA900100B43943 /* UIView+Toast.h */,
+				CE9B20BF1CCA900100B43943 /* UIView+Toast.m */,
+			);
+			name = "Toast Manager";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,9 +346,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE9B20C01CCA900100B43943 /* UIView+Toast.m in Sources */,
 				CE5913481CA5461E008A3042 /* BoardViewController.m in Sources */,
 				CE5913D71CBF970C008A3042 /* FancyTextInputBlock.m in Sources */,
 				CE59135A1CB26FF4008A3042 /* LanguagesTableViewController.m in Sources */,
+				CE9B20BC1CCA4C3C00B43943 /* EditableTableViewCell.m in Sources */,
 				CE1267481C9AF6AB001C6573 /* WordPickerHelperViewController.m in Sources */,
 				CE5913571CB26F89008A3042 /* InfoViewController.m in Sources */,
 				CE5913681CB652C6008A3042 /* SideBarTableViewController.m in Sources */,

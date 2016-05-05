@@ -13,7 +13,7 @@
 #import "SlotPickerView.h"
 
 
-@protocol CenterViewControllerDelegate <NSObject>
+@protocol CenterViewControllerDelegate <NSObject, UICollectionViewDataSource, UICollectionViewDelegate>
 - (void)movePanelRight;
 - (void)movePanelToOriginalPosition;
 @end
@@ -22,6 +22,7 @@
 
 @property (nonatomic, assign) id<CenterViewControllerDelegate> delegate;
 
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet SlotPickerView *picker;
 @property (strong, nonatomic) NSArray *alphabet;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *showMenuButton;

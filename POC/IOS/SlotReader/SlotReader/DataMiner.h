@@ -12,11 +12,14 @@
 
 + (id) sharedDataMiner;
 + (NSArray *) getLanguages;
+- (void) initSource;
 
 @property (nonatomic, strong) NSDictionary *allWords;
 - (NSDictionary *) getWords;
 - (NSArray *) getWordsOfSize: (int) size;
 - (NSArray *) getLanguages;
-- (void) addNewWord: (NSString *) word;
+- (BOOL) addNewWord: (NSString *) word;
+- (BOOL) deleteWordsAtIndexes: (NSIndexSet *) indexSet;
+- (BOOL) updateWordAtIndex: (NSArray *) index withNewWord: (NSString *)newWord;
 
 @end

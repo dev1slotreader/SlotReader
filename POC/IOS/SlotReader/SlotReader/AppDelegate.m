@@ -31,7 +31,9 @@ typedef enum {
 	if ([defaults boolForKey:hasRunAppOnceKey] == NO)
 	{
 		NSString *language = [[[NSLocale preferredLanguages] objectAtIndex:0] substringToIndex:2];
+		
 		DataMiner *dataMiner = [DataMiner sharedDataMiner];
+				
 		NSArray *languagesArray = [dataMiner getLanguages];
 		if ([languagesArray containsObject:language]) {
 			[defaults setObject:language forKey:@"language"];

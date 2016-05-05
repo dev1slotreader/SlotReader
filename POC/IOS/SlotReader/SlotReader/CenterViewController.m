@@ -33,6 +33,7 @@ typedef enum {
 	
 	int currentNumberOfLetters;
 	AppDelegate *appDelegate;
+	NSArray *numberPickerCellIds;
 }
 
 @end
@@ -52,10 +53,9 @@ typedef enum {
 	self.picker.delegate = pickerHelper;
 	self.picker.dataSource = pickerHelper;
 	
-	[self getDataFromStorage];
+	
 	[self setStyleFromSettings];
 
-	self.navigationController.navigationBar.backgroundColor = [UIColor redColor];
 	[self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:(181/255.0) green:(252/255.0) blue:(251/255.0) alpha:1]];
 	self.navigationItem.title = @"Slot Reader";
 	
@@ -74,35 +74,48 @@ typedef enum {
 	dispatch_once(&onceToken, ^{
 		[self showTheFirstWord];
 	});
-	[self addingNumberOfLettersBar];
+	//[self addingNumberOfLettersBar];
+	
+	numberPickerCellIds = [[NSArray alloc] initWithObjects:@"cCell1", @"cCell3", @"cCell4", @"cCell5", @"cCell5+", nil];
+	self.collectionView.backgroundColor = [UIColor clearColor];
 }
 
 - (void) addingNumberOfLettersBar {
 	UIImage *image1 = [UIImage imageNamed:@"1"];
-	UIBarButtonItem *barButtonItem1 = [[UIBarButtonItem alloc] initWithImage:image1 style:UIBarButtonItemStylePlain target:nil action:@selector(changeNumberOfLettersToShow:)];
+	UIButton *button1 = [UIButton buttonWithType:UIButtonTypeCustom];
+	button1.backgroundColor = [UIColor redColor];
+	[button1 setImage:image1 forState:UIControlStateNormal];
+	//UIBarButtonItem *barButtonItem1 = [[UIBarButtonItem alloc] initWithImage:image1 style:UIBarButtonItemStylePlain target:nil action:@selector(changeNumberOfLettersToShow:)];
+	//UIBarButtonItem *barButtonItem1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:nil action:@selector(changeNumberOfLettersToShow:)];
+	UIBarButtonItem *barButtonItem1 = [[UIBarButtonItem alloc] initWithCustomView:button1];
 	barButtonItem1.tag = 1;
 	
 	UIImage *image3 = [UIImage imageNamed:@"3"];
 	UIBarButtonItem *barButtonItem3 = [[UIBarButtonItem alloc] initWithImage:image3 style:UIBarButtonItemStylePlain target:nil action:@selector(changeNumberOfLettersToShow:)];
-	barButtonItem1.tag = 3;
+	barButtonItem3.tintColor = [UIColor redColor];
+	UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"ic_add_white"] style:UIBarButtonItemStylePlain target:self action:@selector(changeNumberOfLettersToShow:)];
+	
+	barButtonItem3.tag = 3;
 	
 	UIImage *image4 = [UIImage imageNamed:@"4"];
 	UIBarButtonItem *barButtonItem4 = [[UIBarButtonItem alloc] initWithImage:image4 style:UIBarButtonItemStylePlain target:nil action:@selector(changeNumberOfLettersToShow:)];
-	barButtonItem1.tag = 4;
+	barButtonItem4.tag = 4;
 	
 	UIImage *image5 = [UIImage imageNamed:@"5"];
 	UIBarButtonItem *barButtonItem5 = [[UIBarButtonItem alloc] initWithImage:image5 style:UIBarButtonItemStylePlain target:nil action:@selector(changeNumberOfLettersToShow:)];
-	barButtonItem1.tag = 5;
+	barButtonItem5.tag = 5;
 	
 	UIImage *image5p = [UIImage imageNamed:@"5+"];
 	UIBarButtonItem *barButtonItem5p = [[UIBarButtonItem alloc] initWithImage:image5p style:UIBarButtonItemStylePlain target:nil action:@selector(changeNumberOfLettersToShow:)];
-	barButtonItem1.tag = 0;
+	barButtonItem5p.tag = 0;
 	
 	UIBarButtonItem *flexibleItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
 	
-	NSArray *toolbarItems = [NSArray arrayWithObjects:barButtonItem1, flexibleItem, barButtonItem3, flexibleItem, barButtonItem4, flexibleItem, barButtonItem5, flexibleItem, barButtonItem5p, nil];
+	NSArray *toolbarItems = [NSArray arrayWithObjects:item, flexibleItem, barButtonItem3, flexibleItem, barButtonItem4, flexibleItem, barButtonItem5, flexibleItem, barButtonItem5p, nil];
 	
-	[self.toolbar setItems:toolbarItems animated:NO];
+
+	self.toolbar.items = toolbarItems;
+	[self.toolbar updateConstraints];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -112,6 +125,7 @@ typedef enum {
 }
 
 - (void) viewDidAppear:(BOOL)animated{
+	[self getDataFromStorage];
 	[self showTheFirstWord];
 }
 
@@ -123,44 +137,20 @@ typedef enum {
 #pragma mark - Getting data
 
 - (void) getDataFromStorage {
-	
-#warning No need in it
-	NSError *error = nil;
-	NSString *filePath = [[NSBundle mainBundle] pathForResource:@"slot_reader_source" ofType:@"txt"];
-	NSURL *url = [NSURL fileURLWithPath:filePath];
-
-	NSData *data = [NSData dataWithContentsOfFile:filePath];
-	NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:data
-															 options:kNilOptions
-															   error:&error];
-	if (error != nil) {
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-														message:@"Couldn't load the data"
-													   delegate:self
-											  cancelButtonTitle:@"OK"
-											  otherButtonTitles:nil];
-		[alert show];
-	} else {
-		NSLog(@"%@", [[NSUserDefaults standardUserDefaults] objectForKey:@"language"]);
-		allWordsForCurrentLanguage = [jsonData objectForKey:@"words"];
-		self.alphabet = [NSArray arrayWithArray:[[jsonData objectForKey:@"words"] objectForKey:[NSString stringWithFormat:@"%@1",[[NSUserDefaults standardUserDefaults] objectForKey:@"language"]]]];
-		NSLog(@"OK");
-	}
+	allWordsForCurrentLanguage = [[DataMiner sharedDataMiner] getWords];
+	self.alphabet = [[DataMiner sharedDataMiner] getWordsOfSize:1];
 }
 
 - (void) setStyleFromSettings {
 	NSNumber *colorScheme = [[NSUserDefaults standardUserDefaults] objectForKey:@"colorScheme"];
 	switch ([colorScheme integerValue]) {
 		case green:
-			//self.board.image = [UIImage imageNamed:@"Blackboard"];
 			pickerHelper.lightTheme = NO;
 			break;
 		case light:
-			//self.board.image = [UIImage imageNamed:@"Blackboard-light"];
 			pickerHelper.lightTheme = YES;
 			break;
 		case dark:
-			//self.board.image = [UIImage imageNamed:@"Blackboard-dark"];
 			pickerHelper.lightTheme = NO;
 			break;
 		default:
@@ -179,6 +169,9 @@ typedef enum {
 }
 
 - (void) displayWord:(NSString *)word animated:(BOOL)animated {
+	if (currentNumberOfLetters == 0) {
+		[self setNumberOfLetters:[NSNumber numberWithInteger:[word length]] andLanguage:nil];
+	}
 	pickerHelper.pickerWorkingAutomatically = YES;
 	for (NSUInteger i = 0; i < [word length]; i++) {
 		NSString *letter = [NSString stringWithFormat:@"%@", [word substringWithRange:NSMakeRange(i, 1)]];		
@@ -211,8 +204,8 @@ typedef enum {
 	int numberOfLetters = (int)((UIBarButtonItem *)sender).tag;
 	switch (numberOfLetters) {
     case 0:
-		[self setNumberOfLetters:[NSNumber numberWithInt: 10] andLanguage:nil];
-		currentNumberOfLetters = 10;
+		//[self setNumberOfLetters:[NSNumber numberWithInt: 10] andLanguage:nil];
+		currentNumberOfLetters = 0;
 		break;
     default:
 		[self setNumberOfLetters:[NSNumber numberWithInt: numberOfLetters] andLanguage:nil];
@@ -238,7 +231,7 @@ typedef enum {
 		NSLog(@"previous");
 	}
 	
-	[self displayWord:[[words objectAtIndex:currentWordPosition] uppercaseString] animated:YES];
+	[self displayWord:[[[words objectAtIndex:currentWordPosition] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString] animated:YES];
 	//[self displayWord:[words objectAtIndex:currentWordPosition] animated:YES];
 #warning be careful here!
 	[[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:[NSNumber numberWithInt:currentNumberOfLetters],
@@ -257,7 +250,7 @@ typedef enum {
 	NSArray *words = [allWordsForCurrentLanguage objectForKey:[NSString stringWithFormat:@"%@%d",
 															   [[NSUserDefaults standardUserDefaults] objectForKey:@"language"],
 															   currentNumberOfLetters]];
-	[self displayWord:[[words objectAtIndex:0] uppercaseString] animated:YES];
+	[self displayWord:[[[words objectAtIndex:0] uppercaseString] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] animated:YES];
 	//[self displayWord:[words objectAtIndex:0] animated:YES];
 }
 
@@ -278,6 +271,26 @@ typedef enum {
 	appDelegate.languageSelectorDelegate = nil;
 	appDelegate.themeSelectorDelegate = nil;
 	[super viewWillDisappear:animated];
+}
+
+#pragma mark - Collection View Delegate Methods
+
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+	return 1;
+}
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+	return [numberPickerCellIds count];
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+	
+	NSString *cellId = [numberPickerCellIds objectAtIndex:indexPath.row];
+	
+	UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];	
+	
+	return cell;
+	
 }
 
 @end
