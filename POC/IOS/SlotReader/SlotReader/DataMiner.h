@@ -18,8 +18,8 @@
 - (NSDictionary *) getWords;
 - (NSArray *) getWordsOfSize: (int) size;
 - (NSArray *) getLanguages;
-- (BOOL) addNewWord: (NSString *) word;
+- (BOOL) addNewWord: (NSString *) word toIndex: (NSNumber *) index;
 - (BOOL) deleteWordsAtIndexes: (NSIndexSet *) indexSet;
-- (BOOL) updateWordAtIndex: (NSArray *) index withNewWord: (NSString *)newWord;
+- (BOOL) updateWordAtIndex: (NSUInteger *) index withNewWord: (NSString *)newWord;
 
 @end

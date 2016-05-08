@@ -43,12 +43,12 @@ typedef enum {
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 	
 	// Set the title of navigation bar by using the menu items
-	NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-	UINavigationController *destViewController = (UINavigationController*)segue.destinationViewController;
+	//NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+	//UINavigationController *destViewController = (UINavigationController*)segue.destinationViewController;
 
 		if ([segue.identifier isEqualToString:@"segueDictionary"]) {
-		UINavigationController *navController = segue.destinationViewController;
-		DictionaryTableViewController *dictinaryController = [navController childViewControllers].firstObject;
+		//UINavigationController *navController = segue.destinationViewController;
+		//DictionaryTableViewController *dictinaryController = [navController childViewControllers].firstObject;
 	}
 }
 

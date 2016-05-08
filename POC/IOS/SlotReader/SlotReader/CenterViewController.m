@@ -85,8 +85,6 @@ typedef enum {
 	UIButton *button1 = [UIButton buttonWithType:UIButtonTypeCustom];
 	button1.backgroundColor = [UIColor redColor];
 	[button1 setImage:image1 forState:UIControlStateNormal];
-	//UIBarButtonItem *barButtonItem1 = [[UIBarButtonItem alloc] initWithImage:image1 style:UIBarButtonItemStylePlain target:nil action:@selector(changeNumberOfLettersToShow:)];
-	//UIBarButtonItem *barButtonItem1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:nil action:@selector(changeNumberOfLettersToShow:)];
 	UIBarButtonItem *barButtonItem1 = [[UIBarButtonItem alloc] initWithCustomView:button1];
 	barButtonItem1.tag = 1;
 	
@@ -232,11 +230,10 @@ typedef enum {
 	}
 	
 	[self displayWord:[[[words objectAtIndex:currentWordPosition] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString] animated:YES];
-	//[self displayWord:[words objectAtIndex:currentWordPosition] animated:YES];
-#warning be careful here!
-	[[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:[NSNumber numberWithInt:currentNumberOfLetters],
+	[[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:
+                                                      [NSNumber numberWithInt:currentNumberOfLetters],
 													  [NSNumber numberWithInt:currentWordPosition], nil]
-											  forKey:@"currentPositon"];
+                                                      forKey:@"currentPositon"];
 	[[NSUserDefaults standardUserDefaults] synchronize];
 }
 
@@ -251,7 +248,6 @@ typedef enum {
 															   [[NSUserDefaults standardUserDefaults] objectForKey:@"language"],
 															   currentNumberOfLetters]];
 	[self displayWord:[[[words objectAtIndex:0] uppercaseString] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] animated:YES];
-	//[self displayWord:[words objectAtIndex:0] animated:YES];
 }
 
 - (void) changeLanguage {

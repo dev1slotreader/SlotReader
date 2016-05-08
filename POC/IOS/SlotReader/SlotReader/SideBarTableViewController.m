@@ -67,11 +67,6 @@ typedef enum {
 							@"lightBoard",
 							@"darkBoard",
 							nil];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -146,12 +141,12 @@ typedef enum {
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 	
 	// Set the title of navigation bar by using the menu items
-	NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-	UINavigationController *destViewController = (UINavigationController*)segue.destinationViewController;	
+	//NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+	//UINavigationController *destViewController = (UINavigationController*)segue.destinationViewController;
 	
 	if ([segue.identifier isEqualToString:@"segueDictionary"]) {
-		UINavigationController *navController = segue.destinationViewController;
-		DictionaryTableViewController *dictionaryController = [navController childViewControllers].firstObject;
+		//UINavigationController *navController = segue.destinationViewController;
+		//DictionaryTableViewController *dictionaryController = [navController childViewControllers].firstObject;
 	}
 }
 
@@ -163,12 +158,10 @@ typedef enum {
 				[self performSegueWithIdentifier:@"segueMain" sender:self];
 				break;
 			case boardThemesCategory:
-#warning show board themes 
 				sideBarMode = boardStyle;
 				[self.tableView reloadData];
 				break;
 			case languagesCategory:
-#warning show languages
 				sideBarMode = language;
 				[self.tableView reloadData];
 				break;
@@ -181,7 +174,6 @@ typedef enum {
 	}
 	else {
 		if (indexPath.row == 0) {
-#warning write a method to show categories again and set sidebarmode to 0
 			sideBarMode = categories;
 			[self.tableView reloadData];
 		} else {
@@ -192,12 +184,10 @@ typedef enum {
 							[self performSegueWithIdentifier:@"segueMain" sender:self];
 							break;
 						case boardThemesCategory:
-#warning show board themes
 							sideBarMode = boardStyle;
 							[self.tableView reloadData];
 							break;
 						case languagesCategory:
-#warning show languages
 							sideBarMode = language;
 							[self.tableView reloadData];
 							break;
@@ -211,14 +201,9 @@ typedef enum {
 				case language:
 					[[NSUserDefaults standardUserDefaults] setObject:
 					 [[[DataMiner sharedDataMiner] getLanguages] objectAtIndex:(indexPath.row - 1)] forKey:@"language"];
-					//[[NSUserDefaults standardUserDefaults] synchronize];
-					
-					//[self.languageSelectorDelegate changeLanguage];
 					break;
 				case boardStyle:
 					[[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:(indexPath.row - 1)] forKey:@"colorScheme"];
-					//[[NSUserDefaults standardUserDefaults] synchronize];
-					//[self.themeSelectorDelegate changeBoardTheme];
 					break;
 				default:
 					break;
@@ -226,48 +211,5 @@ typedef enum {
 		}		
 	}
 }
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

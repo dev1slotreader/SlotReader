@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="UVb-Cs-ehi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="UVb-Cs-ehi">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -475,7 +475,8 @@
                                                             <exclude reference="jfa-af-6x3"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=compact">
+                                                    <variation key="heightClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="8" y="16" width="38" height="37"/>
                                                         <mask key="constraints">
                                                             <include reference="jfa-af-6x3"/>
                                                         </mask>
@@ -486,6 +487,9 @@
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="54" y="24" width="48" height="21"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" red="0.71764705880000002" green="0.54117647059999996" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -551,7 +555,8 @@
                                                             <exclude reference="B6a-RN-qUf"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=compact">
+                                                    <variation key="heightClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="8" y="16" width="38" height="37"/>
                                                         <mask key="constraints">
                                                             <include reference="B6a-RN-qUf"/>
                                                         </mask>
@@ -562,6 +567,9 @@
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="54" y="24" width="83" height="21"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -623,7 +631,8 @@
                                                             <exclude reference="EdH-Sl-yYQ"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=compact">
+                                                    <variation key="heightClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="8" y="16" width="38" height="37"/>
                                                         <mask key="constraints">
                                                             <include reference="EdH-Sl-yYQ"/>
                                                         </mask>
@@ -634,6 +643,9 @@
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="54" y="24" width="88" height="21"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -689,7 +701,8 @@
                                                             <exclude reference="FtC-9c-7ZS"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=compact">
+                                                    <variation key="heightClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="42" y="9" width="32" height="31"/>
                                                         <mask key="constraints">
                                                             <include reference="FtC-9c-7ZS"/>
                                                         </mask>
@@ -700,6 +713,9 @@
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="82" y="14" width="23" height="21"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -755,7 +771,8 @@
                                                             <exclude reference="Ty2-Cj-oz2"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=compact">
+                                                    <variation key="heightClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="42" y="9" width="32" height="31"/>
                                                         <mask key="constraints">
                                                             <include reference="Ty2-Cj-oz2"/>
                                                         </mask>
@@ -766,6 +783,9 @@
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="82" y="14" width="23" height="21"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -821,7 +841,8 @@
                                                             <exclude reference="POQ-Zj-b3w"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=compact">
+                                                    <variation key="heightClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="42" y="9" width="32" height="31"/>
                                                         <mask key="constraints">
                                                             <include reference="POQ-Zj-b3w"/>
                                                         </mask>
@@ -832,6 +853,9 @@
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="82" y="14" width="23" height="21"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -887,7 +911,8 @@
                                                             <exclude reference="GFA-qy-b1D"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=compact">
+                                                    <variation key="heightClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="42" y="9" width="32" height="31"/>
                                                         <mask key="constraints">
                                                             <include reference="GFA-qy-b1D"/>
                                                         </mask>
@@ -898,6 +923,9 @@
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="82" y="14" width="21" height="21"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -953,7 +981,8 @@
                                                             <exclude reference="dhB-h3-Ee6"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=compact">
+                                                    <variation key="heightClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="42" y="9" width="32" height="31"/>
                                                         <mask key="constraints">
                                                             <include reference="dhB-h3-Ee6"/>
                                                         </mask>
@@ -964,6 +993,9 @@
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="82" y="14" width="21" height="21"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -1019,7 +1051,8 @@
                                                             <exclude reference="Y3x-cx-tWo"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=compact">
+                                                    <variation key="heightClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="42" y="9" width="32" height="31"/>
                                                         <mask key="constraints">
                                                             <include reference="Y3x-cx-tWo"/>
                                                         </mask>
@@ -1030,6 +1063,9 @@
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="82" y="14" width="16" height="21"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -1085,7 +1121,8 @@
                                                             <exclude reference="Cem-Fm-H9i"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=compact">
+                                                    <variation key="heightClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="42" y="9" width="32" height="31"/>
                                                         <mask key="constraints">
                                                             <include reference="Cem-Fm-H9i"/>
                                                         </mask>
@@ -1096,6 +1133,9 @@
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="82" y="14" width="21" height="21"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -1151,7 +1191,8 @@
                                                             <exclude reference="Ug2-dZ-s34"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=compact">
+                                                    <variation key="heightClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="42" y="9" width="32" height="31"/>
                                                         <mask key="constraints">
                                                             <include reference="Ug2-dZ-s34"/>
                                                         </mask>
@@ -1162,6 +1203,9 @@
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="82" y="14" width="22" height="21"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -1217,7 +1261,8 @@
                                                             <exclude reference="cES-D5-A0C"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=compact">
+                                                    <variation key="heightClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="42" y="9" width="32" height="31"/>
                                                         <mask key="constraints">
                                                             <include reference="cES-D5-A0C"/>
                                                         </mask>
@@ -1228,6 +1273,9 @@
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="82" y="14" width="24" height="21"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -1283,7 +1331,8 @@
                                                             <exclude reference="m90-dM-Qd0"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=compact">
+                                                    <variation key="heightClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="42" y="9" width="32" height="31"/>
                                                         <mask key="constraints">
                                                             <include reference="m90-dM-Qd0"/>
                                                         </mask>
@@ -1294,6 +1343,9 @@
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="82" y="14" width="24" height="21"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -1349,7 +1401,8 @@
                                                             <exclude reference="4og-nT-ArF"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=compact">
+                                                    <variation key="heightClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="7" y="16" width="38" height="37"/>
                                                         <mask key="constraints">
                                                             <include reference="4og-nT-ArF"/>
                                                         </mask>
@@ -1360,6 +1413,9 @@
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="53" y="24" width="116" height="21"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -1421,7 +1477,8 @@
                                                             <exclude reference="e5y-Ve-Ur5"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=compact">
+                                                    <variation key="heightClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="42" y="9" width="32" height="31"/>
                                                         <mask key="constraints">
                                                             <include reference="e5y-Ve-Ur5"/>
                                                         </mask>
@@ -1432,6 +1489,9 @@
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="82" y="14" width="113" height="21"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -1487,7 +1547,8 @@
                                                             <exclude reference="fFs-Ub-Esc"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=compact">
+                                                    <variation key="heightClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="42" y="9" width="32" height="31"/>
                                                         <mask key="constraints">
                                                             <include reference="fFs-Ub-Esc"/>
                                                         </mask>
@@ -1498,6 +1559,9 @@
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="82" y="14" width="96" height="21"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -1553,7 +1617,8 @@
                                                             <exclude reference="wkB-og-yMe"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=compact">
+                                                    <variation key="heightClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="42" y="9" width="32" height="31"/>
                                                         <mask key="constraints">
                                                             <include reference="wkB-og-yMe"/>
                                                         </mask>
@@ -1564,6 +1629,9 @@
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="82" y="14" width="93" height="21"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>

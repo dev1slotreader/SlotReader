@@ -129,7 +129,7 @@ typedef enum {
 
 - (void) getDataFromSource {
 	dataMiner = [DataMiner sharedDataMiner];
-	words = [[NSMutableArray alloc] initWithArray:[dataMiner getWordsOfSize:numberOfLetters]];
+	words = [[NSMutableArray alloc] initWithArray:[dataMiner getWordsOfSize:(int)numberOfLetters]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -163,11 +163,13 @@ typedef enum {
 }
 
 - (IBAction)changeNumberOfLetters:(id)sender {
-	numberOfLetters = (int)((UIBarButtonItem *)sender).tag;
-	[self getDataFromSource];
-	[self.tableView reloadData];
-	//[self.view setNeedsDisplay];
-	NSLog(@"%d", numberOfLetters);
+	[self setNumberOfLettersTo:(int)((UIBarButtonItem *)sender).tag];
+}
+
+- (void) setNumberOfLettersTo: (int) newNumberOfLetters {
+    numberOfLetters = newNumberOfLetters;
+    [self getDataFromSource];
+    [self.tableView reloadData];
 }
 
 - (IBAction)addNewWord:(id)sender {
@@ -177,7 +179,7 @@ typedef enum {
 
 - (IBAction)insertNewWordIntoBase:(id)sender {
 	DataMiner *dataMiner = [DataMiner sharedDataMiner];
-	[dataMiner addNewWord:self.textField.text];
+	[dataMiner addNewWord:self.textField.text toIndex:nil];
 	self.fancyTextInputBlock.hidden = YES;
 	UIAlertController *alertController = [UIAlertController
 										  alertControllerWithTitle:@"Success"
@@ -216,7 +218,12 @@ typedef enum {
 				case positive:
 					editingMode = base;
 					if (![self.textField.text isEqualToString: @""]) {
-						if([dataMiner addNewWord:self.textField.text]) {
+                        NSString *newWord = self.textField.text;
+						if([dataMiner addNewWord:newWord toIndex:nil]) {
+                            [self setNumberOfLettersTo:[newWord length]];
+                            NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:[[dataMiner getWordsOfSize:[newWord length]] indexOfObject:newWord] inSection:0];
+                            [self.tableView selectRowAtIndexPath: newIndexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
+                            
 							[self.view makeToast:@"New word added"];
 						} else {
 							[self.view makeToast:@"Error while adding the word"];
@@ -241,6 +248,8 @@ typedef enum {
 						[indexSet addIndex:indexPath.row];
 					}
 					if([dataMiner deleteWordsAtIndexes:indexSet]) {
+                        [self getDataFromSource];
+                        [self.tableView reloadData];
 						[self.view makeToast:@"Selected words deleted"];
 					} else {
 						[self.view makeToast:@"Error while deleting"];
@@ -278,14 +287,19 @@ typedef enum {
 			cell.textField.userInteractionEnabled = NO;
 			
 			switch (sender.tag) {
-				case positive:
-					if([dataMiner updateWordAtIndex:lastSelectedCellIndexPath withNewWord:cell.textField.text]) {
-						[self.view makeToast:@"The word is updated"];
-					} else {
-						[self.view makeToast:@"Error while word updating"];
-					}
-					[self.view makeToast:@"The word is updated"];
-					editingMode = base;
+                case positive: {
+                    NSString *newWord = cell.textField.text;
+                    if([dataMiner updateWordAtIndex:lastSelectedCellIndexPath.row withNewWord:newWord]) {
+                        [self setNumberOfLettersTo:[newWord length]];
+                        [self.tableView reloadData];
+                        
+                        [self.view makeToast:@"The word is updated"];
+                    } else {
+                        [self.view makeToast:@"Error while word updating"];
+                }
+                    [self.view makeToast:@"The word is updated"];
+                    editingMode = base;
+                    }
 					break;
 				case negative:
 					cell.textField.text = wordBuffer;

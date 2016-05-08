@@ -52,9 +52,9 @@
 }
 
 - (void) initSource {
-	NSError *error = nil;
+	//NSError *error = nil;
 	NSString *filePath = [[NSBundle mainBundle] pathForResource:@"slot_reader_source" ofType:@"txt"];
-	NSURL *url = [NSURL fileURLWithPath:filePath];
+	//NSURL *url = [NSURL fileURLWithPath:filePath];
 	
 	NSArray *pathList = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString* sourcePath =  [NSString stringWithFormat:@"%@/slot_reader_source.txt", [pathList  objectAtIndex:0]];
@@ -78,7 +78,7 @@
 	return [[allData objectForKey:@"words"] objectForKey:[NSString stringWithFormat:@"%@%d", [[NSUserDefaults standardUserDefaults] objectForKey:@"language"], size]];
 }
 
-- (BOOL) addNewWord: (NSString *) word {
+- (BOOL) addNewWord: (NSString *) word toIndex: (NSNumber *) index {
 	NSString* const commitingCUDOperationKey = @"commitingCUDOperationKey";
 	[defaults setBool:YES forKey:commitingCUDOperationKey];
 	
@@ -93,7 +93,12 @@
 	
 	NSInteger size = [word length];
 	NSMutableArray *thisSizeLangWordsBuffer = [[NSMutableArray alloc] initWithArray:[[allData objectForKey:@"words"] objectForKey:[NSString stringWithFormat:@"%@%d", language, size]]];
-	[thisSizeLangWordsBuffer addObject:word];
+    if (index) {
+        [thisSizeLangWordsBuffer insertObject:word atIndex:index];
+    } else {
+        [thisSizeLangWordsBuffer addObject:word];
+    }
+	
 	NSMutableDictionary *newData = [[NSMutableDictionary alloc] initWithDictionary:[allData objectForKey:@"words"]];
 
 	[newData setObject:thisSizeLangWordsBuffer forKey:[NSString stringWithFormat:@"%@%d", [[NSUserDefaults standardUserDefaults] objectForKey:@"language"], size]];
@@ -139,16 +144,16 @@
 	return [data writeToFile:sourcePath options:NSDataWritingAtomic error: &error];
 }
 
-- (BOOL) updateWordAtIndex: (NSArray *) index withNewWord: (NSString *)newWord {
+- (BOOL) updateWordAtIndex: (NSUInteger *) index withNewWord: (NSString *)newWord {
 	NSString* const commitingCUDOperationKey = @"commitingCUDOperationKey";
 	[defaults setBool:YES forKey:commitingCUDOperationKey];
 	
 	BOOL result = NO;
 	
 	NSInteger *newWordSizeIndexComponent = [newWord length];
-	if ([self addNewWord:newWord]) {
-		NSIndexSet *oldWordIndexSet = [NSIndexSet indexSetWithIndex:[index objectAtIndex:0]];
-		result = [self deleteWordsAtIndexes:oldWordIndexSet];
+    NSIndexSet *oldWordIndexSet = [NSIndexSet indexSetWithIndex: index];
+	if ([self deleteWordsAtIndexes:oldWordIndexSet]) {
+		result = [self addNewWord:newWord toIndex:index];
 	} else {
 		result = NO;
 	}
