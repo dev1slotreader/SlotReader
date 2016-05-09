@@ -153,7 +153,8 @@
 	NSInteger *newWordSizeIndexComponent = [newWord length];
     NSIndexSet *oldWordIndexSet = [NSIndexSet indexSetWithIndex: index];
 	if ([self deleteWordsAtIndexes:oldWordIndexSet]) {
-		result = [self addNewWord:newWord toIndex:index];
+        
+        result = [self addNewWord:newWord toIndex:[NSNumber numberWithInteger:index]];
 	} else {
 		result = NO;
 	}

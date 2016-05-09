@@ -168,6 +168,10 @@ typedef enum {
 
 - (void) setNumberOfLettersTo: (int) newNumberOfLetters {
     numberOfLetters = newNumberOfLetters;
+    [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:
+                                                      [NSNumber numberWithInt:newNumberOfLetters],
+                                                      [NSNumber numberWithInt:0], nil]
+                                              forKey:@"currentPositon"];
     [self getDataFromSource];
     [self.tableView reloadData];
 }
@@ -289,9 +293,17 @@ typedef enum {
 			switch (sender.tag) {
                 case positive: {
                     NSString *newWord = cell.textField.text;
-                    if([dataMiner updateWordAtIndex:lastSelectedCellIndexPath.row withNewWord:newWord]) {
-                        [self setNumberOfLettersTo:[newWord length]];
+                    if([dataMiner deleteWordsAtIndexes:[NSIndexSet indexSetWithIndex:lastSelectedCellIndexPath.row]]) {
+                        NSNumber *newIndex;
+                        if ([wordBuffer length]!=[newWord length]) {
+                            [self setNumberOfLettersTo:[newWord length]];
+                            newIndex = nil;
+                        } else {
+                            newIndex = [NSNumber numberWithInteger:lastSelectedCellIndexPath.row];
+                        }
+                        [dataMiner addNewWord:newWord toIndex:newIndex];
                         [self.tableView reloadData];
+                       // [self.tableView selectRowAtIndexPath:lastSelectedCellIndexPath animated:<#(BOOL)#> scrollPosition:<#(UITableViewScrollPosition)#>];
                         
                         [self.view makeToast:@"The word is updated"];
                     } else {
