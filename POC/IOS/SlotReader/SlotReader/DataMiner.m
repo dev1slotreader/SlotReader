@@ -93,8 +93,8 @@
 	
 	NSInteger size = [word length];
 	NSMutableArray *thisSizeLangWordsBuffer = [[NSMutableArray alloc] initWithArray:[[allData objectForKey:@"words"] objectForKey:[NSString stringWithFormat:@"%@%d", language, size]]];
-    if (index) {
-        [thisSizeLangWordsBuffer insertObject:word atIndex:index];
+    if (index && ([index integerValue]!= NSNotFound)) {
+        [thisSizeLangWordsBuffer insertObject:word atIndex:[index integerValue]];
     } else {
         [thisSizeLangWordsBuffer addObject:word];
     }
@@ -104,16 +104,9 @@
 	[newData setObject:thisSizeLangWordsBuffer forKey:[NSString stringWithFormat:@"%@%d", [[NSUserDefaults standardUserDefaults] objectForKey:@"language"], size]];
 	NSMutableDictionary *newAllData = [[NSMutableDictionary alloc] initWithDictionary:allData];
 	[newAllData setObject:newData forKey:@"words"];
-	//allData = nil;
 	[allData setDictionary:newAllData];
-	/*
-	NSString *filePath = [[NSBundle mainBundle] pathForResource:@"slot_reader_source" ofType:@"txt"];
-	NSURL *url = [NSURL fileURLWithPath:filePath];
-	 */
 	NSError* error = nil;
 	NSMutableData* data = [NSMutableData dataWithData:[NSJSONSerialization dataWithJSONObject:newAllData options:NSJSONWritingPrettyPrinted error:nil]];
-	//[[NSFileManager defaultManager] removeItemAtURL:url error:&error];
-	//BOOL res = [data writeToFile:filePath options:NSDataWritingAtomic error: &error];
 	
 	[defaults setBool:NO forKey:commitingCUDOperationKey];
 	

@@ -297,19 +297,18 @@ typedef enum {
                         NSNumber *newIndex;
                         if ([wordBuffer length]!=[newWord length]) {
                             [self setNumberOfLettersTo:[newWord length]];
-                            newIndex = nil;
+                            newIndex = [NSNumber numberWithInteger:[[dataMiner getWords] count]];
                         } else {
                             newIndex = [NSNumber numberWithInteger:lastSelectedCellIndexPath.row];
                         }
                         [dataMiner addNewWord:newWord toIndex:newIndex];
+                        [self getDataFromSource];
                         [self.tableView reloadData];
-                       // [self.tableView selectRowAtIndexPath:lastSelectedCellIndexPath animated:<#(BOOL)#> scrollPosition:<#(UITableViewScrollPosition)#>];
-                        
+                        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:newIndex.integerValue inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
                         [self.view makeToast:@"The word is updated"];
                     } else {
                         [self.view makeToast:@"Error while word updating"];
                 }
-                    [self.view makeToast:@"The word is updated"];
                     editingMode = base;
                     }
 					break;
@@ -339,7 +338,6 @@ typedef enum {
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	lastSelectedCellIndexPath = indexPath;
 	UITableViewCell * cell = [self.tableView cellForRowAtIndexPath:indexPath];
-	//cell.accessoryType = UITableViewCellAccessoryCheckmark;
 	if (editingMode == deleting) {
 		self.cellSelectionCounter ++;
 	}
