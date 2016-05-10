@@ -31,7 +31,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "308"
             endingLineNumber = "308"
-            landmarkName = "-changeLanguage"
+            landmarkName = "-editingButtonClicked:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -79,7 +79,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "101"
             endingLineNumber = "101"
-            landmarkName = "-addNewWord:"
+            landmarkName = "-addNewWord:toIndex:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
