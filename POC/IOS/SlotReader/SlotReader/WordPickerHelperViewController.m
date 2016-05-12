@@ -87,7 +87,7 @@
 
 
 - (CGFloat) pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component{
-	return 50;
+	return pickerView.frame.size.height / 3;
 }
 
 

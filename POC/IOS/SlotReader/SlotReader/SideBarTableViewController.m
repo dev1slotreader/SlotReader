@@ -67,6 +67,11 @@ typedef enum {
 							@"lightBoard",
 							@"darkBoard",
 							nil];
+	
+	//self.tableView.backgroundView = [UIView new];
+	[self.tableView setBackgroundView:nil];
+	[self.tableView setBackgroundView:[[UIView alloc] init] ];
+	self.tableView.backgroundView.backgroundColor = [UIColor colorWithRed:(183.0/255) green:(138.0/255) blue:(89.0/255) alpha:1];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -122,7 +127,7 @@ typedef enum {
 				imageName = @"ic_arrow_back_white";
 			}
 			else {
-				imageName = text = [boardStylesNames objectAtIndex:(indexPath.row - 1)];;
+				imageName = text = [boardStylesNames objectAtIndex:(indexPath.row - 1)];
 			}
 			break;
 		default:
@@ -134,6 +139,8 @@ typedef enum {
 	cell.imageView.image = [UIImage imageNamed:imageName];
 	cell.textLabel.textColor = [UIColor whiteColor];
 	cell.textLabel.font = [UIFont fontWithName:@"Arial-BoldMT" size:20];
+	//cell.backgroundColor = cell.contentView.backgroundColor;
+	cell.backgroundColor = [UIColor clearColor];
 	
     return cell;
 }
