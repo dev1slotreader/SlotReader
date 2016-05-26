@@ -1350,11 +1350,6 @@
                                                 <constraint firstItem="8od-k7-x9Q" firstAttribute="centerX" secondItem="Ghn-rS-TpC" secondAttribute="centerX" id="idm-qK-PRD"/>
                                                 <constraint firstItem="8od-k7-x9Q" firstAttribute="height" secondItem="Ghn-rS-TpC" secondAttribute="height" id="o8L-my-NLp"/>
                                             </constraints>
-                                            <variation key="heightClass=compact">
-                                                <mask key="subviews">
-                                                    <include reference="8od-k7-x9Q"/>
-                                                </mask>
-                                            </variation>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
@@ -1497,16 +1492,12 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <variation key="default">
-                                            <mask key="subviews">
-                                                <exclude reference="MZT-0A-Nt2"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=compact">
-                                            <mask key="subviews">
-                                                <include reference="MZT-0A-Nt2"/>
-                                            </mask>
-                                        </variation>
+                                        <constraints>
+                                            <constraint firstItem="MZT-0A-Nt2" firstAttribute="leading" secondItem="pzc-3n-RbI" secondAttribute="leadingMargin" id="Aj7-TK-bvZ"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="MZT-0A-Nt2" secondAttribute="bottom" id="Qu5-hI-XVV"/>
+                                            <constraint firstItem="MZT-0A-Nt2" firstAttribute="top" secondItem="pzc-3n-RbI" secondAttribute="topMargin" id="SJh-jC-TVA"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="MZT-0A-Nt2" secondAttribute="trailing" id="Z7d-pr-Ot3"/>
+                                        </constraints>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cCell3" reuseIdentifier="cCell3" id="Wd4-VU-uiV">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -1529,16 +1520,12 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <variation key="default">
-                                            <mask key="subviews">
-                                                <exclude reference="uJP-TP-SGE"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=compact">
-                                            <mask key="subviews">
-                                                <include reference="uJP-TP-SGE"/>
-                                            </mask>
-                                        </variation>
+                                        <constraints>
+                                            <constraint firstItem="uJP-TP-SGE" firstAttribute="top" secondItem="Wd4-VU-uiV" secondAttribute="topMargin" id="9vK-dt-ePX"/>
+                                            <constraint firstItem="uJP-TP-SGE" firstAttribute="leading" secondItem="Wd4-VU-uiV" secondAttribute="leadingMargin" id="CHe-cT-YRi"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="uJP-TP-SGE" secondAttribute="trailing" id="S1N-2s-PG8"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="uJP-TP-SGE" secondAttribute="bottom" id="hrb-xV-iBI"/>
+                                        </constraints>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cCell4" reuseIdentifier="cCell4" id="0gA-dg-4vZ">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -1561,16 +1548,12 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <variation key="default">
-                                            <mask key="subviews">
-                                                <exclude reference="84e-bL-er6"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=compact">
-                                            <mask key="subviews">
-                                                <include reference="84e-bL-er6"/>
-                                            </mask>
-                                        </variation>
+                                        <constraints>
+                                            <constraint firstAttribute="trailingMargin" secondItem="84e-bL-er6" secondAttribute="trailing" id="AmA-XB-zZ9"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="84e-bL-er6" secondAttribute="bottom" id="hjN-db-6Qa"/>
+                                            <constraint firstItem="84e-bL-er6" firstAttribute="top" secondItem="0gA-dg-4vZ" secondAttribute="topMargin" id="wJc-of-eaa"/>
+                                            <constraint firstItem="84e-bL-er6" firstAttribute="leading" secondItem="0gA-dg-4vZ" secondAttribute="leadingMargin" id="yqs-Jz-JEL"/>
+                                        </constraints>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cCell5" reuseIdentifier="cCell5" id="UfH-Fa-sMf">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -1593,16 +1576,12 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <variation key="default">
-                                            <mask key="subviews">
-                                                <exclude reference="fEP-7v-YlW"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=compact">
-                                            <mask key="subviews">
-                                                <include reference="fEP-7v-YlW"/>
-                                            </mask>
-                                        </variation>
+                                        <constraints>
+                                            <constraint firstAttribute="bottomMargin" secondItem="fEP-7v-YlW" secondAttribute="bottom" id="8i4-En-xKd"/>
+                                            <constraint firstItem="fEP-7v-YlW" firstAttribute="leading" secondItem="UfH-Fa-sMf" secondAttribute="leadingMargin" id="eLX-YN-jBY"/>
+                                            <constraint firstItem="fEP-7v-YlW" firstAttribute="top" secondItem="UfH-Fa-sMf" secondAttribute="topMargin" id="mv1-gZ-XhZ"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="fEP-7v-YlW" secondAttribute="trailing" id="ra2-Ie-lvT"/>
+                                        </constraints>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cCell5+" reuseIdentifier="cCell5+" id="cmQ-ID-fbE">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -1625,16 +1604,12 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <variation key="default">
-                                            <mask key="subviews">
-                                                <exclude reference="Ntr-qx-6vV"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=compact">
-                                            <mask key="subviews">
-                                                <include reference="Ntr-qx-6vV"/>
-                                            </mask>
-                                        </variation>
+                                        <constraints>
+                                            <constraint firstAttribute="trailingMargin" secondItem="Ntr-qx-6vV" secondAttribute="trailing" id="AC6-8B-2kF"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="Ntr-qx-6vV" secondAttribute="bottom" id="PfO-lJ-h9Q"/>
+                                            <constraint firstItem="Ntr-qx-6vV" firstAttribute="leading" secondItem="cmQ-ID-fbE" secondAttribute="leadingMargin" id="a24-wT-QQP"/>
+                                            <constraint firstItem="Ntr-qx-6vV" firstAttribute="top" secondItem="cmQ-ID-fbE" secondAttribute="topMargin" id="d5l-Ug-GOL"/>
+                                        </constraints>
                                     </collectionViewCell>
                                 </cells>
                                 <variation key="heightClass=compact">
@@ -1656,16 +1631,6 @@
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="ic_delete_white"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="24k-7P-rQZ"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="24k-7P-rQZ"/>
-                                    </mask>
-                                </variation>
                                 <connections>
                                     <action selector="editingButtonClicked:" destination="QeY-de-g39" eventType="touchUpInside" id="H5s-2S-IcT"/>
                                 </connections>
@@ -1675,16 +1640,12 @@
                                 <color key="backgroundColor" red="0.71764705880000002" green="0.54117647059999996" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="BPW-ws-Bx9" secondAttribute="height" multiplier="1:1" id="EDD-Ob-hMW"/>
+                                    <constraint firstAttribute="height" constant="80" id="fFo-oB-9td"/>
                                 </constraints>
                                 <state key="normal" image="ic_add_white"/>
-                                <variation key="default">
+                                <variation key="heightClass=regular-widthClass=regular">
                                     <mask key="constraints">
-                                        <exclude reference="EDD-Ob-hMW"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="EDD-Ob-hMW"/>
+                                        <include reference="fFo-oB-9td"/>
                                     </mask>
                                 </variation>
                                 <connections>
@@ -1765,7 +1726,7 @@
                             <constraint firstItem="IWu-Yk-egL" firstAttribute="centerX" secondItem="zx9-La-LBx" secondAttribute="centerX" id="NcC-UO-8Hk"/>
                             <constraint firstItem="2kF-kO-4Tk" firstAttribute="height" secondItem="Kxc-uU-9y6" secondAttribute="height" multiplier="0.7" id="RjX-3a-lJw"/>
                             <constraint firstItem="Cod-7C-p0N" firstAttribute="width" secondItem="2kF-kO-4Tk" secondAttribute="width" multiplier="0.8" id="TRH-7z-HJP"/>
-                            <constraint firstItem="2kF-kO-4Tk" firstAttribute="width" secondItem="Kxc-uU-9y6" secondAttribute="width" multiplier="0.7" id="U0T-1v-Wvl"/>
+                            <constraint firstItem="2kF-kO-4Tk" firstAttribute="width" secondItem="Kxc-uU-9y6" secondAttribute="width" multiplier="0.8" id="U0T-1v-Wvl"/>
                             <constraint firstItem="tM4-uh-YIl" firstAttribute="top" secondItem="zx9-La-LBx" secondAttribute="bottom" id="Xpj-FQ-i7b"/>
                             <constraint firstItem="IWu-Yk-egL" firstAttribute="centerY" secondItem="2kF-kO-4Tk" secondAttribute="centerY" id="aZg-he-GOr"/>
                             <constraint firstItem="tM4-uh-YIl" firstAttribute="top" secondItem="bd7-Mm-3Oy" secondAttribute="bottom" id="cKm-tX-eg8"/>
@@ -1791,10 +1752,9 @@
                             <mask key="subviews">
                                 <exclude reference="6lp-C1-eoC"/>
                                 <exclude reference="q1N-My-PqK"/>
-                                <exclude reference="Qg7-DT-vk5"/>
-                                <exclude reference="BPW-ws-Bx9"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="hc1-dp-ajn"/>
                                 <exclude reference="DgA-mL-pIr"/>
                                 <exclude reference="RjX-3a-lJw"/>
                                 <exclude reference="4ck-nZ-SHo"/>
@@ -1813,14 +1773,11 @@
                                 <exclude reference="6lp-C1-eoC"/>
                                 <include reference="IWu-Yk-egL"/>
                                 <exclude reference="q1N-My-PqK"/>
-                                <include reference="bd7-Mm-3Oy"/>
-                                <include reference="Qg7-DT-vk5"/>
-                                <include reference="BPW-ws-Bx9"/>
                                 <include reference="Cod-7C-p0N"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="JDU-Wi-Cbi"/>
-                                <include reference="hc1-dp-ajn"/>
+                                <exclude reference="hc1-dp-ajn"/>
                                 <include reference="6ks-Vj-o8r"/>
                                 <include reference="hjv-Od-rzt"/>
                                 <include reference="1n1-KR-87c"/>

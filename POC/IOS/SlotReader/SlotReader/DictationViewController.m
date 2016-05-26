@@ -56,7 +56,7 @@ typedef enum {
 	[self updateEditingInterface];
 	
 	[self addObserver:self forKeyPath:@"cellSelectionCounter" options:NSKeyValueObservingOptionNew context:nil];
-	self.positiveButton.layer.cornerRadius = self.positiveButton.frame.size.width / 2;
+	self.positiveButton.layer.cornerRadius = self.positiveButton.frame.size.height * 0.5;
 	self.negativeButton.layer.cornerRadius = self.negativeButton.frame.size.width / 2;
 	
 	CALayer *border = [CALayer layer];
@@ -150,6 +150,9 @@ typedef enum {
 	
 	cell.textField.text = [words objectAtIndex:indexPath.row];
 	[cell.textField setText:[words objectAtIndex:indexPath.row]];
+	
+	cell.backgroundColor = [UIColor clearColor];
+	
 	return cell;
 }
 
