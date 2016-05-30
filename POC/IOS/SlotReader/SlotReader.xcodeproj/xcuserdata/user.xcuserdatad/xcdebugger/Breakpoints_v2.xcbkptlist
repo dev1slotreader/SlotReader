@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SlotReader/CenterViewController.m"
-            timestampString = "484214187.699591"
+            timestampString = "486310208.035871"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203"
+            startingLineNumber = "204"
+            endingLineNumber = "204"
             landmarkName = "-changeNumberOfLettersToShow:"
             landmarkType = "5">
          </BreakpointContent>

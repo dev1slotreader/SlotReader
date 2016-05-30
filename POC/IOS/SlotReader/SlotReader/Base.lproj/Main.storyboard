@@ -1704,35 +1704,12 @@
                                         <exclude reference="zRV-5L-EET"/>
                                         <exclude reference="vDL-7Z-nv0"/>
                                     </mask>
-                                    <mask key="constraints">
-                                        <exclude reference="wfT-Ms-O59"/>
-                                        <exclude reference="Bde-On-MMz"/>
-                                        <exclude reference="QND-G6-LGD"/>
-                                        <exclude reference="xgz-9h-PhD"/>
-                                        <exclude reference="Hlb-9Q-neM"/>
-                                        <exclude reference="Lk0-nt-WNK"/>
-                                        <exclude reference="XyD-e3-zD3"/>
-                                        <exclude reference="qPw-kE-6ka"/>
-                                    </mask>
                                 </variation>
                                 <variation key="heightClass=compact">
                                     <mask key="subviews">
                                         <include reference="zRV-5L-EET"/>
                                         <include reference="vDL-7Z-nv0"/>
                                     </mask>
-                                    <mask key="constraints">
-                                        <include reference="wfT-Ms-O59"/>
-                                        <include reference="Bde-On-MMz"/>
-                                        <include reference="QND-G6-LGD"/>
-                                        <include reference="xgz-9h-PhD"/>
-                                        <include reference="Hlb-9Q-neM"/>
-                                        <include reference="Lk0-nt-WNK"/>
-                                        <include reference="XyD-e3-zD3"/>
-                                        <include reference="qPw-kE-6ka"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="232" y="400" width="336" height="0.0"/>
                                 </variation>
                             </view>
                         </subviews>
