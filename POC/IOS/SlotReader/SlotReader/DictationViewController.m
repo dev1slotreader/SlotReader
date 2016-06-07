@@ -296,6 +296,7 @@ typedef enum {
                     if([dataMiner deleteWordsAtIndexes:[NSIndexSet indexSetWithIndex:lastSelectedCellIndexPath.row]]) {
                         NSNumber *newIndex;
                         if ([wordBuffer length]!=[newWord length]) {
+                            
                             [self setNumberOfLettersTo:[newWord length]];
                             newIndex = [NSNumber numberWithInteger:[[dataMiner getWords] count]];
                         } else {
