@@ -184,7 +184,8 @@ typedef enum {
 	NSUInteger row;
 	if (animated){
 		NSUInteger selectedRow = [self.picker selectedRowInComponent:component];
-		row = selectedRow + ([self.alphabet count] - selectedRow % [self.alphabet count]) + [self.alphabet indexOfObject:letter];
+		//row = selectedRow + ([self.alphabet count] - selectedRow % [self.alphabet count]) + [self.alphabet indexOfObject:letter];
+		row = [self.alphabet count] + [self.alphabet indexOfObject:letter];
 	}
 	else
 		row = ((UINT16_MAX) / (2 * [self.alphabet count]) * [self.alphabet count]) + [self.alphabet indexOfObject:letter];
@@ -225,7 +226,7 @@ typedef enum {
 		NSLog(@"next");
 	}
 	else {
-		currentWordPosition = (currentWordPosition - 1) % [words count] ;
+		currentWordPosition = (currentWordPosition - 1 + [words count]) % [words count] ;
 		NSLog(@"previous");
 	}
 	

@@ -37,30 +37,9 @@
 #pragma mark - Getting data
 
 - (void) getDataFromStorage {
-	
-	//NSDictionary *allData = [NSDictionary dictionaryWithDictionary:[[DataMiner sharedDataMiner] getWordsOfSize: 1]];
+
 	self.alphabet = [NSArray arrayWithArray:[[DataMiner sharedDataMiner] getWordsOfSize: 1]];
-	/*
-	NSError *error = nil;
-	NSString *filePath = [[NSBundle mainBundle] pathForResource:@"slot_reader_source" ofType:@"txt"];
-	NSURL *url = [NSURL fileURLWithPath:filePath];
-	
-	NSData *data = [NSData dataWithContentsOfFile:filePath];
-	NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:data
-															 options:kNilOptions
-															   error:&error];
-	if (error != nil) {
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-														message:@"Couldn't load the data"
-													   delegate:self
-											  cancelButtonTitle:@"OK"
-											  otherButtonTitles:nil];
-		[alert show];
-	} else {
-		self.alphabet = [NSArray arrayWithArray:[[jsonData objectForKey:@"words"] objectForKey:[NSString stringWithFormat:@"%@1",[[NSUserDefaults standardUserDefaults] objectForKey:@"language"]]]];
-	} */
-	
-	int numberOfLetters = [[[[NSUserDefaults standardUserDefaults] objectForKey:@"currentPositon"] objectAtIndex:0] intValue];
+		int numberOfLetters = [[[[NSUserDefaults standardUserDefaults] objectForKey:@"currentPositon"] objectAtIndex:0] intValue];
 	self.numberOfLettersToShow = [NSNumber numberWithInt:(numberOfLetters == 0)?6:numberOfLetters];
 }
 
@@ -83,6 +62,7 @@
 
 - (NSInteger) pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
 	return UINT16_MAX;
+	//return (3* [self.alphabet count]);
 }
 
 
@@ -96,6 +76,10 @@
 }
 
 - (void) pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+	/*int count = [self.alphabet count];
+	if ((row <  count)	||  (row > (count * 2)) ){
+		[pickerView selectRow: (row % count) inComponent: component animated: NO];
+	}*/
 	if (!self.pickerWorkingAutomatically) {
 		NSLog(@"Hurraw");
 	}
