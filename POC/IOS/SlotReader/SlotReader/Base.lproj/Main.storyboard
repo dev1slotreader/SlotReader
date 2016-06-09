@@ -196,7 +196,7 @@
                                             <subviews>
                                                 <button opaque="NO" tag="5" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0V-x5-UMB">
                                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                                    <state key="normal" image="5+"/>
+                                                    <state key="normal" image="5"/>
                                                     <connections>
                                                         <action selector="changeNumberOfLettersToShow:" destination="bg8-D8-Vpx" eventType="touchUpInside" id="cxH-rp-k7R"/>
                                                     </connections>
