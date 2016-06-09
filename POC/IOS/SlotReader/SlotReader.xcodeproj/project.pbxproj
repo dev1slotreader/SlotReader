@@ -90,6 +90,9 @@
 		CE58D4811D09B6BC00F81961 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Main.strings; sourceTree = "<group>"; };
 		CE58D4821D09B6BD00F81961 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		CE58D4831D09B6BD00F81961 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CE58D4841D09B7CF00F81961 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Main.strings; sourceTree = "<group>"; };
+		CE58D4851D09B7CF00F81961 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		CE58D4861D09B7CF00F81961 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CE5913461CA5461E008A3042 /* BoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardViewController.h; sourceTree = "<group>"; };
 		CE5913471CA5461E008A3042 /* BoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardViewController.m; sourceTree = "<group>"; };
 		CE5913491CAAB318008A3042 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -347,6 +350,7 @@
 				"es-MX",
 				fr,
 				it,
+				tr,
 			);
 			mainGroup = CE12670B1C93149B001C6573;
 			productRefGroup = CE1267151C93149B001C6573 /* Products */;
@@ -439,6 +443,7 @@
 				CE58D47B1D09B50500F81961 /* es-MX */,
 				CE58D47E1D09B61500F81961 /* fr */,
 				CE58D4811D09B6BC00F81961 /* it */,
+				CE58D4841D09B7CF00F81961 /* tr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -456,6 +461,7 @@
 				CE58D47C1D09B50500F81961 /* es-MX */,
 				CE58D47F1D09B61500F81961 /* fr */,
 				CE58D4821D09B6BD00F81961 /* it */,
+				CE58D4851D09B7CF00F81961 /* tr */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -474,6 +480,7 @@
 				CE58D47D1D09B50500F81961 /* es-MX */,
 				CE58D4801D09B61500F81961 /* fr */,
 				CE58D4831D09B6BD00F81961 /* it */,
+				CE58D4861D09B7CF00F81961 /* tr */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
