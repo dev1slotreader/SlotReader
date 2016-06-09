@@ -149,7 +149,6 @@ typedef enum {
 	cell.imageView.image = [UIImage imageNamed:imageName];
 	cell.textLabel.textColor = [UIColor whiteColor];
 	cell.textLabel.font = [UIFont fontWithName:@"Arial-BoldMT" size:20];
-	//cell.backgroundColor = cell.contentView.backgroundColor;
 	cell.backgroundColor = [UIColor clearColor];
 	
     return cell;
@@ -157,13 +156,8 @@ typedef enum {
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 	
-	// Set the title of navigation bar by using the menu items
-	//NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-	//UINavigationController *destViewController = (UINavigationController*)segue.destinationViewController;
-	
 	if ([segue.identifier isEqualToString:@"segueDictionary"]) {
-		//UINavigationController *navController = segue.destinationViewController;
-		//DictionaryTableViewController *dictionaryController = [navController childViewControllers].firstObject;
+
 	}
 }
 

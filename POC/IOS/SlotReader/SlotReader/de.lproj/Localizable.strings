@@ -1,0 +1,47 @@
+/* 
+  Localizable.strings
+  SlotReader
+
+  Created by User on 6/9/16.
+  Copyright © 2016 User. All rights reserved.
+*/
+
+/* Navigation */
+ 
+"navigation.item.home" = "Primär";
+
+"navigation.item.themes" = "Themen";
+
+"navigation.item.languages" = "Sprachen";
+
+"navigation.item.dictionary" = "Wörterbuch";
+
+"navigation.item.greenBoard" = "Grünes Brett";
+
+"navigation.item.lightBoard" = "Light Brett";
+
+"navigation.item.darkBoard" = "Dunkle Brett";
+
+"navigation.item.back" = "Zurück";
+
+/* Dictionary */
+
+"dictionary.navigation.title" = "Wörterbuch";
+
+"dictionary.message.positive.adding" = "Neues Wort hinzugefügt";
+
+"dictionary.message.positive.deleting" = "Ausgewählte Wörter gestrichen";
+
+"dictionary.message.positive.updating" = "Das Wort wird aktualisiert";
+
+"dictionary.message.negative.adding" = "Fehler beim Hinzufügen des Wortes";
+
+"dictionary.message.negative.deleting" = "Fehler beim Löschen";
+
+"dictionary.message.negative.updating" = "Fehler beim Wort Aktualisierung";
+
+
+
+
+
+

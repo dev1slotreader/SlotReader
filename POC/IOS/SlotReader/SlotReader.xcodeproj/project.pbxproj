@@ -66,6 +66,12 @@
 		CE58D4681D09AE6F00F81961 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CE58D46A1D09AE7300F81961 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CE58D46B1D09AE7700F81961 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CE58D46C1D09B24500F81961 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		CE58D46D1D09B24500F81961 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		CE58D46E1D09B24500F81961 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CE58D46F1D09B32500F81961 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		CE58D4701D09B32500F81961 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		CE58D4711D09B32500F81961 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CE5913461CA5461E008A3042 /* BoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardViewController.h; sourceTree = "<group>"; };
 		CE5913471CA5461E008A3042 /* BoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardViewController.m; sourceTree = "<group>"; };
 		CE5913491CAAB318008A3042 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -315,6 +321,8 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
+				de,
 			);
 			mainGroup = CE12670B1C93149B001C6573;
 			productRefGroup = CE1267151C93149B001C6573 /* Products */;
@@ -399,6 +407,8 @@
 			children = (
 				CE1267211C93149B001C6573 /* Base */,
 				CE58D4651D09AE5B00F81961 /* uk */,
+				CE58D46C1D09B24500F81961 /* ru */,
+				CE58D46F1D09B32500F81961 /* de */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -408,6 +418,8 @@
 			children = (
 				CE1267261C93149B001C6573 /* Base */,
 				CE58D4661D09AE5B00F81961 /* uk */,
+				CE58D46D1D09B24500F81961 /* ru */,
+				CE58D4701D09B32500F81961 /* de */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -418,6 +430,8 @@
 				CE58D4681D09AE6F00F81961 /* uk */,
 				CE58D46A1D09AE7300F81961 /* Base */,
 				CE58D46B1D09AE7700F81961 /* en */,
+				CE58D46E1D09B24500F81961 /* ru */,
+				CE58D4711D09B32500F81961 /* de */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

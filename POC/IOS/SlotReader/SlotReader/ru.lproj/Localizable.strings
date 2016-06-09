@@ -1,0 +1,47 @@
+/* 
+  Localizable.strings
+  SlotReader
+
+  Created by User on 6/9/16.
+  Copyright © 2016 User. All rights reserved.
+*/
+
+/* Navigation */
+ 
+"navigation.item.home" = "Главная";
+
+"navigation.item.themes" = "Темы";
+
+"navigation.item.languages" = "Языки";
+
+"navigation.item.dictionary" = "Словарь";
+
+"navigation.item.greenBoard" = "Зеленая доска";
+
+"navigation.item.lightBoard" = "Светлая доска";
+
+"navigation.item.darkBoard" = "Темная доска";
+
+"navigation.item.back" = "Назад";
+
+/* Dictionary */
+
+"dictionary.navigation.title" = "Словарь";
+
+"dictionary.message.positive.adding" = "Новое слово додано";
+
+"dictionary.message.positive.deleting" = "Выбранные слова удалены";
+
+"dictionary.message.positive.updating" = "Слово обновлено";
+
+"dictionary.message.negative.adding" = "Ошибка при добавлении слова";
+
+"dictionary.message.negative.deleting" = "Ошибка при удалении";
+
+"dictionary.message.negative.updating" = "Ошибка при обновлении слов";
+
+
+
+
+
+
