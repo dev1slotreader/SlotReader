@@ -35,6 +35,7 @@ typedef enum {
 	NSArray * menuCategoriesTitles;
 	NSArray * menuCategoriesImages;
 	NSArray * boardStylesNames;
+	NSArray * boardStylesTitles;
 }
 
 @end
@@ -44,11 +45,12 @@ typedef enum {
 - (void)viewDidLoad {
     [super viewDidLoad];
 	sideBarMode = 0;
+
 	menuCategoriesTitles = [NSArray arrayWithObjects:
-									   @"Home",
-									   @"Board themes",
-									   @"Languages",
-									   @"Dictonary",
+									NSLocalizedString(@"navigation.item.home", nil),
+									NSLocalizedString(@"navigation.item.themes", nil),
+									NSLocalizedString(@"navigation.item.languages", nil),
+									NSLocalizedString(@"navigation.item.dictionary", nil),
 									   nil];
 	menuCategoriesImages = [NSArray arrayWithObjects:
 									@"ic_home_white",
@@ -67,6 +69,13 @@ typedef enum {
 							@"lightBoard",
 							@"darkBoard",
 							nil];
+	
+	boardStylesTitles = [NSArray arrayWithObjects:
+						NSLocalizedString(@"navigation.item.greenBoard", nil),
+						NSLocalizedString(@"navigation.item.lightBoard", nil),
+						
+						NSLocalizedString(@"navigation.item.darkBoard", nil),
+						nil];
 	
 	//self.tableView.backgroundView = [UIView new];
 	[self.tableView setBackgroundView:nil];
@@ -127,7 +136,8 @@ typedef enum {
 				imageName = @"ic_arrow_back_white";
 			}
 			else {
-				imageName = text = [boardStylesNames objectAtIndex:(indexPath.row - 1)];
+				imageName = [boardStylesNames objectAtIndex:(indexPath.row - 1)];
+				text = [boardStylesTitles objectAtIndex:(indexPath.row - 1)];
 			}
 			break;
 		default:

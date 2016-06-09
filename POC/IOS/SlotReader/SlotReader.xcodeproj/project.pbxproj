@@ -16,6 +16,7 @@
 		CE1267321C93149B001C6573 /* SlotReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1267311C93149B001C6573 /* SlotReaderTests.m */; };
 		CE1267481C9AF6AB001C6573 /* WordPickerHelperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1267471C9AF6AB001C6573 /* WordPickerHelperViewController.m */; };
 		CE12674B1CA05FC1001C6573 /* DictionaryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE12674A1CA05FC1001C6573 /* DictionaryTableViewController.m */; };
+		CE58D4641D0977A500F81961 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE58D4631D0977A500F81961 /* Localizable.strings */; };
 		CE5913481CA5461E008A3042 /* BoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5913471CA5461E008A3042 /* BoardViewController.m */; };
 		CE59134B1CAAB318008A3042 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE59134A1CAAB318008A3042 /* SWRevealViewController.m */; };
 		CE5913511CAAC500008A3042 /* MenuPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5913501CAAC500008A3042 /* MenuPanelViewController.m */; };
@@ -60,6 +61,7 @@
 		CE1267471C9AF6AB001C6573 /* WordPickerHelperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordPickerHelperViewController.m; sourceTree = "<group>"; };
 		CE1267491CA05FC1001C6573 /* DictionaryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictionaryTableViewController.h; sourceTree = "<group>"; };
 		CE12674A1CA05FC1001C6573 /* DictionaryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DictionaryTableViewController.m; sourceTree = "<group>"; };
+		CE58D4631D0977A500F81961 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		CE5913461CA5461E008A3042 /* BoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardViewController.h; sourceTree = "<group>"; };
 		CE5913471CA5461E008A3042 /* BoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardViewController.m; sourceTree = "<group>"; };
 		CE5913491CAAB318008A3042 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				CE5913641CB2B57D008A3042 /* slot_reader_source.txt */,
+				CE58D4631D0977A500F81961 /* Localizable.strings */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE58D4641D0977A500F81961 /* Localizable.strings in Resources */,
 				CE5913651CB2B57D008A3042 /* slot_reader_source.txt in Resources */,
 				CE1267271C93149B001C6573 /* LaunchScreen.storyboard in Resources */,
 				CE1267241C93149B001C6573 /* Assets.xcassets in Resources */,

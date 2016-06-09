@@ -57,7 +57,7 @@ typedef enum {
 	[self setStyleFromSettings];
 
 	[self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:(181/255.0) green:(252/255.0) blue:(251/255.0) alpha:1]];
-	self.navigationItem.title = @"Slot Reader";
+	self.navigationItem.title = @"ABC Reader";
 	
 	currentNumberOfLetters = [[[[NSUserDefaults standardUserDefaults] objectForKey:@"currentPositon"] objectAtIndex:0] intValue];	
 		
