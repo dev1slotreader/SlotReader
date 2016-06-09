@@ -80,6 +80,7 @@ typedef enum {
 	self.collectionView.backgroundColor = [UIColor clearColor];
 }
 
+/*
 - (void) addingNumberOfLettersBar {
 	UIImage *image1 = [UIImage imageNamed:@"1"];
 	UIButton *button1 = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -114,7 +115,7 @@ typedef enum {
 
 	self.toolbar.items = toolbarItems;
 	[self.toolbar updateConstraints];
-}
+}*/
 
 - (void) viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];

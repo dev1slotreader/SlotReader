@@ -56,8 +56,8 @@ typedef enum {
 	[self updateEditingInterface];
 	
 	[self addObserver:self forKeyPath:@"cellSelectionCounter" options:NSKeyValueObservingOptionNew context:nil];
-	self.positiveButton.layer.cornerRadius = self.positiveButton.frame.size.height * 0.5;
-	self.negativeButton.layer.cornerRadius = self.negativeButton.frame.size.width / 2;
+	self.positiveButton.layer.cornerRadius = self.positiveButton.frame.size.height * 0.6;
+	self.negativeButton.layer.cornerRadius = self.negativeButton.frame.size.height * 0.6;
 	
 	CALayer *border = [CALayer layer];
 	CGFloat borderWidth = 2;
@@ -89,7 +89,7 @@ typedef enum {
 	self.collectionView.backgroundColor = [UIColor clearColor];
 	
 	[self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:(181/255.0) green:(252/255.0) blue:(251/255.0) alpha:1]];
-	[self.navigationItem setTitle:@"Dictionary"];
+	[self.navigationItem setTitle:NSLocalizedString(@"dictionary.navigation.title", nil)];
 }
 
 - (void) updateEditingInterface {
@@ -190,7 +190,7 @@ typedef enum {
 	self.fancyTextInputBlock.hidden = YES;
 	UIAlertController *alertController = [UIAlertController
 										  alertControllerWithTitle:@"Success"
-										  message:@"New word was added"
+										  message:NSLocalizedString(@"OK", @"OK action")
 										  preferredStyle:UIAlertControllerStyleAlert];
 	UIAlertAction *okAction = [UIAlertAction
 							   actionWithTitle:NSLocalizedString(@"OK", @"OK action")
@@ -231,9 +231,9 @@ typedef enum {
                             NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:[[dataMiner getWordsOfSize:[newWord length]] indexOfObject:newWord] inSection:0];
                             [self.tableView selectRowAtIndexPath: newIndexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
                             
-							[self.view makeToast:@"New word added"];
+							[self.view makeToast:NSLocalizedString(@"dictionary.message.positive.adding", nil)];
 						} else {
-							[self.view makeToast:@"Error while adding the word"];
+							[self.view makeToast:NSLocalizedString(@"dictionary.message.negative.adding", nil)];
 						}
 					}
 					
@@ -257,9 +257,9 @@ typedef enum {
 					if([dataMiner deleteWordsAtIndexes:indexSet]) {
                         [self getDataFromSource];
                         [self.tableView reloadData];
-						[self.view makeToast:@"Selected words deleted"];
+						[self.view makeToast:NSLocalizedString(@"dictionary.message.positive.deleting", nil)];
 					} else {
-						[self.view makeToast:@"Error while deleting"];
+						[self.view makeToast:NSLocalizedString(@"dictionary.message.negative.deleting", nil)];
 					}
 				}
 					break;
@@ -309,10 +309,10 @@ typedef enum {
                         [self getDataFromSource];
                         [self.tableView reloadData];
                         [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:newIndex.integerValue inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
-                        [self.view makeToast:@"The word is updated"];
-                    } else {
-                        [self.view makeToast:@"Error while word updating"];
-                }
+						[self.view makeToast:NSLocalizedString(@"dictionary.message.positive.updating", nil)];
+					} else {
+						[self.view makeToast:NSLocalizedString(@"dictionary.message.negative.updating", nil)];
+					}
                     editingMode = base;
                     }
 					break;

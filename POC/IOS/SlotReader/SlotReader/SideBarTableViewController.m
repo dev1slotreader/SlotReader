@@ -122,7 +122,7 @@ typedef enum {
 			break;
 		case language:
 			if (indexPath.row == 0) {
-				text = @"Back";
+				text = NSLocalizedString(@"navigation.item.back", nil);
 				imageName = @"ic_arrow_back_white";
 			}
 			else {
@@ -132,7 +132,7 @@ typedef enum {
 			break;
 		case boardStyle:
 			if (indexPath.row == 0) {
-				text = @"Back";
+				text = NSLocalizedString(@"navigation.item.back", nil);
 				imageName = @"ic_arrow_back_white";
 			}
 			else {
