@@ -12,33 +12,33 @@
 
 "navigation.item.themes" = "黒板テーマ";
 
-"navigation.item.languages" = "Languages";
+"navigation.item.languages" = "言語";
 
-"navigation.item.dictionary" = "Dictonary";
+"navigation.item.dictionary" = "辞書";
 
-"navigation.item.greenBoard" = "Green Board";
+"navigation.item.greenBoard" = "グリーン黒板";
 
-"navigation.item.lightBoard" = "Light Board";
+"navigation.item.lightBoard" = "光黒板";
 
-"navigation.item.darkBoard" = "Dark Board";
+"navigation.item.darkBoard" = "ダーク黒板";
 
-"navigation.item.back" = "Back";
+"navigation.item.back" = "バック";
 
 /* Dictionary */
 
-"dictionary.navigation.title" = "Dictionary";
+"dictionary.navigation.title" = "辞書";
 
-"dictionary.message.positive.adding" = "New word added";
+"dictionary.message.positive.adding" = "新しい単語が追加します";
 
-"dictionary.message.positive.deleting" = "Selected words deleted";
+"dictionary.message.positive.deleting" = "選択した単語を削除します";
 
-"dictionary.message.positive.updating" = "The word is updated";
+"dictionary.message.positive.updating" = "ワードが更新されます";
 
-"dictionary.message.negative.adding" = "Error while adding the word";
+"dictionary.message.negative.adding" = "エラーは、単語を追加しながら";
 
-"dictionary.message.negative.deleting" = "Error while deleting";
+"dictionary.message.negative.deleting" = "エラー削除中";
 
-"dictionary.message.negative.updating" = "Error while word updating";
+"dictionary.message.negative.updating" = "中にエラーが発生しましたワード更新";
 
 
 
