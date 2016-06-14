@@ -1,0 +1,47 @@
+/* 
+  Localizable.strings
+  SlotReader
+
+  Created by User on 6/9/16.
+  Copyright © 2016 User. All rights reserved.
+*/
+
+/* Navigation */
+ 
+"navigation.item.home" = "主";
+
+"navigation.item.themes" = "黑板主题";
+
+"navigation.item.languages" = "语言";
+
+"navigation.item.dictionary" = "字典";
+
+"navigation.item.greenBoard" = "绿色黑板";
+
+"navigation.item.lightBoard" = "黑板灯";
+
+"navigation.item.darkBoard" = "深色的黑板";
+
+"navigation.item.back" = "背部";
+
+/* Dictionary */
+
+"dictionary.navigation.title" = "字典";
+
+"dictionary.message.positive.adding" = "增加了新词";
+
+"dictionary.message.positive.deleting" = "选字删除";
+
+"dictionary.message.positive.updating" = "字被更新";
+
+"dictionary.message.negative.adding" = "错误同时加入了字";
+
+"dictionary.message.negative.deleting" = "在删除错误";
+
+"dictionary.message.negative.updating" = "出错字更新";
+
+
+
+
+
+

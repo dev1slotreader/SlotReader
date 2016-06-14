@@ -1,0 +1,47 @@
+/* 
+  Localizable.strings
+  SlotReader
+
+  Created by User on 6/9/16.
+  Copyright © 2016 User. All rights reserved.
+*/
+
+/* Navigation */
+ 
+"navigation.item.home" = "プライマリー";
+
+"navigation.item.themes" = "黒板テーマ";
+
+"navigation.item.languages" = "Languages";
+
+"navigation.item.dictionary" = "Dictonary";
+
+"navigation.item.greenBoard" = "Green Board";
+
+"navigation.item.lightBoard" = "Light Board";
+
+"navigation.item.darkBoard" = "Dark Board";
+
+"navigation.item.back" = "Back";
+
+/* Dictionary */
+
+"dictionary.navigation.title" = "Dictionary";
+
+"dictionary.message.positive.adding" = "New word added";
+
+"dictionary.message.positive.deleting" = "Selected words deleted";
+
+"dictionary.message.positive.updating" = "The word is updated";
+
+"dictionary.message.negative.adding" = "Error while adding the word";
+
+"dictionary.message.negative.deleting" = "Error while deleting";
+
+"dictionary.message.negative.updating" = "Error while word updating";
+
+
+
+
+
+
