@@ -8,37 +8,37 @@
 
 /* Navigation */
  
-"navigation.item.home" = "Home";
+"navigation.item.home" = "Ensisijainen";
 
-"navigation.item.themes" = "Board themes";
+"navigation.item.themes" = "Liitutaulu teemat";
 
-"navigation.item.languages" = "Languages";
+"navigation.item.languages" = "Kielet";
 
-"navigation.item.dictionary" = "Dictonary";
+"navigation.item.dictionary" = "Sanakirja";
 
-"navigation.item.greenBoard" = "Green Board";
+"navigation.item.greenBoard" = "Vihreä liitutaulu";
 
-"navigation.item.lightBoard" = "Light Board";
+"navigation.item.lightBoard" = "Kevyt liitutaulu";
 
-"navigation.item.darkBoard" = "Dark Board";
+"navigation.item.darkBoard" = "Tumman liitutaulu";
 
-"navigation.item.back" = "Back";
+"navigation.item.back" = "Takaisin";
 
 /* Dictionary */
 
-"dictionary.navigation.title" = "Dictionary";
+"dictionary.navigation.title" = "Sanakirja";
 
-"dictionary.message.positive.adding" = "New word added";
+"dictionary.message.positive.adding" = "Uusi sana lisätään";
 
-"dictionary.message.positive.deleting" = "Selected words deleted";
+"dictionary.message.positive.deleting" = "Valitut poistetaan";
 
-"dictionary.message.positive.updating" = "The word is updated";
+"dictionary.message.positive.updating" = "Sana päivitetään";
 
-"dictionary.message.negative.adding" = "Error while adding the word";
+"dictionary.message.negative.adding" = "Virhe lisätään sana";
 
-"dictionary.message.negative.deleting" = "Error while deleting";
+"dictionary.message.negative.deleting" = "Virhe poistettaessa";
 
-"dictionary.message.negative.updating" = "Error while word updating";
+"dictionary.message.negative.updating" = "Virhe sana päivittäminen";
 
 
 

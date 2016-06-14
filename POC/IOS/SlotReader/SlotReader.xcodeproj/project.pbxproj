@@ -93,6 +93,15 @@
 		CE58D4841D09B7CF00F81961 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Main.strings; sourceTree = "<group>"; };
 		CE58D4851D09B7CF00F81961 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		CE58D4861D09B7CF00F81961 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CE58D48D1D0EF8C500F81961 /* da-DK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "da-DK"; path = "da-DK.lproj/Main.strings"; sourceTree = "<group>"; };
+		CE58D48E1D0EF8C500F81961 /* da-DK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "da-DK"; path = "da-DK.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		CE58D48F1D0EF8C500F81961 /* da-DK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "da-DK"; path = "da-DK.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		CE58D4901D1048B000F81961 /* fy-NL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fy-NL"; path = "fy-NL.lproj/Main.strings"; sourceTree = "<group>"; };
+		CE58D4911D1048B100F81961 /* fy-NL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fy-NL"; path = "fy-NL.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		CE58D4921D1048B100F81961 /* fy-NL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fy-NL"; path = "fy-NL.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		CE58D4961D1049BD00F81961 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Main.strings; sourceTree = "<group>"; };
+		CE58D4971D1049BD00F81961 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		CE58D4981D1049BE00F81961 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CE5913461CA5461E008A3042 /* BoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardViewController.h; sourceTree = "<group>"; };
 		CE5913471CA5461E008A3042 /* BoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardViewController.m; sourceTree = "<group>"; };
 		CE5913491CAAB318008A3042 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -351,6 +360,9 @@
 				fr,
 				it,
 				tr,
+				"da-DK",
+				"fy-NL",
+				fi,
 			);
 			mainGroup = CE12670B1C93149B001C6573;
 			productRefGroup = CE1267151C93149B001C6573 /* Products */;
@@ -444,6 +456,9 @@
 				CE58D47E1D09B61500F81961 /* fr */,
 				CE58D4811D09B6BC00F81961 /* it */,
 				CE58D4841D09B7CF00F81961 /* tr */,
+				CE58D48D1D0EF8C500F81961 /* da-DK */,
+				CE58D4901D1048B000F81961 /* fy-NL */,
+				CE58D4961D1049BD00F81961 /* fi */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -462,6 +477,9 @@
 				CE58D47F1D09B61500F81961 /* fr */,
 				CE58D4821D09B6BD00F81961 /* it */,
 				CE58D4851D09B7CF00F81961 /* tr */,
+				CE58D48E1D0EF8C500F81961 /* da-DK */,
+				CE58D4911D1048B100F81961 /* fy-NL */,
+				CE58D4971D1049BD00F81961 /* fi */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -481,6 +499,9 @@
 				CE58D4801D09B61500F81961 /* fr */,
 				CE58D4831D09B6BD00F81961 /* it */,
 				CE58D4861D09B7CF00F81961 /* tr */,
+				CE58D48F1D0EF8C500F81961 /* da-DK */,
+				CE58D4921D1048B100F81961 /* fy-NL */,
+				CE58D4981D1049BE00F81961 /* fi */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

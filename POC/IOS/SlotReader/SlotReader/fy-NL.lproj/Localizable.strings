@@ -8,37 +8,37 @@
 
 /* Navigation */
  
-"navigation.item.home" = "Home";
+"navigation.item.home" = "Huis";
 
-"navigation.item.themes" = "Board themes";
+"navigation.item.themes" = "Schoolbord thema's";
 
-"navigation.item.languages" = "Languages";
+"navigation.item.languages" = "Talen";
 
-"navigation.item.dictionary" = "Dictonary";
+"navigation.item.dictionary" = "Woordenboek";
 
-"navigation.item.greenBoard" = "Green Board";
+"navigation.item.greenBoard" = "Groen schoolbord";
 
-"navigation.item.lightBoard" = "Light Board";
+"navigation.item.lightBoard" = "Licht blackboard";
 
-"navigation.item.darkBoard" = "Dark Board";
+"navigation.item.darkBoard" = "Donker bord";
 
-"navigation.item.back" = "Back";
+"navigation.item.back" = "Terug";
 
 /* Dictionary */
 
-"dictionary.navigation.title" = "Dictionary";
+"dictionary.navigation.title" = "Woordenboek";
 
-"dictionary.message.positive.adding" = "New word added";
+"dictionary.message.positive.adding" = "Nieuw woord toegevoegd";
 
-"dictionary.message.positive.deleting" = "Selected words deleted";
+"dictionary.message.positive.deleting" = "Geselecteerde woorden schrappen";
 
-"dictionary.message.positive.updating" = "The word is updated";
+"dictionary.message.positive.updating" = "Het woord wordt bijgewerkt";
 
-"dictionary.message.negative.adding" = "Error while adding the word";
+"dictionary.message.negative.adding" = "Fout bij het toevoegen van het woord";
 
-"dictionary.message.negative.deleting" = "Error while deleting";
+"dictionary.message.negative.deleting" = "Fout bij het verwijderen van";
 
-"dictionary.message.negative.updating" = "Error while word updating";
+"dictionary.message.negative.updating" = "Fout bij het woord bijwerken";
 
 
 

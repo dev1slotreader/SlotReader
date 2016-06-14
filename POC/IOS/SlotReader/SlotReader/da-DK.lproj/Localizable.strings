@@ -8,37 +8,37 @@
 
 /* Navigation */
  
-"navigation.item.home" = "Home";
+"navigation.item.home" = "Primær";
 
-"navigation.item.themes" = "Board themes";
+"navigation.item.themes" = "Tavle temaer";
 
-"navigation.item.languages" = "Languages";
+"navigation.item.languages" = "Sprog";
 
-"navigation.item.dictionary" = "Dictonary";
+"navigation.item.dictionary" = "Ordbog";
 
-"navigation.item.greenBoard" = "Green Board";
+"navigation.item.greenBoard" = "Grønne tavle";
 
-"navigation.item.lightBoard" = "Light Board";
+"navigation.item.lightBoard" = "Lys tavle";
 
-"navigation.item.darkBoard" = "Dark Board";
+"navigation.item.darkBoard" = "Mørk tavle";
 
-"navigation.item.back" = "Back";
+"navigation.item.back" = "Tilbage";
 
 /* Dictionary */
 
-"dictionary.navigation.title" = "Dictionary";
+"dictionary.navigation.title" = "Ordbog";
 
-"dictionary.message.positive.adding" = "New word added";
+"dictionary.message.positive.adding" = "Nyt ord tilføjet";
 
-"dictionary.message.positive.deleting" = "Selected words deleted";
+"dictionary.message.positive.deleting" = "Valgte ord udgår";
 
-"dictionary.message.positive.updating" = "The word is updated";
+"dictionary.message.positive.updating" = "Ordet er opdateret";
 
-"dictionary.message.negative.adding" = "Error while adding the word";
+"dictionary.message.negative.adding" = "Fejl ved tilføjelse af ordet";
 
-"dictionary.message.negative.deleting" = "Error while deleting";
+"dictionary.message.negative.deleting" = "Fejl under sletning";
 
-"dictionary.message.negative.updating" = "Error while word updating";
+"dictionary.message.negative.updating" = "Fejl ved ordet opdatering";
 
 
 
