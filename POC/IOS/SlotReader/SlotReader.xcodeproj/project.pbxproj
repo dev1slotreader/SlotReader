@@ -17,6 +17,7 @@
 		CE1267481C9AF6AB001C6573 /* WordPickerHelperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1267471C9AF6AB001C6573 /* WordPickerHelperViewController.m */; };
 		CE12674B1CA05FC1001C6573 /* DictionaryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE12674A1CA05FC1001C6573 /* DictionaryTableViewController.m */; };
 		CE58D4671D09AE6F00F81961 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE58D4691D09AE6F00F81961 /* Localizable.strings */; };
+		CE58D4B71D1064CF00F81961 /* DAKeyboardControl.m in Sources */ = {isa = PBXBuildFile; fileRef = CE58D4B61D1064CF00F81961 /* DAKeyboardControl.m */; };
 		CE5913481CA5461E008A3042 /* BoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5913471CA5461E008A3042 /* BoardViewController.m */; };
 		CE59134B1CAAB318008A3042 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE59134A1CAAB318008A3042 /* SWRevealViewController.m */; };
 		CE5913511CAAC500008A3042 /* MenuPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5913501CAAC500008A3042 /* MenuPanelViewController.m */; };
@@ -126,6 +127,8 @@
 		CE58D4B11D10630700F81961 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
 		CE58D4B21D10630700F81961 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		CE58D4B31D10630700F81961 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CE58D4B51D1064CF00F81961 /* DAKeyboardControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAKeyboardControl.h; sourceTree = "<group>"; };
+		CE58D4B61D1064CF00F81961 /* DAKeyboardControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAKeyboardControl.m; sourceTree = "<group>"; };
 		CE5913461CA5461E008A3042 /* BoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardViewController.h; sourceTree = "<group>"; };
 		CE5913471CA5461E008A3042 /* BoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardViewController.m; sourceTree = "<group>"; };
 		CE5913491CAAB318008A3042 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -235,6 +238,15 @@
 			path = SlotReaderTests;
 			sourceTree = "<group>";
 		};
+		CE58D4B41D1064CF00F81961 /* DAKeyboardControl */ = {
+			isa = PBXGroup;
+			children = (
+				CE58D4B51D1064CF00F81961 /* DAKeyboardControl.h */,
+				CE58D4B61D1064CF00F81961 /* DAKeyboardControl.m */,
+			);
+			path = DAKeyboardControl;
+			sourceTree = "<group>";
+		};
 		CE5913D41CBE6875008A3042 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,6 +270,7 @@
 		CE662BA51CC0ED8A008722F1 /* UI elements classes */ = {
 			isa = PBXGroup;
 			children = (
+				CE58D4B41D1064CF00F81961 /* DAKeyboardControl */,
 				CE7A05C21CA2F0E900CFDE01 /* TransparentToolbar.h */,
 				CE7A05C31CA2F0E900CFDE01 /* TransparentToolbar.m */,
 				CE5913461CA5461E008A3042 /* BoardViewController.h */,
@@ -361,6 +374,7 @@
 				TargetAttributes = {
 					CE1267131C93149B001C6573 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = RCC8C9ZN9J;
 					};
 					CE12672C1C93149B001C6573 = {
 						CreatedOnToolsVersion = 7.2;
@@ -449,6 +463,7 @@
 				CE12671C1C93149B001C6573 /* AppDelegate.m in Sources */,
 				CE5913711CB7B878008A3042 /* SlotPickerView.m in Sources */,
 				CE12674B1CA05FC1001C6573 /* DictionaryTableViewController.m in Sources */,
+				CE58D4B71D1064CF00F81961 /* DAKeyboardControl.m in Sources */,
 				CE5913BA1CBBF93A008A3042 /* DictationViewController.m in Sources */,
 				CE1267191C93149B001C6573 /* main.m in Sources */,
 				CE59136B1CB660FC008A3042 /* DataMiner.m in Sources */,
@@ -651,10 +666,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SlotReader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Delphi.SlotReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -662,10 +680,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SlotReader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Delphi.SlotReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

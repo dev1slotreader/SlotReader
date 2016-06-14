@@ -90,6 +90,19 @@ typedef enum {
 	
 	[self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:(181/255.0) green:(252/255.0) blue:(251/255.0) alpha:1]];
 	[self.navigationItem setTitle:NSLocalizedString(@"dictionary.navigation.title", nil)];
+	
+	[self.view addKeyboardPanningWithActionHandler:^(CGRect keyboardFrameInView, BOOL opening, BOOL closing) {
+		
+	}];
+	[self.view addKeyboardNonpanningWithActionHandler:^(CGRect keyboardFrameInView, BOOL opening, BOOL closing) {
+		
+	}];
+	
+	self.view.keyboardTriggerOffset = 44.0f;    // Input view frame height
+	
+	[self.view addKeyboardPanningWithActionHandler:^(CGRect keyboardFrameInView, BOOL opening, BOOL closing) {
+		
+	}];
 }
 
 - (void) updateEditingInterface {
@@ -124,6 +137,7 @@ typedef enum {
 - (void) viewWillDisappear:(BOOL)animated {
 	appDelegate.languageSelectorDelegate = nil;
 	[self removeObserver:self forKeyPath:@"cellSelectionCounter"];
+	[self.view removeKeyboardControl];
 	[super viewWillDisappear:animated];
 }
 

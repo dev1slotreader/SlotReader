@@ -10,6 +10,7 @@
 #import "FancyTextInputBlock.h"
 #import "AppDelegate.h"
 #import "BoardViewController.h"
+#import "DAKeyboardControl.h"
 
 @interface DictationViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, LanguageSelector, BoardThemeSelector, UICollectionViewDelegate, UICollectionViewDataSource>
 
