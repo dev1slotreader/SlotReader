@@ -1,0 +1,34 @@
+/* 
+  Localizable.strings
+  SwissPlanner
+
+  Created by Anastasiya Yarovenko on 20.05.16.
+  Copyright © 2016 Elena Baoychuk. All rights reserved.
+*/
+
+
+
+//Calculator view controller
+/*
+
+//"CalculatorViewController.screenTitle" = "Calculator"
+
+//"CalculatorViewController.label.yourLevel" = "Your level"
+
+//"CalculatorViewController.label.partnersLevel" = "Partner's level"
+
+//"CalculatorViewController.label.prepayment" = "Prepayment"
+
+//"CalculatorViewController.label.addToPlans" = "Add to plans"
+
+//"CalculatorViewController.textField.formula" = "Formula"
+
+//"CalculatorViewController.textField.picker.mainPlan" = "Main"
+
+//"CalculatorViewController.textField.picker.preVIPPlan" = "Pre VIP"
+
+//"CalculatorViewController.textField.picker.VIPPlan" = "VIP"
+
+//"CalculatorViewController.textField.picker.preVIPPlusPlan" = "Pre VIP PLUS"
+
+"CalculatorViewController.textField.picker.VIPPlusPlan" = "VIP PLUS" */

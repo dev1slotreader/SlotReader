@@ -1,0 +1,660 @@
+
+/* Class = "UITableViewSection"; headerTitle = "Section-2"; ObjectID = "0If-4d-UPg"; */
+"0If-4d-UPg.headerTitle" = "Section-2";
+
+/* Class = "UILabel"; text = "11"; ObjectID = "10j-kX-TI3"; */
+"10j-kX-TI3.text" = "11";
+
+/* Class = "UILabel"; text = "Бонусные единицы"; ObjectID = "1ak-vu-LLF"; */
+"1ak-vu-LLF.text" = "Бонусные единицы";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "1ft-mi-WQ7"; */
+"1ft-mi-WQ7.text" = "Label";
+
+/* Class = "UILabel"; text = "Add to plans"; ObjectID = "1mR-fa-zWR"; */
+"1mR-fa-zWR.text" = "Add to plans";
+
+/* Class = "UILabel"; text = "50€"; ObjectID = "24x-eM-KAZ"; */
+"24x-eM-KAZ.text" = "50€";
+
+/* Class = "UILabel"; text = "50€"; ObjectID = "2LE-Lj-8P8"; */
+"2LE-Lj-8P8.text" = "50€";
+
+/* Class = "UILabel"; text = "50€"; ObjectID = "32X-zf-myt"; */
+"32X-zf-myt.text" = "50€";
+
+/* Class = "UILabel"; text = "200 000"; ObjectID = "3Ha-Zy-s4w"; */
+"3Ha-Zy-s4w.text" = "200 000";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "3hA-CR-6bH"; */
+"3hA-CR-6bH.text" = "Label";
+
+/* Class = "UILabel"; text = "Бонусные единицы"; ObjectID = "4Gj-ae-nEV"; */
+"4Gj-ae-nEV.text" = "Бонусные единицы";
+
+/* Class = "UILabel"; text = "если разница между Вами и Вашим партнером всегда составляет один уровень"; ObjectID = "4Q2-uB-bqD"; */
+"4Q2-uB-bqD.text" = "если разница между Вами и Вашим партнером всегда составляет один уровень";
+
+/* Class = "UILabel"; text = "Главная таблица"; ObjectID = "4Qf-Pw-tQE"; */
+"4Qf-Pw-tQE.text" = "Главная таблица";
+
+/* Class = "UILabel"; text = "Last test result:"; ObjectID = "4ZL-b9-jyw"; */
+"4ZL-b9-jyw.text" = "Последние результаты теста:";
+
+/* Class = "UILabel"; text = "Цена"; ObjectID = "4en-ZW-kFT"; */
+"4en-ZW-kFT.text" = "Цена";
+
+/* Class = "UILabel"; text = "11"; ObjectID = "5BQ-Cx-sL4"; */
+"5BQ-Cx-sL4.text" = "11";
+
+/* Class = "UILabel"; text = "200 000"; ObjectID = "5xN-gd-vd6"; */
+"5xN-gd-vd6.text" = "200 000";
+
+/* Class = "UILabel"; text = "Уровень"; ObjectID = "60w-rx-QKM"; */
+"60w-rx-QKM.text" = "Уровень";
+
+/* Class = "UILabel"; text = "The above creates a scroll view and an image view. The image view is set as a subview of the scroll view. contentSize sets the size of the scrollable region. We set it equal to the size of the image view (2000 x 1500). We set the scroll view’s background color to black so that the image can have a black backdrop."; ObjectID = "66w-O3-ePC"; */
+"66w-O3-ePC.text" = "The above creates a scroll view and an image view. The image view is set as a subview of the scroll view. contentSize sets the size of the scrollable region. We set it equal to the size of the image view (2000 x 1500). We set the scroll view’s background color to black so that the image can have a black backdrop.";
+
+/* Class = "UILabel"; text = "Settings"; ObjectID = "6ai-qn-RIX"; */
+"6ai-qn-RIX.text" = "Найстройки";
+
+/* Class = "UILabel"; text = "200 000"; ObjectID = "6ky-lk-8md"; */
+"6ky-lk-8md.text" = "200 000";
+
+/* Class = "UILabel"; text = "50€"; ObjectID = "6uS-d9-qgd"; */
+"6uS-d9-qgd.text" = "50€";
+
+/* Class = "UILabel"; text = "90%"; ObjectID = "6wX-bV-tXS"; */
+"6wX-bV-tXS.text" = "90%";
+
+/* Class = "UILabel"; text = "Elena Boychuk"; ObjectID = "7Da-fB-Qh2"; */
+"7Da-fB-Qh2.text" = "Елена Бойчук";
+
+/* Class = "UILabel"; text = "ГЛАВНАЯ таблица заказов"; ObjectID = "7cJ-WF-LIs"; */
+"7cJ-WF-LIs.text" = "ГЛАВНАЯ таблица заказов";
+
+/* Class = "UILabel"; text = "Бонусные единицы"; ObjectID = "8kg-Pa-I0d"; */
+"8kg-Pa-I0d.text" = "Бонусные единицы";
+
+/* Class = "UILabel"; text = "2100 х 10% = 210 €         10% - комиссия компании с одной главной таблицы"; ObjectID = "8ta-Ee-fnf"; */
+"8ta-Ee-fnf.text" = "2100 х 10% = 210 €         10% - комиссия компании с одной главной таблицы";
+
+/* Class = "UILabel"; text = "\"3.78 x (50 - 49) = 3.78€ \\n3.78 x (49 - 47) = 7.56€ \\n3.78 x (47 - 45) = 7.56€ \\n3.78 x (45 - 43) = 7.56€ \\n3.78 x (43 - 40) = 11.34€ \\n3.78 x (40 - 35) = 18.90€ \\n3.78 x (35 - 30) = 18.90€ \\n3.78 x (30 - 25) = 18.90€ \\n3.78 x (25 - 20) = 18.90€ \\n3.78 x (20 - 15) = 18.90€ \\n3.78 x 15 = 56.70€\""; ObjectID = "A1k-Vg-duZ"; */
+"A1k-Vg-duZ.text" = "\"3.78 x (50 - 49) = 3.78€ \\n3.78 x (49 - 47) = 7.56€ \\n3.78 x (47 - 45) = 7.56€ \\n3.78 x (45 - 43) = 7.56€ \\n3.78 x (43 - 40) = 11.34€ \\n3.78 x (40 - 35) = 18.90€ \\n3.78 x (35 - 30) = 18.90€ \\n3.78 x (30 - 25) = 18.90€ \\n3.78 x (25 - 20) = 18.90€ \\n3.78 x (20 - 15) = 18.90€ \\n3.78 x 15 = 56.70€\"";
+
+/* Class = "UILabel"; text = "50€"; ObjectID = "ABk-JK-h2c"; */
+"ABk-JK-h2c.text" = "50€";
+
+/* Class = "UITextField"; text = "100"; ObjectID = "ADD-Vs-iCJ"; */
+"ADD-Vs-iCJ.text" = "100";
+
+/* Class = "UILabel"; text = "Доходы в ЛИДЕРСКОЙ программе"; ObjectID = "AMR-gg-N5h"; */
+"AMR-gg-N5h.text" = "Доходы в ЛИДЕРСКОЙ программе";
+
+/* Class = "UILabel"; text = "200 000"; ObjectID = "AU0-Nc-7tC"; */
+"AU0-Nc-7tC.text" = "200 000";
+
+/* Class = "UILabel"; text = "56,70"; ObjectID = "Adw-A4-AHO"; */
+"Adw-A4-AHO.text" = "56,70";
+
+/* Class = "UILabel"; text = "The above creates a scroll view and an image view. The image view is set as a subview of the scroll view. contentSize sets the size of the scrollable region. We set it equal to the size of the image view (2000 x 1500). We set the scroll view’s background color to black so that the image can have a black backdrop."; ObjectID = "BcT-GD-vx1"; */
+"BcT-GD-vx1.text" = "The above creates a scroll view and an image view. The image view is set as a subview of the scroll view. contentSize sets the size of the scrollable region. We set it equal to the size of the image view (2000 x 1500). We set the scroll view’s background color to black so that the image can have a black backdrop.";
+
+/* Class = "UILabel"; text = "50€"; ObjectID = "Bmk-XQ-0VI"; */
+"Bmk-XQ-0VI.text" = "50€";
+
+/* Class = "UILabel"; text = "200 000"; ObjectID = "C4T-S7-aAF"; */
+"C4T-S7-aAF.text" = "200 000";
+
+/* Class = "UILabel"; text = "Cabinet 3"; ObjectID = "Cg7-ky-3cB"; */
+"Cg7-ky-3cB.text" = "Cabinet 3";
+
+/* Class = "UILabel"; text = "Цена"; ObjectID = "D78-Pl-p6W"; */
+"D78-Pl-p6W.text" = "Цена";
+
+/* Class = "UILabel"; text = "11"; ObjectID = "DFd-W4-KSU"; */
+"DFd-W4-KSU.text" = "11";
+
+/* Class = "UILabel"; text = "\"3.78 x (50 - 49) = 3.78€ \\n3.78 x (49 - 47) = 7.56€ \\n3.78 x (47 - 45) = 7.56€ \\n3.78 x (45 - 43) = 7.56€ \\n3.78 x (43 - 40) = 11.34€ \\n3.78 x (40 - 35) = 18.90€ \\n3.78 x (35 - 30) = 18.90€ \\n3.78 x (30 - 25) = 18.90€ \\n3.78 x (25 - 20) = 18.90€ \\n3.78 x (20 - 15) = 18.90€ \\n3.78 x 15 = 56.70€\""; ObjectID = "EmQ-TT-puS"; */
+"EmQ-TT-puS.text" = "\"3.78 x (50 - 49) = 3.78€ \\n3.78 x (49 - 47) = 7.56€ \\n3.78 x (47 - 45) = 7.56€ \\n3.78 x (45 - 43) = 7.56€ \\n3.78 x (43 - 40) = 11.34€ \\n3.78 x (40 - 35) = 18.90€ \\n3.78 x (35 - 30) = 18.90€ \\n3.78 x (30 - 25) = 18.90€ \\n3.78 x (25 - 20) = 18.90€ \\n3.78 x (20 - 15) = 18.90€ \\n3.78 x 15 = 56.70€\"";
+
+/* Class = "UILabel"; text = "Your level"; ObjectID = "EwS-tz-Iq9"; */
+"EwS-tz-Iq9.text" = "Ваш уровень";
+
+/* Class = "UILabel"; text = "VIP таблица заказов"; ObjectID = "F3V-jb-H4O"; */
+"F3V-jb-H4O.text" = "VIP таблица заказов";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "FF4-EB-byJ"; */
+"FF4-EB-byJ.text" = "Label";
+
+/* Class = "UILabel"; text = "Education"; ObjectID = "G2Y-oO-GGP"; */
+"G2Y-oO-GGP.text" = "Обучение";
+
+/* Class = "UILabel"; text = "90% - Покупка золота партнеру в БОНУСНОЙ программе"; ObjectID = "G8A-4q-9hE"; */
+"G8A-4q-9hE.text" = "90% - Покупка золота партнеру в БОНУСНОЙ программе";
+
+/* Class = "UILabel"; text = "The above creates a scroll view and an image view. The image view is set as a subview of the scroll view. contentSize sets the size of the scrollable region. We set it equal to the size of the image view (2000 x 1500). We set the scroll view’s background color to black so that the image can have a black backdrop."; ObjectID = "GGO-UI-OBG"; */
+"GGO-UI-OBG.text" = "The above creates a scroll view and an image view. The image view is set as a subview of the scroll view. contentSize sets the size of the scrollable region. We set it equal to the size of the image view (2000 x 1500). We set the scroll view’s background color to black so that the image can have a black backdrop.";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Ggc-KB-Z3m"; */
+"Ggc-KB-Z3m.text" = "Label";
+
+/* Class = "UILabel"; text = "11"; ObjectID = "Gjb-Qq-KJq"; */
+"Gjb-Qq-KJq.text" = "11";
+
+/* Class = "UILabel"; text = "11"; ObjectID = "HG7-eS-3sw"; */
+"HG7-eS-3sw.text" = "11";
+
+/* Class = "UILabel"; text = "Доходы в ЛИДЕРСКОЙ программе"; ObjectID = "Hrl-Yz-Uxv"; */
+"Hrl-Yz-Uxv.text" = "Доходы в ЛИДЕРСКОЙ программе";
+
+/* Class = "UILabel"; text = "50€"; ObjectID = "Hux-NZ-THv"; */
+"Hux-NZ-THv.text" = "50€";
+
+/* Class = "UILabel"; text = "189.00€ - компания распределяет в ЛИДЕРСКОЙ программе"; ObjectID = "Hwv-9Q-dO6"; */
+"Hwv-9Q-dO6.text" = "189.00€ - компания распределяет в ЛИДЕРСКОЙ программе";
+
+/* Class = "UILabel"; text = "11"; ObjectID = "I8X-R7-8bc"; */
+"I8X-R7-8bc.text" = "11";
+
+/* Class = "UILabel"; text = "Калькулятор лидерской программы"; ObjectID = "I9D-EH-tDT"; */
+"I9D-EH-tDT.text" = "Калькулятор лидерской программы";
+
+/* Class = "UILabel"; text = "11"; ObjectID = "J4B-dr-t5m"; */
+"J4B-dr-t5m.text" = "11";
+
+/* Class = "UILabel"; text = "200 000"; ObjectID = "J5S-mY-Z6n"; */
+"J5S-mY-Z6n.text" = "200 000";
+
+/* Class = "UILabel"; text = "Условия выхода в лидерскую программу"; ObjectID = "JMv-fw-y7g"; */
+"JMv-fw-y7g.text" = "Условия выхода в лидерскую программу";
+
+/* Class = "UILabel"; text = "Instagram"; ObjectID = "JSw-BW-bDr"; */
+"JSw-BW-bDr.text" = "Instagram";
+
+/* Class = "UILabel"; text = "200 000"; ObjectID = "Jie-p3-Yfk"; */
+"Jie-p3-Yfk.text" = "200 000";
+
+/* Class = "UILabel"; text = "50€"; ObjectID = "Jkc-bc-YO2"; */
+"Jkc-bc-YO2.text" = "50€";
+
+/* Class = "UILabel"; text = "56,70"; ObjectID = "KDl-AY-rky"; */
+"KDl-AY-rky.text" = "56,70";
+
+/* Class = "UILabel"; text = "11"; ObjectID = "KEA-Gv-6o8"; */
+"KEA-Gv-6o8.text" = "11";
+
+/* Class = "UILabel"; text = "ГЛАВНАЯ таблица заказов"; ObjectID = "KIQ-gL-XaI"; */
+"KIQ-gL-XaI.text" = "ГЛАВНАЯ таблица заказов";
+
+/* Class = "UILabel"; text = "11"; ObjectID = "KMz-9o-epC"; */
+"KMz-9o-epC.text" = "11";
+
+/* Class = "UILabel"; text = "Доходы в ЛИДЕРСКОЙ программе"; ObjectID = "KfH-vj-RIC"; */
+"KfH-vj-RIC.text" = "Доходы в ЛИДЕРСКОЙ программе";
+
+/* Class = "UILabel"; text = "VIP таблица заказов"; ObjectID = "LFZ-M2-nEf"; */
+"LFZ-M2-nEf.text" = "VIP таблица заказов";
+
+/* Class = "UILabel"; text = "50€"; ObjectID = "LbT-UK-dqE"; */
+"LbT-UK-dqE.text" = "50€";
+
+/* Class = "UITableViewSection"; headerTitle = "Section-1"; ObjectID = "LhL-HA-AgF"; */
+"LhL-HA-AgF.headerTitle" = "Section-1";
+
+/* Class = "UILabel"; text = "11"; ObjectID = "M03-Ak-jxu"; */
+"M03-Ak-jxu.text" = "11";
+
+/* Class = "UILabel"; text = "50€"; ObjectID = "M1Z-q8-oAv"; */
+"M1Z-q8-oAv.text" = "50€";
+
+/* Class = "UILabel"; text = "Бонусные единицы в ЛИДЕРСКОЙ программе накапливаются"; ObjectID = "M4f-Ig-0Xw"; */
+"M4f-Ig-0Xw.text" = "Бонусные единицы в ЛИДЕРСКОЙ программе накапливаются";
+
+/* Class = "UILabel"; text = "Уровень"; ObjectID = "MMD-uP-3Xg"; */
+"MMD-uP-3Xg.text" = "Уровень";
+
+/* Class = "UILabel"; text = "ТОВАРООБОРОТ / 500 = Бонусные единицы"; ObjectID = "MXE-op-nTJ"; */
+"MXE-op-nTJ.text" = "ТОВАРООБОРОТ / 500 = Бонусные единицы";
+
+/* Class = "UILabel"; text = "Swissgolden"; ObjectID = "Mdv-nq-9cj"; */
+"Mdv-nq-9cj.text" = "Swissgolden";
+
+/* Class = "UILabel"; text = " партнер"; ObjectID = "NAo-9Z-Lvc"; */
+"NAo-9Z-Lvc.text" = " партнер";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "NZF-hs-Yaz"; */
+"NZF-hs-Yaz.text" = "Label";
+
+/* Class = "UILabel"; text = "50€"; ObjectID = "Nc4-7W-oT5"; */
+"Nc4-7W-oT5.text" = "50€";
+
+/* Class = "UILabel"; text = "Пассивный доход"; ObjectID = "O6U-DJ-1gP"; */
+"O6U-DJ-1gP.text" = "Пассивный доход";
+
+/* Class = "UILabel"; text = "11"; ObjectID = "OXv-7s-JSS"; */
+"OXv-7s-JSS.text" = "11";
+
+/* Class = "UILabel"; text = "Cabinet 2"; ObjectID = "Oev-mE-KzC"; */
+"Oev-mE-KzC.text" = "Cabinet 2";
+
+/* Class = "UILabel"; text = "The above creates a scroll view and an image view. The image view is set as a subview of the scroll view. contentSize sets the size of the scrollable region. We set it equal to the size of the image view (2000 x 1500). We set the scroll view’s background color to black so that the image can have a black backdrop."; ObjectID = "P7K-7K-Jnb"; */
+"P7K-7K-Jnb.text" = "The above creates a scroll view and an image view. The image view is set as a subview of the scroll view. contentSize sets the size of the scrollable region. We set it equal to the size of the image view (2000 x 1500). We set the scroll view’s background color to black so that the image can have a black backdrop.";
+
+/* Class = "UILabel"; text = "50€"; ObjectID = "PAh-GZ-Qzz"; */
+"PAh-GZ-Qzz.text" = "50€";
+
+/* Class = "UILabel"; text = "2100 х 9% = 189€       9% идет в Лидерскую п.   1% остается, как доход компании"; ObjectID = "PxN-Az-OER"; */
+"PxN-Az-OER.text" = "2100 х 9% = 189€\n9% идет в Лидерскую п.\n1% остается, как доход компании";
+
+/* Class = "UILabel"; text = "50€"; ObjectID = "QC4-KX-g35"; */
+"QC4-KX-g35.text" = "50€";
+
+/* Class = "UILabel"; text = "11"; ObjectID = "QX5-AM-8Nb"; */
+"QX5-AM-8Nb.text" = "11";
+
+/* Class = "UILabel"; text = "ДОХОД = Бонусные единицы х Разница цен между уровнями"; ObjectID = "QtG-Qf-SLo"; */
+"QtG-Qf-SLo.text" = "ДОХОД = Бонусные единицы х Разница цен между уровнями";
+
+/* Class = "UILabel"; text = "Доходы в ЛИДЕРСКОЙ программе"; ObjectID = "QzL-nR-JhP"; */
+"QzL-nR-JhP.text" = "Доходы в ЛИДЕРСКОЙ программе";
+
+/* Class = "UILabel"; text = "15€"; ObjectID = "RHj-KZ-pNm"; */
+"RHj-KZ-pNm.text" = "15€";
+
+/* Class = "UILabel"; text = "200 000"; ObjectID = "RM0-mI-Ks5"; */
+"RM0-mI-Ks5.text" = "200 000";
+
+/* Class = "UILabel"; text = "50€"; ObjectID = "S36-Gu-FDb"; */
+"S36-Gu-FDb.text" = "50€";
+
+/* Class = "UILabel"; text = "Вы"; ObjectID = "SZb-j7-wTY"; */
+"SZb-j7-wTY.text" = "Вы";
+
+/* Class = "UILabel"; text = "50€"; ObjectID = "Stw-Hj-s7d"; */
+"Stw-Hj-s7d.text" = "50€";
+
+/* Class = "UILabel"; text = "50€"; ObjectID = "T2z-w2-HcX"; */
+"T2z-w2-HcX.text" = "50€";
+
+/* Class = "UILabel"; text = "11"; ObjectID = "TWf-7x-YfX"; */
+"TWf-7x-YfX.text" = "11";
+
+/* Class = "UINavigationItem"; title = "Gifts"; ObjectID = "Tav-17-HW2"; */
+"Tav-17-HW2.title" = "Подарки";
+
+/* Class = "UILabel"; text = "1%"; ObjectID = "Tib-Gr-w3I"; */
+"Tib-Gr-w3I.text" = "1%";
+
+/* Class = "UILabel"; text = "The above creates a scroll view and an image view. The image view is set as a subview of the scroll view. contentSize sets the size of the scrollable region. We set it equal to the size of the image view (2000 x 1500). We set the scroll view’s background color to black so that the image can have a black backdrop."; ObjectID = "UYT-ub-9K2"; */
+"UYT-ub-9K2.text" = "The above creates a scroll view and an image view. The image view is set as a subview of the scroll view. contentSize sets the size of the scrollable region. We set it equal to the size of the image view (2000 x 1500). We set the scroll view’s background color to black so that the image can have a black backdrop.";
+
+/* Class = "UILabel"; text = "Уровень"; ObjectID = "V0n-HD-2S4"; */
+"V0n-HD-2S4.text" = "Уровень";
+
+/* Class = "UITextField"; text = "1"; ObjectID = "V48-w7-j8k"; */
+"V48-w7-j8k.text" = "1";
+
+/* Class = "UILabel"; text = "11"; ObjectID = "VR6-wV-cP8"; */
+"VR6-wV-cP8.text" = "11";
+
+/* Class = "UILabel"; text = "200 000"; ObjectID = "X0a-ag-Cfe"; */
+"X0a-ag-Cfe.text" = "200 000";
+
+/* Class = "UILabel"; text = "ДОХОД = Бонусные единицы х Разница цен за Бонусные единицы между уровнями"; ObjectID = "XDO-es-my0"; */
+"XDO-es-my0.text" = "ДОХОД = Бонусные единицы х Разница цен за Бонусные единицы между уровнями";
+
+/* Class = "UILabel"; text = "Facebook"; ObjectID = "XOd-hZ-Q0c"; */
+"XOd-hZ-Q0c.text" = "Facebook";
+
+/* Class = "UILabel"; text = "11"; ObjectID = "XdZ-7H-79P"; */
+"XdZ-7H-79P.text" = "11";
+
+/* Class = "UILabel"; text = "50€"; ObjectID = "Xmj-3O-Zzt"; */
+"Xmj-3O-Zzt.text" = "50€";
+
+/* Class = "UIButton"; normalTitle = "Add to plans"; ObjectID = "Xmz-W5-fvG"; */
+"Xmz-W5-fvG.normalTitle" = "Добавить в план";
+
+/* Class = "UILabel"; text = "ГЛАВНАЯ таблица заказов"; ObjectID = "XtX-sR-au0"; */
+"XtX-sR-au0.text" = "ГЛАВНАЯ таблица заказов";
+
+/* Class = "UILabel"; text = "My partner's level:"; ObjectID = "XvG-Md-tR1"; */
+"XvG-Md-tR1.text" = "Уровень Вашего партнера:";
+
+/* Class = "UILabel"; text = "The above creates a scroll view and an image view. The image view is set as a subview of the scroll view. contentSize sets the size of the scrollable region. We set it equal to the size of the image view (2000 x 1500). We set the scroll view’s background color to black so that the image can have a black backdrop."; ObjectID = "YM9-4y-IYY"; */
+"YM9-4y-IYY.text" = "The above creates a scroll view and an image view. The image view is set as a subview of the scroll view. contentSize sets the size of the scrollable region. We set it equal to the size of the image view (2000 x 1500). We set the scroll view’s background color to black so that the image can have a black backdrop.";
+
+/* Class = "UILabel"; text = "200 000"; ObjectID = "Yvl-fP-aI8"; */
+"Yvl-fP-aI8.text" = "200 000";
+
+/* Class = "UILabel"; text = "Доходы в ЛИДЕРСКОЙ программе"; ObjectID = "ZET-fh-WwX"; */
+"ZET-fh-WwX.text" = "Доходы в ЛИДЕРСКОЙ программе";
+
+/* Class = "UILabel"; text = "Calculator"; ObjectID = "ZZy-85-ehn"; */
+"ZZy-85-ehn.text" = "Калькулятор";
+
+/* Class = "UILabel"; text = "The above creates a scroll view and an image view. The image view is set as a subview of the scroll view. contentSize sets the size of the scrollable region. We set it equal to the size of the image view (2000 x 1500). We set the scroll view’s background color to black so that the image can have a black backdrop."; ObjectID = "ZiD-07-fMo"; */
+"ZiD-07-fMo.text" = "The above creates a scroll view and an image view. The image view is set as a subview of the scroll view. contentSize sets the size of the scrollable region. We set it equal to the size of the image view (2000 x 1500). We set the scroll view’s background color to black so that the image can have a black backdrop.";
+
+/* Class = "UILabel"; text = "The above creates a scroll view and an image view. The image view is set as a subview of the scroll view. contentSize sets the size of the scrollable region. We set it equal to the size of the image view (2000 x 1500). We set the scroll view’s background color to black so that the image can have a black backdrop."; ObjectID = "ZiK-ra-4b1"; */
+"ZiK-ra-4b1.text" = "The above creates a scroll view and an image view. The image view is set as a subview of the scroll view. contentSize sets the size of the scrollable region. We set it equal to the size of the image view (2000 x 1500). We set the scroll view’s background color to black so that the image can have a black backdrop.";
+
+/* Class = "UILabel"; text = "ЛИДЕРСКАЯ программа"; ObjectID = "Zmd-YC-vbd"; */
+"Zmd-YC-vbd.text" = "ЛИДЕРСКАЯ программа";
+
+/* Class = "UILabel"; text = "Цена"; ObjectID = "a1a-US-GRw"; */
+"a1a-US-GRw.text" = "Цена";
+
+/* Class = "UILabel"; text = "2100 х 9% = 189€       9% идет в Лидерскую п.   1% остается, как доход компании"; ObjectID = "a5j-xS-lPq"; */
+"a5j-xS-lPq.text" = "2100 х 9% = 189€       9% идет в Лидерскую п.   1% остается, как доход компании";
+
+/* Class = "UILabel"; text = "200 000"; ObjectID = "aaS-Wb-72r"; */
+"aaS-Wb-72r.text" = "200 000";
+
+/* Class = "UILabel"; text = "The above creates a scroll view and an image view. The image view is set as a subview of the scroll view. contentSize sets the size of the scrollable region. We set it equal to the size of the image view (2000 x 1500). We set the scroll view’s background color to black so that the image can have a black backdrop."; ObjectID = "acI-MJ-u6Z"; */
+"acI-MJ-u6Z.text" = "The above creates a scroll view and an image view. The image view is set as a subview of the scroll view. contentSize sets the size of the scrollable region. We set it equal to the size of the image view (2000 x 1500). We set the scroll view’s background color to black so that the image can have a black backdrop.";
+
+/* Class = "UILabel"; text = "50€"; ObjectID = "ay7-pD-I8j"; */
+"ay7-pD-I8j.text" = "50€";
+
+/* Class = "UILabel"; text = "50€"; ObjectID = "bKf-QQ-6aQ"; */
+"bKf-QQ-6aQ.text" = "50€";
+
+/* Class = "UILabel"; text = "Сколько денег распределяется компанией в VIP PLUS договоре в Лидерской программе"; ObjectID = "bSn-hZ-Y7F"; */
+"bSn-hZ-Y7F.text" = "Сколько денег распределяется компанией в VIP PLUS договоре в Лидерской программе";
+
+/* Class = "UILabel"; text = "Покупка золота партнеру в БОНУСНОЙ программе"; ObjectID = "bua-TD-d9p"; */
+"bua-TD-d9p.text" = "Покупка золота партнеру в БОНУСНОЙ программе";
+
+/* Class = "UILabel"; text = "Доход компании"; ObjectID = "bxl-Ku-OHI"; */
+"bxl-Ku-OHI.text" = "Доход компании";
+
+/* Class = "UILabel"; text = "Вы"; ObjectID = "by2-Sp-MYz"; */
+"by2-Sp-MYz.text" = "Вы";
+
+/* Class = "UILabel"; text = "Бонусные единицы"; ObjectID = "d1X-a0-xmk"; */
+"d1X-a0-xmk.text" = "Бонусные единицы";
+
+/* Class = "UILabel"; text = "В VIP договоре"; ObjectID = "d6j-1z-5Fa"; */
+"d6j-1z-5Fa.text" = "В VIP договоре";
+
+/* Class = "UILabel"; text = "€"; ObjectID = "dY3-f3-2Pg"; */
+"dY3-f3-2Pg.text" = "€";
+
+/* Class = "UILabel"; text = "VIP PLUS order"; ObjectID = "dZE-C7-8wC"; */
+"dZE-C7-8wC.text" = "VIP PLUS order";
+
+/* Class = "UILabel"; text = "200 000"; ObjectID = "de8-Jp-IIy"; */
+"de8-Jp-IIy.text" = "200 000";
+
+/* Class = "UILabel"; text = "Уровень"; ObjectID = "drs-vj-bGL"; */
+"drs-vj-bGL.text" = "Уровень";
+
+/* Class = "UILabel"; text = "My leadership level:"; ObjectID = "dt6-oX-2D1"; */
+"dt6-oX-2D1.text" = "Мой лидерский уровень:";
+
+/* Class = "UILabel"; text = "Вы"; ObjectID = "eGa-AS-Ycx"; */
+"eGa-AS-Ycx.text" = "Вы";
+
+/* Class = "UILabel"; text = "11"; ObjectID = "eRe-NS-ZRw"; */
+"eRe-NS-ZRw.text" = "11";
+
+/* Class = "UILabel"; text = "50€"; ObjectID = "ecd-DW-kWo"; */
+"ecd-DW-kWo.text" = "50€";
+
+/* Class = "UILabel"; text = "11"; ObjectID = "evv-UG-gOK"; */
+"evv-UG-gOK.text" = "11";
+
+/* Class = "UILabel"; text = "Бонусные единицы"; ObjectID = "ewa-6s-ojO"; */
+"ewa-6s-ojO.text" = "Бонусные единицы";
+
+/* Class = "UILabel"; text = "200 000"; ObjectID = "ewp-nl-Qj9"; */
+"ewp-nl-Qj9.text" = "200 000";
+
+/* Class = "UINavigationItem"; title = "Testing"; ObjectID = "f5A-q8-LrC"; */
+"f5A-q8-LrC.title" = "Testing";
+
+/* Class = "UILabel"; text = "50€"; ObjectID = "fFv-KZ-fOP"; */
+"fFv-KZ-fOP.text" = "50€";
+
+/* Class = "UILabel"; text = "189.00€ - компания распределяет в ЛИДЕРСКОЙ программе"; ObjectID = "fPp-wA-8B6"; */
+"fPp-wA-8B6.text" = "189.00€ - компания распределяет в ЛИДЕРСКОЙ программе";
+
+/* Class = "UILabel"; text = "1"; ObjectID = "fsv-TB-FK5"; */
+"fsv-TB-FK5.text" = "1";
+
+/* Class = "UILabel"; text = "The above creates a scroll view and an image view. The image view is set as a subview of the scroll view. contentSize sets the size of the scrollable region. We set it equal to the size of the image view (2000 x 1500). We set the scroll view’s background color to black so that the image can have a black backdrop."; ObjectID = "fve-7t-SMa"; */
+"fve-7t-SMa.text" = "The above creates a scroll view and an image view. The image view is set as a subview of the scroll view. contentSize sets the size of the scrollable region. We set it equal to the size of the image view (2000 x 1500). We set the scroll view’s background color to black so that the image can have a black backdrop.";
+
+/* Class = "UILabel"; text = "Цена"; ObjectID = "fxo-SA-pGT"; */
+"fxo-SA-pGT.text" = "Цена";
+
+/* Class = "UILabel"; text = "11"; ObjectID = "gFw-sa-Y2I"; */
+"gFw-sa-Y2I.text" = "11";
+
+/* Class = "UILabel"; text = "Prepayment"; ObjectID = "gT6-3g-rJO"; */
+"gT6-3g-rJO.text" = "Предоплата";
+
+/* Class = "UILabel"; text = "Цена"; ObjectID = "hEB-OT-kgx"; */
+"hEB-OT-kgx.text" = "Цена";
+
+/* Class = "UILabel"; text = "Сколько денег распределяется компанией в VIP договоре в Лидерской программе"; ObjectID = "hRl-YH-nM0"; */
+"hRl-YH-nM0.text" = "Сколько денег распределяется компанией в VIP договоре в Лидерской программе";
+
+/* Class = "UILabel"; text = "189.00€ - компания распределяет в ЛИДЕРСКОЙ программе"; ObjectID = "hXf-8m-JSN"; */
+"hXf-8m-JSN.text" = "189.00€ - компания распределяет в ЛИДЕРСКОЙ программе";
+
+/* Class = "UILabel"; text = "11"; ObjectID = "hYy-UC-Lgi"; */
+"hYy-UC-Lgi.text" = "11";
+
+/* Class = "UILabel"; text = "200 000"; ObjectID = "hyv-yE-TRK"; */
+"hyv-yE-TRK.text" = "200 000";
+
+/* Class = "UILabel"; text = "Main"; ObjectID = "i5R-2r-WUr"; */
+"i5R-2r-WUr.text" = "Main";
+
+/* Class = "UITextField"; text = "1"; ObjectID = "i9i-kT-EV5"; */
+"i9i-kT-EV5.text" = "1";
+
+/* Class = "UILabel"; text = "200 000"; ObjectID = "ikx-FN-gWf"; */
+"ikx-FN-gWf.text" = "200 000";
+
+/* Class = "UILabel"; text = "Уровень"; ObjectID = "iva-VT-ZGB"; */
+"iva-VT-ZGB.text" = "Уровень";
+
+/* Class = "UILabel"; text = "Testing"; ObjectID = "izk-bQ-zrd"; */
+"izk-bQ-zrd.text" = "Testing";
+
+/* Class = "UILabel"; text = "ГЛАВНАЯ таблица заказов"; ObjectID = "jYw-uP-59v"; */
+"jYw-uP-59v.text" = "ГЛАВНАЯ таблица заказов";
+
+/* Class = "UILabel"; text = "11"; ObjectID = "jbE-no-ohk"; */
+"jbE-no-ohk.text" = "11";
+
+/* Class = "UILabel"; text = "VIP таблица заказов"; ObjectID = "jxF-Q9-mnO"; */
+"jxF-Q9-mnO.text" = "VIP таблица заказов";
+
+/* Class = "UILabel"; text = "200 000"; ObjectID = "k2v-kX-Ghg"; */
+"k2v-kX-Ghg.text" = "200 000";
+
+/* Class = "UILabel"; text = "2100 х 9% = 189€       9% идет в Лидерскую п.   1% остается, как доход компании"; ObjectID = "k3t-iu-DZc"; */
+"k3t-iu-DZc.text" = "2100 х 9% = 189€       9% идет в Лидерскую п.   1% остается, как доход компании";
+
+/* Class = "UILabel"; text = "50€"; ObjectID = "kJM-r0-GhM"; */
+"kJM-r0-GhM.text" = "50€";
+
+/* Class = "UILabel"; text = "Cabinet"; ObjectID = "kpb-2z-U3a"; */
+"kpb-2z-U3a.text" = "Кабинет";
+
+/* Class = "UILabel"; text = " партнер"; ObjectID = "l1L-DH-sZV"; */
+"l1L-DH-sZV.text" = " партнер";
+
+/* Class = "UILabel"; text = "Быстрый старт Активный доход"; ObjectID = "lMr-Zc-F4N"; */
+"lMr-Zc-F4N.text" = "Быстрый старт Активный доход";
+
+/* Class = "UILabel"; text = "БОНУСНАЯ программа"; ObjectID = "mmp-ot-23T"; */
+"mmp-ot-23T.text" = "БОНУСНАЯ программа";
+
+/* Class = "UILabel"; text = "2100 х 10% = 210 €         10% - комиссия компании с одной главной таблицы"; ObjectID = "myh-nG-gns"; */
+"myh-nG-gns.text" = "2100 х 10% = 210 €         10% - комиссия компании с одной главной таблицы";
+
+/* Class = "UILabel"; text = "2100 х 10% = 210 €         10% - комиссия компании с одной главной таблицы"; ObjectID = "nEi-eg-zbw"; */
+"nEi-eg-zbw.text" = "2100 х 10% = 210 €         10% - комиссия компании с одной главной таблицы";
+
+/* Class = "UILabel"; text = "Cabinet 1"; ObjectID = "nOB-06-zmV"; */
+"nOB-06-zmV.text" = "Cabinet 1";
+
+/* Class = "UILabel"; text = "11"; ObjectID = "nVM-tX-LWx"; */
+"nVM-tX-LWx.text" = "11";
+
+/* Class = "UILabel"; text = "ГЛАВНАЯ таблица заказов"; ObjectID = "nVX-Vc-6Bc"; */
+"nVX-Vc-6Bc.text" = "ГЛАВНАЯ таблица заказов";
+
+/* Class = "UILabel"; text = "200 000"; ObjectID = "ndW-MP-0OQ"; */
+"ndW-MP-0OQ.text" = "200 000";
+
+/* Class = "UILabel"; text = "VIP order"; ObjectID = "nlJ-Kv-hWA"; */
+"nlJ-Kv-hWA.text" = "VIP order";
+
+/* Class = "UILabel"; text = "Partner's level"; ObjectID = "nle-va-TYK"; */
+"nle-va-TYK.text" = "Уровень партнера";
+
+/* Class = "UILabel"; text = "Gifts"; ObjectID = "nzN-3m-7GH"; */
+"nzN-3m-7GH.text" = "Подарки";
+
+/* Class = "UILabel"; text = "VIP таблица заказов"; ObjectID = "oAF-SF-flp"; */
+"oAF-SF-flp.text" = "VIP таблица заказов";
+
+/* Class = "UILabel"; text = "Распределяется по ЛИДЕРСКОЙ программе"; ObjectID = "pET-z2-0c2"; */
+"pET-z2-0c2.text" = "Распределяется по ЛИДЕРСКОЙ программе";
+
+/* Class = "UISegmentedControl"; pJp-UB-smj.segmentTitles[0] = "Главная"; ObjectID = "pJp-UB-smj"; */
+"pJp-UB-smj.segmentTitles[0]" = "Главная";
+
+/* Class = "UISegmentedControl"; pJp-UB-smj.segmentTitles[1] = "Pre VIP"; ObjectID = "pJp-UB-smj"; */
+"pJp-UB-smj.segmentTitles[1]" = "Pre VIP";
+
+/* Class = "UISegmentedControl"; pJp-UB-smj.segmentTitles[2] = "VIP"; ObjectID = "pJp-UB-smj"; */
+"pJp-UB-smj.segmentTitles[2]" = "VIP";
+
+/* Class = "UISegmentedControl"; pJp-UB-smj.segmentTitles[3] = "Pre VIP PLUS"; ObjectID = "pJp-UB-smj"; */
+"pJp-UB-smj.segmentTitles[3]" = "Pre VIP PLUS";
+
+/* Class = "UISegmentedControl"; pJp-UB-smj.segmentTitles[4] = "VIP PLUS"; ObjectID = "pJp-UB-smj"; */
+"pJp-UB-smj.segmentTitles[4]" = "VIP PLUS";
+
+/* Class = "UILabel"; text = "Сколько денег распределяется компанией в Главном договоре в Лидерской программе"; ObjectID = "pbj-Rf-g4v"; */
+"pbj-Rf-g4v.text" = "Сколько денег распределяется компанией в Главном договоре в Лидерской программе";
+
+/* Class = "UILabel"; text = "The above creates a scroll view and an image view. The image view is set as a subview of the scroll view. contentSize sets the size of the scrollable region. We set it equal to the size of the image view (2000 x 1500). We set the scroll view’s background color to black so that the image can have a black backdrop."; ObjectID = "pkG-EK-rJd"; */
+"pkG-EK-rJd.text" = "The above creates a scroll view and an image view. The image view is set as a subview of the scroll view. contentSize sets the size of the scrollable region. We set it equal to the size of the image view (2000 x 1500). We set the scroll view’s background color to black so that the image can have a black backdrop.";
+
+/* Class = "UILabel"; text = "Цена"; ObjectID = "pni-vk-NIX"; */
+"pni-vk-NIX.text" = "Цена";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "qKf-oR-AP4"; */
+"qKf-oR-AP4.text" = "-";
+
+/* Class = "UILabel"; text = "ДОХОД = Цена за бонусную единицу х Бонусные единицы"; ObjectID = "qN9-vb-RdU"; */
+"qN9-vb-RdU.text" = "ДОХОД = Цена за бонусную единицу х Бонусные единицы";
+
+/* Class = "UILabel"; text = "ДОХОД = Цена за 1 бонусную единицу х Бонусные единицы"; ObjectID = "qlW-FS-xML"; */
+"qlW-FS-xML.text" = "ДОХОД = Цена за 1 бонусную единицу х Бонусные единицы";
+
+/* Class = "UILabel"; text = "Доход в компании SWISSGOLDEN"; ObjectID = "rDP-A5-fSx"; */
+"rDP-A5-fSx.text" = "Доход в компании SWISSGOLDEN";
+
+/* Class = "UILabel"; text = "€ 320 000"; ObjectID = "rO9-Pq-5oW"; */
+"rO9-Pq-5oW.text" = "€ 320 000";
+
+/* Class = "UILabel"; text = "9%"; ObjectID = "rRv-Lk-yCW"; */
+"rRv-Lk-yCW.text" = "9%";
+
+/* Class = "UILabel"; text = "200 000"; ObjectID = "rtI-cG-5u9"; */
+"rtI-cG-5u9.text" = "200 000";
+
+/* Class = "UILabel"; text = "YouTube"; ObjectID = "scv-pl-bUo"; */
+"scv-pl-bUo.text" = "YouTube";
+
+/* Class = "UILabel"; text = "1% - Доход компании"; ObjectID = "sef-Ws-mun"; */
+"sef-Ws-mun.text" = "1% - Доход компании";
+
+/* Class = "UILabel"; text = "Main order"; ObjectID = "t1H-nL-Jkr"; */
+"t1H-nL-Jkr.text" = "Main order";
+
+/* Class = "UINavigationItem"; title = "My Cabinet"; ObjectID = "tP2-Uj-dwy"; */
+"tP2-Uj-dwy.title" = "Мой кабинет";
+
+/* Class = "UILabel"; text = "11"; ObjectID = "uEW-ko-DVf"; */
+"uEW-ko-DVf.text" = "11";
+
+/* Class = "UILabel"; text = "Калькулятор лидерской программы"; ObjectID = "ulZ-pW-Sqq"; */
+"ulZ-pW-Sqq.text" = "Калькулятор лидерской программы";
+
+/* Class = "UILabel"; text = "В ГЛАВНОМ договоре"; ObjectID = "vBG-vo-BBW"; */
+"vBG-vo-BBW.text" = "В ГЛАВНОМ договоре";
+
+/* Class = "UILabel"; text = "200 000"; ObjectID = "vWd-nE-ozh"; */
+"vWd-nE-ozh.text" = "200 000";
+
+/* Class = "UILabel"; text = "11"; ObjectID = "vZn-1m-Vc8"; */
+"vZn-1m-Vc8.text" = "11";
+
+/* Class = "UILabel"; text = "\"3.78 x (50 - 49) = 3.78€ \\n3.78 x (49 - 47) = 7.56€ \\n3.78 x (47 - 45) = 7.56€ \\n3.78 x (45 - 43) = 7.56€ \\n3.78 x (43 - 40) = 11.34€ \\n3.78 x (40 - 35) = 18.90€ \\n3.78 x (35 - 30) = 18.90€ \\n3.78 x (30 - 25) = 18.90€ \\n3.78 x (25 - 20) = 18.90€ \\n3.78 x (20 - 15) = 18.90€ \\n3.78 x 15 = 56.70€\""; ObjectID = "w6w-Q7-1uo"; */
+"w6w-Q7-1uo.text" = "\"3.78 x (50 - 49) = 3.78€ \\n3.78 x (49 - 47) = 7.56€ \\n3.78 x (47 - 45) = 7.56€ \\n3.78 x (45 - 43) = 7.56€ \\n3.78 x (43 - 40) = 11.34€ \\n3.78 x (40 - 35) = 18.90€ \\n3.78 x (35 - 30) = 18.90€ \\n3.78 x (30 - 25) = 18.90€ \\n3.78 x (25 - 20) = 18.90€ \\n3.78 x (20 - 15) = 18.90€ \\n3.78 x 15 = 56.70€\"";
+
+/* Class = "UILabel"; text = "Уровень"; ObjectID = "wGp-Zj-hxx"; */
+"wGp-Zj-hxx.text" = "Уровень";
+
+/* Class = "UILabel"; text = "50€"; ObjectID = "wbX-kt-04d"; */
+"wbX-kt-04d.text" = "50€";
+
+/* Class = "UILabel"; text = " партнер"; ObjectID = "xTC-qB-dFu"; */
+"xTC-qB-dFu.text" = " партнер";
+
+/* Class = "UILabel"; text = "11"; ObjectID = "xWC-Z6-wEh"; */
+"xWC-Z6-wEh.text" = "11";
+
+/* Class = "UILabel"; text = "200 000"; ObjectID = "xWx-Ri-t5n"; */
+"xWx-Ri-t5n.text" = "200 000";
+
+/* Class = "UILabel"; text = "11"; ObjectID = "xb5-fJ-O6k"; */
+"xb5-fJ-O6k.text" = "11";
+
+/* Class = "UILabel"; text = "50€"; ObjectID = "xdZ-qZ-Lx3"; */
+"xdZ-qZ-Lx3.text" = "50€";
+
+/* Class = "UINavigationItem"; title = "Education"; ObjectID = "xfH-1x-0XV"; */
+"xfH-1x-0XV.title" = "Обучение";
+
+/* Class = "UILabel"; text = "200 000"; ObjectID = "yLB-K4-Zsv"; */
+"yLB-K4-Zsv.text" = "200 000";
+
+/* Class = "UINavigationItem"; title = "Calculator"; ObjectID = "yRi-w7-yCG"; */
+"yRi-w7-yCG.title" = "Калькулятор";
+
+/* Class = "UILabel"; text = "VIP таблица заказов"; ObjectID = "yWl-dl-lxV"; */
+"yWl-dl-lxV.text" = "VIP таблица заказов";
+
+/* Class = "UILabel"; text = "200 000"; ObjectID = "zCj-Sp-9kn"; */
+"zCj-Sp-9kn.text" = "200 000";
+
+/* Class = "UILabel"; text = "Бонусные единицы"; ObjectID = "zFK-GP-PNR"; */
+"zFK-GP-PNR.text" = "Бонусные единицы";
+
+/* Class = "UILabel"; text = "9% - Распределяется по ЛИДЕРСКОЙ программе"; ObjectID = "zGZ-j1-FwB"; */
+"zGZ-j1-FwB.text" = "9% - Распределяется по ЛИДЕРСКОЙ программе";
+
+/* Class = "UILabel"; text = "Name Surname"; ObjectID = "zTK-Ta-K5R"; */
+"zTK-Ta-K5R.text" = "Name Surname";
+
+/* Class = "UILabel"; text = "The above creates a scroll view and an image view. The image view is set as a subview of the scroll view. contentSize sets the size of the scrollable region. We set it equal to the size of the image view (2000 x 1500). We set the scroll view’s background color to black so that the image can have a black backdrop."; ObjectID = "zZy-Vi-NFn"; */
+"zZy-Vi-NFn.text" = "The above creates a scroll view and an image view. The image view is set as a subview of the scroll view. contentSize sets the size of the scrollable region. We set it equal to the size of the image view (2000 x 1500). We set the scroll view’s background color to black so that the image can have a black backdrop.";
+
+/* Class = "UILabel"; text = "200 000"; ObjectID = "zeZ-JS-dmu"; */
+"zeZ-JS-dmu.text" = "200 000";
+
+/* Class = "UILabel"; text = "200 000"; ObjectID = "zv2-xh-XNx"; */
+"zv2-xh-XNx.text" = "200 000";
