@@ -1,0 +1,306 @@
+/* 
+  Localizable.strings
+  SwissPlanner
+
+  Created by Anastasiya Yarovenko on 20.05.16.
+  Copyright © 2016 Elena Baoychuk. All rights reserved.
+*/
+
+
+/* Navigation */
+
+"navigation.item.cabinet" = "Gabinete";
+
+"navigation.item.calculator" = "Calculador";
+
+"navigation.item.education" = "Formación";
+
+"navigation.item.rewards" = "Premios";
+
+"navigation.item.testing" = "Test";
+
+"navigation.item.settings" = "Ajustes";
+
+"navigation.item.section.2" = "Síguenos";
+
+/* Cabinet */
+
+"cabinet.title" = "Mi Gabinete";
+
+"cabinet.cellcontent.1.placeholder" = "Nombre del usuario";
+
+"cabinet.cellcontent.2.title" = "Nivel de líderes:";
+
+"cabinet.cellcontent.3.title" = "Mis Unidades Bono:";
+
+"cabinet.cellcontent.4.title" = "Para el siguente nivel:";
+
+"cabinet.cellcontent.2_3.none" = "Nada";
+
+"cabinet.order.mainOrder" = "Contrato principal";
+
+"cabinet.order.vipOrder" = "Contrato VIP";
+
+"cabinet.order.vipPlusOrder" = "Conrato VIP Plus";
+
+/* Calculator */
+
+"calculator.title" = "Calculador";
+
+"calculator.order.preOrder" = "Preliminar";
+
+"calculator.order.mainOrder" = "Principal";
+
+"calculator.order.preVipOrder" = "Pre VIP";
+
+"calculator.order.vipOrder" = "VIP";
+
+"calculator.order.preVipPlusOrder" = "Pre VIP PLUS";
+
+"calculator.order.vipPlusOrder" = "VIP PLUS";
+
+"calculator.content.yourLevel" = "Su Nivel";
+
+"calculator.content.partnersLevel" = "Nivel del Socio";
+
+"calculator.content.prepayment" = "Pago previo";
+
+"calculator.content.isDirect" = "Socio Directo";
+
+"calculator.content.formula1" = "\nPago previo = €%@ - €%d(сomisión de Internet) = €%@\n\n";
+
+"calculator.content.formula2" = "€%@ x 4 Encargos = €%@ (circulación de mercancías)\n\n";
+
+"calculator.content.formula3" = "€%@ - €%@ (reinversión) = €%@\n\n";
+
+"calculator.content.formula4" = "€%@  - 10%% (comisión) = €%@ (сompra de oro)\n\n";
+
+"calculator.content.formula5" = "€%@ / 500 = %@ las unidades bono\n\n";
+
+"calculator.content.formula6" = "Diferencias de precios entre los niveles = €%d (el coste de puntos para su nivel) - €%d (el coste de puntos para el nivel de su socio) = €%@\n\n";
+
+"calculator.content.formula7" = "\nUd esta perdiendo su dinero!";
+
+"calculator.content.formula8" = "Ingresos = €%@ * %@ = €%@ (сompra de oro) %@";
+
+/* Rewards */
+
+"rewards.title" = "Premios";
+
+"rewards.1Level" = "1 Nivel";
+
+"rewards.3Level" = "3 Nivel";
+
+"rewards.4Level" = "4 Nivel";
+
+"rewards.5Level" = "5 Nivel";
+
+"rewards.6Level" = "6 Nivel";
+
+"rewards.7-11Levels" = "7-11 Nivel";
+
+"rewards.cruise" = "Crucero";
+
+/* Testing */
+
+"testing.title" = "Test";
+
+"testing.content.bestResult" = "Mejor resultado del test\n%@ / %d\n\n";
+
+"testing.content.lastResult" = "último resultado del test\n%@ / %d";
+
+"testing.startButton" = "Empezar el test";
+
+"testing.slide.questionLabel" = "Pregunta %d / %d";
+
+/* Settings */
+
+"settings.title" = "Ajustes";
+
+"settings.cell1.title" = "Su Nombre";
+
+"settings.cell2.title" = "Las unidades bono";
+
+"settings.cell3.title" = "En el programa de líderes";
+
+"settings.cell4.title" = "Idioma";
+
+"settings.sectionTitle" = "Ajustes del usuario";
+
+"settings.cell1.placeholder" = "Su nombre completo";
+
+"settings.cell2.placeholder" = "Sus unidades de carrera";
+
+/* Education */
+
+"education.title" = "Formación";
+
+/* Education Slide 1 */
+
+"education.slide1.header" = "Ingresos en la compañía Swissgolden";
+
+"education.slide1.block1.header" = "Programa de bonos";
+
+"education.slide1.block1.content" = "Inicio rápido\nIngresos Activos";
+
+"education.slide1.block2.header" = "Programa de líderes";
+
+"education.slide1.block2.content" = "Ingresos Pasivos";
+
+/* Education Slide 2 */
+
+"education.slide2.block1" = "90% - La compañía compa el oro para su socio en el programa de bonos";
+
+"education.slide2.block2" = "9%- La compañía distribuye en el programa de líderes";
+
+"education.slide2.block3" = "1% - Ingresos de la compañía";
+
+/* Education Slide 3 */
+
+"education.slide3.header" = "Términos de acceso al programa de líderes";
+
+"education.slide3.block1.header" = "En el contrato principal";
+
+"education.slide3.block1.content" = "1. Ud. Tiene que cerrar su mesa principal\n\n2. Sus 2 personas invitadas  tambien tienen  cerrar sus mesas principales\n\n3.	Y sus dos invitados respectivamete tienen que cerrar sus tablas";
+
+"education.slide3.block2.header" = "En el contrato VIP";
+
+"education.slide3.block2.content" = "1. Ud. tiene que cerrar su mesa VIP\n\n2. Sus dos personas invitadas  tambien tienen que cerrar sus mesas VIP";
+
+/* Education Slide 4 */
+
+"education.slide4.header" = "Ingresos en el programa de líderes";
+
+"education.slide4.block1.header" = "Circulación de mercancías/ 500=Unidades bono";
+
+"education.slide4.block1.content" = "Las unidades bono acumulan en el programa de líderes";
+
+"education.slide4.block2.header" = "Mesa principal de pedidos";
+
+"education.slide4.block2.content" = "2100€ - 10% = 1890€ (circulación de mercancías)\n1890€ / 500 = 3.78 unidades bono\nud va a obtener para una mesa Principal cerrada";
+
+"education.slide4.block3.header" = "Mesa VIP de pedidos";
+
+"education.slide4.block3.content" = "8250€ - 10% = 7425€ (сirculación de mercancías)\n7425€ / 500 = 14.85 unidades bono \npara una mesa VIP cerrada";
+
+/* Education Slide 5 */
+
+"education.slide5.header" = "Ingresos en el programa de líderes";
+
+"education.slide5.block1.header" = "Ingresos= precio para 1 unidad bono x Unidades bono";
+
+"education.slide5.block2.header" = "Mesa VIP de pedidos";
+
+"education.slide5.block2.content" = "On the 1st level of the leadership program You earn €15 for 1 bonus unit.\n€15 х 3.78 = €56.70 \nOn the 2nd level of the leadership program You earn €20 for 1 bonus unit.\n€20 х 3.78 = €75.60";
+
+"education.slide5.block3.header" = "VIP table of orders";
+
+"education.slide5.block3.content" = "En el 1 nivel del programa de líderes ud gana €15 para 1 unidad bono.\n€15 х 14.85 = €222.75 \nEn el 2 nivel del programa de líderes Ud gana €20 para 1 unidad bono.\n€20 х 14.85 = €297.00";
+
+/* Education Slide 6 */
+
+"education.slide6.header" = "Ingresos en el programa de líderes";
+
+"education.slide6.block1.header" = "Ingresos = precio para 1 unidad bono x Unidades bono";
+
+"education.slide6.block2.header" = "Mesa principal de los encargos";
+
+"education.slide6.block2.content" = "Si usted está en el programa de líderes y su socio no, entonces el 3 nivel usted gana 25 euros por 1 unidad bono:\n€25 х 3.78 = €94.50";
+
+"education.slide6.block3.header" = "Mesa VIP de los encargos";
+
+"education.slide6.block3.content" = "Si usted está en el programa de líderes y su socio no, entonces el 3 nivel usted gana 25 euros por 1 unidad bono:\n€25 х 14.85 = €371.25";
+
+/* Education Slide 7 */
+
+"education.slide7.header" = "Los ingresos en el programa de líderes";
+
+"education.slide7.block1.header" = "Los ingresos = las unidades bono x la diferencia de precios entre los niveles";
+
+"education.slide7.block2.header" = "La mesa principal de los encargos";
+
+"education.slide7.block2.content" = "Si usted está en 2 nivel y su socio está en el 1 nivel del programa de líderes, sus ingresos forman:\n3.78 х (€20 - €15) = €18.90";
+
+"education.slide7.block3.header" = "La mesa VIP de los encargos ";
+
+"education.slide7.block3.content" = "Si usted está en 2 nivel y su socio está en el 1 nivel del programa de líderes, sus ingresos forman:\n14.85 х (€20 - €15) = €74.25";
+
+/* Education Slide 8 */
+
+"education.slide8.header" = "Los ingresos en el programa de líderes";
+
+"education.slide8.block1.header" = "Los ingresos = las unidades bono x la diferencia de precios por unidades bono entre los niveles";
+
+"education.slide8.block2.header" = "La mesa principal de los encargos";
+
+"education.slide8.block2.content" = "Si usted está en 4 nivel y su socio está en el 1 nivel del programa de líderes, sus ingresos forman:\n3.78 х (€30 - €15) = €56.70";
+
+"education.slide8.block3.header" = "La mesa VIP de los encargos";
+
+"education.slide8.block3.content" = "Si usted está en 4 nivel y su socio está en el 1 nivel del programa de líderes, sus ingresos forman:\n14.85 х (€30 - €15) = €222.75";
+
+/* Education Slide 8a */
+
+"education.slide8a.header" = "Los ingresos en el programa de líderes";
+
+"education.slide8a.block1.header" = "Los ingresos del socio directo (Independientemente del nivel de su socio principal) = las unidades bono x la diferencia entre su nivel y el primer nivel del programa de líderes";
+
+"education.slide8a.block2.header" = "La mesa principal de los encargos";
+
+"education.slide8a.block2.content" = "YSi usted está en 9 nivel y su socio directo está en el 5 nivel del programa de líderes, sus ingresos forman:\n3.78 х (47€ - 0€) = 177.6€";
+
+"education.slide8a.block3.header" = "La mesa VIP de los encargos";
+
+"education.slide8a.block3.content" = "Si usted está en 9 nivel y su socio está en el 5 nivel del programa de líderes, sus ingresos forman:\n14.85 х (47€ - 0€) = 697.95€";
+
+/* Education Slide 9 */
+
+"education.slide9.header" = "Cuanto dinero se distribuye por la companía en el contrato principal en el programa de líderes";
+
+"education.slide9.block2.content" = "2100 x 10% = €210 \n10% - la comisiíon de la companía de 1 mesa principal";
+
+"education.slide9.block3.content" = "€189.00 -  la companía distribuye en el programa de líderes";
+
+"education.slide9.block4.content" = "€2100 x 9% = €189 \n9% - va al programa de líderes \n1% - se queda como los ingresos de la companía";
+
+/* Education Slide 10 */
+
+"education.slide10.header" = "Cuanto dinero se distribuye por la companía en el contrato VIP en el programa de líderes";
+
+"education.slide10.block2.content" = "8250 x 10% = €825 \n10% -  la comisiíon de la companía de 1 mesa VIP";
+
+"education.slide10.block3.content" = "€742.5 - la companía distribuye en el programa de líderes";
+
+"education.slide10.block4.content" = "€8250 x 9% = €742.5 \n9% - va al programa de líderes \n1% - se queda como los ingresos de la companía";
+
+/* Education Slide 11 */
+
+"education.slide11.header" = "Cuanto dinero se distribuye por la companía en el contrato VIP  PLUS en el programa de líderes";
+
+"education.slide11.block2.content" = "29400 x 10% = €2940 \n10% - la comisiíon de la companía de 1 mesa VIP PLUS";
+
+"education.slide11.block3.content" = "€2646 - la companía distribuye en el programa de líderes";
+
+"education.slide11.block4.content" = "€29400 x 9% = €2646 \n9% - va al programa de líderes \n1% - se queda como los ingresos de la companía";
+
+/* Education Slide Conclusion */
+
+"education.slideConclusion.header" = "Los cálculos de experiencia de liderazgo";
+
+/* Education Slide 13 */
+
+"education.slide13.header" = "El precio de una recomendación en el programa de líderes";
+
+"education.slide13.headerContent" = "Si la diferencia entre usted y su socio siempre forma 1 nivel";
+
+/* Education Tables */
+
+"prettyTable.firstCellItem" = "Nivel";
+
+"prettyTable.secondCellItem" = "Unidades bono";
+
+"prettyTable.thirdCellItem" = "Precio";
+
+"simpleTable.firstCellItem" = "Usted";
+
+"simpleTable.secondCellItem" = "Socio";

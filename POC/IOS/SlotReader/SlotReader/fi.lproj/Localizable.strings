@@ -1,0 +1,47 @@
+/* 
+  Localizable.strings
+  SlotReader
+
+  Created by User on 6/9/16.
+  Copyright © 2016 User. All rights reserved.
+*/
+
+/* Navigation */
+ 
+"navigation.item.home" = "Ensisijainen";
+
+"navigation.item.themes" = "Liitutaulu teemat";
+
+"navigation.item.languages" = "Kielet";
+
+"navigation.item.dictionary" = "Sanakirja";
+
+"navigation.item.greenBoard" = "Vihreä liitutaulu";
+
+"navigation.item.lightBoard" = "Kevyt liitutaulu";
+
+"navigation.item.darkBoard" = "Tumman liitutaulu";
+
+"navigation.item.back" = "Takaisin";
+
+/* Dictionary */
+
+"dictionary.navigation.title" = "Sanakirja";
+
+"dictionary.message.positive.adding" = "Uusi sana lisätään";
+
+"dictionary.message.positive.deleting" = "Valitut poistetaan";
+
+"dictionary.message.positive.updating" = "Sana päivitetään";
+
+"dictionary.message.negative.adding" = "Virhe lisätään sana";
+
+"dictionary.message.negative.deleting" = "Virhe poistettaessa";
+
+"dictionary.message.negative.updating" = "Virhe sana päivittäminen";
+
+
+
+
+
+

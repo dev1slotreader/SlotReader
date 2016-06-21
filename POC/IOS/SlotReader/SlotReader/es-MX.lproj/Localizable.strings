@@ -1,0 +1,46 @@
+/* 
+  Localizable.strings
+  SlotReader
+
+  Created by User on 6/9/16.
+  Copyright © 2016 User. All rights reserved.
+*/
+
+/* Navigation */
+
+"navigation.item.home" = "Primario";
+
+"navigation.item.themes" = "Temas pizarra";
+
+"navigation.item.languages" = "Idiomas";
+
+"navigation.item.dictionary" = "Diccionario";
+
+"navigation.item.greenBoard" = "Pizarra verde";
+
+"navigation.item.lightBoard" = "Pizarra luz";
+
+"navigation.item.darkBoard" = "Pizarra oscura";
+
+"navigation.item.back" = "Espalda";
+
+/* Dictionary */
+
+"dictionary.navigation.title" = "Diccionario";
+
+"dictionary.message.positive.adding" = "Nueva palabra añadida";
+
+"dictionary.message.positive.deleting" = "Palabras seleccionadas eliminan";
+
+"dictionary.message.positive.updating" = "La palabra se actualiza";
+
+"dictionary.message.negative.adding" = "Error al añadir la palabra";
+
+"dictionary.message.negative.deleting" = "Error al suprimir";
+
+"dictionary.message.negative.updating" = "Error al actualizar palabra";
+
+
+
+
+

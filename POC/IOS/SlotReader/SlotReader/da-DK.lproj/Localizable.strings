@@ -1,0 +1,47 @@
+/* 
+  Localizable.strings
+  SlotReader
+
+  Created by User on 6/9/16.
+  Copyright © 2016 User. All rights reserved.
+*/
+
+/* Navigation */
+ 
+"navigation.item.home" = "Primær";
+
+"navigation.item.themes" = "Tavle temaer";
+
+"navigation.item.languages" = "Sprog";
+
+"navigation.item.dictionary" = "Ordbog";
+
+"navigation.item.greenBoard" = "Grønne tavle";
+
+"navigation.item.lightBoard" = "Lys tavle";
+
+"navigation.item.darkBoard" = "Mørk tavle";
+
+"navigation.item.back" = "Tilbage";
+
+/* Dictionary */
+
+"dictionary.navigation.title" = "Ordbog";
+
+"dictionary.message.positive.adding" = "Nyt ord tilføjet";
+
+"dictionary.message.positive.deleting" = "Valgte ord udgår";
+
+"dictionary.message.positive.updating" = "Ordet er opdateret";
+
+"dictionary.message.negative.adding" = "Fejl ved tilføjelse af ordet";
+
+"dictionary.message.negative.deleting" = "Fejl under sletning";
+
+"dictionary.message.negative.updating" = "Fejl ved ordet opdatering";
+
+
+
+
+
+
