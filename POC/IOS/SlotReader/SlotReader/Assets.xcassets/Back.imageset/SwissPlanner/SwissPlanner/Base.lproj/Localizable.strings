@@ -1,0 +1,306 @@
+/* 
+  Localizable.strings
+  SwissPlanner
+
+  Created by Anastasiya Yarovenko on 20.05.16.
+  Copyright © 2016 Elena Baoychuk. All rights reserved.
+*/
+
+
+/* Navigation */
+
+"navigation.item.cabinet" = "Cabinet";
+
+"navigation.item.calculator" = "Calculator";
+
+"navigation.item.education" = "Education";
+
+"navigation.item.rewards" = "Rewards";
+
+"navigation.item.testing" = "Testing";
+
+"navigation.item.settings" = "Settings";
+
+"navigation.item.section.2" = "FOLLOW US";
+
+/* Cabinet */
+
+"cabinet.title" = "My Cabinet";
+
+"cabinet.cellcontent.1.placeholder" = "User Name";
+
+"cabinet.cellcontent.2.title" = "My leadership level:";
+
+"cabinet.cellcontent.3.title" = "My bonus units:";
+
+"cabinet.cellcontent.4.title" = "Units to the next level:";
+
+"cabinet.cellcontent.2_3.none" = "None";
+
+"cabinet.order.mainOrder" = "Main order";
+
+"cabinet.order.vipOrder" = "VIP order";
+
+"cabinet.order.vipPlusOrder" = "VIP PLUS order";
+
+/* Calculator */
+
+"calculator.title" = "Calculator";
+
+"calculator.order.preOrder" = "Preliminary";
+
+"calculator.order.mainOrder" = "Main";
+
+"calculator.order.preVipOrder" = "Pre VIP";
+
+"calculator.order.vipOrder" = "VIP";
+
+"calculator.order.preVipPlusOrder" = "Pre VIP PLUS";
+
+"calculator.order.vipPlusOrder" = "VIP PLUS";
+
+"calculator.content.yourLevel" = "Your level";
+
+"calculator.content.partnersLevel" = "Partner's level";
+
+"calculator.content.prepayment" = "Prepayment";
+
+"calculator.content.isDirect" = "Direct Partner";
+
+"calculator.content.formula1" = "\nPrepayment = €%@ - €%d(internet commission) = €%@\n\n";
+
+"calculator.content.formula2" = "€%@ x 4 Orders = €%@ (commodity circulation)\n\n";
+
+"calculator.content.formula3" = "€%@ - €%@ (reinvestment) = €%@\n\n";
+
+"calculator.content.formula4" = "€%@  - 10%% (commission) = €%@ (buying gold)\n\n";
+
+"calculator.content.formula5" = "€%@ / 500 = %@ bonus units\n\n";
+
+"calculator.content.formula6" = "Price difference between levels = €%d (point cost for your level) - €%d (point cost for partners level) = €%@\n\n";
+
+"calculator.content.formula7" = "\nYou are losing your money!";
+
+"calculator.content.formula8" = "Income = €%@ * %@ = €%@ (buying gold) %@";
+
+/* Rewards */
+
+"rewards.title" = "Rewards";
+
+"rewards.1Level" = "1 Level";
+
+"rewards.3Level" = "3 Level";
+
+"rewards.4Level" = "4 Level";
+
+"rewards.5Level" = "5 Level";
+
+"rewards.6Level" = "6 Level";
+
+"rewards.7-11Levels" = "7-11 levels";
+
+"rewards.cruise" = "Cruise";
+
+/* Testing */
+
+"testing.title" = "Testing";
+
+"testing.content.bestResult" = "BEST TEST RESULT\n%@ of %d\n\n";
+
+"testing.content.lastResult" = "LAST TEST RESULT\n%@ of %d";
+
+"testing.startButton" = "START THE TEST";
+
+"testing.slide.questionLabel" = "Question %d of %d";
+
+/* Settings */
+
+"settings.title" = "Settings";
+
+"settings.cell1.title" = "Your name";
+
+"settings.cell2.title" = "Bonus units";
+
+"settings.cell3.title" = "In leadership program";
+
+"settings.cell4.title" = "Languages";
+
+"settings.sectionTitle" = "User settings";
+
+"settings.cell1.placeholder" = "Your full name";
+
+"settings.cell2.placeholder" = "Your carier points";
+
+/* Education */
+
+"education.title" = "Education";
+
+/* Education Slide 1 */
+
+"education.slide1.header" = "Income in the SWISSGOLDEN company";
+
+"education.slide1.block1.header" = "Bonus Program";
+
+"education.slide1.block1.content" = "Quick start\nActive income";
+
+"education.slide1.block2.header" = "Leadership Program";
+
+"education.slide1.block2.content" = "Passive income";
+
+/* Education Slide 2 */
+
+"education.slide2.block1" = "90% - The company buys Gold for its partner in Bonus program";
+
+"education.slide2.block2" = "9% - The company distributes in the Leadership program";
+
+"education.slide2.block3" = "1% - Income of the company";
+
+/* Education Slide 3 */
+
+"education.slide3.header" = "Terms of access to the leadership program";
+
+"education.slide3.block1.header" = "in the Main agreement";
+
+"education.slide3.block1.content" = "1. You need to close your Main table\n\n2. Your 2 attracted customers should also close their Main tables\n\n3. And their 2 invited partners should do the same";
+
+"education.slide3.block2.header" = "in the VIP agreement";
+
+"education.slide3.block2.content" = "1. You need to close your VIP table\n\n2. Your 2 invited partners should also close their VIP tables";
+
+/* Education Slide 4 */
+
+"education.slide4.header" = "Income in the Leadership program";
+
+"education.slide4.block1.header" = "Commodity circulation / 500 = Bonus units";
+
+"education.slide4.block1.content" = "The bonus units accumulate in the leadership program";
+
+"education.slide4.block2.header" = "Main table of orders";
+
+"education.slide4.block2.content" = "2100€ - 10% = 1890€ (commodity circulation)\n1890€ / 500 = 3.78 bonus units\nyou will get for one closed Main table";
+
+"education.slide4.block3.header" = "VIP table of orders";
+
+"education.slide4.block3.content" = "8250€ - 10% = 7425€ (commodity circulation)\n7425€ / 500 = 14.85 bonus units\nyou will get for one closed VIP table";
+
+/* Education Slide 5 */
+
+"education.slide5.header" = "Income in the Leadership program";
+
+"education.slide5.block1.header" = "Income = Price for 1 bonus unit х Bonus units";
+
+"education.slide5.block2.header" = "Main table of orders";
+
+"education.slide5.block2.content" = "On the 1st level of the leadership program You earn €15 for 1 bonus unit.\n€15 х 3.78 = €56.70 \nOn the 2nd level of the leadership program You earn €20 for 1 bonus unit.\n€20 х 3.78 = €75.60";
+
+"education.slide5.block3.header" = "VIP table of orders";
+
+"education.slide5.block3.content" = "On the 1st level of the leadership program You earn €15 for 1 bonus unit.\n€15 х 14.85 = €222.75 \nOn the 2nd level of the leadership program You earn €20 for 1 bonus unit.\n€20 х 14.85 = €297.00";
+
+/* Education Slide 6 */
+
+"education.slide6.header" = "Income in the Leadership program";
+
+"education.slide6.block1.header" = "Income = Price for 1 bonus unit х Bonus units";
+
+"education.slide6.block2.header" = "Main table of orders";
+
+"education.slide6.block2.content" = "If You are in the Leadership program and Your partner has not yet than on the 3rd level You will earn €25 for 1 bonus unit\n€25 х 3.78 = €94.50 etc.";
+
+"education.slide6.block3.header" = "VIP table of orders";
+
+"education.slide6.block3.content" = "If You are in the Leadership program and Your partner has not yet than on the 3rd level You will earn €25 for 1 bonus unit\n€25 х 14.85 = €371.25 etc.";
+
+/* Education Slide 7 */
+
+"education.slide7.header" = "Income in the Leadership program";
+
+"education.slide7.block1.header" = "Income = Bonus units х Price differences between levels";
+
+"education.slide7.block2.header" = "Main table of orders";
+
+"education.slide7.block2.content" = "If You are on the 2nd level, and Your partner is on the 1st level of the Leadership program Your income is:\n3.78 х (€20 - €15) = €18.90";
+
+"education.slide7.block3.header" = "VIP table of orders";
+
+"education.slide7.block3.content" = "If You are on the 2nd level, and Your partner is on the 1st level of the Leadership program Your income is:\n14.85 х (€20 - €15) = €74.25";
+
+/* Education Slide 8 */
+
+"education.slide8.header" = "Income in the Leadership program";
+
+"education.slide8.block1.header" = "Income = Bonus units х Price differences between levels";
+
+"education.slide8.block2.header" = "Main table of orders";
+
+"education.slide8.block2.content" = "If You are on the 4th level and Your partner is on the 1st level of the Leadership program Your income is:\n3.78 х (€30 - €15) = €56.70";
+
+"education.slide8.block3.header" = "VIP table of orders";
+
+"education.slide8.block3.content" = "If You are on the 4th level and Your partner is on the 1st level of the Leadership program Your income is:\n14.85 х (€30 - €15) = €222.75";
+
+/* Education Slide 8a */
+
+"education.slide8a.header" = "Income in the Leadership program";
+
+"education.slide8a.block1.header" = "Income from your direct partner (doesn't matter what's your partner's level is) = Bonus units х Price differences between your level and 1 level of Leadership program";
+
+"education.slide8a.block2.header" = "Main table of orders";
+
+"education.slide8a.block2.content" = "You are on 9 level, your direct partner on 5 level of Leadership program. Your income is:\n3.78 х (47€ - 0€) = 177.6€";
+
+"education.slide8a.block3.header" = "VIP table of orders";
+
+"education.slide8a.block3.content" = "You are on 9 level, your direct partner on 5 level of Leadership program. Your income is:\n14.85 х (47€ - 0€) = 697.95€";
+
+/* Education Slide 9 */
+
+"education.slide9.header" = "How much money the company distributes in the Main agreement of the Leadership program";
+
+"education.slide9.block2.content" = "2100 x 10% = €210 \n10% - company commission for one Main table";
+
+"education.slide9.block3.content" = "€189.00 - the company distributes in the Leadership program";
+
+"education.slide9.block4.content" = "€2100 x 9% = €189 \n9% - goes to the Leadership program \n1% - remains as an income of the company";
+
+/* Education Slide 10 */
+
+"education.slide10.header" = "How much money the company distributes in the VIP agreement of the Leadership program";
+
+"education.slide10.block2.content" = "8250 x 10% = €825 \n10% - company commission for one VIP table";
+
+"education.slide10.block3.content" = "€742.5 - the company distributes in the Leadership program";
+
+"education.slide10.block4.content" = "€8250 x 9% = €742.5 \n9% - goes to the Leadership program \n1% - remains as an income of the company";
+
+/* Education Slide 11 */
+
+"education.slide11.header" = "How much money the company distributes in the VIP PLUS agreement of the Leadership program";
+
+"education.slide11.block2.content" = "29400 x 10% = €2940 \n10% - company commission for one VIP PLUS table";
+
+"education.slide11.block3.content" = "€2646 - the company distributes in the Leadership program";
+
+"education.slide11.block4.content" = "€29400 x 9% = €2646 \n9% - goes to the Leadership program \n1% - remains as an income of the company";
+
+/* Education Slide Conclusion */
+
+"education.slideConclusion.header" = "Leadership Bonus Calculations";
+
+/* Education Slide 13 */
+
+"education.slide13.header" = "The price of one recomendation in the Leadership program";
+
+"education.slide13.headerContent" = "if the difference between you and your partner is always one level";
+
+/* Education Tables */
+
+"prettyTable.firstCellItem" = "Level";
+
+"prettyTable.secondCellItem" = "Bonus units";
+
+"prettyTable.thirdCellItem" = "Price";
+
+"simpleTable.firstCellItem" = "You";
+
+"simpleTable.secondCellItem" = "partner";
