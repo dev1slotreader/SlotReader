@@ -47,6 +47,11 @@ typedef enum {
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	self.cellSelectionCounter = 0;
+	
+	self.messageComposerView = [[MessageComposerView alloc] init];
+	self.messageComposerView.delegate = self;
+	[self.view addSubview:self.messageComposerView];
+	self.messageComposerView.messagePlaceholder = @"Type a word...";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -90,6 +95,8 @@ typedef enum {
 	
 	[self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:(181/255.0) green:(252/255.0) blue:(251/255.0) alpha:1]];
 	[self.navigationItem setTitle:NSLocalizedString(@"dictionary.navigation.title", nil)];
+	
+	[self.messageComposerView setHidden:YES];
 }
 
 - (void) updateEditingInterface {
@@ -98,6 +105,7 @@ typedef enum {
 			[self.positiveButton setImage:[UIImage imageNamed:@"ic_add_white"] forState:UIControlStateNormal];
 			[self.negativeButton setImage:[UIImage imageNamed:@"ic_delete_white"] forState:UIControlStateNormal];
 			self.tableView.multipleTouchEnabled = NO;
+			[self.messageComposerView setHidden:YES];
 			break;			
 		case preChanging:
 			[self.positiveButton setImage:[UIImage imageNamed:@"ic_edit_white"] forState:UIControlStateNormal];
@@ -109,6 +117,7 @@ typedef enum {
 			[self.positiveButton setImage:[UIImage imageNamed:@"ic_done_white"] forState:UIControlStateNormal];
 			[self.negativeButton setImage:[UIImage imageNamed:@"ic_clear_white"] forState:UIControlStateNormal];
 			self.tableView.multipleTouchEnabled = NO;
+			[self.messageComposerView setHidden:NO];
 			break;
 		case deleting:
 			[self.positiveButton setImage:[UIImage imageNamed:@"ic_done_white"] forState:UIControlStateNormal];
@@ -420,6 +429,10 @@ typedef enum {
 	self.fancyTextInputBlockYPosition.constant = 1;
 	[UIView commitAnimations];
 
+}
+
+- (void)messageComposerSendMessageClickedWithMessage:(NSString*)message {
+	
 }
 
 @end

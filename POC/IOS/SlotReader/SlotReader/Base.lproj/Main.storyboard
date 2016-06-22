@@ -1451,6 +1451,9 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <variation key="heightClass=compact" misplaced="YES">
+                                    <rect key="frame" x="113" y="102" width="374" height="196"/>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="QeY-de-g39" id="8Uz-dN-KZe"/>
                                     <outlet property="delegate" destination="QeY-de-g39" id="SlJ-kg-Ygd"/>
@@ -1743,12 +1746,18 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud" translatesAutoresizingMaskIntoConstraints="NO" id="zRV-5L-EET">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <variation key="heightClass=compact" misplaced="YES">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="124"/>
+                                        </variation>
                                     </imageView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter new word here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vDL-7Z-nv0">
                                         <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" keyboardType="namePhonePad"/>
+                                        <variation key="heightClass=compact" misplaced="YES">
+                                            <rect key="frame" x="19" y="52" width="336" height="20"/>
+                                        </variation>
                                     </textField>
                                 </subviews>
                                 <constraints>
@@ -1767,7 +1776,8 @@
                                         <exclude reference="vDL-7Z-nv0"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=compact">
+                                <variation key="heightClass=compact" misplaced="YES">
+                                    <rect key="frame" x="113" y="138" width="374" height="124"/>
                                     <mask key="subviews">
                                         <include reference="zRV-5L-EET"/>
                                         <include reference="vDL-7Z-nv0"/>

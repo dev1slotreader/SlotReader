@@ -16,6 +16,7 @@
 		CE1267321C93149B001C6573 /* SlotReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1267311C93149B001C6573 /* SlotReaderTests.m */; };
 		CE1267481C9AF6AB001C6573 /* WordPickerHelperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1267471C9AF6AB001C6573 /* WordPickerHelperViewController.m */; };
 		CE12674B1CA05FC1001C6573 /* DictionaryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE12674A1CA05FC1001C6573 /* DictionaryTableViewController.m */; };
+		CE4BFE491D19718800E0BA04 /* MessageComposerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4BFE481D19718800E0BA04 /* MessageComposerView.m */; };
 		CE58D4671D09AE6F00F81961 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE58D4691D09AE6F00F81961 /* Localizable.strings */; };
 		CE5913481CA5461E008A3042 /* BoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5913471CA5461E008A3042 /* BoardViewController.m */; };
 		CE59134B1CAAB318008A3042 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE59134A1CAAB318008A3042 /* SWRevealViewController.m */; };
@@ -61,6 +62,8 @@
 		CE1267471C9AF6AB001C6573 /* WordPickerHelperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordPickerHelperViewController.m; sourceTree = "<group>"; };
 		CE1267491CA05FC1001C6573 /* DictionaryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictionaryTableViewController.h; sourceTree = "<group>"; };
 		CE12674A1CA05FC1001C6573 /* DictionaryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DictionaryTableViewController.m; sourceTree = "<group>"; };
+		CE4BFE471D19718800E0BA04 /* MessageComposerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageComposerView.h; sourceTree = "<group>"; };
+		CE4BFE481D19718800E0BA04 /* MessageComposerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageComposerView.m; sourceTree = "<group>"; };
 		CE58D4651D09AE5B00F81961 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
 		CE58D4661D09AE5B00F81961 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		CE58D4681D09AE6F00F81961 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -205,7 +208,6 @@
 				CE1267201C93149B001C6573 /* Main.storyboard */,
 				CE662BA61CC0EDBC008722F1 /* Data classes */,
 				CE662BA81CC0EE54008722F1 /* Picker classes */,
-				CE662BA41CC0ED47008722F1 /* Navigation classes */,
 				CE662BA51CC0ED8A008722F1 /* UI elements classes */,
 				CE5913D41CBE6875008A3042 /* Data */,
 				CE9B20BD1CCA8FE300B43943 /* Toast Manager */,
@@ -235,9 +237,19 @@
 			path = SlotReaderTests;
 			sourceTree = "<group>";
 		};
+		CE4BFE461D19718800E0BA04 /* MessageComposerView */ = {
+			isa = PBXGroup;
+			children = (
+				CE4BFE471D19718800E0BA04 /* MessageComposerView.h */,
+				CE4BFE481D19718800E0BA04 /* MessageComposerView.m */,
+			);
+			path = MessageComposerView;
+			sourceTree = "<group>";
+		};
 		CE5913D41CBE6875008A3042 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				CE662BA41CC0ED47008722F1 /* Navigation classes */,
 				CE5913641CB2B57D008A3042 /* slot_reader_source.txt */,
 				CE58D4691D09AE6F00F81961 /* Localizable.strings */,
 			);
@@ -258,6 +270,7 @@
 		CE662BA51CC0ED8A008722F1 /* UI elements classes */ = {
 			isa = PBXGroup;
 			children = (
+				CE4BFE461D19718800E0BA04 /* MessageComposerView */,
 				CE7A05C21CA2F0E900CFDE01 /* TransparentToolbar.h */,
 				CE7A05C31CA2F0E900CFDE01 /* TransparentToolbar.m */,
 				CE5913461CA5461E008A3042 /* BoardViewController.h */,
@@ -452,6 +465,7 @@
 				CE5913BA1CBBF93A008A3042 /* DictationViewController.m in Sources */,
 				CE1267191C93149B001C6573 /* main.m in Sources */,
 				CE59136B1CB660FC008A3042 /* DataMiner.m in Sources */,
+				CE4BFE491D19718800E0BA04 /* MessageComposerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
