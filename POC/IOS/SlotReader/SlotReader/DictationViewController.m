@@ -48,14 +48,21 @@ typedef enum {
 	[super viewDidLoad];
 	self.cellSelectionCounter = 0;
 	
-	self.messageComposerView = [[MessageComposerView alloc] init];
-	self.messageComposerView.delegate = self;
-	[self.view addSubview:self.messageComposerView];
-	self.messageComposerView.messagePlaceholder = @"Type a word...";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    // register for keyboard notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
 	
 	editingMode = base;
 	[self updateEditingInterface];
@@ -95,8 +102,6 @@ typedef enum {
 	
 	[self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:(181/255.0) green:(252/255.0) blue:(251/255.0) alpha:1]];
 	[self.navigationItem setTitle:NSLocalizedString(@"dictionary.navigation.title", nil)];
-	
-	[self.messageComposerView setHidden:YES];
 }
 
 - (void) updateEditingInterface {
@@ -105,7 +110,7 @@ typedef enum {
 			[self.positiveButton setImage:[UIImage imageNamed:@"ic_add_white"] forState:UIControlStateNormal];
 			[self.negativeButton setImage:[UIImage imageNamed:@"ic_delete_white"] forState:UIControlStateNormal];
 			self.tableView.multipleTouchEnabled = NO;
-			[self.messageComposerView setHidden:YES];
+    
 			break;			
 		case preChanging:
 			[self.positiveButton setImage:[UIImage imageNamed:@"ic_edit_white"] forState:UIControlStateNormal];
@@ -117,8 +122,7 @@ typedef enum {
 			[self.positiveButton setImage:[UIImage imageNamed:@"ic_done_white"] forState:UIControlStateNormal];
 			[self.negativeButton setImage:[UIImage imageNamed:@"ic_clear_white"] forState:UIControlStateNormal];
 			self.tableView.multipleTouchEnabled = NO;
-			[self.messageComposerView setHidden:NO];
-			break;
+            break;
 		case deleting:
 			[self.positiveButton setImage:[UIImage imageNamed:@"ic_done_white"] forState:UIControlStateNormal];
 			[self.negativeButton setImage:[UIImage imageNamed:@"ic_clear_white"] forState:UIControlStateNormal];
@@ -134,6 +138,15 @@ typedef enum {
 	appDelegate.languageSelectorDelegate = nil;
 	[self removeObserver:self forKeyPath:@"cellSelectionCounter"];
 	[super viewWillDisappear:animated];
+    
+    // unregister for keyboard notifications while not visible.
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillShowNotification
+                                                  object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillHideNotification
+                                                  object:nil];
 }
 
 - (void) getDataFromSource {
@@ -428,11 +441,67 @@ typedef enum {
 	_fancyTextInputBlock.frame = CGRectMake(_fancyTextInputBlock.frame.origin.x, (_fancyTextInputBlock.frame.origin.y - 100.0), _fancyTextInputBlock.frame.size.width, _fancyTextInputBlock.frame.size.height);
 	self.fancyTextInputBlockYPosition.constant = 1;
 	[UIView commitAnimations];
+    
+    //if ([sender isEqual:mailTf])
+    {
+        //move the main view, so that the keyboard does not hide it.
+        if  (self.view.frame.origin.y >= 0)
+        {
+            [self setViewMovedUp:YES];
+        }
+    }
+
 
 }
 
-- (void)messageComposerSendMessageClickedWithMessage:(NSString*)message {
-	
+-(void)keyboardWillShow {
+    // Animate the current view out of the way
+    if (self.view.frame.origin.y >= 0)
+    {
+        [self setViewMovedUp:YES];
+    }
+    else if (self.view.frame.origin.y < 0)
+    {
+        [self setViewMovedUp:NO];
+    }
 }
+
+-(void)keyboardWillHide {
+    if (self.view.frame.origin.y >= 0)
+    {
+        [self setViewMovedUp:YES];
+    }
+    else if (self.view.frame.origin.y < 0)
+    {
+        [self setViewMovedUp:NO];
+    }
+}
+
+
+//method to move the view up/down whenever the keyboard is shown/dismissed
+-(void)setViewMovedUp:(BOOL)movedUp
+{
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.3]; // if you want to slide up the view
+    
+    CGRect rect = self.view.frame;
+    if (movedUp)
+    {
+        // 1. move the view's origin up so that the text field that will be hidden come above the keyboard
+        // 2. increase the size of the view so that the area behind the keyboard is covered up.
+        rect.origin.y -= kOFFSET_FOR_KEYBOARD;
+        rect.size.height += kOFFSET_FOR_KEYBOARD;
+    }
+    else
+    {
+        // revert back to the normal state.
+        rect.origin.y += kOFFSET_FOR_KEYBOARD;
+        rect.size.height -= kOFFSET_FOR_KEYBOARD;
+    }
+    self.view.frame = rect;
+    
+    [UIView commitAnimations];
+}
+
 
 @end

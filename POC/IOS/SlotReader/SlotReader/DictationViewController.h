@@ -10,10 +10,10 @@
 #import "FancyTextInputBlock.h"
 #import "AppDelegate.h"
 #import "BoardViewController.h"
-#import "MessageComposerView.h"
 
-@interface DictationViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, LanguageSelector, BoardThemeSelector, UICollectionViewDelegate, UICollectionViewDataSource,
-	MessageComposerViewDelegate>
+#import "UIViewController+KeyboardAnimation.h"
+
+@interface DictationViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, LanguageSelector, BoardThemeSelector, UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIImageView *board;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -27,7 +27,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *positiveButton;
 @property (weak, nonatomic) IBOutlet UIButton *negativeButton;
 
-@property (nonatomic, strong) MessageComposerView *messageComposerView;
+
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (assign, nonatomic) NSInteger cellSelectionCounter;
 - (IBAction)changeNumberOfLetters:(id)sender;
@@ -35,6 +35,8 @@
 - (IBAction)insertNewWordIntoBase:(id)sender;
 
 - (IBAction)editingButtonClicked:(UIButton *)sender;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *chatInputBottomSpace;
 
 
 @end
