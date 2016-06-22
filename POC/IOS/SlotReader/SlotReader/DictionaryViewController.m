@@ -6,7 +6,7 @@
 //  Copyright © 2016 User. All rights reserved.
 //
 
-#import "DictationViewController.h"
+#import "DictionaryViewController.h"
 #import "DataMiner.h"
 #import "SWRevealViewController.h"
 #import "EditableTableViewCell.h"
@@ -27,7 +27,7 @@ typedef enum {
 	positive
 }ButtonTypes;
 
-@interface DictationViewController () {
+@interface DictionaryViewController () {
 	DataMiner *dataMiner;
 	NSInteger numberOfLetters;
 	NSMutableArray *words;
@@ -42,7 +42,7 @@ typedef enum {
 
 @end
 
-@implementation DictationViewController
+@implementation DictionaryViewController
 
 - (void)viewDidLoad {
 	[super viewDidLoad];

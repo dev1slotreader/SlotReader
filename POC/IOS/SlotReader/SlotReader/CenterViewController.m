@@ -8,7 +8,6 @@
 
 #import "CenterViewController.h"
 #import "WordPickerHelperViewController.h"
-#import "MenuPanelViewController.h"
 #import "DataMiner.h"
 #import "FancyTextInputBlock.h"
 
@@ -25,10 +24,9 @@ typedef enum {
 	dark
 } BoardScheme;
 
-@interface CenterViewController () <MenuPanelViewControllerDelegate, UIDynamicAnimatorDelegate, SlotPickerDelegate>{
+@interface CenterViewController () <UIDynamicAnimatorDelegate, SlotPickerDelegate>{
 	WordPickerHelperViewController *pickerHelper;
 	SWRevealViewController *revealViewController;
-	MenuPanelViewController *menuPanelViewController;
 	NSDictionary *allWordsForCurrentLanguage;
 	
 	int currentNumberOfLetters;
@@ -48,7 +46,6 @@ typedef enum {
 	appDelegate.themeSelectorDelegate = self;
 	
 	pickerHelper = [[WordPickerHelperViewController alloc] init];
-	menuPanelViewController = [[MenuPanelViewController alloc] init];
 	self.picker.pickerDelegate = self;
 	self.picker.delegate = pickerHelper;
 	self.picker.dataSource = pickerHelper;

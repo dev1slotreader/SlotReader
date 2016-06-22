@@ -8,9 +8,6 @@
 
 #import "SideBarTableViewController.h"
 #import "SWRevealViewController.h"
-#import "LanguagesTableViewController.h"
-#import "DictionaryTableViewController.h"
-#import "InfoViewController.h"
 
 #import "DataMiner.h"
 
