@@ -74,48 +74,10 @@ typedef enum {
 	dispatch_once(&onceToken, ^{
 		[self showTheFirstWord];
 	});
-	//[self addingNumberOfLettersBar];
 	
 	numberPickerCellIds = [[NSArray alloc] initWithObjects:@"cCell1", @"cCell3", @"cCell4", @"cCell5", @"cCell5+", nil];
 	self.collectionView.backgroundColor = [UIColor clearColor];
 }
-
-/*
-- (void) addingNumberOfLettersBar {
-	UIImage *image1 = [UIImage imageNamed:@"1"];
-	UIButton *button1 = [UIButton buttonWithType:UIButtonTypeCustom];
-	button1.backgroundColor = [UIColor redColor];
-	[button1 setImage:image1 forState:UIControlStateNormal];
-	UIBarButtonItem *barButtonItem1 = [[UIBarButtonItem alloc] initWithCustomView:button1];
-	barButtonItem1.tag = 1;
-	
-	UIImage *image3 = [UIImage imageNamed:@"3"];
-	UIBarButtonItem *barButtonItem3 = [[UIBarButtonItem alloc] initWithImage:image3 style:UIBarButtonItemStylePlain target:nil action:@selector(changeNumberOfLettersToShow:)];
-	barButtonItem3.tintColor = [UIColor redColor];
-	UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"ic_add_white"] style:UIBarButtonItemStylePlain target:self action:@selector(changeNumberOfLettersToShow:)];
-	
-	barButtonItem3.tag = 3;
-	
-	UIImage *image4 = [UIImage imageNamed:@"4"];
-	UIBarButtonItem *barButtonItem4 = [[UIBarButtonItem alloc] initWithImage:image4 style:UIBarButtonItemStylePlain target:nil action:@selector(changeNumberOfLettersToShow:)];
-	barButtonItem4.tag = 4;
-	
-	UIImage *image5 = [UIImage imageNamed:@"5"];
-	UIBarButtonItem *barButtonItem5 = [[UIBarButtonItem alloc] initWithImage:image5 style:UIBarButtonItemStylePlain target:nil action:@selector(changeNumberOfLettersToShow:)];
-	barButtonItem5.tag = 5;
-	
-	UIImage *image5p = [UIImage imageNamed:@"5+"];
-	UIBarButtonItem *barButtonItem5p = [[UIBarButtonItem alloc] initWithImage:image5p style:UIBarButtonItemStylePlain target:nil action:@selector(changeNumberOfLettersToShow:)];
-	barButtonItem5p.tag = 0;
-	
-	UIBarButtonItem *flexibleItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-	
-	NSArray *toolbarItems = [NSArray arrayWithObjects:item, flexibleItem, barButtonItem3, flexibleItem, barButtonItem4, flexibleItem, barButtonItem5, flexibleItem, barButtonItem5p, nil];
-	
-
-	self.toolbar.items = toolbarItems;
-	[self.toolbar updateConstraints];
-}*/
 
 - (void) viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
@@ -164,6 +126,7 @@ typedef enum {
 - (void) setNumberOfLetters:(NSNumber *)numberOfLetters andLanguage: (NSString *) language {
 	[pickerHelper setNumberOfLettersToShow:numberOfLetters andLanguage:nil];
 	[self.picker reloadAllComponents];
+#warning Maybe?
 	//[self showTheFirstWord];
 }
 
@@ -185,7 +148,6 @@ typedef enum {
 	NSUInteger row;
 	if (animated){
 		NSUInteger selectedRow = [self.picker selectedRowInComponent:component];
-		//row = selectedRow + ([self.alphabet count] - selectedRow % [self.alphabet count]) + [self.alphabet indexOfObject:letter];
 		row = [self.alphabet count] + [self.alphabet indexOfObject:letter];
 	}
 	else
@@ -204,7 +166,6 @@ typedef enum {
 	int numberOfLetters = (int)((UIBarButtonItem *)sender).tag;
 	switch (numberOfLetters) {
     case 0:
-		//[self setNumberOfLetters:[NSNumber numberWithInt: 10] andLanguage:nil];
 		currentNumberOfLetters = 0;
 		break;
     default:
