@@ -13,7 +13,7 @@
 
 #import "UIViewController+KeyboardAnimation.h"
 
-@interface DictationViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, LanguageSelector, BoardThemeSelector, UICollectionViewDelegate, UICollectionViewDataSource>
+@interface DictionaryViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, LanguageSelector, BoardThemeSelector, UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIImageView *board;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
