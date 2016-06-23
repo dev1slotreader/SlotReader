@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		555E8C0C1D1ACC7A005FC213 /* UIViewController+KeyboardAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 555E8C0A1D1ACC7A005FC213 /* UIViewController+KeyboardAnimation.m */; };
 		556C52A81D1BF2EE00C35128 /* ColorSchemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 556C52A71D1BF2EE00C35128 /* ColorSchemeManager.m */; };
-		556C52AC1D1C2CA000C35128 /* UIViewController+NavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 556C52AB1D1C2CA000C35128 /* UIViewController+NavigationBar.m */; };
-		556C52AF1D1C2FF100C35128 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 556C52AE1D1C2FF100C35128 /* BaseViewController.m */; };
 		CE1267191C93149B001C6573 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1267181C93149B001C6573 /* main.m */; };
 		CE12671C1C93149B001C6573 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE12671B1C93149B001C6573 /* AppDelegate.m */; };
 		CE12671F1C93149B001C6573 /* CenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE12671E1C93149B001C6573 /* CenterViewController.m */; };
@@ -48,10 +46,6 @@
 		555E8C0B1D1ACC7A005FC213 /* UIViewController+KeyboardAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+KeyboardAnimation.h"; sourceTree = "<group>"; };
 		556C52A61D1BF2EE00C35128 /* ColorSchemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorSchemeManager.h; sourceTree = "<group>"; };
 		556C52A71D1BF2EE00C35128 /* ColorSchemeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorSchemeManager.m; sourceTree = "<group>"; };
-		556C52AA1D1C2CA000C35128 /* UIViewController+NavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+NavigationBar.h"; sourceTree = "<group>"; };
-		556C52AB1D1C2CA000C35128 /* UIViewController+NavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+NavigationBar.m"; sourceTree = "<group>"; };
-		556C52AD1D1C2FF100C35128 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
-		556C52AE1D1C2FF100C35128 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		CE1267141C93149B001C6573 /* SlotReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlotReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE1267181C93149B001C6573 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CE12671A1C93149B001C6573 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -173,21 +167,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		556C52A91D1C27C800C35128 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				CE12671D1C93149B001C6573 /* CenterViewController.h */,
-				CE12671E1C93149B001C6573 /* CenterViewController.m */,
-				CE5913B81CBBF93A008A3042 /* DictionaryViewController.h */,
-				CE5913B91CBBF93A008A3042 /* DictionaryViewController.m */,
-				556C52AA1D1C2CA000C35128 /* UIViewController+NavigationBar.h */,
-				556C52AB1D1C2CA000C35128 /* UIViewController+NavigationBar.m */,
-				556C52AD1D1C2FF100C35128 /* BaseViewController.h */,
-				556C52AE1D1C2FF100C35128 /* BaseViewController.m */,
-			);
-			name = ViewControllers;
-			sourceTree = "<group>";
-		};
 		CE12670B1C93149B001C6573 = {
 			isa = PBXGroup;
 			children = (
@@ -209,9 +188,12 @@
 		CE1267161C93149B001C6573 /* SlotReader */ = {
 			isa = PBXGroup;
 			children = (
-				556C52A91D1C27C800C35128 /* ViewControllers */,
 				CE12671A1C93149B001C6573 /* AppDelegate.h */,
 				CE12671B1C93149B001C6573 /* AppDelegate.m */,
+				CE12671D1C93149B001C6573 /* CenterViewController.h */,
+				CE12671E1C93149B001C6573 /* CenterViewController.m */,
+				CE5913B81CBBF93A008A3042 /* DictionaryViewController.h */,
+				CE5913B91CBBF93A008A3042 /* DictionaryViewController.m */,
 				CE1267201C93149B001C6573 /* Main.storyboard */,
 				CE662BA61CC0EDBC008722F1 /* Data classes */,
 				CE662BA51CC0ED8A008722F1 /* UI elements classes */,
@@ -435,8 +417,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				556C52AC1D1C2CA000C35128 /* UIViewController+NavigationBar.m in Sources */,
-				556C52AF1D1C2FF100C35128 /* BaseViewController.m in Sources */,
 				CE9B20C01CCA900100B43943 /* UIView+Toast.m in Sources */,
 				CE5913481CA5461E008A3042 /* BoardViewController.m in Sources */,
 				CE5913D71CBF970C008A3042 /* FancyTextInputBlock.m in Sources */,
