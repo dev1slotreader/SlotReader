@@ -10,10 +10,8 @@
 
 @implementation DataMiner {
 	NSMutableDictionary *allData;
-	//NSMutableData *data;
 	NSString *sourcePath;
 	NSUserDefaults *defaults;
-	//NSString* const commitingCUDOperationKey;
 }
 
 + (id) sharedDataMiner {
@@ -39,8 +37,11 @@
 		}
 				
 		NSError *error = nil;
-		NSArray *pathList = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-		sourcePath =  [NSString stringWithFormat:@"%@/slot_reader_source.txt", [pathList  objectAtIndex:0]];
+		NSArray *pathList = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                                NSUserDomainMask,
+                                                                YES);
+		sourcePath =  [NSString stringWithFormat:@"%@/slot_reader_source.txt",
+                                                [pathList  objectAtIndex:0]];
 		NSMutableData* data = [NSMutableData dataWithContentsOfFile:sourcePath];
 		allData = [[NSMutableDictionary alloc] initWithDictionary:[NSJSONSerialization JSONObjectWithData:data
 																								  options:kNilOptions
@@ -52,12 +53,10 @@
 }
 
 - (void) initSource {
-	//NSError *error = nil;
 	NSString *filePath = [[NSBundle mainBundle] pathForResource:@"slot_reader_source" ofType:@"txt"];
-	//NSURL *url = [NSURL fileURLWithPath:filePath];
 	
-	NSArray *pathList = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-	NSString* sourcePath =  [NSString stringWithFormat:@"%@/slot_reader_source.txt", [pathList  objectAtIndex:0]];
+	//NSArray *pathList = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	//NSString* sourcePath =  [NSString stringWithFormat:@"%@/slot_reader_source.txt", [pathList  objectAtIndex:0]];
 	
 	NSMutableData* data = [NSMutableData dataWithContentsOfFile:filePath];
 	[data writeToFile:sourcePath atomically:NO];
@@ -74,16 +73,16 @@
 }
 
 - (NSArray *) getWordsOfSize: (int) size {
-	NSLog(@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"language"]);
-	return [[allData objectForKey:@"words"] objectForKey:[NSString stringWithFormat:@"%@%d", [[NSUserDefaults standardUserDefaults] objectForKey:@"language"], size]];
+	NSLog(@"%@",[defaults objectForKey:@"language"]);
+	return [[allData objectForKey:@"words"] objectForKey:[NSString stringWithFormat:@"%@%d", [defaults objectForKey:@"language"], size]];
 }
 
 - (BOOL) addNewWord: (NSString *) word toIndex: (NSNumber *) index {
 	NSString* const commitingCUDOperationKey = @"commitingCUDOperationKey";
 	[defaults setBool:YES forKey:commitingCUDOperationKey];
 	
-	NSString *language = [[NSUserDefaults standardUserDefaults] objectForKey:@"language"];
-	NSArray *alphabet = [[allData objectForKey:@"words"] objectForKey:[NSString stringWithFormat:@"%@%d", [[NSUserDefaults standardUserDefaults] objectForKey:@"language"], 1]];
+	NSString *language = [defaults objectForKey:@"language"];
+	NSArray *alphabet = [[allData objectForKey:@"words"] objectForKey:[NSString stringWithFormat:@"%@%d", [defaults objectForKey:@"language"], 1]];
 	NSMutableString *aphabetString = [[NSMutableString alloc] initWithCapacity:1];
 	for (NSString *letter in alphabet) {
 		[aphabetString appendString:letter];
@@ -101,7 +100,7 @@
 	
 	NSMutableDictionary *newData = [[NSMutableDictionary alloc] initWithDictionary:[allData objectForKey:@"words"]];
 
-	[newData setObject:thisSizeLangWordsBuffer forKey:[NSString stringWithFormat:@"%@%d", [[NSUserDefaults standardUserDefaults] objectForKey:@"language"], size]];
+	[newData setObject:thisSizeLangWordsBuffer forKey:[NSString stringWithFormat:@"%@%d", [defaults objectForKey:@"language"], size]];
 	NSMutableDictionary *newAllData = [[NSMutableDictionary alloc] initWithDictionary:allData];
 	[newAllData setObject:newData forKey:@"words"];
 	[allData setDictionary:newAllData];
@@ -118,13 +117,13 @@
 	NSString* const commitingCUDOperationKey = @"commitingCUDOperationKey";
 	[defaults setBool:YES forKey:commitingCUDOperationKey];
 	
-	NSInteger *numberOfLetters = [[[[NSUserDefaults standardUserDefaults] objectForKey:@"currentPositon"] objectAtIndex:0] intValue];
+	NSInteger numberOfLetters = [[[defaults objectForKey:@"currentPositon"] objectAtIndex:0] integerValue];
 	NSMutableArray *words = [NSMutableArray arrayWithArray:[self getWordsOfSize:numberOfLetters]];
 	[words removeObjectsAtIndexes:indexSet];
 	
 	NSMutableDictionary *newData = [[NSMutableDictionary alloc] initWithDictionary:[allData objectForKey:@"words"]];
 	
-	[newData setObject:words forKey:[NSString stringWithFormat:@"%@%d", [[NSUserDefaults standardUserDefaults] objectForKey:@"language"], numberOfLetters]];
+	[newData setObject:words forKey:[NSString stringWithFormat:@"%@%d", [defaults objectForKey:@"language"], numberOfLetters]];
 	NSMutableDictionary *newAllData = [[NSMutableDictionary alloc] initWithDictionary:allData];
 	[newAllData setObject:newData forKey:@"words"];
 	[allData setDictionary:newAllData];
@@ -137,13 +136,13 @@
 	return [data writeToFile:sourcePath options:NSDataWritingAtomic error: &error];
 }
 
-- (BOOL) updateWordAtIndex: (NSUInteger *) index withNewWord: (NSString *)newWord {
+- (BOOL) updateWordAtIndex: (NSUInteger) index withNewWord: (NSString *)newWord {
 	NSString* const commitingCUDOperationKey = @"commitingCUDOperationKey";
 	[defaults setBool:YES forKey:commitingCUDOperationKey];
 	
 	BOOL result = NO;
 	
-	NSInteger *newWordSizeIndexComponent = [newWord length];
+	//NSInteger newWordSizeIndexComponent = [newWord length];
     NSIndexSet *oldWordIndexSet = [NSIndexSet indexSetWithIndex: index];
 	if ([self deleteWordsAtIndexes:oldWordIndexSet]) {
         

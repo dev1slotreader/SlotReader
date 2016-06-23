@@ -144,7 +144,7 @@ typedef enum {
 - (void) displayLetter:(NSString *)letter atComponent:(NSUInteger)component animated:(BOOL)animated {
 	NSUInteger row;
 	if (animated){
-		NSUInteger selectedRow = [self.picker selectedRowInComponent:component];
+		//NSUInteger selectedRow = [self.picker selectedRowInComponent:component];
 		row = [self.alphabet count] + [self.alphabet indexOfObject:letter];
 	}
 	else
