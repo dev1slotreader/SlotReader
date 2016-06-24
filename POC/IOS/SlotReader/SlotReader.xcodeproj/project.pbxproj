@@ -167,6 +167,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5528B7E91D1D2E50002BFCFB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CE12671D1C93149B001C6573 /* CenterViewController.h */,
+				CE12671E1C93149B001C6573 /* CenterViewController.m */,
+				CE5913B81CBBF93A008A3042 /* DictionaryViewController.h */,
+				CE5913B91CBBF93A008A3042 /* DictionaryViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		CE12670B1C93149B001C6573 = {
 			isa = PBXGroup;
 			children = (
@@ -188,12 +199,9 @@
 		CE1267161C93149B001C6573 /* SlotReader */ = {
 			isa = PBXGroup;
 			children = (
+				5528B7E91D1D2E50002BFCFB /* ViewControllers */,
 				CE12671A1C93149B001C6573 /* AppDelegate.h */,
 				CE12671B1C93149B001C6573 /* AppDelegate.m */,
-				CE12671D1C93149B001C6573 /* CenterViewController.h */,
-				CE12671E1C93149B001C6573 /* CenterViewController.m */,
-				CE5913B81CBBF93A008A3042 /* DictionaryViewController.h */,
-				CE5913B91CBBF93A008A3042 /* DictionaryViewController.m */,
 				CE1267201C93149B001C6573 /* Main.storyboard */,
 				CE662BA61CC0EDBC008722F1 /* Data classes */,
 				CE662BA51CC0ED8A008722F1 /* UI elements classes */,
