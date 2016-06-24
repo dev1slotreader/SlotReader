@@ -90,6 +90,8 @@ typedef enum {
 	numberOfLetters = 1;
 	[self getDataFromSource];
 	self.tableView.frame = self.view.bounds;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
 	
 	self.textField.delegate = self;
 	
@@ -385,6 +387,13 @@ typedef enum {
 
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (([lastSelectedCellIndexPath isEqual: indexPath])&&(editingMode == preChanging)) {
+        self.cellSelectionCounter = 0;
+        editingMode = base;
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        [self updateEditingInterface];
+        return;
+    }
 	lastSelectedCellIndexPath = indexPath;
 	UITableViewCell * cell = [self.tableView cellForRowAtIndexPath:indexPath];
 	if (editingMode == deleting) {
@@ -445,85 +454,15 @@ typedef enum {
 #pragma mark - Text Field Delegate Method
 
 - (void) textFieldDidBeginEditing:(UITextField *)textField {
-	[UIView beginAnimations:nil context:NULL];
-	[UIView setAnimationDelegate:self];
-	[UIView setAnimationDuration:0.5];
-	[UIView setAnimationBeginsFromCurrentState:YES];
-	self.fancyTextInputBlock.frame = CGRectMake(_fancyTextInputBlock.frame.origin.x, (_fancyTextInputBlock.frame.origin.y + 100.0), _fancyTextInputBlock.frame.size.width, _fancyTextInputBlock.frame.size.height);
-	self.fancyTextInputBlockYPosition.constant = 0.7;
-	[UIView commitAnimations];
-	
 }
 
 - (void) textFieldDidEndEditing:(UITextField *)textField {
-	[UIView beginAnimations:nil context:NULL];
-	[UIView setAnimationDelegate:self];
-	[UIView setAnimationDuration:0.5];
-	[UIView setAnimationBeginsFromCurrentState:YES];
-	_fancyTextInputBlock.frame = CGRectMake(_fancyTextInputBlock.frame.origin.x, (_fancyTextInputBlock.frame.origin.y - 100.0), _fancyTextInputBlock.frame.size.width, _fancyTextInputBlock.frame.size.height);
-	self.fancyTextInputBlockYPosition.constant = 1;
-	[UIView commitAnimations];
-    
-    //if ([sender isEqual:mailTf])
-    {
-        //move the main view, so that the keyboard does not hide it.
-        if  (self.view.frame.origin.y >= 0)
-        {
-            [self setViewMovedUp:YES];
-        }
-    }
-
-
 }
 
 -(void)keyboardWillShow {
-    // Animate the current view out of the way
-    if (self.view.frame.origin.y >= 0)
-    {
-        [self setViewMovedUp:YES];
-    }
-    else if (self.view.frame.origin.y < 0)
-    {
-        [self setViewMovedUp:NO];
-    }
 }
 
 -(void)keyboardWillHide {
-    if (self.view.frame.origin.y >= 0)
-    {
-        [self setViewMovedUp:YES];
-    }
-    else if (self.view.frame.origin.y < 0)
-    {
-        [self setViewMovedUp:NO];
-    }
 }
-
-
-//method to move the view up/down whenever the keyboard is shown/dismissed
--(void)setViewMovedUp:(BOOL)movedUp
-{
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.3]; // if you want to slide up the view
-    
-    CGRect rect = self.view.frame;
-    if (movedUp)
-    {
-        // 1. move the view's origin up so that the text field that will be hidden come above the keyboard
-        // 2. increase the size of the view so that the area behind the keyboard is covered up.
-        rect.origin.y -= kOFFSET_FOR_KEYBOARD;
-        rect.size.height += kOFFSET_FOR_KEYBOARD;
-    }
-    else
-    {
-        // revert back to the normal state.
-        rect.origin.y += kOFFSET_FOR_KEYBOARD;
-        rect.size.height -= kOFFSET_FOR_KEYBOARD;
-    }
-    self.view.frame = rect;
-    
-    [UIView commitAnimations];
-}
-
 
 @end

@@ -46,6 +46,7 @@
 		allData = [[NSMutableDictionary alloc] initWithDictionary:[NSJSONSerialization JSONObjectWithData:data
 																								  options:kNilOptions
 																									error:&error]];
+        NSLog(@"%@", error);
 		
 	}
 	
@@ -55,8 +56,8 @@
 - (void) initSource {
 	NSString *filePath = [[NSBundle mainBundle] pathForResource:@"slot_reader_source" ofType:@"txt"];
 	
-	//NSArray *pathList = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-	//NSString* sourcePath =  [NSString stringWithFormat:@"%@/slot_reader_source.txt", [pathList  objectAtIndex:0]];
+	NSArray *pathList = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString* sourcePath =  [NSString stringWithFormat:@"%@/slot_reader_source.txt", [pathList  objectAtIndex:0]];
 	
 	NSMutableData* data = [NSMutableData dataWithContentsOfFile:filePath];
 	[data writeToFile:sourcePath atomically:NO];
