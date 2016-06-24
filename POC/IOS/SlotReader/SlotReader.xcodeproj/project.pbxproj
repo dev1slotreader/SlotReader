@@ -42,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5528B7EB1D1D3155002BFCFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Base; path = Base.lproj/BaseViewController.h; sourceTree = "<group>"; };
+		5528B7ED1D1D3155002BFCFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Base; path = Base.lproj/BaseViewController.m; sourceTree = "<group>"; };
 		555E8C0A1D1ACC7A005FC213 /* UIViewController+KeyboardAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+KeyboardAnimation.m"; sourceTree = "<group>"; };
 		555E8C0B1D1ACC7A005FC213 /* UIViewController+KeyboardAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+KeyboardAnimation.h"; sourceTree = "<group>"; };
 		556C52A61D1BF2EE00C35128 /* ColorSchemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorSchemeManager.h; sourceTree = "<group>"; };
@@ -174,6 +176,8 @@
 				CE12671E1C93149B001C6573 /* CenterViewController.m */,
 				CE5913B81CBBF93A008A3042 /* DictionaryViewController.h */,
 				CE5913B91CBBF93A008A3042 /* DictionaryViewController.m */,
+				5528B7EA1D1D3155002BFCFB /* BaseViewController.h */,
+				5528B7EC1D1D3155002BFCFB /* BaseViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -463,6 +467,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		5528B7EA1D1D3155002BFCFB /* BaseViewController.h */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5528B7EB1D1D3155002BFCFB /* Base */,
+			);
+			name = BaseViewController.h;
+			sourceTree = "<group>";
+		};
+		5528B7EC1D1D3155002BFCFB /* BaseViewController.m */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5528B7ED1D1D3155002BFCFB /* Base */,
+			);
+			name = BaseViewController.m;
+			sourceTree = "<group>";
+		};
 		CE1267201C93149B001C6573 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

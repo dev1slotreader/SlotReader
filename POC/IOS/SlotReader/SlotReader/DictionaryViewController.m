@@ -27,6 +27,12 @@ typedef enum {
 	positive
 }ButtonTypes;
 
+typedef enum {
+    green,
+    light,
+    dark
+} BoardScheme2;
+
 @interface DictionaryViewController () {
 	DataMiner *dataMiner;
 	NSInteger numberOfLetters;
@@ -37,6 +43,8 @@ typedef enum {
 	NSArray *numberPickerCellIds;
 	NSIndexPath *lastSelectedCellIndexPath;
 	NSString *wordBuffer;
+    
+    NSInteger colorScheme;
 }
 
 
@@ -96,6 +104,7 @@ typedef enum {
 	
 	appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
 	appDelegate.languageSelectorDelegate = self;
+    appDelegate.themeSelectorDelegate = self;
 	
 	numberPickerCellIds = [[NSArray alloc] initWithObjects:@"cCell1", @"cCell3", @"cCell4", @"cCell5", @"cCell5+", nil];
 	self.collectionView.backgroundColor = [UIColor clearColor];
@@ -173,6 +182,7 @@ typedef enum {
 	cell.textField.text = [words objectAtIndex:indexPath.row];
 	[cell.textField setText:[words objectAtIndex:indexPath.row]];
 	
+    cell.textField.textColor = (colorScheme != light)?[UIColor whiteColor]:[UIColor blueColor];
 	cell.backgroundColor = [UIColor clearColor];
 	
 	return cell;
@@ -361,6 +371,19 @@ typedef enum {
 	NSLog(@"changeLanguage");
 }
 
+- (void) changeBoardTheme {
+    [self setStyleFromSettings];
+    [self.view setNeedsDisplay];
+    
+    NSLog(@"changeBoardTheme");
+}
+
+- (void) setStyleFromSettings {
+    colorScheme = [[[NSUserDefaults standardUserDefaults] objectForKey:@"colorScheme"] integerValue];
+    [self.tableView reloadData];
+}
+
+
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	lastSelectedCellIndexPath = indexPath;
 	UITableViewCell * cell = [self.tableView cellForRowAtIndexPath:indexPath];
@@ -372,9 +395,8 @@ typedef enum {
 		editingMode = preChanging;
 		[self updateEditingInterface];
 	}
-	
-	
 }
+
 
 - (void) tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
 	if (editingMode == deleting) {

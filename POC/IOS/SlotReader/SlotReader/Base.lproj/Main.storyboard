@@ -549,7 +549,7 @@
                         <viewControllerLayoutGuide type="top" id="Rdm-e3-kJK"/>
                         <viewControllerLayoutGuide type="bottom" id="tM4-uh-YIl"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Kxc-uU-9y6">
+                    <view key="view" contentMode="scaleToFill" id="Kxc-uU-9y6" customClass="BoardViewController">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -1057,6 +1057,9 @@
                                 <include reference="U0T-1v-Wvl"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <outlet property="boardImage" destination="2kF-kO-4Tk" id="rGP-rF-c7I"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="1zt-1F-Sti">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="fkZ-ut-81G">
