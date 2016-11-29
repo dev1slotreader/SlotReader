@@ -1,9 +1,14 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="ipad12_9" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -15,23 +20,24 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Back" translatesAutoresizingMaskIntoConstraints="NO" id="3mE-uA-JuJ">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="7Aa-xd-lHC">
-                                <rect key="frame" x="125" y="233" width="351" height="133"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textLogo" translatesAutoresizingMaskIntoConstraints="NO" id="7Aa-xd-lHC">
+                                <rect key="frame" x="205" y="435.5" width="956" height="152.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="7Aa-xd-lHC" secondAttribute="height" multiplier="378:143" id="UEu-1T-CCJ"/>
+                                    <constraint firstAttribute="width" secondItem="7Aa-xd-lHC" secondAttribute="height" multiplier="50:8" id="UEu-1T-CCJ"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="3mE-uA-JuJ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="3Ma-sa-f77"/>
                             <constraint firstItem="3mE-uA-JuJ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="H7A-In-gi3"/>
+                            <constraint firstItem="7Aa-xd-lHC" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.7" id="KZM-pS-svr"/>
                             <constraint firstItem="3mE-uA-JuJ" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" id="M72-PW-soQ"/>
                             <constraint firstItem="7Aa-xd-lHC" firstAttribute="centerX" secondItem="3mE-uA-JuJ" secondAttribute="centerX" id="QiG-y8-NhS"/>
                             <constraint firstItem="7Aa-xd-lHC" firstAttribute="centerY" secondItem="3mE-uA-JuJ" secondAttribute="centerY" id="SGu-Es-30o"/>
@@ -45,7 +51,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Back" width="961" height="640"/>
-        <image name="logo" width="351" height="104"/>
+        <image name="Back" width="1022" height="769"/>
+        <image name="textLogo" width="403" height="60"/>
     </resources>
 </document>
