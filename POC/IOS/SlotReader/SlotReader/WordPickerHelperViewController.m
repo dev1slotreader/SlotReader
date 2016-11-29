@@ -31,6 +31,7 @@
 }
 
 - (void) reloadData {
+    self.alphabet = nil;
 	[self getDataFromStorage];
 }
 

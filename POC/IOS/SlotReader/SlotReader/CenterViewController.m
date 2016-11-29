@@ -128,9 +128,9 @@ typedef enum {
 }
 
 - (void) displayWord:(NSString *)word animated:(BOOL)animated {
-	if (currentNumberOfLetters == 0) {
+	//if (currentNumberOfLetters == 0) {
 		[self setNumberOfLetters:[NSNumber numberWithInteger:[word length]] andLanguage:nil];
-	}
+	//}
 	pickerHelper.pickerWorkingAutomatically = YES;
 	for (NSUInteger i = 0; i < [word length]; i++) {
 		NSString *letter = [NSString stringWithFormat:@"%@", [word substringWithRange:NSMakeRange(i, 1)]];		
@@ -182,11 +182,11 @@ typedef enum {
 	
 	if ([(UIButton *)sender tag] == nornalDirection) {
 		currentWordPosition = (currentWordPosition + 1) % [words count] ;
-		NSLog(@"next");
+		NSLog(@"next %@", [words objectAtIndex:currentWordPosition]);
 	}
 	else {
 		currentWordPosition = (currentWordPosition - 1 + [words count]) % [words count] ;
-		NSLog(@"previous");
+		NSLog(@"previous %@", [words objectAtIndex:currentWordPosition]);
 	}
 	
 	[self displayWord:[[[words objectAtIndex:currentWordPosition] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString] animated:YES];
@@ -211,9 +211,14 @@ typedef enum {
 }
 
 - (void) changeLanguage {
-	[pickerHelper reloadData];
+    [self getDataFromStorage];
+	
 	[self.picker reloadAllComponents];
-	[self.view setNeedsDisplay];
+    currentNumberOfLetters = [[[[NSUserDefaults standardUserDefaults] objectForKey:@"currentPositon"] objectAtIndex:0] intValue];
+    [pickerHelper reloadData];
+    [self showTheFirstWordForNumberOfLetters:currentNumberOfLetters];
+    
+	//[self.view setNeedsDisplay];
 	NSLog(@"changeLanguage");
 }
 
