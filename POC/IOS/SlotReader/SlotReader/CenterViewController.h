@@ -22,7 +22,7 @@
 
 @property (nonatomic, assign) id<CenterViewControllerDelegate> delegate;
 
-@property (strong, nonatomic) NSArray *alphabet;
+@property (strong, nonatomic) NSMutableArray *alphabet;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *showMenuButton;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;

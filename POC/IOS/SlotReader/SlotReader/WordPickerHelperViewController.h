@@ -10,7 +10,7 @@
 
 @interface WordPickerHelperViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
 
-@property (strong, nonatomic) NSArray *alphabet;
+@property (strong, nonatomic) NSMutableArray *alphabet;
 @property (strong, nonatomic) NSArray *words;
 @property (strong, nonatomic) NSNumber *numberOfLettersToShow;
 @property BOOL pickerWorkingAutomatically;
@@ -18,5 +18,8 @@
 
 - (void) setNumberOfLettersToShow:(NSNumber *)numberOfLetters andLanguage: (NSString *) language;
 - (void) reloadData;
+
+- (void) addNewLetterToAlphabet: (NSString *)letter;
+- (void) removeTheLetterFromAlphabet: (NSString *)letter;
 
 @end

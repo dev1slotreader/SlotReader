@@ -96,7 +96,7 @@ typedef enum {
 
 - (void) getDataFromStorage {
 	allWordsForCurrentLanguage = [[DataMiner sharedDataMiner] getWords];
-	self.alphabet = [[DataMiner sharedDataMiner] getWordsOfSize:1];
+	self.alphabet = [NSMutableArray arrayWithArray:[[DataMiner sharedDataMiner] getWordsOfSize:1]];
 }
 
 - (void) setStyleFromSettings {
@@ -129,8 +129,10 @@ typedef enum {
 
 - (void) displayWord:(NSString *)word animated:(BOOL)animated {
 	//if (currentNumberOfLetters == 0) {
+    if (word&&(pickerHelper.numberOfLettersToShow != [word length]))
 		[self setNumberOfLetters:[NSNumber numberWithInteger:[word length]] andLanguage:nil];
 	//}
+    word = word.uppercaseString;
 	pickerHelper.pickerWorkingAutomatically = YES;
 	for (NSUInteger i = 0; i < [word length]; i++) {
 		NSString *letter = [NSString stringWithFormat:@"%@", [word substringWithRange:NSMakeRange(i, 1)]];		
@@ -143,15 +145,33 @@ typedef enum {
 
 - (void) displayLetter:(NSString *)letter atComponent:(NSUInteger)component animated:(BOOL)animated {
 	NSUInteger row;
+    BOOL alphabetIsNotEnough = [self.alphabet indexOfObject:letter] == NSNotFound;
+    if (alphabetIsNotEnough) {
+        [pickerHelper addNewLetterToAlphabet:letter];
+        [self.alphabet addObject:letter];
+        //[pickerHelper.alphabet setObject:letter atIndexedSubscript:(UINT16_MAX / 2)];
+        [self.picker reloadAllComponents];
+    }
+    
 	if (animated){
 		//NSUInteger selectedRow = [self.picker selectedRowInComponent:component];
-		row = [self.alphabet count] + [self.alphabet indexOfObject:letter];
+        row = /*(alphabetIsNotEnough) ? [self.alphabet count] : */[self.alphabet count] + [self.alphabet indexOfObject:letter];
 	}
 	else
 		row = ((UINT16_MAX) / (2 * [self.alphabet count]) * [self.alphabet count]) + [self.alphabet indexOfObject:letter];
-	[self.picker selectRow:row
-					 inComponent:component
-						animated:animated];
+    
+    [self.picker selectRow:row
+                   inComponent:component
+                      animated:animated];
+
+    if (alphabetIsNotEnough) {
+        //[pickerHelper.alphabet removeObject:letter];
+        //[self.alphabet removeObject:letter];
+        [self.picker reloadAllComponents];
+        //self.picker
+        
+        alphabetIsNotEnough = NO;
+    }
 }
 
 - (IBAction)wordChanged:(id)sender {

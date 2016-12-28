@@ -18,8 +18,9 @@
 
 - (id) init {
 	self = [super init];
-	self.alphabet = @[@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",
-					  @"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z"];
+	/*self.alphabet = @[@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",
+					  @"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z"]; */
+    self.alphabet = [[NSMutableArray alloc] init];
 	[self getDataFromStorage];
 	
 	return self;
@@ -39,8 +40,9 @@
 
 - (void) getDataFromStorage {
 
-	self.alphabet = [NSArray arrayWithArray:[[DataMiner sharedDataMiner] getWordsOfSize: 1]];
-		int numberOfLetters = [[[[NSUserDefaults standardUserDefaults] objectForKey:@"currentPositon"] objectAtIndex:0] intValue];
+	//self.alphabet = [NSMutableArray arrayWithArray:[[DataMiner sharedDataMiner] getWordsOfSize: 1]];
+    self.alphabet = [[[DataMiner sharedDataMiner] getWordsOfSize: 1] mutableCopy];
+    int numberOfLetters = [[[[NSUserDefaults standardUserDefaults] objectForKey:@"currentPositon"] objectAtIndex:0] intValue];
 	self.numberOfLettersToShow = [NSNumber numberWithInt:(numberOfLetters == 0)?6:numberOfLetters];
 }
 
@@ -49,6 +51,16 @@
 	self.numberOfLettersToShow = numberOfLetters;
 	
 }
+
+- (void) addNewLetterToAlphabet: (NSString *)letter {
+    [self.alphabet addObject:letter];
+    //[self.alphabet setObject:letter atIndexedSubscript:[self.alphabet count]];
+}
+
+- (void) removeTheLetterFromAlphabet: (NSString *)letter {
+    [self.alphabet removeObject:letter];
+}
+
 
 
 - (void)didReceiveMemoryWarning {
