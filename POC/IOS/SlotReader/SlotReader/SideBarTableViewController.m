@@ -93,7 +93,7 @@ typedef enum {
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	switch (sideBarMode) {
     case categories:
-			return [menuCategories count];
+			return [menuCategories count] - 1;
 			break;
     case language:
 			return [[[DataMiner sharedDataMiner] getLanguages] count] + 1;

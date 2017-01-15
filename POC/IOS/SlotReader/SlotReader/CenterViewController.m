@@ -129,7 +129,7 @@ typedef enum {
 
 - (void) displayWord:(NSString *)word animated:(BOOL)animated {
 	//if (currentNumberOfLetters == 0) {
-    if (word&&(pickerHelper.numberOfLettersToShow != [word length]))
+    if (word&&(pickerHelper.numberOfLettersToShow.intValue != [word length]))
 		[self setNumberOfLetters:[NSNumber numberWithInteger:[word length]] andLanguage:nil];
 	//}
     word = word.uppercaseString;
