@@ -95,6 +95,14 @@
 	}*/
 	if (!self.pickerWorkingAutomatically) {
 		NSLog(@"Hurraw");
+        if ([pickerView valueForKeyPath:@"pickerDelegate"] != nil) {
+             NSMutableString * newWord = [pickerView valueForKeyPath:@"pickerDelegate.currentWord"];
+            [newWord replaceCharactersInRange:NSMakeRange(component, 1) withString: [self.alphabet objectAtIndex:row % [self.alphabet count]]];
+            if (newWord != nil) {
+                [pickerView setValue:newWord forKeyPath:@"pickerDelegate.currentWord"];
+            }
+        }
+       
 	}
 }
 

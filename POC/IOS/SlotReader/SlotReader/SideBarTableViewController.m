@@ -93,7 +93,7 @@ typedef enum {
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	switch (sideBarMode) {
     case categories:
-			return [menuCategories count] - 1;
+			return [menuCategories count] ;
 			break;
     case language:
 			return [[[DataMiner sharedDataMiner] getLanguages] count] + 1;
@@ -140,7 +140,11 @@ typedef enum {
 		default:
 			break;
 	}
-	
+    if ((sideBarMode == categories) && (indexPath.row == ([menuCategories count] - 1))) {
+         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellAd" forIndexPath:indexPath];
+        cell.backgroundColor = [UIColor clearColor];
+        return cell;
+    }
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
 	cell.textLabel.text = text;
 	cell.imageView.image = [UIImage imageNamed:imageName];
@@ -174,7 +178,11 @@ typedef enum {
 				[self.tableView reloadData];
 				break;
 			case dictionaryCategory:
-				[self performSegueWithIdentifier:@"segueDictionary" sender:self];
+				//[self performSegueWithIdentifier:@"segueDictionary" sender:self];
+            {
+                NSString *iTunesLink = @"https://itunes.apple.com/developer/id1063221985";
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
+            }
 				break;
 			default:
 				break;
