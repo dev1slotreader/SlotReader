@@ -10,4 +10,6 @@
 
 @interface CenterViewController (TextToSpeach)
 
+- (void) speakCurrentWord;
+
 @end

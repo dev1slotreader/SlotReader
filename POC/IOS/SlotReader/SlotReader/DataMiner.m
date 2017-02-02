@@ -67,6 +67,15 @@
 	return [allData objectForKey:@"languages"];
 }
 
+- (NSArray *) getLocales {
+    return [allData objectForKey:@"languagesFull"];
+}
+
+- (NSString *) getCurrentLocale {
+    int index = [[self getLanguages] indexOfObject:[defaults objectForKey:@"language"]];
+    return [[self getLocales] objectAtIndex:index];
+}
+
 - (NSDictionary *) getWords {
 	NSLog(@"%@", [allData description]);
 	return [allData objectForKey:@"words"];

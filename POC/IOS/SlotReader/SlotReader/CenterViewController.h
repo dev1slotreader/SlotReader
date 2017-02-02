@@ -12,6 +12,9 @@
 #import "SWRevealViewController.h"
 #import "SlotPickerView.h"
 
+#import <AVFoundation/AVFoundation.h>
+#import <QuartzCore/QuartzCore.h>
+
 
 @protocol CenterViewControllerDelegate <NSObject, UICollectionViewDataSource, UICollectionViewDelegate>
 - (void)movePanelRight;
@@ -23,6 +26,7 @@
 @property (nonatomic, assign) id<CenterViewControllerDelegate> delegate;
 
 @property (strong, nonatomic) NSMutableArray *alphabet;
+@property (strong, nonatomic) NSString *currentWord;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *showMenuButton;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
@@ -34,9 +38,12 @@
 @property (weak, nonatomic) IBOutlet UIButton *prevButton;
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
 
+@property (strong,nonatomic) AVSpeechSynthesizer *synthesizer;
+//@property (strong,nonatomic) AVSpeechUtterance *speechUtterance;
 
 - (IBAction)changeNumberOfLettersToShow:(id)sender;
 - (IBAction)presentNextWord:(id)sender;
+- (IBAction)speakButtonTapped:(id)sender;
 
 
 @end

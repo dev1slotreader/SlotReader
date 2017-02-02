@@ -10,6 +10,7 @@
 #import "WordPickerHelperViewController.h"
 #import "DataMiner.h"
 #import "FancyTextInputBlock.h"
+#import "CenterViewController+TextToSpeach.h"
 
 @import QuartzCore;
 
@@ -49,7 +50,6 @@ typedef enum {
 	self.picker.pickerDelegate = self;
 	self.picker.delegate = pickerHelper;
 	self.picker.dataSource = pickerHelper;
-	
 	
 	[self setStyleFromSettings];
 
@@ -133,6 +133,8 @@ typedef enum {
 		[self setNumberOfLetters:[NSNumber numberWithInteger:[word length]] andLanguage:nil];
 	//}
     word = word.uppercaseString;
+    self.currentWord = word;
+    
 	pickerHelper.pickerWorkingAutomatically = YES;
 	for (NSUInteger i = 0; i < [word length]; i++) {
 		NSString *letter = [NSString stringWithFormat:@"%@", [word substringWithRange:NSMakeRange(i, 1)]];		
@@ -215,6 +217,10 @@ typedef enum {
 													  [NSNumber numberWithInt:currentWordPosition], nil]
                                                       forKey:@"currentPositon"];
 	[[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (IBAction)speakButtonTapped:(id)sender {
+    [self speakCurrentWord];
 }
 
 - (void) showTheFirstWordForNumberOfLetters: (int) numberOfLetters{

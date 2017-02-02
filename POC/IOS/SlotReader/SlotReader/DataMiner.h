@@ -11,7 +11,9 @@
 @interface DataMiner : NSObject
 
 + (id) sharedDataMiner;
-+ (NSArray *) getLanguages;
+- (NSArray *) getLanguages;
+- (NSArray *) getLocales;
+- (NSString *) getCurrentLocale;
 - (void) initSource;
 
 @property (nonatomic, strong) NSDictionary *allWords;
