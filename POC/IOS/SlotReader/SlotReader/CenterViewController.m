@@ -238,7 +238,7 @@ typedef enum {
 
 - (void) changeLanguage {
     [self getDataFromStorage];
-	
+    [self.speakButton setHidden:[[[NSUserDefaults standardUserDefaults] objectForKey:@"language"] isEqualToString:@"uk"] ];
 	[self.picker reloadAllComponents];
     currentNumberOfLetters = [[[[NSUserDefaults standardUserDefaults] objectForKey:@"currentPositon"] objectAtIndex:0] intValue];
     [pickerHelper reloadData];

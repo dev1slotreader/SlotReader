@@ -307,9 +307,6 @@
                                 <exclude reference="yEH-5B-JqI"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="FsV-WJ-VVJ"/>
-                                <exclude reference="n84-Xy-2Uv"/>
-                                <exclude reference="vQ4-03-R4O"/>
                                 <exclude reference="6kc-rQ-Q18"/>
                                 <exclude reference="RPT-PW-Dl3"/>
                                 <exclude reference="vJ0-hb-l6n"/>
@@ -326,6 +323,9 @@
                                 <exclude reference="vlM-9H-fXU"/>
                                 <exclude reference="tsG-DX-SX4"/>
                                 <exclude reference="7ve-eA-4bu"/>
+                                <exclude reference="FsV-WJ-VVJ"/>
+                                <exclude reference="n84-Xy-2Uv"/>
+                                <exclude reference="vQ4-03-R4O"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
@@ -337,9 +337,6 @@
                                 <include reference="H3X-iS-Yip"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="FsV-WJ-VVJ"/>
-                                <include reference="n84-Xy-2Uv"/>
-                                <include reference="vQ4-03-R4O"/>
                                 <include reference="DcT-gk-gdW"/>
                                 <include reference="Uxz-7T-oc8"/>
                                 <include reference="pZS-Y5-vGZ"/>
@@ -364,6 +361,9 @@
                                 <include reference="2bg-Ee-fEL"/>
                                 <include reference="9iH-G1-oyZ"/>
                                 <include reference="a3K-Yr-bC9"/>
+                                <include reference="FsV-WJ-VVJ"/>
+                                <include reference="n84-Xy-2Uv"/>
+                                <include reference="vQ4-03-R4O"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact-widthClass=regular">
@@ -411,6 +411,7 @@
                         <outlet property="picker" destination="c9R-7o-XYf" id="URl-Fn-L0x"/>
                         <outlet property="prevButton" destination="XLH-Fs-5TE" id="rlc-e1-THq"/>
                         <outlet property="showMenuButton" destination="EZr-7u-rug" id="U9I-fq-gUu"/>
+                        <outlet property="speakButton" destination="rpY-wW-boa" id="dCR-Ls-gLg"/>
                         <outlet property="toolbar" destination="mtk-1S-NHP" id="1pD-yy-NDh"/>
                     </connections>
                 </viewController>
@@ -434,7 +435,7 @@
                                 <rect key="frame" x="0.0" y="55" width="667" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MNq-ZP-X4k" id="RVp-cb-VDt">
-                                    <rect key="frame" x="0.0" y="0.0" width="667" height="64"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="667" height="65"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </tableViewCellContentView>
@@ -442,10 +443,10 @@
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellAd" rowHeight="65" id="dC5-d4-euX">
-                                <rect key="frame" x="0.0" y="121" width="667" height="65"/>
+                                <rect key="frame" x="0.0" y="120" width="667" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dC5-d4-euX" id="mmp-Om-1YS">
-                                    <rect key="frame" x="0.0" y="0.0" width="667" height="64"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="667" height="65"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apple_ad" translatesAutoresizingMaskIntoConstraints="NO" id="Wcy-GK-oTQ">
@@ -623,7 +624,7 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="vLt-D1-aUi" customClass="EditableTableViewCell">
-                                        <rect key="frame" x="0.0" y="28" width="351" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="350" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vLt-D1-aUi" id="Ghn-rS-TpC">
                                             <rect key="frame" x="0.0" y="0.0" width="350" height="43"/>

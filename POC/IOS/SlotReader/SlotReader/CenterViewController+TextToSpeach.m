@@ -9,7 +9,7 @@
 #import "CenterViewController+TextToSpeach.h"
 #import "DataMiner.h"
 
-#define SPEACH_RATE 0.3f
+#define SPEACH_RATE 0.5f
 #define SPEACH_VOLUME 0.2
 
 @implementation CenterViewController (TextToSpeach)

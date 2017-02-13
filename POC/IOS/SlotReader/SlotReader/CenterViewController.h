@@ -28,6 +28,7 @@
 @property (strong, nonatomic) NSMutableArray *alphabet;
 @property (strong, nonatomic) NSString *currentWord;
 
+@property (weak, nonatomic) IBOutlet UIButton *speakButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *showMenuButton;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;

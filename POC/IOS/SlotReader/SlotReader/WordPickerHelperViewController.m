@@ -96,10 +96,12 @@
 	if (!self.pickerWorkingAutomatically) {
 		NSLog(@"Hurraw");
         if ([pickerView valueForKeyPath:@"pickerDelegate"] != nil) {
-             NSMutableString * newWord = [pickerView valueForKeyPath:@"pickerDelegate.currentWord"];
-            [newWord replaceCharactersInRange:NSMakeRange(component, 1) withString: [self.alphabet objectAtIndex:row % [self.alphabet count]]];
-            if (newWord != nil) {
-                [pickerView setValue:newWord forKeyPath:@"pickerDelegate.currentWord"];
+            NSMutableString * oldWord = [NSMutableString stringWithString:[pickerView valueForKeyPath:@"pickerDelegate.currentWord"]];
+            
+            [oldWord replaceCharactersInRange:NSMakeRange(component, 1) withString: [self.alphabet objectAtIndex:(row % [self.alphabet count])]];
+
+            if (oldWord != nil) {
+                [pickerView setValue:oldWord forKeyPath:@"pickerDelegate.currentWord"];
             }
         }
        
@@ -109,14 +111,17 @@
 
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
 	UILabel *pickerLabel = [UILabel new];
-	NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:[self.alphabet objectAtIndex:row % [self.alphabet count]]];
-	NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-	[paragraphStyle setAlignment:NSTextAlignmentCenter];
-	[text addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, text.length)];
-	[text addAttribute:NSForegroundColorAttributeName value:self.lightTheme?[UIColor blueColor]:[UIColor whiteColor] range:NSMakeRange(0, text.length)];
+    if (self.alphabet) {
+        NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:[self.alphabet objectAtIndex:row % [self.alphabet count]]];
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        [paragraphStyle setAlignment:NSTextAlignmentCenter];
+        [text addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, text.length)];
+        [text addAttribute:NSForegroundColorAttributeName value:self.lightTheme?[UIColor blueColor]:[UIColor whiteColor] range:NSMakeRange(0, text.length)];
+        
+        pickerLabel.attributedText = text;
+        pickerLabel.font = [UIFont systemFontOfSize:30];
+    }
 	
-	pickerLabel.attributedText = text;
-	pickerLabel.font = [UIFont systemFontOfSize:30];
 	
 	return pickerLabel;
 }
