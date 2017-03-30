@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UVb-Cs-ehi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UVb-Cs-ehi">
     <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -137,7 +137,7 @@
                                         </constraints>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cCell3" reuseIdentifier="cCell3" id="ghg-bu-F1T">
-                                        <rect key="frame" x="72.5" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="73" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -183,10 +183,10 @@
                                         </constraints>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cCell5" reuseIdentifier="cCell5" id="G6f-TP-zN7">
-                                        <rect key="frame" x="217.5" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="218" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="51" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0V-x5-UMB">
@@ -249,11 +249,22 @@
                                     <action selector="speakButtonTapped:" destination="bg8-D8-Vpx" eventType="touchUpInside" id="34f-Kg-2mA"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kw-39-hMN">
+                                <rect key="frame" x="560" y="238" width="87" height="87"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="7kw-39-hMN" secondAttribute="height" multiplier="1:1" id="igB-pG-yf0"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="randomIcon"/>
+                                <connections>
+                                    <action selector="randomButtonTapped:" destination="bg8-D8-Vpx" eventType="touchUpInside" id="hYt-se-Drp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="H3X-iS-Yip" firstAttribute="height" secondItem="mtk-1S-NHP" secondAttribute="height" multiplier="1.4" id="1Bd-6u-gLF"/>
                             <constraint firstItem="Cfc-3F-5cZ" firstAttribute="width" secondItem="Cfc-3F-5cZ" secondAttribute="height" multiplier="78:25" id="2bg-Ee-fEL"/>
+                            <constraint firstItem="7kw-39-hMN" firstAttribute="width" secondItem="7kw-39-hMN" secondAttribute="height" multiplier="1:1" id="3tq-2s-MXK"/>
                             <constraint firstItem="XLH-Fs-5TE" firstAttribute="width" secondItem="XLH-Fs-5TE" secondAttribute="height" multiplier="78:25" id="66G-hh-oor"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Fdx-dc-6ae" secondAttribute="trailing" constant="-20" id="6kc-rQ-Q18"/>
                             <constraint firstItem="PqH-ta-urY" firstAttribute="top" secondItem="Fdx-dc-6ae" secondAttribute="bottom" id="7ve-eA-4bu"/>
@@ -274,6 +285,7 @@
                             <constraint firstItem="rpY-wW-boa" firstAttribute="centerY" secondItem="fi5-ui-ZeM" secondAttribute="centerY" id="Mt0-bQ-4gJ"/>
                             <constraint firstItem="rpY-wW-boa" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="kd1-5W-L1C" secondAttribute="trailingMargin" id="NYF-2w-oE6"/>
                             <constraint firstItem="PqH-ta-urY" firstAttribute="top" secondItem="mtk-1S-NHP" secondAttribute="bottom" id="OIq-Ke-AJF"/>
+                            <constraint firstItem="7kw-39-hMN" firstAttribute="top" secondItem="rpY-wW-boa" secondAttribute="bottom" constant="7.5" id="PpI-53-CJv"/>
                             <constraint firstItem="Fdx-dc-6ae" firstAttribute="leading" secondItem="kd1-5W-L1C" secondAttribute="leadingMargin" constant="-20" id="RPT-PW-Dl3"/>
                             <constraint firstItem="fi5-ui-ZeM" firstAttribute="centerY" secondItem="kd1-5W-L1C" secondAttribute="centerY" id="TWG-Ja-BaR"/>
                             <constraint firstItem="Fdx-dc-6ae" firstAttribute="leading" secondItem="kd1-5W-L1C" secondAttribute="leadingMargin" constant="-20" id="Uxz-7T-oc8"/>
@@ -282,6 +294,7 @@
                             <constraint firstItem="fi5-ui-ZeM" firstAttribute="centerX" secondItem="kd1-5W-L1C" secondAttribute="centerX" id="d8Y-wH-yZ5"/>
                             <constraint firstItem="c9R-7o-XYf" firstAttribute="centerY" secondItem="fi5-ui-ZeM" secondAttribute="centerY" id="iX1-0t-4gh"/>
                             <constraint firstItem="rpY-wW-boa" firstAttribute="leading" secondItem="fi5-ui-ZeM" secondAttribute="trailing" constant="8" id="jBA-FK-mKc"/>
+                            <constraint firstItem="7kw-39-hMN" firstAttribute="width" secondItem="rpY-wW-boa" secondAttribute="width" id="lfb-wB-Xtt"/>
                             <constraint firstItem="c9R-7o-XYf" firstAttribute="centerX" secondItem="fi5-ui-ZeM" secondAttribute="centerX" id="mth-u9-ufW"/>
                             <constraint firstItem="yEH-5B-JqI" firstAttribute="leading" secondItem="kd1-5W-L1C" secondAttribute="leadingMargin" constant="-20" id="n84-Xy-2Uv"/>
                             <constraint firstItem="c9R-7o-XYf" firstAttribute="centerY" secondItem="fi5-ui-ZeM" secondAttribute="centerY" id="nem-SG-QUf"/>
@@ -290,6 +303,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Fdx-dc-6ae" secondAttribute="trailing" constant="-20" id="pZS-Y5-vGZ"/>
                             <constraint firstItem="fi5-ui-ZeM" firstAttribute="leading" secondItem="yEH-5B-JqI" secondAttribute="trailing" id="q7X-DM-Eb6"/>
                             <constraint firstItem="fi5-ui-ZeM" firstAttribute="centerX" secondItem="Cfc-3F-5cZ" secondAttribute="centerX" id="sBo-pu-KZP"/>
+                            <constraint firstItem="7kw-39-hMN" firstAttribute="centerX" secondItem="rpY-wW-boa" secondAttribute="centerX" id="t4A-W7-qsd"/>
                             <constraint firstItem="H3X-iS-Yip" firstAttribute="width" secondItem="kd1-5W-L1C" secondAttribute="width" id="tsG-DX-SX4"/>
                             <constraint firstItem="Fdx-dc-6ae" firstAttribute="top" secondItem="kd1-5W-L1C" secondAttribute="topMargin" constant="44" id="vJ0-hb-l6n"/>
                             <constraint firstItem="yEH-5B-JqI" firstAttribute="centerY" secondItem="kd1-5W-L1C" secondAttribute="centerY" id="vQ4-03-R4O"/>
@@ -358,12 +372,12 @@
                                 <include reference="BAl-qA-Qe5"/>
                                 <include reference="OIq-Ke-AJF"/>
                                 <include reference="zCj-Li-Pl4"/>
-                                <include reference="2bg-Ee-fEL"/>
-                                <include reference="9iH-G1-oyZ"/>
-                                <include reference="a3K-Yr-bC9"/>
                                 <include reference="FsV-WJ-VVJ"/>
                                 <include reference="n84-Xy-2Uv"/>
                                 <include reference="vQ4-03-R4O"/>
+                                <include reference="2bg-Ee-fEL"/>
+                                <include reference="9iH-G1-oyZ"/>
+                                <include reference="a3K-Yr-bC9"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact-widthClass=regular">
@@ -432,10 +446,10 @@
                         <color key="sectionIndexTrackingBackgroundColor" red="0.71764705880000002" green="0.54117647059999996" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="65" id="MNq-ZP-X4k">
-                                <rect key="frame" x="0.0" y="55" width="667" height="65"/>
+                                <rect key="frame" x="0.0" y="56" width="667" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MNq-ZP-X4k" id="RVp-cb-VDt">
-                                    <rect key="frame" x="0.0" y="0.0" width="667" height="65"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="667" height="64"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </tableViewCellContentView>
@@ -443,10 +457,10 @@
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellAd" rowHeight="65" id="dC5-d4-euX">
-                                <rect key="frame" x="0.0" y="120" width="667" height="65"/>
+                                <rect key="frame" x="0.0" y="121" width="667" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dC5-d4-euX" id="mmp-Om-1YS">
-                                    <rect key="frame" x="0.0" y="0.0" width="667" height="65"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="667" height="64"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apple_ad" translatesAutoresizingMaskIntoConstraints="NO" id="Wcy-GK-oTQ">
@@ -624,7 +638,7 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="vLt-D1-aUi" customClass="EditableTableViewCell">
-                                        <rect key="frame" x="0.0" y="28" width="350" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="351" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vLt-D1-aUi" id="Ghn-rS-TpC">
                                             <rect key="frame" x="0.0" y="0.0" width="350" height="43"/>
@@ -1131,6 +1145,7 @@
         <image name="ic_add_white" width="24" height="24"/>
         <image name="ic_delete_white" width="24" height="24"/>
         <image name="menu" width="28" height="20"/>
+        <image name="randomIcon" width="150" height="150"/>
         <image name="speachIcon" width="128" height="128"/>
         <image name="up" width="156" height="50"/>
     </resources>

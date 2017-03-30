@@ -85,6 +85,7 @@ typedef enum {
 - (void) viewDidAppear:(BOOL)animated{
 	[self getDataFromStorage];
 	[self showTheFirstWord];
+    [self.speakButton setHidden:[[[NSUserDefaults standardUserDefaults] objectForKey:@"language"] isEqualToString:@"uk"] ];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -223,8 +224,9 @@ typedef enum {
     [self speakCurrentWord];
 }
 
-- (void) showTheFirstWordForNumberOfLetters: (int) numberOfLetters{
-	}
+- (IBAction)randomButtonTapped:(id)sender {
+    [self showRandomWord];
+}
 
 
 - (void) showTheFirstWord {
@@ -236,13 +238,21 @@ typedef enum {
 	[self displayWord:[[[words objectAtIndex:0] uppercaseString] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] animated:YES];
 }
 
+- (void) showRandomWord {
+    NSArray *words = [allWordsForCurrentLanguage objectForKey:[NSString stringWithFormat:@"%@%d",
+                                                               [[NSUserDefaults standardUserDefaults] objectForKey:@"language"],
+                                                               currentNumberOfLetters]];
+    [self displayWord:[[[words objectAtIndex:(arc4random() % [words count])] uppercaseString] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] animated:YES];
+}
+
 - (void) changeLanguage {
     [self getDataFromStorage];
     [self.speakButton setHidden:[[[NSUserDefaults standardUserDefaults] objectForKey:@"language"] isEqualToString:@"uk"] ];
 	[self.picker reloadAllComponents];
     currentNumberOfLetters = [[[[NSUserDefaults standardUserDefaults] objectForKey:@"currentPositon"] objectAtIndex:0] intValue];
     [pickerHelper reloadData];
-    [self showTheFirstWordForNumberOfLetters:currentNumberOfLetters];
+    //[self showTheFirstWordForNumberOfLetters:currentNumberOfLetters];
+    [self showTheFirstWord];
     
 	//[self.view setNeedsDisplay];
 	NSLog(@"changeLanguage");

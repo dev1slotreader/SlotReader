@@ -76,6 +76,7 @@
     return [[self getLocales] objectAtIndex:index];
 }
 
+
 - (NSDictionary *) getWords {
 	NSLog(@"%@", [allData description]);
 	return [allData objectForKey:@"words"];

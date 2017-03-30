@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		396544BD1E35026000DBA290 /* CenterViewController+TextToSpeach.m in Sources */ = {isa = PBXBuildFile; fileRef = 396544BC1E35026000DBA290 /* CenterViewController+TextToSpeach.m */; };
 		555E8C0C1D1ACC7A005FC213 /* UIViewController+KeyboardAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 555E8C0A1D1ACC7A005FC213 /* UIViewController+KeyboardAnimation.m */; };
 		556C52A81D1BF2EE00C35128 /* ColorSchemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 556C52A71D1BF2EE00C35128 /* ColorSchemeManager.m */; };
 		CE1267191C93149B001C6573 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1267181C93149B001C6573 /* main.m */; };
@@ -42,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		396544BB1E35026000DBA290 /* CenterViewController+TextToSpeach.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CenterViewController+TextToSpeach.h"; sourceTree = "<group>"; };
+		396544BC1E35026000DBA290 /* CenterViewController+TextToSpeach.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CenterViewController+TextToSpeach.m"; sourceTree = "<group>"; };
 		5528B7EB1D1D3155002BFCFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Base; path = Base.lproj/BaseViewController.h; sourceTree = "<group>"; };
 		5528B7ED1D1D3155002BFCFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Base; path = Base.lproj/BaseViewController.m; sourceTree = "<group>"; };
 		555E8C0A1D1ACC7A005FC213 /* UIViewController+KeyboardAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+KeyboardAnimation.m"; sourceTree = "<group>"; };
@@ -178,6 +181,8 @@
 				CE5913B91CBBF93A008A3042 /* DictionaryViewController.m */,
 				5528B7EA1D1D3155002BFCFB /* BaseViewController.h */,
 				5528B7EC1D1D3155002BFCFB /* BaseViewController.m */,
+				396544BB1E35026000DBA290 /* CenterViewController+TextToSpeach.h */,
+				396544BC1E35026000DBA290 /* CenterViewController+TextToSpeach.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -355,7 +360,8 @@
 				TargetAttributes = {
 					CE1267131C93149B001C6573 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = RCC8C9ZN9J;
+						DevelopmentTeam = 2H5SN3R8CC;
+						ProvisioningStyle = Automatic;
 					};
 					CE12672C1C93149B001C6573 = {
 						CreatedOnToolsVersion = 7.2;
@@ -432,6 +438,7 @@
 				CE9B20C01CCA900100B43943 /* UIView+Toast.m in Sources */,
 				CE5913481CA5461E008A3042 /* BoardViewController.m in Sources */,
 				CE5913D71CBF970C008A3042 /* FancyTextInputBlock.m in Sources */,
+				396544BD1E35026000DBA290 /* CenterViewController+TextToSpeach.m in Sources */,
 				CE9B20BC1CCA4C3C00B43943 /* EditableTableViewCell.m in Sources */,
 				CE1267481C9AF6AB001C6573 /* WordPickerHelperViewController.m in Sources */,
 				CE5913681CB652C6008A3042 /* SideBarTableViewController.m in Sources */,
@@ -661,10 +668,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SlotReader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Delphi.SlotReader;
+				PRODUCT_BUNDLE_IDENTIFIER = five.systems.develpment.ABCreader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -673,10 +684,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SlotReader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Delphi.SlotReader;
+				PRODUCT_BUNDLE_IDENTIFIER = five.systems.develpment.ABCreader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
