@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    tools:context="com.fivesysdev.slotreader.MainActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/BoardLayoutMarginTop"
+        android:orientation="vertical"
+        android:id="@+id/boardLayoutAll"
+        android:background="@drawable/boarddark_1x"
+        >
+
+        <ImageButton
+            android:id="@+id/buttonUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/UpDownButtonStyle"
+            android:src="@drawable/up"
+            />
+
+        <LinearLayout
+            android:id="@+id/boardLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:layout_marginLeft="@dimen/NumberPickerLeftRightMargin"
+            android:layout_marginRight="@dimen/NumberPickerLeftRightMargin"
+            >
+
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/buttonDown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/UpDownButtonStyle"
+            android:src="@drawable/down"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:src="@drawable/image_1_1x"
+            style="@style/LetterButtonsStyle"/>
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:src="@drawable/image_3_1x"
+            style="@style/LetterButtonsStyle"/>
+
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:src="@drawable/image_4_1x"
+            style="@style/LetterButtonsStyle"/>
+
+        <ImageButton
+            android:id="@+id/imageButton4"
+            app:srcCompat="@drawable/image_5_1x"
+            style="@style/LetterButtonsStyle"/>
+
+        <ImageButton
+            android:id="@+id/imageButton5"
+            android:src="@drawable/image_5plus_1x"
+            style="@style/LetterButtonsStyle"
+            />
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -180,7 +180,7 @@ typedef enum {
 			case dictionaryCategory:
 				//[self performSegueWithIdentifier:@"segueDictionary" sender:self];
             {
-                NSString *iTunesLink = @"https://itunes.apple.com/developer/id1063221985";
+                NSString *iTunesLink = @"https://itunes.apple.com/us/app/ispeak-learn-words-in-8-language-english-german/id1063826681?mt=8";
                 [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
             }
 				break;
