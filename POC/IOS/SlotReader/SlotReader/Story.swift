@@ -4,6 +4,7 @@ class Story
 {
     var name = String()
     var content = String()
+    var partsContent = String()
     
     var questions = [StoryQuestion]()
     
@@ -11,6 +12,7 @@ class Story
     {
         guard let name = json["name"] as? String,
             let content = json["content"] as? String,
+            let partsContent = json["partsContent"] as? String,
             let questions = json["questions"] as? [[String: Any]]
         else
         {
@@ -31,6 +33,7 @@ class Story
         
         self.name = name
         self.content = content
+        self.partsContent = partsContent
         self.questions = questionsArray
     }
 }

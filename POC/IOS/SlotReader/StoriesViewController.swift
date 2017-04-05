@@ -3,12 +3,21 @@ import UIKit
 class StoriesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate
 {
     var stories = [Story]()
+    var selectedStory: Story?
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
         readStories()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if let destinationVc = segue.destination as? StoryViewController
+        {
+            destinationVc.story = selectedStory
+        }
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int
@@ -28,9 +37,15 @@ class StoriesViewController: UIViewController, UICollectionViewDataSource, UICol
         let currentStory = stories[indexPath.row]
         
         cell.storyNameLabel.text = currentStory.name
-        cell.wordCountLabel.text = String(currentStory.content.components(separatedBy: " ").count)
+        cell.wordCountLabel.text = "(" + String(currentStory.content.components(separatedBy: " ").count) + ")"
         
         return cell;
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
+    {
+        selectedStory = stories[indexPath.row]
+        performSegue(withIdentifier: "ShowStory", sender: self)
     }
     
     func readStories()

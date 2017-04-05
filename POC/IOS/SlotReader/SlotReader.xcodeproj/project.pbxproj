@@ -15,6 +15,7 @@
 		5763AAB01E8FC81F00A72978 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5763AAAF1E8FC81F00A72978 /* Story.swift */; };
 		5763AAB21E8FD14600A72978 /* StoryQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5763AAB11E8FD14600A72978 /* StoryQuestion.swift */; };
 		5763AAB71E8FE41900A72978 /* stories.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5763AAB61E8FE41900A72978 /* stories.txt */; };
+		5763AAB91E91209200A72978 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5763AAB81E91209200A72978 /* StoryViewController.swift */; };
 		CE1267191C93149B001C6573 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1267181C93149B001C6573 /* main.m */; };
 		CE12671C1C93149B001C6573 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE12671B1C93149B001C6573 /* AppDelegate.m */; };
 		CE12671F1C93149B001C6573 /* CenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE12671E1C93149B001C6573 /* CenterViewController.m */; };
@@ -62,6 +63,7 @@
 		5763AAAF1E8FC81F00A72978 /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		5763AAB11E8FD14600A72978 /* StoryQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryQuestion.swift; sourceTree = "<group>"; };
 		5763AAB61E8FE41900A72978 /* stories.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = stories.txt; sourceTree = "<group>"; };
+		5763AAB81E91209200A72978 /* StoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
 		CE1267141C93149B001C6573 /* SlotReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlotReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE1267181C93149B001C6573 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CE12671A1C93149B001C6573 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				5763AAAB1E8FA27800A72978 /* StoriesViewController.swift */,
+				5763AAB81E91209200A72978 /* StoryViewController.swift */,
 				CE12671D1C93149B001C6573 /* CenterViewController.h */,
 				CE12671E1C93149B001C6573 /* CenterViewController.m */,
 				CE5913B81CBBF93A008A3042 /* DictionaryViewController.h */,
@@ -462,6 +465,7 @@
 				CE9B20BC1CCA4C3C00B43943 /* EditableTableViewCell.m in Sources */,
 				5763AAAE1E8FC71B00A72978 /* StoryCollectionViewCell.swift in Sources */,
 				CE1267481C9AF6AB001C6573 /* WordPickerHelperViewController.m in Sources */,
+				5763AAB91E91209200A72978 /* StoryViewController.swift in Sources */,
 				5763AAB21E8FD14600A72978 /* StoryQuestion.swift in Sources */,
 				CE5913681CB652C6008A3042 /* SideBarTableViewController.m in Sources */,
 				CE12671F1C93149B001C6573 /* CenterViewController.m in Sources */,
