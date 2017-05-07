@@ -7,4 +7,5 @@ class StoryCollectionViewCell: UICollectionViewCell
     @IBOutlet weak var firstQuestionStar: UIImageView!
     @IBOutlet weak var secondQuestionStar: UIImageView!
     @IBOutlet weak var thirdQuestionStar: UIImageView!
+    @IBOutlet weak var storyIcon: UIImageView!
 }
