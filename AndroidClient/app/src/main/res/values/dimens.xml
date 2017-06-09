@@ -4,4 +4,5 @@
         <dimen name="ButtonLeftRightMargin">90dp</dimen>
         <dimen name="ButtonTopBottomMargin">30dp</dimen>
         <dimen name="NumberPickerLeftRightMargin">45dp</dimen>
+        <dimen name="ButtonsMarginTop">180dp</dimen>
 </resources>

@@ -5,80 +5,110 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     tools:context="com.fivesysdev.slotreader.MainActivity">
 
+    <ImageButton
+        android:id="@+id/imageButton6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:src="@drawable/book" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginTop="@dimen/BoardLayoutMarginTop"
-        android:orientation="vertical"
-        android:id="@+id/boardLayoutAll"
-        android:background="@drawable/boarddark_1x"
-        >
+        android:layout_weight="1"
+        android:orientation="vertical">
 
-        <ImageButton
-            android:id="@+id/buttonUp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/UpDownButtonStyle"
-            android:src="@drawable/up"
-            />
 
         <LinearLayout
-            android:id="@+id/boardLayout"
+            android:id="@+id/boardLayoutAll"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:orientation="horizontal"
-            android:layout_weight="1"
-            android:layout_marginLeft="@dimen/NumberPickerLeftRightMargin"
-            android:layout_marginRight="@dimen/NumberPickerLeftRightMargin"
-            >
+            android:layout_height="wrap_content"
+            android:background="@drawable/boarddark_1x"
+            android:orientation="vertical">
 
+            <ImageButton
+                android:id="@+id/buttonUp"
+                style="@style/UpDownButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/up" />
+
+            <LinearLayout
+                android:id="@+id/boardLayout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="@dimen/NumberPickerLeftRightMargin"
+                android:layout_marginRight="@dimen/NumberPickerLeftRightMargin"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/buttonDown"
+                style="@style/UpDownButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/down" />
         </LinearLayout>
 
-        <ImageButton
-            android:id="@+id/buttonDown"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/UpDownButtonStyle"
-            android:src="@drawable/down"
-            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                style="@style/LetterButtonsStyle"
+                android:src="@drawable/image_1_1x" />
+
+            <ImageButton
+                android:id="@+id/imageButton2"
+                style="@style/LetterButtonsStyle"
+                android:src="@drawable/image_3_1x" />
+
+            <ImageButton
+                android:id="@+id/imageButton3"
+                style="@style/LetterButtonsStyle"
+                android:src="@drawable/image_4_1x" />
+
+            <ImageButton
+                android:id="@+id/imageButton4"
+                style="@style/LetterButtonsStyle"
+                android:src="@drawable/image_5_1x" />
+
+            <ImageButton
+                android:id="@+id/imageButton5"
+                style="@style/LetterButtonsStyle"
+                android:src="@drawable/image_5plus_1x" />
+        </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:orientation="horizontal">
+        android:layout_weight="0"
+        android:orientation="vertical">
 
         <ImageButton
-            android:id="@+id/imageButton"
-            android:src="@drawable/image_1_1x"
-            style="@style/LetterButtonsStyle"/>
+            android:id="@+id/imageButton7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/speachicon" />
 
         <ImageButton
-            android:id="@+id/imageButton2"
-            android:src="@drawable/image_3_1x"
-            style="@style/LetterButtonsStyle"/>
+            android:id="@+id/imageButton9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/unnamed" />
 
-        <ImageButton
-            android:id="@+id/imageButton3"
-            android:src="@drawable/image_4_1x"
-            style="@style/LetterButtonsStyle"/>
-
-        <ImageButton
-            android:id="@+id/imageButton4"
-            app:srcCompat="@drawable/image_5_1x"
-            style="@style/LetterButtonsStyle"/>
-
-        <ImageButton
-            android:id="@+id/imageButton5"
-            android:src="@drawable/image_5plus_1x"
-            style="@style/LetterButtonsStyle"
-            />
     </LinearLayout>
-
-
 </LinearLayout>
