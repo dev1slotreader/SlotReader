@@ -42,10 +42,11 @@
 @property (strong,nonatomic) AVSpeechSynthesizer *synthesizer;
 //@property (strong,nonatomic) AVSpeechUtterance *speechUtterance;
 
+@property (weak, nonatomic) IBOutlet UIButton *storiesButton;
+
 - (IBAction)changeNumberOfLettersToShow:(id)sender;
 - (IBAction)presentNextWord:(id)sender;
 - (IBAction)speakButtonTapped:(id)sender;
-
 
 @end
 

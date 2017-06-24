@@ -1,9 +1,12 @@
 import UIKit
+import GoogleMobileAds
 
-class StoryViewController: UIViewController
+class StoryViewController: UIViewController, GADRewardBasedVideoAdDelegate, UINavigationControllerDelegate, QuestionDelegate
 {
     @IBOutlet weak var storyTitleLabel: UILabel!
     @IBOutlet weak var storyLabel: UILabel!
+    @IBOutlet weak var storyImage: UIImageView!
+    @IBOutlet weak var storyImageLabel: UILabel!
     
     @IBOutlet weak var question0Button: UIButton!
     @IBOutlet weak var question1Button: UIButton!
@@ -12,22 +15,56 @@ class StoryViewController: UIViewController
     
     public var story: Story!
     public var storiesFile: String!
+    public var isFreeStory = false
     private var answersState = [Bool](repeating: false, count: 3)
+    
+    @IBOutlet weak var bannerView: GADBannerView!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
+        let language = UserDefaults.standard.string(forKey: "language")
+        navigationController?.delegate = self
         questionButtons = [question0Button, question1Button, question2Button]
         storyTitleLabel.text = story.name
         storyLabel.text = story.content
         storyLabel.sizeToFit()
         setupButtons(buttons: questionButtons)
         retrieveAnswers()
-        saveState()
+        setStoryPictureFor(story: story.name, in: language!)
+        
+        bannerView.adUnitID = "ca-app-pub-9340983276950968/7881710335"
+        //bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" // for test
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        
+        GADRewardBasedVideoAd.sharedInstance().delegate = self
+        
+        let state = retrieveStoryStateFor(story: story.name)
+        if GADRewardBasedVideoAd.sharedInstance().isReady && !state && !isFreeStory
+        {
+            GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: self)
+        }
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        storyImage.addGestureRecognizer(tap)
     }
     
-    @IBAction func questionButtonTapped(_ sender: UIButton)
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool)
+    {
+        (viewController as? StoriesViewController)?.isShowPopup = true
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if let destinationVc = segue.destination as? QuestionViewController
+        {
+            setupQuestionController(destinationVc, sender as! UIButton)
+        }
+    }
+    
+    func setupQuestionController(_ questionVc: QuestionViewController, _ sender: UIButton)
     {
         var questionNumber: Int
         
@@ -37,31 +74,48 @@ class StoryViewController: UIViewController
         case "question2": questionNumber = 2
         default: questionNumber = -1
         }
-        
-        let question = story.questions[questionNumber]
-        
-        let questionMenu = UIAlertController(title: question.question, message: nil, preferredStyle: .alert)
-        
-        for i in 0..<question.answers.count
-        {
-            let action = UIAlertAction(title: question.answers[i], style: .default, handler:
-            {
-                (action:UIAlertAction!) -> Void in
-                
 
-                if question.correctAnswer == i
-                {
-                    sender.imageView?.image = UIImage(named: "star_filled")
-                    self.answersState[questionNumber] = true
-                    
-                    self.saveAnswers()
-                }
-            })
+        let question = story.questions[questionNumber]
+        questionVc.question = question
+        questionVc.questionNumber = questionNumber
+        questionVc.delegate = self
+    }
+    
+    func userDidAnswer(question: Int, result: Bool)
+    {
+        if result
+        {
+            questionButtons[question].imageView?.image = UIImage(named: "star_filled")
+            self.answersState[question] = true
             
-            questionMenu.addAction(action)
+            self.saveAnswers()
         }
-        
-        self.present(questionMenu, animated: true, completion: nil)
+    }
+    
+    @IBAction func questionButtonTapped(_ sender: UIButton)
+    {
+        performSegue(withIdentifier: "ShowQuestion", sender: sender)
+    }
+    
+    @IBAction func imageTapped(_ sender: UITapGestureRecognizer)
+    {
+        let imageView = sender.view as! UIImageView
+        let newImageView = UIImageView(image: imageView.image)
+        newImageView.frame = UIScreen.main.bounds
+        newImageView.backgroundColor = .black
+        newImageView.contentMode = .scaleAspectFit
+        newImageView.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
+        newImageView.addGestureRecognizer(tap)
+        self.view.addSubview(newImageView)
+        self.navigationController?.isNavigationBarHidden = true
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
+        self.navigationController?.isNavigationBarHidden = false
+        self.tabBarController?.tabBar.isHidden = false
+        sender.view?.removeFromSuperview()
     }
     
     func retrieveAnswers()
@@ -102,6 +156,22 @@ class StoryViewController: UIViewController
         }
     }
     
+    func retrieveStoryStateFor(story name: String) -> Bool
+    {
+        var storyState = false
+        let userDefaults = UserDefaults.standard
+        
+        if let stories = userDefaults.value(forKey: storiesFile + "_states") as? [String: Bool]
+        {
+            if let state = stories[name]
+            {
+                storyState = state
+            }
+        }
+        
+        return storyState
+    }
+    
     func saveState()
     {
         let userDefaults = UserDefaults.standard
@@ -119,6 +189,24 @@ class StoryViewController: UIViewController
         }
     }
     
+    func setStoryPictureFor(story name: String, in language: String)
+    {
+        let image = UIImage(named: story.name + "_" + language)
+        let strings = TipsModel(lang: language)
+        
+        if image == nil
+        {
+            storyImage.image = UIImage(named: "ImagePlaceholder")
+            storyImageLabel.isHidden = false
+            storyImageLabel.text = strings.getString(strings.yourImageHereId)
+        }
+        else
+        {
+            storyImage.image = image
+            storyImageLabel.isHidden = true
+        }
+    }
+    
     func setupButtons(buttons: [UIButton])
     {
         for button in buttons
@@ -127,5 +215,43 @@ class StoryViewController: UIViewController
             button.layer.borderWidth = 1
             button.layer.borderColor = UIColor.white.cgColor
         }
+    }
+    
+    func rewardBasedVideoAdDidOpen(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Rewarded video opened.")
+    }
+    
+    func rewardBasedVideoAdDidClose(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Rewarded video closed.")
+        
+        let request = GADRequest()
+        GADRewardBasedVideoAd.sharedInstance().load(request, withAdUnitID: "ca-app-pub-9340983276950968/1835176735")
+        //GADRewardBasedVideoAd.sharedInstance().load(request, withAdUnitID: "ca-app-pub-3940256099942544/1712485313") // for test
+    }
+    
+    func rewardBasedVideoAdDidReceive(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Rewarded video received.")
+    }
+    
+    func rewardBasedVideoAdDidStartPlaying(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Rewarded video started playing.")
+    }
+    
+    func rewardBasedVideoAdWillLeaveApplication(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Rewarded video left app.")
+    }
+    
+    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd, didFailToLoadWithError error: Error) {
+        print("Rewarded video failed to load.")
+        
+        let request = GADRequest()
+        GADRewardBasedVideoAd.sharedInstance().load(request, withAdUnitID: "ca-app-pub-9340983276950968/1835176735")
+        //GADRewardBasedVideoAd.sharedInstance().load(request, withAdUnitID: "ca-app-pub-3940256099942544/1712485313") // for test
+    }
+    
+    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd, didRewardUserWith reward: GADAdReward) {
+        print("Should reward user with \(reward.amount) \(reward.type).")
+        
+        saveState()
     }
 }

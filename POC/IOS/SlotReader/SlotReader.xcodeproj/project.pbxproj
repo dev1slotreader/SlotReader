@@ -10,6 +10,7 @@
 		396544BD1E35026000DBA290 /* CenterViewController+TextToSpeach.m in Sources */ = {isa = PBXBuildFile; fileRef = 396544BC1E35026000DBA290 /* CenterViewController+TextToSpeach.m */; };
 		555E8C0C1D1ACC7A005FC213 /* UIViewController+KeyboardAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 555E8C0A1D1ACC7A005FC213 /* UIViewController+KeyboardAnimation.m */; };
 		556C52A81D1BF2EE00C35128 /* ColorSchemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 556C52A71D1BF2EE00C35128 /* ColorSchemeManager.m */; };
+		576320751EEC720F003DAA7C /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576320741EEC720F003DAA7C /* QuestionViewController.swift */; };
 		5763AAAC1E8FA27800A72978 /* StoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5763AAAB1E8FA27800A72978 /* StoriesViewController.swift */; };
 		5763AAAE1E8FC71B00A72978 /* StoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5763AAAD1E8FC71B00A72978 /* StoryCollectionViewCell.swift */; };
 		5763AAB01E8FC81F00A72978 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5763AAAF1E8FC81F00A72978 /* Story.swift */; };
@@ -18,6 +19,10 @@
 		5763AAB91E91209200A72978 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5763AAB81E91209200A72978 /* StoryViewController.swift */; };
 		5763AAC21E99529200A72978 /* stories_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5763AAC01E99529200A72978 /* stories_en.txt */; };
 		5763AAC31E99529200A72978 /* stories_ru.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5763AAC11E99529200A72978 /* stories_ru.txt */; };
+		5763B2F91EC7268B00A72978 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5763B2F81EC7268B00A72978 /* GoogleService-Info.plist */; };
+		5763B2FB1ED0B47600A72978 /* TipsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5763B2FA1ED0B47600A72978 /* TipsModel.swift */; };
+		57B85BF71EDC889A0034F4E2 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B85BF61EDC889A0034F4E2 /* PopupViewController.swift */; };
+		8445AB8A2B0C26AC67D50171 /* libPods-SlotReader.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 905EF5C7F54EC19F0DEACBCE /* libPods-SlotReader.a */; };
 		CE1267191C93149B001C6573 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1267181C93149B001C6573 /* main.m */; };
 		CE12671C1C93149B001C6573 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE12671B1C93149B001C6573 /* AppDelegate.m */; };
 		CE12671F1C93149B001C6573 /* CenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE12671E1C93149B001C6573 /* CenterViewController.m */; };
@@ -59,6 +64,7 @@
 		555E8C0B1D1ACC7A005FC213 /* UIViewController+KeyboardAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+KeyboardAnimation.h"; sourceTree = "<group>"; };
 		556C52A61D1BF2EE00C35128 /* ColorSchemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorSchemeManager.h; sourceTree = "<group>"; };
 		556C52A71D1BF2EE00C35128 /* ColorSchemeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorSchemeManager.m; sourceTree = "<group>"; };
+		576320741EEC720F003DAA7C /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		5763AAA81E8FA23200A72978 /* SlotReader-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SlotReader-Bridging-Header.h"; sourceTree = "<group>"; };
 		5763AAAB1E8FA27800A72978 /* StoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoriesViewController.swift; path = ../StoriesViewController.swift; sourceTree = "<group>"; };
 		5763AAAD1E8FC71B00A72978 /* StoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -69,6 +75,12 @@
 		5763AABB1E991A7D00A72978 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		5763AAC01E99529200A72978 /* stories_en.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = stories_en.txt; sourceTree = "<group>"; };
 		5763AAC11E99529200A72978 /* stories_ru.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = stories_ru.txt; sourceTree = "<group>"; };
+		5763B2F81EC7268B00A72978 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5763B2FA1ED0B47600A72978 /* TipsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipsModel.swift; sourceTree = "<group>"; };
+		57B85BF61EDC889A0034F4E2 /* PopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
+		905EF5C7F54EC19F0DEACBCE /* libPods-SlotReader.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SlotReader.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D9723991967D7491E661AA0 /* Pods-SlotReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlotReader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SlotReader/Pods-SlotReader.debug.xcconfig"; sourceTree = "<group>"; };
+		AE5FF4A7CD77B92F34ED1152 /* Pods-SlotReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlotReader.release.xcconfig"; path = "Pods/Target Support Files/Pods-SlotReader/Pods-SlotReader.release.xcconfig"; sourceTree = "<group>"; };
 		CE1267141C93149B001C6573 /* SlotReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlotReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE1267181C93149B001C6573 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CE12671A1C93149B001C6573 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -177,6 +189,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8445AB8A2B0C26AC67D50171 /* libPods-SlotReader.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +206,7 @@
 		5528B7E91D1D2E50002BFCFB /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				57B85BF61EDC889A0034F4E2 /* PopupViewController.swift */,
 				5763AAAB1E8FA27800A72978 /* StoriesViewController.swift */,
 				5763AAB81E91209200A72978 /* StoryViewController.swift */,
 				CE12671D1C93149B001C6573 /* CenterViewController.h */,
@@ -203,6 +217,7 @@
 				5528B7EC1D1D3155002BFCFB /* BaseViewController.m */,
 				396544BB1E35026000DBA290 /* CenterViewController+TextToSpeach.h */,
 				396544BC1E35026000DBA290 /* CenterViewController+TextToSpeach.m */,
+				576320741EEC720F003DAA7C /* QuestionViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -211,8 +226,18 @@
 			isa = PBXGroup;
 			children = (
 				5763AABB1E991A7D00A72978 /* CoreData.framework */,
+				905EF5C7F54EC19F0DEACBCE /* libPods-SlotReader.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		68BF60D8B6E9625F012903CF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9D9723991967D7491E661AA0 /* Pods-SlotReader.debug.xcconfig */,
+				AE5FF4A7CD77B92F34ED1152 /* Pods-SlotReader.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		CE12670B1C93149B001C6573 = {
@@ -222,6 +247,7 @@
 				CE1267301C93149B001C6573 /* SlotReaderTests */,
 				CE1267151C93149B001C6573 /* Products */,
 				5763AABA1E991A7D00A72978 /* Frameworks */,
+				68BF60D8B6E9625F012903CF /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -237,6 +263,7 @@
 		CE1267161C93149B001C6573 /* SlotReader */ = {
 			isa = PBXGroup;
 			children = (
+				5763B2F81EC7268B00A72978 /* GoogleService-Info.plist */,
 				5528B7E91D1D2E50002BFCFB /* ViewControllers */,
 				CE12671A1C93149B001C6573 /* AppDelegate.h */,
 				CE12671B1C93149B001C6573 /* AppDelegate.m */,
@@ -323,6 +350,7 @@
 				CE59136A1CB660FC008A3042 /* DataMiner.m */,
 				5763AAAF1E8FC81F00A72978 /* Story.swift */,
 				5763AAB11E8FD14600A72978 /* StoryQuestion.swift */,
+				5763B2FA1ED0B47600A72978 /* TipsModel.swift */,
 			);
 			name = "Data classes";
 			sourceTree = "<group>";
@@ -354,9 +382,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE1267361C93149B001C6573 /* Build configuration list for PBXNativeTarget "SlotReader" */;
 			buildPhases = (
+				7039A2B37E71792E3059877D /* [CP] Check Pods Manifest.lock */,
 				CE1267101C93149B001C6573 /* Sources */,
 				CE1267111C93149B001C6573 /* Frameworks */,
 				CE1267121C93149B001C6573 /* Resources */,
+				44966AD5FAA9609D1D25A543 /* [CP] Embed Pods Frameworks */,
+				59E1D5D0789BA31E52F24098 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -452,6 +483,7 @@
 			files = (
 				5763AAB71E8FE41900A72978 /* stories_uk.txt in Resources */,
 				CE58D4671D09AE6F00F81961 /* Localizable.strings in Resources */,
+				5763B2F91EC7268B00A72978 /* GoogleService-Info.plist in Resources */,
 				5763AAC21E99529200A72978 /* stories_en.txt in Resources */,
 				5763AAC31E99529200A72978 /* stories_ru.txt in Resources */,
 				CE5913651CB2B57D008A3042 /* slot_reader_source.txt in Resources */,
@@ -470,6 +502,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		44966AD5FAA9609D1D25A543 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SlotReader/Pods-SlotReader-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		59E1D5D0789BA31E52F24098 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SlotReader/Pods-SlotReader-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7039A2B37E71792E3059877D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CE1267101C93149B001C6573 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -486,6 +566,7 @@
 				5763AAB91E91209200A72978 /* StoryViewController.swift in Sources */,
 				5763AAB21E8FD14600A72978 /* StoryQuestion.swift in Sources */,
 				CE5913681CB652C6008A3042 /* SideBarTableViewController.m in Sources */,
+				576320751EEC720F003DAA7C /* QuestionViewController.swift in Sources */,
 				CE12671F1C93149B001C6573 /* CenterViewController.m in Sources */,
 				CE59134B1CAAB318008A3042 /* SWRevealViewController.m in Sources */,
 				555E8C0C1D1ACC7A005FC213 /* UIViewController+KeyboardAnimation.m in Sources */,
@@ -493,10 +574,12 @@
 				CE12671C1C93149B001C6573 /* AppDelegate.m in Sources */,
 				CE5913711CB7B878008A3042 /* SlotPickerView.m in Sources */,
 				CE5913BA1CBBF93A008A3042 /* DictionaryViewController.m in Sources */,
+				5763B2FB1ED0B47600A72978 /* TipsModel.swift in Sources */,
 				CE1267191C93149B001C6573 /* main.m in Sources */,
 				556C52A81D1BF2EE00C35128 /* ColorSchemeManager.m in Sources */,
 				CE59136B1CB660FC008A3042 /* DataMiner.m in Sources */,
 				5763AAB01E8FC81F00A72978 /* Story.swift in Sources */,
+				57B85BF71EDC889A0034F4E2 /* PopupViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -652,10 +735,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -694,6 +774,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -710,6 +791,7 @@
 		};
 		CE1267371C93149B001C6573 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D9723991967D7491E661AA0 /* Pods-SlotReader.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -732,6 +814,7 @@
 		};
 		CE1267381C93149B001C6573 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE5FF4A7CD77B92F34ED1152 /* Pods-SlotReader.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

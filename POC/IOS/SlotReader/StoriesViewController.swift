@@ -1,4 +1,7 @@
 import UIKit
+import GoogleMobileAds
+
+let supportedLanguages = ["en", "ru", "uk"]
 
 class StoriesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate
 {
@@ -6,9 +9,14 @@ class StoriesViewController: UIViewController, UICollectionViewDataSource, UICol
     var selectedStory: Story?
     var language: String!
     var storiesFile: String!
-    let supportedLanguages = ["en", "ru", "uk"]
+    var tips: TipsModel?
+    var isShowPopup = false
     
     @IBOutlet weak var storiesCollection: UICollectionView!
+    
+    @IBOutlet weak var tipLabel: UILabel!
+    
+    @IBOutlet weak var bannerView: GADBannerView!
     
     override func viewDidLoad()
     {
@@ -17,13 +25,29 @@ class StoriesViewController: UIViewController, UICollectionViewDataSource, UICol
         language = UserDefaults.standard.string(forKey: "language")
         storiesFile = "stories_" + language
         readStories(language)
+        tips = TipsModel(lang: language)
+        
+        bannerView.adUnitID = "ca-app-pub-9340983276950968/7881710335"
+        //bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" // for test
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
     }
     
     override func viewWillAppear(_ animated: Bool)
     {
         super.viewWillAppear(animated)
         
+        tipLabel.text = tips?.getTip()
         storiesCollection.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool)
+    {
+        if isShowPopup
+        {
+            isShowPopup = false
+            showPopup()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
@@ -32,6 +56,11 @@ class StoriesViewController: UIViewController, UICollectionViewDataSource, UICol
         {
             destinationVc.story = selectedStory
             destinationVc.storiesFile = storiesFile
+            
+            if selectedStory?.name == stories[0].name
+            {
+                destinationVc.isFreeStory = true
+            }
         }
     }
     
@@ -80,7 +109,7 @@ class StoriesViewController: UIViewController, UICollectionViewDataSource, UICol
         
         let state = retrieveStoryStateFor(story: currentStory.name)
             
-        if state
+        if state || indexPath.row == 0
         {
             cell.storyIcon.alpha = 1
         }
@@ -158,5 +187,15 @@ class StoriesViewController: UIViewController, UICollectionViewDataSource, UICol
         }
         
         return storyState
+    }
+    
+    func showPopup()
+    {
+        let randomNumber = arc4random_uniform(5)
+        
+        if randomNumber == 0
+        {
+            performSegue(withIdentifier: "ShowPopup", sender: self)
+        }
     }
 }

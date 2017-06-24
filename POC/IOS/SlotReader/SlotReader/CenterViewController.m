@@ -86,6 +86,8 @@ typedef enum {
 	[self getDataFromStorage];
 	[self showTheFirstWord];
     [self.speakButton setHidden:[[[NSUserDefaults standardUserDefaults] objectForKey:@"language"] isEqualToString:@"uk"] ];
+    
+    [self setStoriesButton];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -254,6 +256,7 @@ typedef enum {
     //[self showTheFirstWordForNumberOfLetters:currentNumberOfLetters];
     [self showTheFirstWord];
     
+    [self setStoriesButton];
 	//[self.view setNeedsDisplay];
 	NSLog(@"changeLanguage");
 }
@@ -288,6 +291,18 @@ typedef enum {
 	
 	return cell;
 	
+}
+
+- (void) setStoriesButton {
+    NSString *currLang = [[NSUserDefaults standardUserDefaults] objectForKey:@"language"];
+    if (![currLang  isEqual: @"uk"] && ![currLang  isEqual: @"en"] && ![currLang  isEqual: @"ru"])
+    {
+        self.storiesButton.hidden = YES;
+    }
+    else
+    {
+        self.storiesButton.hidden = NO;
+    }
 }
 
 @end
