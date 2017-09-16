@@ -16,16 +16,38 @@ class PopupViewController: UIViewController
         popupTextView.tintColor = UIColor.blue
         popupTextView.text = strings.getString(strings.sendYourImageId)
         
-        //nativeExpressAdView.adUnitID = "ca-app-pub-3940256099942544/2562852117" // for test
-        nativeExpressAdView.adUnitID = "ca-app-pub-9340983276950968/5022741538"
-        nativeExpressAdView.rootViewController = self
+        if !nonConsumablePurchaseMade
+        {
+            setupBannerAds()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(animated)
         
-        let request = GADRequest()
-        nativeExpressAdView.load(request)
+        nativeExpressAdView.isHidden = !isParentalGatePassed
     }
     
     @IBAction func closePopup(_ sender: UIButton)
     {
         dismiss(animated: true, completion: nil)
+    }
+    
+    func setupBannerAds()
+    {
+        if isTestModeEnabled
+        {
+            nativeExpressAdView.adUnitID = "ca-app-pub-3940256099942544/2562852117"
+        }
+        else
+        {
+            nativeExpressAdView.adUnitID = "ca-app-pub-9340983276950968/5022741538"
+        }
+        
+        nativeExpressAdView.rootViewController = self
+        
+        let request = GADRequest()
+        nativeExpressAdView.load(request)
     }
 }

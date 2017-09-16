@@ -6,46 +6,108 @@ protocol QuestionDelegate
     func userDidAnswer(question: Int, result: Bool)
 }
 
-class QuestionViewController: UIViewController
+class QuestionViewController: UIViewController, UIGestureRecognizerDelegate
 {
-    @IBOutlet weak var questionLabel: UILabel!
-    @IBOutlet weak var answer1Button: UIButton!
-    @IBOutlet weak var answer2Button: UIButton!
-    @IBOutlet weak var answer3Button: UIButton!
+    // MARK: - Properties
+    
     @IBOutlet weak var bannerView: GADBannerView!
+    @IBOutlet weak var questionContainer: UIView!
+    @IBOutlet weak var questionView: UIView!
     
     var questionNumber: Int!
     var question: StoryQuestion!
-    var answerButtons = [UIButton]()
     var delegate: QuestionDelegate?
+    var isAnswerCorrect = false
+    
+    lazy var questionInteractionViewController: QuestionInteractionViewController = {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        
+        var viewController = storyboard.instantiateViewController(withIdentifier: "QuestionInteractionViewController") as! QuestionInteractionViewController
+        
+        self.addViewControllerAsChildViewController(childViewController: viewController)
+        
+        return viewController
+    }()
+    
+    lazy var questionResultViewController: QuestionResultViewController = {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        
+        var viewController = storyboard.instantiateViewController(withIdentifier: "QuestionResultViewController") as! QuestionResultViewController
+        
+        self.addViewControllerAsChildViewController(childViewController: viewController)
+        
+        return viewController
+    }()
+    
+    // MARK: - Default Members
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        updateContainerView(false)
         
-        answerButtons = [answer1Button, answer2Button, answer3Button]
-        questionLabel.text = question.question
-        setupAnswerButtons()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTapOutsideOfBoard(sender:)))
+        tap.delegate = self
+        questionView.addGestureRecognizer(tap)
         
-        bannerView.adUnitID = "ca-app-pub-9340983276950968/7881710335"
-        //bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" // for test
-        bannerView.rootViewController = self
-        bannerView.load(GADRequest())
+        if !nonConsumablePurchaseMade
+        {
+            setupBannerAds()
+        }
     }
     
-    @IBAction func answerButtonTapped(_ sender: UIButton)
+    override func viewWillAppear(_ animated: Bool)
     {
-        let isAnswerCorrect = answerButtons[question.correctAnswer] == sender
-        self.delegate?.userDidAnswer(question: questionNumber, result: isAnswerCorrect)
+        super.viewWillAppear(animated)
         
+        bannerView.isHidden = !isParentalGatePassed
+    }
+    
+    // MARK: - Actions
+    
+    func handleTapOutsideOfBoard(sender: UITapGestureRecognizer? = nil)
+    {
         dismiss(animated: true, completion: nil)
     }
     
-    func setupAnswerButtons()
+    // MARK: - Helper Methods
+    
+    public func updateContainerView(_ isResultProvided: Bool)
     {
-        for buttonIndex in 0..<answerButtons.count
+        questionInteractionViewController.view.isHidden = isResultProvided
+        questionResultViewController.view.isHidden = !isResultProvided
+        
+        if (isResultProvided)
         {
-            let button = answerButtons[buttonIndex]
+            questionResultViewController.setupResultView(isAnswerCorrect)
+            questionResultViewController.playSound(isAnswerCorrect: isAnswerCorrect)
+        }
+        else
+        {
+            questionInteractionViewController.questionLabel.text = question.question
+            setupAnswerButtons(viewController: questionInteractionViewController)
+        }
+    }
+    
+    private func addViewControllerAsChildViewController(childViewController: UIViewController)
+    {
+        addChildViewController(childViewController)
+        
+        questionContainer.addSubview(childViewController.view)
+        
+        childViewController.view.frame = questionContainer.bounds
+        childViewController.view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        
+        childViewController.didMove(toParentViewController: self)
+    }
+    
+    // MARK: - Setup ViewController
+    
+    private func setupAnswerButtons(viewController: QuestionInteractionViewController)
+    {
+        for buttonIndex in 0..<viewController.answerButtons.count
+        {
+            let button = viewController.answerButtons[buttonIndex]
             
             button.clipsToBounds = true
             button.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
@@ -57,12 +119,27 @@ class QuestionViewController: UIViewController
             if question.answers.indices.contains(buttonIndex)
             {
                 button.isHidden = false
-                button.setTitle(String(buttonIndex + 1) + ". " + question.answers[buttonIndex], for: UIControlState.normal)
+                button.setTitle(String(buttonIndex + 1) + ". " + question.answers[buttonIndex], for: .normal)
             }
             else
             {
                 button.isHidden = true
             }
         }
+    }
+    
+    private func setupBannerAds()
+    {
+        if isTestModeEnabled
+        {
+            bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        }
+        else
+        {
+            bannerView.adUnitID = "ca-app-pub-9340983276950968/7881710335"
+        }
+        
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
     }
 }

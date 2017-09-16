@@ -10,6 +10,13 @@
 		396544BD1E35026000DBA290 /* CenterViewController+TextToSpeach.m in Sources */ = {isa = PBXBuildFile; fileRef = 396544BC1E35026000DBA290 /* CenterViewController+TextToSpeach.m */; };
 		555E8C0C1D1ACC7A005FC213 /* UIViewController+KeyboardAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 555E8C0A1D1ACC7A005FC213 /* UIViewController+KeyboardAnimation.m */; };
 		556C52A81D1BF2EE00C35128 /* ColorSchemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 556C52A71D1BF2EE00C35128 /* ColorSchemeManager.m */; };
+		5745B5BA1EFED75000E07219 /* QuestionInteractionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5745B5B91EFED75000E07219 /* QuestionInteractionViewController.swift */; };
+		5745B5BC1EFEDE1B00E07219 /* QuestionResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5745B5BB1EFEDE1B00E07219 /* QuestionResultViewController.swift */; };
+		574E12781EFFB73800EFEA84 /* TestFailure.wav in Resources */ = {isa = PBXBuildFile; fileRef = 574E12761EFFB73800EFEA84 /* TestFailure.wav */; };
+		574E12791EFFB73800EFEA84 /* TestSuccess.wav in Resources */ = {isa = PBXBuildFile; fileRef = 574E12771EFFB73800EFEA84 /* TestSuccess.wav */; };
+		574E127B1F016C0200EFEA84 /* UnityAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 574E127A1F016C0200EFEA84 /* UnityAds.framework */; };
+		574E127D1F10C77C00EFEA84 /* ParentalGateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574E127C1F10C77C00EFEA84 /* ParentalGateViewController.swift */; };
+		574E128E1F2E0FF300EFEA84 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574E128D1F2E0FF300EFEA84 /* Reachability.swift */; };
 		576320751EEC720F003DAA7C /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576320741EEC720F003DAA7C /* QuestionViewController.swift */; };
 		5763AAAC1E8FA27800A72978 /* StoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5763AAAB1E8FA27800A72978 /* StoriesViewController.swift */; };
 		5763AAAE1E8FC71B00A72978 /* StoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5763AAAD1E8FC71B00A72978 /* StoryCollectionViewCell.swift */; };
@@ -64,6 +71,13 @@
 		555E8C0B1D1ACC7A005FC213 /* UIViewController+KeyboardAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+KeyboardAnimation.h"; sourceTree = "<group>"; };
 		556C52A61D1BF2EE00C35128 /* ColorSchemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorSchemeManager.h; sourceTree = "<group>"; };
 		556C52A71D1BF2EE00C35128 /* ColorSchemeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorSchemeManager.m; sourceTree = "<group>"; };
+		5745B5B91EFED75000E07219 /* QuestionInteractionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionInteractionViewController.swift; sourceTree = "<group>"; };
+		5745B5BB1EFEDE1B00E07219 /* QuestionResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionResultViewController.swift; sourceTree = "<group>"; };
+		574E12761EFFB73800EFEA84 /* TestFailure.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = TestFailure.wav; sourceTree = "<group>"; };
+		574E12771EFFB73800EFEA84 /* TestSuccess.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = TestSuccess.wav; sourceTree = "<group>"; };
+		574E127A1F016C0200EFEA84 /* UnityAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UnityAds.framework; sourceTree = "<group>"; };
+		574E127C1F10C77C00EFEA84 /* ParentalGateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentalGateViewController.swift; sourceTree = "<group>"; };
+		574E128D1F2E0FF300EFEA84 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		576320741EEC720F003DAA7C /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		5763AAA81E8FA23200A72978 /* SlotReader-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SlotReader-Bridging-Header.h"; sourceTree = "<group>"; };
 		5763AAAB1E8FA27800A72978 /* StoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoriesViewController.swift; path = ../StoriesViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8445AB8A2B0C26AC67D50171 /* libPods-SlotReader.a in Frameworks */,
+				574E127B1F016C0200EFEA84 /* UnityAds.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +221,7 @@
 		5528B7E91D1D2E50002BFCFB /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				574E127C1F10C77C00EFEA84 /* ParentalGateViewController.swift */,
 				57B85BF61EDC889A0034F4E2 /* PopupViewController.swift */,
 				5763AAAB1E8FA27800A72978 /* StoriesViewController.swift */,
 				5763AAB81E91209200A72978 /* StoryViewController.swift */,
@@ -218,13 +234,25 @@
 				396544BB1E35026000DBA290 /* CenterViewController+TextToSpeach.h */,
 				396544BC1E35026000DBA290 /* CenterViewController+TextToSpeach.m */,
 				576320741EEC720F003DAA7C /* QuestionViewController.swift */,
+				5745B5B91EFED75000E07219 /* QuestionInteractionViewController.swift */,
+				5745B5BB1EFEDE1B00E07219 /* QuestionResultViewController.swift */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		574E12751EFFB72300EFEA84 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				574E12761EFFB73800EFEA84 /* TestFailure.wav */,
+				574E12771EFFB73800EFEA84 /* TestSuccess.wav */,
+			);
+			name = Sounds;
 			sourceTree = "<group>";
 		};
 		5763AABA1E991A7D00A72978 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				574E127A1F016C0200EFEA84 /* UnityAds.framework */,
 				5763AABB1E991A7D00A72978 /* CoreData.framework */,
 				905EF5C7F54EC19F0DEACBCE /* libPods-SlotReader.a */,
 			);
@@ -263,6 +291,7 @@
 		CE1267161C93149B001C6573 /* SlotReader */ = {
 			isa = PBXGroup;
 			children = (
+				574E12751EFFB72300EFEA84 /* Sounds */,
 				5763B2F81EC7268B00A72978 /* GoogleService-Info.plist */,
 				5528B7E91D1D2E50002BFCFB /* ViewControllers */,
 				CE12671A1C93149B001C6573 /* AppDelegate.h */,
@@ -349,6 +378,7 @@
 				CE5913691CB660FC008A3042 /* DataMiner.h */,
 				CE59136A1CB660FC008A3042 /* DataMiner.m */,
 				5763AAAF1E8FC81F00A72978 /* Story.swift */,
+				574E128D1F2E0FF300EFEA84 /* Reachability.swift */,
 				5763AAB11E8FD14600A72978 /* StoryQuestion.swift */,
 				5763B2FA1ED0B47600A72978 /* TipsModel.swift */,
 			);
@@ -489,7 +519,9 @@
 				CE5913651CB2B57D008A3042 /* slot_reader_source.txt in Resources */,
 				CE1267271C93149B001C6573 /* LaunchScreen.storyboard in Resources */,
 				CE1267241C93149B001C6573 /* Assets.xcassets in Resources */,
+				574E12791EFFB73800EFEA84 /* TestSuccess.wav in Resources */,
 				CE1267221C93149B001C6573 /* Main.storyboard in Resources */,
+				574E12781EFFB73800EFEA84 /* TestFailure.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,7 +594,9 @@
 				396544BD1E35026000DBA290 /* CenterViewController+TextToSpeach.m in Sources */,
 				CE9B20BC1CCA4C3C00B43943 /* EditableTableViewCell.m in Sources */,
 				5763AAAE1E8FC71B00A72978 /* StoryCollectionViewCell.swift in Sources */,
+				574E128E1F2E0FF300EFEA84 /* Reachability.swift in Sources */,
 				CE1267481C9AF6AB001C6573 /* WordPickerHelperViewController.m in Sources */,
+				574E127D1F10C77C00EFEA84 /* ParentalGateViewController.swift in Sources */,
 				5763AAB91E91209200A72978 /* StoryViewController.swift in Sources */,
 				5763AAB21E8FD14600A72978 /* StoryQuestion.swift in Sources */,
 				CE5913681CB652C6008A3042 /* SideBarTableViewController.m in Sources */,
@@ -570,6 +604,7 @@
 				CE12671F1C93149B001C6573 /* CenterViewController.m in Sources */,
 				CE59134B1CAAB318008A3042 /* SWRevealViewController.m in Sources */,
 				555E8C0C1D1ACC7A005FC213 /* UIViewController+KeyboardAnimation.m in Sources */,
+				5745B5BA1EFED75000E07219 /* QuestionInteractionViewController.swift in Sources */,
 				CE7A05C41CA2F0E900CFDE01 /* TransparentToolbar.m in Sources */,
 				CE12671C1C93149B001C6573 /* AppDelegate.m in Sources */,
 				CE5913711CB7B878008A3042 /* SlotPickerView.m in Sources */,
@@ -579,6 +614,7 @@
 				556C52A81D1BF2EE00C35128 /* ColorSchemeManager.m in Sources */,
 				CE59136B1CB660FC008A3042 /* DataMiner.m in Sources */,
 				5763AAB01E8FC81F00A72978 /* Story.swift in Sources */,
+				5745B5BC1EFEDE1B00E07219 /* QuestionResultViewController.swift in Sources */,
 				57B85BF71EDC889A0034F4E2 /* PopupViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -798,6 +834,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = SlotReader/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -821,6 +861,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = SlotReader/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

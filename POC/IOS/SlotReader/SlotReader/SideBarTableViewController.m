@@ -141,8 +141,9 @@ typedef enum {
 			break;
 	}
     if ((sideBarMode == categories) && (indexPath.row == ([menuCategories count] - 1))) {
-         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellAd" forIndexPath:indexPath];
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellAd" forIndexPath:indexPath];
         cell.backgroundColor = [UIColor clearColor];
+        cell.hidden = YES; // hide ispeak banner
         return cell;
     }
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];

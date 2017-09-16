@@ -56,11 +56,16 @@ typedef enum {
 	[defaults addObserver:self forKeyPath:@"colorScheme" options:NSKeyValueObservingOptionNew context:nil];
 	[defaults addObserver:self forKeyPath:@"language" options:NSKeyValueObservingOptionNew context:nil];
     
+    bool nonCunsumablePurchaseMade = [defaults objectForKey:@"nonConsumablePurchaseMade"];
     [FIRApp configure];
-    [GADMobileAds configureWithApplicationID:@"ca-app-pub-9340983276950968~6404977135"];
-	//[GADMobileAds configureWithApplicationID:@"ca-app-pub-3940256099942544~1458002511"]; // for test
-    [[GADRewardBasedVideoAd sharedInstance] loadRequest:[GADRequest request] withAdUnitID:@"ca-app-pub-9340983276950968/1835176735"];
-    //[[GADRewardBasedVideoAd sharedInstance] loadRequest:[GADRequest request] withAdUnitID:@"ca-app-pub-3940256099942544/1712485313"]; // for test
+    
+    if (!nonCunsumablePurchaseMade)
+    {
+        [GADMobileAds configureWithApplicationID:@"ca-app-pub-9340983276950968~6404977135"];
+        //[GADMobileAds configureWithApplicationID:@"ca-app-pub-3940256099942544~1458002511"]; // for test
+        [[GADRewardBasedVideoAd sharedInstance] loadRequest:[GADRequest request] withAdUnitID:@"ca-app-pub-9340983276950968/1835176735"];
+        //[[GADRewardBasedVideoAd sharedInstance] loadRequest:[GADRequest request] withAdUnitID:@"ca-app-pub-3940256099942544/1712485313"]; // for test
+    }
     
 	return YES;
 }
